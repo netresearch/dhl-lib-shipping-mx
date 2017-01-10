@@ -1,0 +1,26 @@
+{
+    "name": "netresearch/dhl-bcs-api-soap",
+    "description": "Communication types and other utilities for DHL Business Customer Shipping SOAP API access.",
+    "version": "0.1.0",
+    "type": "magento2-library",
+    "license": "OSL-3.0",
+    "require": {
+        "psr/log": "~1.0"
+    },
+    "authors": [
+        {
+            "name": "Christoph Aßmann",
+            "email": "christoph.assmann@netresearch.de",
+            "homepage": "https://www.netresearch.de/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Dhl\\Versenden\\Bcs\\": ""
+        }
+    }
+}
