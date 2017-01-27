@@ -44,4 +44,20 @@ class ParcelShop extends PostalFacility
 
     /** @var string */
     public $streetNumber;
+
+    /**
+     * @param \stdClass $object
+     *
+     * @return ParcelShop|null
+     */
+    public static function fromObject(\stdClass $object)
+    {
+        /** @var ParcelShop $instance */
+        $instance   =
+            \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Receiver\ParcelShop');
+        $properties = get_object_vars($object);
+        $instance->fromArray($properties);
+
+        return $instance;
+    }
 }

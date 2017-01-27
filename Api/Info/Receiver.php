@@ -135,4 +135,19 @@ class Receiver extends ArrayableInfo
     {
         return $this->parcelShop;
     }
+
+    /**
+     * @param \stdClass $object
+     *
+     * @return Receiver|null
+     */
+    public static function fromObject(\stdClass $object)
+    {
+        /** @var Receiver $instance */
+        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Receiver');
+        $properties = get_object_vars($object);
+        $instance->fromArray($properties);
+
+        return $instance;
+    }
 }

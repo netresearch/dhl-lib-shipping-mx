@@ -127,18 +127,4 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
 
         array_walk($values, $setter);
     }
-
-    /**
-     * @param \stdClass $object
-     *
-     * @return Receiver|null
-     */
-    public static function fromObject(\stdClass $object)
-    {
-        $instance   = new static();
-        $properties = get_object_vars($object);
-        $instance->fromArray($properties);
-
-        return $instance;
-    }
 }

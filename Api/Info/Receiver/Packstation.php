@@ -41,4 +41,20 @@ class Packstation extends PostalFacility
 
     /** @var string */
     public $postNumber;
+
+    /**
+     * @param \stdClass $object
+     *
+     * @return Packstation|null
+     */
+    public static function fromObject(\stdClass $object)
+    {
+        /** @var Packstation $instance */
+        $instance   =
+            \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Receiver\Packstation');
+        $properties = get_object_vars($object);
+        $instance->fromArray($properties);
+
+        return $instance;
+    }
 }

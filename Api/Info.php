@@ -55,7 +55,7 @@ class Info extends Info\AbstractInfo implements InfoInterface
      * Info constructor.
      *
      * @param ReceiverFactory $receiverFactory
-     * @param ServicesFactory  $servicesFactory
+     * @param ServicesFactory $servicesFactory
      */
     public function __construct(
         ReceiverFactory $receiverFactory,
@@ -93,7 +93,7 @@ class Info extends Info\AbstractInfo implements InfoInterface
             return null;
         }
 
-        $info = new self();
+        $info = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info');
         if (isset($object->receiver)) {
             $info->receiver = Info\Receiver::fromObject($object->receiver);
         }

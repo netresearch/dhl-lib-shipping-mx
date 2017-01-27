@@ -68,4 +68,19 @@ class Services extends ArrayableInfo
 
     /** @var bool false or true */
     public $printOnlyIfCodeable;
+
+    /**
+     * @param \stdClass $object
+     *
+     * @return Services|null
+     */
+    public static function fromObject(\stdClass $object)
+    {
+        /** @var Services $instance */
+        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Services');
+        $properties = get_object_vars($object);
+        $instance->fromArray($properties);
+
+        return $instance;
+    }
 }

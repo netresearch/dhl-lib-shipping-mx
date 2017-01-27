@@ -41,4 +41,20 @@ class Postfiliale extends PostalFacility
 
     /** @var string */
     public $postNumber;
+
+    /**
+     * @param \stdClass $object
+     *
+     * @return Postfiliale|null
+     */
+    public static function fromObject(\stdClass $object)
+    {
+        /** @var Postfiliale $instance */
+        $instance   =
+            \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Receiver\Postfiliale');
+        $properties = get_object_vars($object);
+        $instance->fromArray($properties);
+
+        return $instance;
+    }
 }
