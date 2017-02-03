@@ -37,11 +37,6 @@ namespace Dhl\Versenden\Api\Webservice\Request\Type;
 interface CreateShipmentRequestInterface
 {
     /**
-     * @return \Dhl\Versenden\Api\Webservice\Request\Type\Generic\VersionInterface
-     */
-    public function getVersion();
-
-    /**
      * @return \Dhl\Versenden\Api\Webservice\Request\Type\CreateShipment\ShipmentOrderInterface[]
      */
     public function getShipmentOrders();

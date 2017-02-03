@@ -21,7 +21,8 @@
             "registration.php"
         ],
         "psr-4": {
-            "Dhl\\Versenden\\Bcs\\": ""
+            "Dhl\\Versenden\\": "",
+            "Dhl\\Versenden\\Bcs": ""
         }
     }
 }

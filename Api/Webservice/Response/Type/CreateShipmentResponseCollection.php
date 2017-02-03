@@ -23,13 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Versenden\Api\Webservice\Response\Type;
 
-use \Dhl\Versenden\Api\Webservice\Request;
-use \Dhl\Versenden\Api\Webservice\Response;
+use \Dhl\Versenden\Api\Webservice\Response\Type\Generic\ResponseStatusInterface;
 
 /**
- * AdapterInterface
+ * CreateShipmentResponseCollection
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,23 +36,34 @@ use \Dhl\Versenden\Api\Webservice\Response;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+class CreateShipmentResponseCollection extends \ArrayIterator
 {
-    const ADAPTER_TYPE_GK = 'gk';
-    const ADAPTER_TYPE_GL = 'gl';
+    const STATUS_CREATED = 0;
+    const STATUS_PARTIALLY_CREATED = 1;
+    const STATUS_NOT_CREATED = 2;
 
     /**
-     * Obtain the web service id that the current adapter connects to.
-     *
-     * @return string
+     * @var ResponseStatusInterface
      */
-    public function getAdapterType();
+    private $status;
 
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @param Response\Parser\CreateShipmentParserInterface $parser
-     *
-     * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * CreateShipmentResponseCollection constructor.
+     * @param ResponseStatusInterface $status
+     * @param CreateShipmentResponseInterface[] $array
+     * @param int $flags
      */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser);
+    public function __construct(ResponseStatusInterface $status, array $array = [], $flags = 0)
+    {
+        $this->status = $status;
+        parent::__construct($array, $flags);
+    }
+
+    /**
+     * @return ResponseStatusInterface
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }

@@ -23,13 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
-
-use \Dhl\Versenden\Api\Webservice\Request;
-use \Dhl\Versenden\Api\Webservice\Response;
+namespace Dhl\Versenden\Api\Webservice\Response\Parser;
 
 /**
- * AdapterInterface
+ * Geschäftskunden API CreateShipment response parser
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,23 +34,16 @@ use \Dhl\Versenden\Api\Webservice\Response;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+class GkCreateShipmentParser implements CreateShipmentParserInterface
 {
-    const ADAPTER_TYPE_GK = 'gk';
-    const ADAPTER_TYPE_GL = 'gl';
-
     /**
-     * Obtain the web service id that the current adapter connects to.
+     * Convert BCS SOAP response to generic CreateShipmentResponse
      *
-     * @return string
+     * @param \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderResponse $response
+     * @return \Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface
      */
-    public function getAdapterType();
-
-    /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @param Response\Parser\CreateShipmentParserInterface $parser
-     *
-     * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
-     */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser);
+    public function parse($response)
+    {
+        //TODO(nr): implement
+    }
 }

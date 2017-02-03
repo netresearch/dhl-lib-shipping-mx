@@ -23,13 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Versenden\Api\Webservice\Adapter;
 
 use \Dhl\Versenden\Api\Webservice\Request;
 use \Dhl\Versenden\Api\Webservice\Response;
 
 /**
- * AdapterInterface
+ * Global Label API Adapter
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,17 +37,35 @@ use \Dhl\Versenden\Api\Webservice\Response;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+class GlAdapter implements GlAdapterInterface
 {
-    const ADAPTER_TYPE_GK = 'gk';
-    const ADAPTER_TYPE_GL = 'gl';
-
     /**
      * Obtain the web service id that the current adapter connects to.
      *
      * @return string
      */
-    public function getAdapterType();
+    public function getAdapterType()
+    {
+        return self::ADAPTER_TYPE_GL;
+    }
+
+    public function getAccessToken(Request\Type\GetTokenRequestInterface $request, Response\Parser\GetTokenParserInterface $parser)
+    {
+        // TODO: Implement getAccessToken() method.
+    }
+
+    /**
+     * @param Request\Type\CreateShipmentRequestInterface $request
+     * @param Response\Parser\CreateShipmentParserInterface $parser
+     *
+     * @return Response\Type\CreateShipmentResponseInterface
+     */
+    private function createSingleShipmentOrder(Request\Type\CreateShipmentRequestInterface $request, Response\Parser\CreateShipmentParserInterface $parser)
+    {
+        //TODO(nr): perform actual request
+        $response = new \stdClass($request);
+        return $parser->parse($response);
+    }
 
     /**
      * @param Request\Type\CreateShipmentRequestInterface[] $requests
@@ -55,5 +73,17 @@ interface AdapterInterface
      *
      * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser);
+    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser)
+    {
+        $responses = [];
+        foreach ($requests as $request) {
+            $response = $this->createSingleShipmentOrder($request, $parser);
+            $responses['sequenceNumber'] = $response;
+        }
+
+        //TODO(nr) infer overall request status from response(s)
+        $status = null;
+
+        return new Response\Type\CreateShipmentResponseCollection(null, $responses);
+    }
 }

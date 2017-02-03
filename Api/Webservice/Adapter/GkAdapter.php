@@ -23,13 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Versenden\Api\Webservice\Adapter;
 
 use \Dhl\Versenden\Api\Webservice\Request;
 use \Dhl\Versenden\Api\Webservice\Response;
 
 /**
- * AdapterInterface
+ * Geschäftskunden API Adapter
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,17 +37,21 @@ use \Dhl\Versenden\Api\Webservice\Response;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+class GkAdapter implements GkAdapterInterface
 {
-    const ADAPTER_TYPE_GK = 'gk';
-    const ADAPTER_TYPE_GL = 'gl';
+    const WEBSERVICE_VERSION_MAJOR = '2';
+    const WEBSERVICE_VERSION_MINOR = '2';
+    const WEBSERVICE_VERSION_BUILD = '';
 
     /**
      * Obtain the web service id that the current adapter connects to.
      *
      * @return string
      */
-    public function getAdapterType();
+    public function getAdapterType()
+    {
+        return self::ADAPTER_TYPE_GK;
+    }
 
     /**
      * @param Request\Type\CreateShipmentRequestInterface[] $requests
@@ -55,5 +59,28 @@ interface AdapterInterface
      *
      * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser);
+    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser)
+    {
+        // TODO: Implement createShipmentOrder() method.
+        $request = new ShipmentOrder($version, $shipmentRequests);
+        $soapResponse = new \stdClass($request);
+
+        /** @var Response\Type\CreateShipmentResponseCollection $response */
+        $response = $parser->parse($soapResponse);
+        return $response;
+    }
+
+    public function getVersion(
+        Request\Type\GetVersionRequestInterface $request,
+        Response\Parser\GetVersionParserInterface $parser
+    ) {
+        // TODO: Implement getVersion() method.
+    }
+
+    public function deleteShipmentOrder(
+        Request\Type\DeleteShipmentRequestInterface $request,
+        Response\Parser\DeleteShipmentParserInterface $parser
+    ) {
+        // TODO: Implement deleteShipmentOrder() method.
+    }
 }
