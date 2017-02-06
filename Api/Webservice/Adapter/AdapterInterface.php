@@ -23,10 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Response\Parser;
+namespace Dhl\Versenden\Api\Webservice\Adapter;
+
+use \Dhl\Versenden\Api\Webservice\Request;
+use \Dhl\Versenden\Api\Webservice\Response;
 
 /**
- * DeleteShipmentParserInterface
+ * AdapterInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,11 +37,11 @@ namespace Dhl\Versenden\Api\Webservice\Response\Parser;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface DeleteShipmentParserInterface
+interface AdapterInterface
 {
     /**
-     * @param \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderResponse $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\DeleteShipmentResponseInterface
+     * @param Request\Type\CreateShipmentRequestInterface[] $requests
+     * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function parse($response);
+    public function createShipmentOrder(array $requests);
 }

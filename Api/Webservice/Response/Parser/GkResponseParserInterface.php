@@ -23,13 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
-
-use \Dhl\Versenden\Api\Webservice\Request\Type\GetVersionRequestInterface;
-use \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface;
+namespace Dhl\Versenden\Api\Webservice\Response\Parser;
 
 /**
- * Geschäftskunden API Adapter
+ * GkResponseParserInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,17 +34,17 @@ use \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface GkAdapterInterface extends AdapterInterface
+interface GkResponseParserInterface extends ResponseParserInterface
 {
     /**
-     * @param \Dhl\Versenden\Api\Webservice\Request\Type\GetVersionRequestInterface $request
+     * @param \Dhl\Versenden\Bcs\Soap\GetVersionResponse $response
      * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetVersionResponseInterface
      */
-    public function getVersion(GetVersionRequestInterface $request);
+    public function parseGetVersionResponse($response);
 
     /**
-     * @param \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface $request
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\DeleteShipmentResponseInterface
+     * @param \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderResponse $response
+     * @return \Dhl\Versenden\Api\Webservice\Response\Type\DeleteShipmentResponseInterface[]
      */
-    public function deleteShipmentOrder(DeleteShipmentRequestInterface $request);
+    public function parseDeleteShipmentResponse($response);
 }

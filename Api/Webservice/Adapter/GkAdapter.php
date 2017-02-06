@@ -27,6 +27,7 @@ namespace Dhl\Versenden\Api\Webservice\Adapter;
 
 use \Dhl\Versenden\Api\Webservice\Request;
 use \Dhl\Versenden\Api\Webservice\Response;
+use \Dhl\Versenden\Bcs\Soap as GkApi;
 
 /**
  * Geschäftskunden API Adapter
@@ -44,43 +45,55 @@ class GkAdapter implements GkAdapterInterface
     const WEBSERVICE_VERSION_BUILD = '';
 
     /**
-     * Obtain the web service id that the current adapter connects to.
-     *
-     * @return string
+     * @var Response\Parser\GkResponseParserInterface
      */
-    public function getAdapterType()
-    {
-        return self::ADAPTER_TYPE_GK;
+    private $responseParser;
+
+    /**
+     * @var Request\Mapper\GkRequestMapperInterface
+     */
+    private $requestMapper;
+
+    /**
+     * GkAdapter constructor.
+     * @param Response\Parser\GkResponseParserInterface $responseParser
+     * @param Request\Mapper\GkRequestMapperInterface $requestMapper
+     */
+    public function __construct(
+        Response\Parser\GkResponseParserInterface $responseParser,
+        Request\Mapper\GkRequestMapperInterface $requestMapper
+    ) {
+        $this->responseParser = $responseParser;
+        $this->requestMapper = $requestMapper;
     }
 
     /**
      * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @param Response\Parser\CreateShipmentParserInterface $parser
-     *
      * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser)
+    public function createShipmentOrder(array $requests)
     {
-        // TODO: Implement createShipmentOrder() method.
-        $request = new ShipmentOrder($version, $shipmentRequests);
+        // TODO(nr): build SOAP types from generic CreateShipmentRequestInterface[]
+        $version = new GkApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
+        $shipmentOrders = $this->requestMapper->mapShipmentRequests($requests);
+
+        $request = new GkApi\CreateShipmentOrderRequest($version, $shipmentOrders);
+
+        //TODO(nr): perform actual request
         $soapResponse = new \stdClass($request);
 
         /** @var Response\Type\CreateShipmentResponseCollection $response */
-        $response = $parser->parse($soapResponse);
+        $response = $this->responseParser->parseCreateShipmentResponse($soapResponse);
         return $response;
     }
 
-    public function getVersion(
-        Request\Type\GetVersionRequestInterface $request,
-        Response\Parser\GetVersionParserInterface $parser
-    ) {
+    public function getVersion(Request\Type\GetVersionRequestInterface $request)
+    {
         // TODO: Implement getVersion() method.
     }
 
-    public function deleteShipmentOrder(
-        Request\Type\DeleteShipmentRequestInterface $request,
-        Response\Parser\DeleteShipmentParserInterface $parser
-    ) {
+    public function deleteShipmentOrder(Request\Type\DeleteShipmentRequestInterface $request)
+    {
         // TODO: Implement deleteShipmentOrder() method.
     }
 }

@@ -25,13 +25,7 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Adapter;
 
-use \Dhl\Versenden\Api\Webservice\AdapterInterface;
 use Dhl\Versenden\Api\Webservice\Request\Type\GetTokenRequestInterface;
-use \Dhl\Versenden\Api\Webservice\Request\Type\GetVersionRequestInterface;
-use Dhl\Versenden\Api\Webservice\Response\Parser\GetTokenParserInterface;
-use \Dhl\Versenden\Api\Webservice\Response\Parser\GetVersionParserInterface;
-use \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface;
-use \Dhl\Versenden\Api\Webservice\Response\Parser\DeleteShipmentParserInterface;
 
 /**
  * Global Label API Adapter
@@ -46,9 +40,7 @@ interface GlAdapterInterface extends AdapterInterface
 {
     /**
      * @param \Dhl\Versenden\Api\Webservice\Request\Type\GetTokenRequestInterface $request
-     * @param \Dhl\Versenden\Api\Webservice\Response\Parser\GetTokenParserInterface $parser
-     *
      * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetTokenResponseInterface
      */
-    public function getAccessToken(GetTokenRequestInterface $request, GetTokenParserInterface $parser);
+    public function getAccessToken(GetTokenRequestInterface $request);
 }

@@ -23,13 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
+namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
 
-use \Dhl\Versenden\Api\Webservice\Request\Type\GetVersionRequestInterface;
-use \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface;
+use \Dhl\Versenden\Api\Webservice\Request;
 
 /**
- * Geschäftskunden API Adapter
+ * GkRequestMapperInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,17 +36,29 @@ use \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface GkAdapterInterface extends AdapterInterface
+interface GkRequestMapperInterface extends ApiRequestMapperInterface
 {
     /**
+     * Create api specific request object from framework standardized object.
+     *
      * @param \Dhl\Versenden\Api\Webservice\Request\Type\GetVersionRequestInterface $request
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetVersionResponseInterface
+     * @return \Dhl\Versenden\Bcs\Soap\Version
      */
-    public function getVersion(GetVersionRequestInterface $request);
+    public function mapVersion(Request\Type\GetVersionRequestInterface $request);
 
     /**
-     * @param \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface $request
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\DeleteShipmentResponseInterface
+     * Create api specific request object from framework standardized object.
+     *
+     * @param \Dhl\Versenden\Api\Webservice\Request\Type\CreateShipmentRequestInterface[] $request
+     * @return \Dhl\Versenden\Bcs\Soap\ShipmentOrderType[]
      */
-    public function deleteShipmentOrder(DeleteShipmentRequestInterface $request);
+    public function mapShipmentRequests(array $requests);
+
+    /**
+     * Create api specific request object from framework standardized object.
+     *
+     * @param \Dhl\Versenden\Api\Webservice\Request\Type\DeleteShipmentRequestInterface[] $numbers
+     * @return string[]
+     */
+    public function mapShipmentNumbers(array $numbers);
 }

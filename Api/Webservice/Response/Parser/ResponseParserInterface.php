@@ -25,8 +25,10 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Response\Parser;
 
+use Dhl\Versenden\Api\Webservice\Response;
+
 /**
- * Global Label API CreateShipment response parser
+ * ResponseParserInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,16 +36,11 @@ namespace Dhl\Versenden\Api\Webservice\Response\Parser;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class GlCreateShipmentParser implements CreateShipmentParserInterface
+interface ResponseParserInterface
 {
     /**
-     * Convert GLA JSON response to generic CreateShipmentResponse
-     *
-     * @param \Dhl\Versenden\Gla\Rest\GetLabelResponse $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface
+     * @param object $response
+     * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function parse($response)
-    {
-        //TODO(nr): implement
-    }
+    public function parseCreateShipmentResponse($response);
 }

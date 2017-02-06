@@ -40,44 +40,63 @@ use \Dhl\Versenden\Api\Webservice\Response;
 class GlAdapter implements GlAdapterInterface
 {
     /**
-     * Obtain the web service id that the current adapter connects to.
-     *
-     * @return string
+     * @var Response\Parser\GlResponseParserInterface
      */
-    public function getAdapterType()
-    {
-        return self::ADAPTER_TYPE_GL;
+    private $responseParser;
+
+    /**
+     * @var Request\Mapper\GlRequestMapperInterface
+     */
+    private $requestMapper;
+
+    /**
+     * GkAdapter constructor.
+     * @param Response\Parser\GlResponseParserInterface $responseParser
+     * @param Request\Mapper\GlRequestMapperInterface $requestMapper
+     */
+    public function __construct(
+        Response\Parser\GlResponseParserInterface $responseParser,
+        Request\Mapper\GlRequestMapperInterface $requestMapper
+    ) {
+        $this->responseParser = $responseParser;
+        $this->requestMapper = $requestMapper;
     }
 
-    public function getAccessToken(Request\Type\GetTokenRequestInterface $request, Response\Parser\GetTokenParserInterface $parser)
+    /**
+     * @param Request\Type\GetTokenRequestInterface $request
+     * @return Response\Type\GetTokenResponseInterface
+     */
+    public function getAccessToken(Request\Type\GetTokenRequestInterface $request)
     {
-        // TODO: Implement getAccessToken() method.
+        //TODO(nr): perform actual request
+        $restResponse = new \stdClass($request);
+        $response = $this->responseParser->parseGetTokenResponse($restResponse);
+
+        return $response;
     }
 
     /**
      * @param Request\Type\CreateShipmentRequestInterface $request
-     * @param Response\Parser\CreateShipmentParserInterface $parser
-     *
-     * @return Response\Type\CreateShipmentResponseInterface
+     * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    private function createSingleShipmentOrder(Request\Type\CreateShipmentRequestInterface $request, Response\Parser\CreateShipmentParserInterface $parser)
+    private function createSingleShipmentOrder(Request\Type\CreateShipmentRequestInterface $request)
     {
         //TODO(nr): perform actual request
-        $response = new \stdClass($request);
-        return $parser->parse($response);
+        $restResponse = new \stdClass($request);
+        $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
+
+        return $response;
     }
 
     /**
      * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @param Response\Parser\CreateShipmentParserInterface $parser
-     *
      * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser)
+    public function createShipmentOrder(array $requests)
     {
         $responses = [];
         foreach ($requests as $request) {
-            $response = $this->createSingleShipmentOrder($request, $parser);
+            $response = $this->createSingleShipmentOrder($request);
             $responses['sequenceNumber'] = $response;
         }
 

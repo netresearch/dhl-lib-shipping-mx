@@ -23,10 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Response\Parser;
+namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
+
+use \Dhl\Versenden\Api\Webservice\Request;
 
 /**
- * Geschäftskunden API CreateShipment response parser
+ * GlRequestMapperInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,16 +36,13 @@ namespace Dhl\Versenden\Api\Webservice\Response\Parser;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class GkCreateShipmentParser implements CreateShipmentParserInterface
+interface GlRequestMapperInterface extends ApiRequestMapperInterface
 {
     /**
-     * Convert BCS SOAP response to generic CreateShipmentResponse
+     * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderResponse $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface
+     * @param \Dhl\Versenden\Api\Webservice\Request\Type\GetTokenRequestInterface $request
+     * @return object
      */
-    public function parse($response)
-    {
-        //TODO(nr): implement
-    }
+    public function mapGetTokenRequest(Request\Type\GetTokenRequestInterface $request);
 }

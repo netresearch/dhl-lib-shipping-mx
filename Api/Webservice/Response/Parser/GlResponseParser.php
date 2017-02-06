@@ -23,13 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
-
-use \Dhl\Versenden\Api\Webservice\Request;
-use \Dhl\Versenden\Api\Webservice\Response;
+namespace Dhl\Versenden\Api\Webservice\Response\Parser;
 
 /**
- * AdapterInterface
+ * Global Label API response parser
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,23 +34,29 @@ use \Dhl\Versenden\Api\Webservice\Response;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+class GlResponseParser implements GlResponseParserInterface
 {
-    const ADAPTER_TYPE_GK = 'gk';
-    const ADAPTER_TYPE_GL = 'gl';
+    /**
+     * Convert GLA JSON response to generic CreateShipmentResponse
+     *
+     * @param \Dhl\Versenden\Gla\Rest\GetTokenResponse $response
+     * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetTokenResponseInterface
+     */
+    public function parseGetTokenResponse($response)
+    {
+        //TODO(nr): implement
+    }
 
     /**
-     * Obtain the web service id that the current adapter connects to.
+     * Convert GLA JSON response to generic CreateShipmentResponse
      *
-     * @return string
+     * @param \Dhl\Versenden\Gla\Rest\GetLabelResponse $response
+     * @return \Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface
      */
-    public function getAdapterType();
+    public function parseCreateShipmentResponse($response)
+    {
+        // TODO: Implement parseCreateShipmentResponse() method.
+    }
 
-    /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @param Response\Parser\CreateShipmentParserInterface $parser
-     *
-     * @return Response\Type\CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
-     */
-    public function createShipmentOrder(array $requests, Response\Parser\CreateShipmentParserInterface $parser);
+
 }

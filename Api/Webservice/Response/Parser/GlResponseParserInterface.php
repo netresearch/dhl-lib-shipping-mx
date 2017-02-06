@@ -26,7 +26,7 @@
 namespace Dhl\Versenden\Api\Webservice\Response\Parser;
 
 /**
- * CreateShipmentParserInterface
+ * GlResponseParserInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,11 +34,11 @@ namespace Dhl\Versenden\Api\Webservice\Response\Parser;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface CreateShipmentParserInterface
+interface GlResponseParserInterface extends ResponseParserInterface
 {
     /**
-     * @param \stdClass $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface
+     * @param object $response
+     * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetTokenResponseInterface
      */
-    public function parse($response);
+    public function parseGetTokenResponse($response);
 }
