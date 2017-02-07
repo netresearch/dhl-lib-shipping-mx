@@ -40,7 +40,7 @@ interface AppRequestMapperInterface
      * Create standardized request object from framework specific object.
      *
      * @param object $request
-     * @return \Dhl\Versenden\Api\Webservice\Request\Type\CreateShipmentRequestInterface
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipmentRequestInterface
      */
     public function mapShipmentRequest($request);
 }

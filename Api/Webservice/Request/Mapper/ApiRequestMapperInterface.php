@@ -41,7 +41,7 @@ interface ApiRequestMapperInterface
     /**
      * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Api\Webservice\Request\Type\CreateShipmentRequestInterface[] $requests
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipmentRequestInterface[] $requests
      * @return object[]
      */
     public function mapShipmentRequests(array $requests);

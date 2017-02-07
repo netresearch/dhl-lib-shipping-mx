@@ -23,14 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
-
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
+namespace Dhl\Versenden\Api\Data\Webservice\Response\Type\CreateShipment;
 
 /**
- * AdapterInterface
+ * LabelInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +34,40 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+interface LabelInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ItemStatusInterface
      */
-    public function createShipmentOrder(array $requests);
+    public function getStatus();
+
+    /**
+     * @return string
+     */
+    public function getSequenceNumber();
+
+    /**
+     * @return string
+     */
+    public function getTrackingNumber();
+
+    /**
+     * @return string
+     */
+    public function getLabel();
+
+    /**
+     * @return string
+     */
+    public function getReturnLabel();
+
+    /**
+     * @return string
+     */
+    public function getExportLabel();
+
+    /**
+     * @return string
+     */
+    public function getCodLabel();
 }

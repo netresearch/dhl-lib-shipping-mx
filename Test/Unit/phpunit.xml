@@ -22,8 +22,8 @@
         </whitelist>
     </filter>
     <logging>
-        <log type="coverage-html" target="../../reports/unit/coverage/html"/>
-        <log type="coverage-clover" target="../../reports/unit/coverage/clover.xml"/>
-        <log type="junit" target="../../reports/unit/coverage/junit.xml" logIncompleteSkipped="false"/>
+        <log type="coverage-html" target="../../build/reports/unit/coverage/html"/>
+        <log type="coverage-clover" target="../../build/reports/unit/coverage/clover.xml"/>
+        <log type="junit" target="../../build/reports/unit/coverage/junit.xml" logIncompleteSkipped="false"/>
     </logging>
 </phpunit>

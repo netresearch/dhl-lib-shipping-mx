@@ -23,14 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
+namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
 
 use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
 
 /**
- * AdapterInterface
+ * GkRequestMapperInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +36,29 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+interface BcsRequestMapperInterface extends ApiRequestMapperInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * Create api specific request object from framework standardized object.
+     *
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface $request
+     * @return \Dhl\Versenden\Bcs\Version
      */
-    public function createShipmentOrder(array $requests);
+    public function mapVersion(Request\Type\GetVersionRequestInterface $request);
+
+    /**
+     * Create api specific request object from framework standardized object.
+     *
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipmentRequestInterface[] $request
+     * @return \Dhl\Versenden\Bcs\ShipmentOrderType[]
+     */
+    public function mapShipmentRequests(array $requests);
+
+    /**
+     * Create api specific request object from framework standardized object.
+     *
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface[] $numbers
+     * @return string[]
+     */
+    public function mapShipmentNumbers(array $numbers);
 }

@@ -25,7 +25,7 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
 
-use \Dhl\Versenden\Api\Webservice\Request;
+use \Dhl\Versenden\Api\Data\Webservice\Request;
 
 /**
  * GlRequestMapperInterface
@@ -41,7 +41,7 @@ interface GlRequestMapperInterface extends ApiRequestMapperInterface
     /**
      * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Api\Webservice\Request\Type\GetTokenRequestInterface $request
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetTokenRequestInterface $request
      * @return object
      */
     public function mapGetTokenRequest(Request\Type\GetTokenRequestInterface $request);

@@ -23,14 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
+namespace Dhl\Versenden\Webservice\Response\Type;
 
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
+use Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface;
+use \Dhl\Versenden\Api\Webservice\Response\Type\Generic\ResponseStatusInterface;
 
 /**
- * AdapterInterface
+ * CreateShipmentResponseCollection
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +37,34 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+class CreateShipmentResponseCollection extends \ArrayIterator
 {
+    const STATUS_CREATED = 0;
+    const STATUS_PARTIALLY_CREATED = 1;
+    const STATUS_NOT_CREATED = 2;
+
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @var ResponseStatusInterface
      */
-    public function createShipmentOrder(array $requests);
+    private $status;
+
+    /**
+     * CreateShipmentResponseCollection constructor.
+     * @param ResponseStatusInterface $status
+     * @param CreateShipmentResponseInterface[] $array
+     * @param int $flags
+     */
+    public function __construct(ResponseStatusInterface $status, array $array = [], $flags = 0)
+    {
+        $this->status = $status;
+        parent::__construct($array, $flags);
+    }
+
+    /**
+     * @return ResponseStatusInterface
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }

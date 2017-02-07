@@ -23,14 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
-
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
+namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic;
 
 /**
- * AdapterInterface
+ * VersionInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +34,20 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+interface VersionInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @return string
      */
-    public function createShipmentOrder(array $requests);
+    public function getMajorRelease();
+
+    /**
+     * @return string
+     */
+    public function getMinorRelease();
+
+    /**
+     * @return string
+     */
+    public function getBuild();
 }

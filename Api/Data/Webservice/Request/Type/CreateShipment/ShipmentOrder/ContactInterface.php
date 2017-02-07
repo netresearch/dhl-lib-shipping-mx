@@ -23,14 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
-
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
+namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder;
 
 /**
- * AdapterInterface
+ * Contact details
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +34,35 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+interface ContactInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @return string
      */
-    public function createShipmentOrder(array $requests);
+    public function getContactPerson();
+
+    /**
+     * @return string[]
+     */
+    public function getName();
+
+    /**
+     * @return string
+     */
+    public function getCompanyName();
+
+    /**
+     * @return string
+     */
+    public function getPhone();
+
+    /**
+     * @return string
+     */
+    public function getEmail();
+
+    /**
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\AddressInterface
+     */
+    public function getAddress();
 }
