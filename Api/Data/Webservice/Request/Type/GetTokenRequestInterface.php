@@ -23,14 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
-
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
+namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
 
 /**
- * AdapterInterface
+ * GetTokenRequestInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +34,25 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+interface GetTokenRequestInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @return string
      */
-    public function createShipmentOrder(array $requests);
+    public function getUsername();
+
+    /**
+     * @return string
+     */
+    public function getPassword();
+
+    /**
+     * @return string
+     */
+    public function getScope();
+
+    /**
+     * @return string
+     */
+    public function getState();
 }

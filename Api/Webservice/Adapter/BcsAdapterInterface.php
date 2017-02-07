@@ -25,12 +25,11 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Adapter;
 
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface;
 
 /**
- * AdapterInterface
+ * Business Customer Shipping API Adapter
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,11 +37,17 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AdapterInterface
+interface BcsAdapterInterface extends AdapterInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface $request
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\GetVersionResponseInterface
      */
-    public function createShipmentOrder(array $requests);
+    public function getVersion(GetVersionRequestInterface $request);
+
+    /**
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface $request
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\DeleteShipmentResponseInterface
+     */
+    public function deleteShipmentOrder(DeleteShipmentRequestInterface $request);
 }

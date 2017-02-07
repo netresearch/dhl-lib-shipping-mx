@@ -38,7 +38,7 @@ interface GlResponseParserInterface extends ResponseParserInterface
 {
     /**
      * @param object $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetTokenResponseInterface
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\GetTokenResponseInterface
      */
     public function parseGetTokenResponse($response);
 }
