@@ -75,7 +75,7 @@ class LabelData
 
     /**
      * @param Statusinformation $Status
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setStatus($Status)
     {
@@ -93,7 +93,7 @@ class LabelData
 
     /**
      * @param shipmentNumber $shipmentNumber
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setShipmentNumber($shipmentNumber)
     {
@@ -111,7 +111,7 @@ class LabelData
 
     /**
      * @param string $labelUrl
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setLabelUrl($labelUrl)
     {
@@ -129,7 +129,7 @@ class LabelData
 
     /**
      * @param base64Binary $labelData
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setLabelData($labelData)
     {
@@ -147,7 +147,7 @@ class LabelData
 
     /**
      * @param string $returnLabelUrl
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setReturnLabelUrl($returnLabelUrl)
     {
@@ -165,7 +165,7 @@ class LabelData
 
     /**
      * @param base64Binary $returnLabelData
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setReturnLabelData($returnLabelData)
     {
@@ -183,7 +183,7 @@ class LabelData
 
     /**
      * @param string $exportLabelUrl
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setExportLabelUrl($exportLabelUrl)
     {
@@ -201,7 +201,7 @@ class LabelData
 
     /**
      * @param base64Binary $exportLabelData
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setExportLabelData($exportLabelData)
     {
@@ -219,7 +219,7 @@ class LabelData
 
     /**
      * @param string $codLabelUrl
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setCodLabelUrl($codLabelUrl)
     {
@@ -237,7 +237,7 @@ class LabelData
 
     /**
      * @param base64Binary $codLabelData
-     * @return \Dhl\Versenden\Bcs\Soap\LabelData
+     * @return \Dhl\Versenden\Bcs\LabelData
      */
     public function setCodLabelData($codLabelData)
     {

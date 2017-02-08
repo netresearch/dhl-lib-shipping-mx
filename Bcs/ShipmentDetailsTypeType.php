@@ -47,7 +47,7 @@ class ShipmentDetailsTypeType extends ShipmentDetailsType
 
     /**
      * @param ShipmentItemType $ShipmentItem
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsTypeType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsTypeType
      */
     public function setShipmentItem($ShipmentItem)
     {
@@ -65,7 +65,7 @@ class ShipmentDetailsTypeType extends ShipmentDetailsType
 
     /**
      * @param ShipmentService $Service
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsTypeType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsTypeType
      */
     public function setService($Service)
     {
@@ -83,7 +83,7 @@ class ShipmentDetailsTypeType extends ShipmentDetailsType
 
     /**
      * @param ShipmentNotificationType $Notification
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsTypeType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsTypeType
      */
     public function setNotification($Notification)
     {
@@ -101,7 +101,7 @@ class ShipmentDetailsTypeType extends ShipmentDetailsType
 
     /**
      * @param BankType $BankData
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsTypeType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsTypeType
      */
     public function setBankData($BankData)
     {

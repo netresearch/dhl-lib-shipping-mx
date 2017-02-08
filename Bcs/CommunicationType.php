@@ -36,7 +36,7 @@ class CommunicationType
 
     /**
      * @param phone $phone
-     * @return \Dhl\Versenden\Bcs\Soap\CommunicationType
+     * @return \Dhl\Versenden\Bcs\CommunicationType
      */
     public function setPhone($phone)
     {
@@ -54,7 +54,7 @@ class CommunicationType
 
     /**
      * @param email $email
-     * @return \Dhl\Versenden\Bcs\Soap\CommunicationType
+     * @return \Dhl\Versenden\Bcs\CommunicationType
      */
     public function setEmail($email)
     {
@@ -72,7 +72,7 @@ class CommunicationType
 
     /**
      * @param contactPerson $contactPerson
-     * @return \Dhl\Versenden\Bcs\Soap\CommunicationType
+     * @return \Dhl\Versenden\Bcs\CommunicationType
      */
     public function setContactPerson($contactPerson)
     {

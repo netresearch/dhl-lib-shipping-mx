@@ -23,12 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\Response\Parser;
-
-use \Dhl\Versenden\Api\Webservice\Response\Parser\GlResponseParserInterface;
+namespace Dhl\Versenden\Api\Webservice\Client;
 
 /**
- * Global Label API response parser
+ * Business Customer Shipping API SOAP client adapter
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,29 +34,30 @@ use \Dhl\Versenden\Api\Webservice\Response\Parser\GlResponseParserInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class GlResponseParser implements GlResponseParserInterface
+interface BcsSoapClientInterface
 {
     /**
-     * Convert GLA JSON response to generic CreateShipmentResponse
+     * Returns the actual version of the implementation of the whole ISService
+     *         webservice.
      *
-     * @param \Dhl\Versenden\Gla\Rest\GetTokenResponse $response
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\GetTokenResponseInterface
+     * @param \Dhl\Versenden\Bcs\Version $part1
+     * @return \Dhl\Versenden\Bcs\GetVersionResponse
      */
-    public function parseGetTokenResponse($response)
-    {
-        //TODO(nr): implement
-    }
+    public function getVersion(\Dhl\Versenden\Bcs\Version $part1);
 
     /**
-     * Convert GLA JSON response to generic CreateShipmentResponse
+     * Creates shipments.
      *
-     * @param \Dhl\Versenden\Gla\Rest\GetLabelResponse $response
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\CreateShipmentResponseInterface
+     * @param \Dhl\Versenden\Bcs\CreateShipmentOrderRequest $part1
+     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
      */
-    public function parseCreateShipmentResponse($response)
-    {
-        // TODO: Implement parseCreateShipmentResponse() method.
-    }
+    public function createShipmentOrder(\Dhl\Versenden\Bcs\CreateShipmentOrderRequest $part1);
 
-
+    /**
+     * Deletes the requested shipments.
+     *
+     * @param \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest $part1
+     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse
+     */
+    public function deleteShipmentOrder(\Dhl\Versenden\Bcs\DeleteShipmentOrderRequest $part1);
 }

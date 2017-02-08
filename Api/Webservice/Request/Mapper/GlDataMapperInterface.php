@@ -28,7 +28,7 @@ namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
 use \Dhl\Versenden\Api\Data\Webservice\Request;
 
 /**
- * GkRequestMapperInterface
+ * GlDataMapperInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,29 +36,13 @@ use \Dhl\Versenden\Api\Data\Webservice\Request;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface BcsRequestMapperInterface extends ApiRequestMapperInterface
+interface GlDataMapperInterface extends ApiDataMapperInterface
 {
     /**
      * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface $request
-     * @return \Dhl\Versenden\Bcs\Version
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetTokenRequestInterface $request
+     * @return object
      */
-    public function mapVersion(Request\Type\GetVersionRequestInterface $request);
-
-    /**
-     * Create api specific request object from framework standardized object.
-     *
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipmentRequestInterface[] $request
-     * @return \Dhl\Versenden\Bcs\ShipmentOrderType[]
-     */
-    public function mapShipmentRequests(array $requests);
-
-    /**
-     * Create api specific request object from framework standardized object.
-     *
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface[] $numbers
-     * @return string[]
-     */
-    public function mapShipmentNumbers(array $numbers);
+    public function mapGetTokenRequest(Request\Type\GetTokenRequestInterface $request);
 }

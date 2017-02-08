@@ -28,21 +28,32 @@ namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
 use \Dhl\Versenden\Api\Data\Webservice\Request;
 
 /**
- * GlRequestMapperInterface
+ * BcsDataMapperInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
+ *
+ * @method \Dhl\Versenden\Bcs\ShipmentOrderType mapShipmentOrder(Request\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
  */
-interface GlRequestMapperInterface extends ApiRequestMapperInterface
+interface BcsDataMapperInterface extends ApiDataMapperInterface
 {
     /**
      * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetTokenRequestInterface $request
-     * @return object
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface $request
+     * @return \Dhl\Versenden\Bcs\Version
      */
-    public function mapGetTokenRequest(Request\Type\GetTokenRequestInterface $request);
+    public function mapVersion(Request\Type\GetVersionRequestInterface $request);
+
+    /**
+     * Create api specific request object from framework standardized object.
+     * TODO(nr): shipment numbers are a simple type, no need to convert something?
+     *
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface[] $numbers
+     * @return string[]
+     */
+    public function mapShipmentNumbers(array $numbers);
 }

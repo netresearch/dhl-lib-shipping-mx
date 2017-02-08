@@ -35,7 +35,7 @@ class ServiceconfigurationIC
 
     /**
      * @param Ident $Ident
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationIC
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationIC
      */
     public function setIdent($Ident)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationIC
 
     /**
      * @param anonymous170 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationIC
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationIC
      */
     public function setActive($active)
     {

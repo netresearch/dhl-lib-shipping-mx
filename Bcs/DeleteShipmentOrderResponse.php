@@ -42,7 +42,7 @@ class DeleteShipmentOrderResponse
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderResponse
+     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse
      */
     public function setVersion($Version)
     {
@@ -60,7 +60,7 @@ class DeleteShipmentOrderResponse
 
     /**
      * @param Statusinformation $Status
-     * @return \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderResponse
+     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse
      */
     public function setStatus($Status)
     {
@@ -78,7 +78,7 @@ class DeleteShipmentOrderResponse
 
     /**
      * @param DeletionState $DeletionState
-     * @return \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderResponse
+     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse
      */
     public function setDeletionState($DeletionState)
     {

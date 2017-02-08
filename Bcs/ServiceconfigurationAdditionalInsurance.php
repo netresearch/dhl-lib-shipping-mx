@@ -35,7 +35,7 @@ class ServiceconfigurationAdditionalInsurance
 
     /**
      * @param anonymous151 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationAdditionalInsurance
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationAdditionalInsurance
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationAdditionalInsurance
 
     /**
      * @param anonymous152 $insuranceAmount
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationAdditionalInsurance
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationAdditionalInsurance
      */
     public function setInsuranceAmount($insuranceAmount)
     {

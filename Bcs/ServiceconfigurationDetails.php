@@ -35,7 +35,7 @@ class ServiceconfigurationDetails
 
     /**
      * @param anonymous127 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationDetails
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDetails
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationDetails
 
     /**
      * @param anonymous128 $details
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationDetails
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDetails
      */
     public function setDetails($details)
     {

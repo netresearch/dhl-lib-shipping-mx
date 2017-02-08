@@ -42,7 +42,7 @@ class CreateShipmentOrderResponse
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderResponse
+     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
      */
     public function setVersion($Version)
     {
@@ -60,7 +60,7 @@ class CreateShipmentOrderResponse
 
     /**
      * @param Statusinformation $Status
-     * @return \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderResponse
+     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
      */
     public function setStatus($Status)
     {
@@ -78,7 +78,7 @@ class CreateShipmentOrderResponse
 
     /**
      * @param CreationState $CreationState
-     * @return \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderResponse
+     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
      */
     public function setCreationState($CreationState)
     {

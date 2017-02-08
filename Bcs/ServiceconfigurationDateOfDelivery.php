@@ -35,7 +35,7 @@ class ServiceconfigurationDateOfDelivery
 
     /**
      * @param anonymous148 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationDateOfDelivery
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDateOfDelivery
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationDateOfDelivery
 
     /**
      * @param anonymous149 $details
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationDateOfDelivery
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDateOfDelivery
      */
     public function setDetails($details)
     {

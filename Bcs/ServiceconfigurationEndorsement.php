@@ -35,7 +35,7 @@ class ServiceconfigurationEndorsement
 
     /**
      * @param anonymous133 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationEndorsement
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationEndorsement
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationEndorsement
 
     /**
      * @param anonymous134 $type
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationEndorsement
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationEndorsement
      */
     public function setType($type)
     {

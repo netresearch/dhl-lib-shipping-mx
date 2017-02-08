@@ -56,7 +56,7 @@ class PostfilialeType
 
     /**
      * @param postfilialNumber $postfilialNumber
-     * @return \Dhl\Versenden\Bcs\Soap\PostfilialeType
+     * @return \Dhl\Versenden\Bcs\PostfilialeType
      */
     public function setPostfilialNumber($postfilialNumber)
     {
@@ -74,7 +74,7 @@ class PostfilialeType
 
     /**
      * @param postNumber $postNumber
-     * @return \Dhl\Versenden\Bcs\Soap\PostfilialeType
+     * @return \Dhl\Versenden\Bcs\PostfilialeType
      */
     public function setPostNumber($postNumber)
     {
@@ -92,7 +92,7 @@ class PostfilialeType
 
     /**
      * @param ZipType $zip
-     * @return \Dhl\Versenden\Bcs\Soap\PostfilialeType
+     * @return \Dhl\Versenden\Bcs\PostfilialeType
      */
     public function setZip($zip)
     {
@@ -110,7 +110,7 @@ class PostfilialeType
 
     /**
      * @param city $city
-     * @return \Dhl\Versenden\Bcs\Soap\PostfilialeType
+     * @return \Dhl\Versenden\Bcs\PostfilialeType
      */
     public function setCity($city)
     {
@@ -128,7 +128,7 @@ class PostfilialeType
 
     /**
      * @param CountryType $Origin
-     * @return \Dhl\Versenden\Bcs\Soap\PostfilialeType
+     * @return \Dhl\Versenden\Bcs\PostfilialeType
      */
     public function setOrigin($Origin)
     {

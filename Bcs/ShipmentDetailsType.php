@@ -57,7 +57,7 @@ class ShipmentDetailsType
 
     /**
      * @param string $product
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsType
      */
     public function setProduct($product)
     {
@@ -75,7 +75,7 @@ class ShipmentDetailsType
 
     /**
      * @param accountNumber $accountNumber
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsType
      */
     public function setAccountNumber($accountNumber)
     {
@@ -93,7 +93,7 @@ class ShipmentDetailsType
 
     /**
      * @param customerReference $customerReference
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsType
      */
     public function setCustomerReference($customerReference)
     {
@@ -111,7 +111,7 @@ class ShipmentDetailsType
 
     /**
      * @param shipmentDate $shipmentDate
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsType
      */
     public function setShipmentDate($shipmentDate)
     {
@@ -129,7 +129,7 @@ class ShipmentDetailsType
 
     /**
      * @param returnShipmentAccountNumber $returnShipmentAccountNumber
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsType
      */
     public function setReturnShipmentAccountNumber($returnShipmentAccountNumber)
     {
@@ -147,7 +147,7 @@ class ShipmentDetailsType
 
     /**
      * @param returnShipmentReference $returnShipmentReference
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentDetailsType
+     * @return \Dhl\Versenden\Bcs\ShipmentDetailsType
      */
     public function setReturnShipmentReference($returnShipmentReference)
     {

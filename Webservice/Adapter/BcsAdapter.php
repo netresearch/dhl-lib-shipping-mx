@@ -25,6 +25,7 @@
  */
 namespace Dhl\Versenden\Webservice\Adapter;
 
+use Dhl\Versenden\Api\Webservice\Client\BcsSoapClientInterface;
 use \Dhl\Versenden\Api\Webservice\Request;
 use \Dhl\Versenden\Api\Webservice\Response;
 use \Dhl\Versenden\Api\Data\Webservice\Request as RequestData;
@@ -54,32 +55,44 @@ class BcsAdapter implements BcsAdapterInterface
     private $responseParser;
 
     /**
-     * @var Request\Mapper\BcsRequestMapperInterface
+     * @var Request\Mapper\BcsDataMapperInterface
      */
-    private $requestMapper;
+    private $apiDataMapper;
+
+    /**
+     * @var BcsSoapClientInterface
+     */
+    private $soapClient;
 
     /**
      * BcsAdapter constructor.
      * @param Response\Parser\BcsResponseParserInterface $responseParser
-     * @param Request\Mapper\BcsRequestMapperInterface $requestMapper
+     * @param Request\Mapper\BcsDataMapperInterface $dataMapper
+     * @param BcsSoapClientInterface $soapClient
      */
     public function __construct(
         Response\Parser\BcsResponseParserInterface $responseParser,
-        Request\Mapper\BcsRequestMapperInterface $requestMapper
+        Request\Mapper\BcsDataMapperInterface $dataMapper,
+        BcsSoapClientInterface $soapClient
     ) {
         $this->responseParser = $responseParser;
-        $this->requestMapper = $requestMapper;
+        $this->apiDataMapper = $dataMapper;
+        $this->soapClient = $soapClient;
     }
 
     /**
-     * @param RequestData\Type\CreateShipmentRequestInterface[] $requests
+     * @param RequestData\Type\CreateShipmentRequestInterface[] $shipmentRequests
      * @return CreateShipmentResponseCollection|ResponseData\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests)
+    public function createShipmentOrder(array $shipmentRequests)
     {
         // TODO(nr): build SOAP types from generic CreateShipmentRequestInterface[]
         $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
-        $shipmentOrders = $this->requestMapper->mapShipmentRequests($requests);
+
+        $shipmentOrders = [];
+        foreach ($shipmentRequests as $shipmentRequest) {
+            $shipmentOrders[]= $this->apiDataMapper->mapShipmentRequest($shipmentRequest);
+        }
 
         $request = new BcsApi\CreateShipmentOrderRequest($version, $shipmentOrders);
 
@@ -91,9 +104,18 @@ class BcsAdapter implements BcsAdapterInterface
         return $response;
     }
 
-    public function getVersion(RequestData\Type\GetVersionRequestInterface $request)
+    public function getVersion(RequestData\Type\GetVersionRequestInterface $versionRequest)
     {
-        // TODO: Implement getVersion() method.
+        $request = new BcsApi\Version(
+            $versionRequest->getMajorRelease(),
+            $versionRequest->getMinorRelease(),
+            $versionRequest->getBuild()
+        );
+
+        $soapResponse = $this->soapClient->getVersion($request);
+
+        $response = $this->responseParser->parseGetVersionResponse($soapResponse);
+        return $response;
     }
 
     public function deleteShipmentOrder(RequestData\Type\DeleteShipmentRequestInterface $request)

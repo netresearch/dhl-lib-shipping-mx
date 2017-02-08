@@ -35,7 +35,7 @@ class DeletionState
 
     /**
      * @param shipmentNumber $shipmentNumber
-     * @return \Dhl\Versenden\Bcs\Soap\DeletionState
+     * @return \Dhl\Versenden\Bcs\DeletionState
      */
     public function setShipmentNumber($shipmentNumber)
     {
@@ -53,7 +53,7 @@ class DeletionState
 
     /**
      * @param Statusinformation $Status
-     * @return \Dhl\Versenden\Bcs\Soap\DeletionState
+     * @return \Dhl\Versenden\Bcs\DeletionState
      */
     public function setStatus($Status)
     {

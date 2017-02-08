@@ -28,7 +28,7 @@ class ShipmentNotificationType
 
     /**
      * @param recipientEmailAddress $recipientEmailAddress
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentNotificationType
+     * @return \Dhl\Versenden\Bcs\ShipmentNotificationType
      */
     public function setRecipientEmailAddress($recipientEmailAddress)
     {

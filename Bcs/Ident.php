@@ -49,7 +49,7 @@ class Ident
 
     /**
      * @param surname $surname
-     * @return \Dhl\Versenden\Bcs\Soap\Ident
+     * @return \Dhl\Versenden\Bcs\Ident
      */
     public function setSurname($surname)
     {
@@ -67,7 +67,7 @@ class Ident
 
     /**
      * @param givenName $givenName
-     * @return \Dhl\Versenden\Bcs\Soap\Ident
+     * @return \Dhl\Versenden\Bcs\Ident
      */
     public function setGivenName($givenName)
     {
@@ -85,7 +85,7 @@ class Ident
 
     /**
      * @param dateOfBirth $dateOfBirth
-     * @return \Dhl\Versenden\Bcs\Soap\Ident
+     * @return \Dhl\Versenden\Bcs\Ident
      */
     public function setDateOfBirth($dateOfBirth)
     {
@@ -103,7 +103,7 @@ class Ident
 
     /**
      * @param minimumAge $minimumAge
-     * @return \Dhl\Versenden\Bcs\Soap\Ident
+     * @return \Dhl\Versenden\Bcs\Ident
      */
     public function setMinimumAge($minimumAge)
     {

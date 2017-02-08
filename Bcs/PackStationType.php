@@ -54,7 +54,7 @@ class PackStationType
 
     /**
      * @param postNumber $postNumber
-     * @return \Dhl\Versenden\Bcs\Soap\PackStationType
+     * @return \Dhl\Versenden\Bcs\PackStationType
      */
     public function setPostNumber($postNumber)
     {
@@ -72,7 +72,7 @@ class PackStationType
 
     /**
      * @param packstationNumber $packstationNumber
-     * @return \Dhl\Versenden\Bcs\Soap\PackStationType
+     * @return \Dhl\Versenden\Bcs\PackStationType
      */
     public function setPackstationNumber($packstationNumber)
     {
@@ -90,7 +90,7 @@ class PackStationType
 
     /**
      * @param ZipType $zip
-     * @return \Dhl\Versenden\Bcs\Soap\PackStationType
+     * @return \Dhl\Versenden\Bcs\PackStationType
      */
     public function setZip($zip)
     {
@@ -108,7 +108,7 @@ class PackStationType
 
     /**
      * @param city $city
-     * @return \Dhl\Versenden\Bcs\Soap\PackStationType
+     * @return \Dhl\Versenden\Bcs\PackStationType
      */
     public function setCity($city)
     {
@@ -126,7 +126,7 @@ class PackStationType
 
     /**
      * @param CountryType $Origin
-     * @return \Dhl\Versenden\Bcs\Soap\PackStationType
+     * @return \Dhl\Versenden\Bcs\PackStationType
      */
     public function setOrigin($Origin)
     {

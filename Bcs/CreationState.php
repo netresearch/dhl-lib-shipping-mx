@@ -35,7 +35,7 @@ class CreationState
 
     /**
      * @param SequenceNumber $sequenceNumber
-     * @return \Dhl\Versenden\Bcs\Soap\CreationState
+     * @return \Dhl\Versenden\Bcs\CreationState
      */
     public function setSequenceNumber($sequenceNumber)
     {
@@ -53,7 +53,7 @@ class CreationState
 
     /**
      * @param LabelData $LabelData
-     * @return \Dhl\Versenden\Bcs\Soap\CreationState
+     * @return \Dhl\Versenden\Bcs\CreationState
      */
     public function setLabelData($LabelData)
     {

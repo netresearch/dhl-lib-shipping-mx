@@ -42,7 +42,7 @@ class ServiceconfigurationCashOnDelivery
 
     /**
      * @param anonymous154 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationCashOnDelivery
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationCashOnDelivery
      */
     public function setActive($active)
     {
@@ -60,7 +60,7 @@ class ServiceconfigurationCashOnDelivery
 
     /**
      * @param anonymous155 $addFee
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationCashOnDelivery
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationCashOnDelivery
      */
     public function setAddFee($addFee)
     {
@@ -78,7 +78,7 @@ class ServiceconfigurationCashOnDelivery
 
     /**
      * @param anonymous156 $codAmount
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationCashOnDelivery
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationCashOnDelivery
      */
     public function setCodAmount($codAmount)
     {

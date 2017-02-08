@@ -35,7 +35,7 @@ class ServiceconfigurationDeliveryTimeframe
 
     /**
      * @param anonymous145 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationDeliveryTimeframe
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDeliveryTimeframe
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationDeliveryTimeframe
 
     /**
      * @param anonymous146 $type
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationDeliveryTimeframe
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDeliveryTimeframe
      */
     public function setType($type)
     {

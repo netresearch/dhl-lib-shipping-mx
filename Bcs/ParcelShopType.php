@@ -59,7 +59,7 @@ class ParcelShopType
 
     /**
      * @param parcelShopNumber $parcelShopNumber
-     * @return \Dhl\Versenden\Bcs\Soap\ParcelShopType
+     * @return \Dhl\Versenden\Bcs\ParcelShopType
      */
     public function setParcelShopNumber($parcelShopNumber)
     {
@@ -77,7 +77,7 @@ class ParcelShopType
 
     /**
      * @param streetName $streetName
-     * @return \Dhl\Versenden\Bcs\Soap\ParcelShopType
+     * @return \Dhl\Versenden\Bcs\ParcelShopType
      */
     public function setStreetName($streetName)
     {
@@ -95,7 +95,7 @@ class ParcelShopType
 
     /**
      * @param streetNumber $streetNumber
-     * @return \Dhl\Versenden\Bcs\Soap\ParcelShopType
+     * @return \Dhl\Versenden\Bcs\ParcelShopType
      */
     public function setStreetNumber($streetNumber)
     {
@@ -113,7 +113,7 @@ class ParcelShopType
 
     /**
      * @param ZipType $zip
-     * @return \Dhl\Versenden\Bcs\Soap\ParcelShopType
+     * @return \Dhl\Versenden\Bcs\ParcelShopType
      */
     public function setZip($zip)
     {
@@ -131,7 +131,7 @@ class ParcelShopType
 
     /**
      * @param city $city
-     * @return \Dhl\Versenden\Bcs\Soap\ParcelShopType
+     * @return \Dhl\Versenden\Bcs\ParcelShopType
      */
     public function setCity($city)
     {
@@ -149,7 +149,7 @@ class ParcelShopType
 
     /**
      * @param CountryType $Origin
-     * @return \Dhl\Versenden\Bcs\Soap\ParcelShopType
+     * @return \Dhl\Versenden\Bcs\ParcelShopType
      */
     public function setOrigin($Origin)
     {

@@ -35,7 +35,7 @@ class ServiceconfigurationISR
 
     /**
      * @param anonymous136 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationISR
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationISR
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationISR
 
     /**
      * @param anonymous137 $details
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationISR
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationISR
      */
     public function setDetails($details)
     {
