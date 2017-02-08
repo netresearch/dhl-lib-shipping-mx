@@ -23,10 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
+namespace Dhl\Versenden\Api\Webservice;
 
 /**
- * AppRequestMapperInterface
+ * Business Customer Shipping API config
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,13 +34,19 @@ namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AppRequestMapperInterface
+interface BcsConfigInterface extends ConfigInterface
 {
     /**
-     * Create standardized request object from framework specific object.
+     * Obtain DHL Business Customer Shipping contract data: username.
      *
-     * @param object $request
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipmentRequestInterface
+     * @return string
      */
-    public function mapShipmentRequest($request);
+    public function getAccountUser();
+
+    /**
+     * Obtain DHL Business Customer Shipping contract data: signature.
+     *
+     * @return string
+     */
+    public function getAccountSignature();
 }

@@ -35,7 +35,7 @@ class CreateShipmentOrderRequest
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderRequest
+     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderRequest
      */
     public function setVersion($Version)
     {
@@ -53,7 +53,7 @@ class CreateShipmentOrderRequest
 
     /**
      * @param ShipmentOrderType $ShipmentOrder
-     * @return \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderRequest
+     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderRequest
      */
     public function setShipmentOrder($ShipmentOrder)
     {

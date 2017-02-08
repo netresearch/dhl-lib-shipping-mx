@@ -63,7 +63,7 @@ class ExportDocPosition
 
     /**
      * @param description $description
-     * @return \Dhl\Versenden\Bcs\Soap\ExportDocPosition
+     * @return \Dhl\Versenden\Bcs\ExportDocPosition
      */
     public function setDescription($description)
     {
@@ -81,7 +81,7 @@ class ExportDocPosition
 
     /**
      * @param countryCodeOrigin $countryCodeOrigin
-     * @return \Dhl\Versenden\Bcs\Soap\ExportDocPosition
+     * @return \Dhl\Versenden\Bcs\ExportDocPosition
      */
     public function setCountryCodeOrigin($countryCodeOrigin)
     {
@@ -99,7 +99,7 @@ class ExportDocPosition
 
     /**
      * @param customsTariffNumber $customsTariffNumber
-     * @return \Dhl\Versenden\Bcs\Soap\ExportDocPosition
+     * @return \Dhl\Versenden\Bcs\ExportDocPosition
      */
     public function setCustomsTariffNumber($customsTariffNumber)
     {
@@ -117,7 +117,7 @@ class ExportDocPosition
 
     /**
      * @param amount $amount
-     * @return \Dhl\Versenden\Bcs\Soap\ExportDocPosition
+     * @return \Dhl\Versenden\Bcs\ExportDocPosition
      */
     public function setAmount($amount)
     {
@@ -135,7 +135,7 @@ class ExportDocPosition
 
     /**
      * @param netWeightInKG $netWeightInKG
-     * @return \Dhl\Versenden\Bcs\Soap\ExportDocPosition
+     * @return \Dhl\Versenden\Bcs\ExportDocPosition
      */
     public function setNetWeightInKG($netWeightInKG)
     {
@@ -153,7 +153,7 @@ class ExportDocPosition
 
     /**
      * @param customsValue $customsValue
-     * @return \Dhl\Versenden\Bcs\Soap\ExportDocPosition
+     * @return \Dhl\Versenden\Bcs\ExportDocPosition
      */
     public function setCustomsValue($customsValue)
     {

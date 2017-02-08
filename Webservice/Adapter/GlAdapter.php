@@ -48,18 +48,18 @@ class GlAdapter implements GlAdapterInterface
     private $responseParser;
 
     /**
-     * @var Request\Mapper\GlRequestMapperInterface
+     * @var Request\Mapper\GlDataMapperInterface
      */
     private $requestMapper;
 
     /**
      * GkAdapter constructor.
      * @param Response\Parser\GlResponseParserInterface $responseParser
-     * @param Request\Mapper\GlRequestMapperInterface $requestMapper
+     * @param Request\Mapper\GlDataMapperInterface $requestMapper
      */
     public function __construct(
         Response\Parser\GlResponseParserInterface $responseParser,
-        Request\Mapper\GlRequestMapperInterface $requestMapper
+        Request\Mapper\GlDataMapperInterface $requestMapper
     ) {
         $this->responseParser = $responseParser;
         $this->requestMapper = $requestMapper;
@@ -92,13 +92,13 @@ class GlAdapter implements GlAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\CreateShipmentRequestInterface[] $requests
+     * @param RequestData\Type\CreateShipmentRequestInterface[] $shipmentRequests
      * @return CreateShipmentResponseCollection|ResponseData\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests)
+    public function createShipmentOrder(array $shipmentRequests)
     {
         $responses = [];
-        foreach ($requests as $request) {
+        foreach ($shipmentRequests as $request) {
             $response = $this->createSingleShipmentOrder($request);
             $responses['sequenceNumber'] = $response;
         }

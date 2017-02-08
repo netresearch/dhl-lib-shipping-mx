@@ -35,7 +35,7 @@ class ServiceconfigurationVisualAgeCheck
 
     /**
      * @param anonymous142 $active
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationVisualAgeCheck
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationVisualAgeCheck
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationVisualAgeCheck
 
     /**
      * @param anonymous143 $type
-     * @return \Dhl\Versenden\Bcs\Soap\ServiceconfigurationVisualAgeCheck
+     * @return \Dhl\Versenden\Bcs\ServiceconfigurationVisualAgeCheck
      */
     public function setType($type)
     {

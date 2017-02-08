@@ -41,8 +41,8 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
 interface AdapterInterface
 {
     /**
-     * @param Request\Type\CreateShipmentRequestInterface[] $requests
+     * @param Request\Type\CreateShipmentRequestInterface[] $shipmentRequests
      * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
      */
-    public function createShipmentOrder(array $requests);
+    public function createShipmentOrder(array $shipmentRequests);
 }

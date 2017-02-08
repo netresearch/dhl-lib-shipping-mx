@@ -28,7 +28,7 @@ class GetVersionResponse
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\Soap\GetVersionResponse
+     * @return \Dhl\Versenden\Bcs\GetVersionResponse
      */
     public function setVersion($Version)
     {

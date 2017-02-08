@@ -23,7 +23,9 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Response\Parser;
+namespace Dhl\Versenden\Webservice\Response\Parser;
+
+use \Dhl\Versenden\Api\Webservice\Response\Parser\BcsResponseParserInterface;
 
 /**
  * Geschäftskunden API response parser
@@ -34,13 +36,13 @@ namespace Dhl\Versenden\Api\Webservice\Response\Parser;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class GkResponseParser implements GkResponseParserInterface
+class GkResponseParser implements BcsResponseParserInterface
 {
     /**
      * Convert BCS SOAP response to generic CreateShipmentResponse
      *
-     * @param \Dhl\Versenden\Bcs\Soap\CreateShipmentOrderResponse $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface
+     * @param \Dhl\Versenden\Bcs\CreateShipmentOrderResponse $response
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\CreateShipmentResponseInterface
      */
     public function parseCreateShipmentResponse($response)
     {
@@ -50,8 +52,8 @@ class GkResponseParser implements GkResponseParserInterface
     /**
      * Convert BCS SOAP response to generic GetVersionResponse
      *
-     * @param \Dhl\Versenden\Bcs\Soap\GetVersionResponse $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\GetVersionResponseInterface
+     * @param \Dhl\Versenden\Bcs\GetVersionResponse $response
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response)
     {
@@ -61,8 +63,8 @@ class GkResponseParser implements GkResponseParserInterface
     /**
      * Convert BCS SOAP response to generic DeleteShipmentResponse
      *
-     * @param \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderResponse $response
-     * @return \Dhl\Versenden\Api\Webservice\Response\Type\DeleteShipmentResponseInterface[]
+     * @param \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse $response
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\DeleteShipmentResponseInterface[]
      */
     public function parseDeleteShipmentResponse($response)
     {

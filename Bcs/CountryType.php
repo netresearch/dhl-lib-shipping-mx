@@ -38,7 +38,7 @@ class CountryType
 
     /**
      * @param country $country
-     * @return \Dhl\Versenden\Bcs\Soap\CountryType
+     * @return \Dhl\Versenden\Bcs\CountryType
      */
     public function setCountry($country)
     {
@@ -56,7 +56,7 @@ class CountryType
 
     /**
      * @param countryISOType $countryISOCode
-     * @return \Dhl\Versenden\Bcs\Soap\CountryType
+     * @return \Dhl\Versenden\Bcs\CountryType
      */
     public function setCountryISOCode($countryISOCode)
     {
@@ -74,7 +74,7 @@ class CountryType
 
     /**
      * @param state $state
-     * @return \Dhl\Versenden\Bcs\Soap\CountryType
+     * @return \Dhl\Versenden\Bcs\CountryType
      */
     public function setState($state)
     {

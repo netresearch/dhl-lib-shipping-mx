@@ -28,7 +28,7 @@ class Serviceconfiguration
 
     /**
      * @param anonymous125 $active
-     * @return \Dhl\Versenden\Bcs\Soap\Serviceconfiguration
+     * @return \Dhl\Versenden\Bcs\Serviceconfiguration
      */
     public function setActive($active)
     {

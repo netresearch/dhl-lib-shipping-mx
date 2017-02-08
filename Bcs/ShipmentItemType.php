@@ -43,7 +43,7 @@ class ShipmentItemType
 
     /**
      * @param weightInKG $weightInKG
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentItemType
+     * @return \Dhl\Versenden\Bcs\ShipmentItemType
      */
     public function setWeightInKG($weightInKG)
     {
@@ -61,7 +61,7 @@ class ShipmentItemType
 
     /**
      * @param lengthInCM $lengthInCM
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentItemType
+     * @return \Dhl\Versenden\Bcs\ShipmentItemType
      */
     public function setLengthInCM($lengthInCM)
     {
@@ -79,7 +79,7 @@ class ShipmentItemType
 
     /**
      * @param widthInCM $widthInCM
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentItemType
+     * @return \Dhl\Versenden\Bcs\ShipmentItemType
      */
     public function setWidthInCM($widthInCM)
     {
@@ -97,7 +97,7 @@ class ShipmentItemType
 
     /**
      * @param heightInCM $heightInCM
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentItemType
+     * @return \Dhl\Versenden\Bcs\ShipmentItemType
      */
     public function setHeightInCM($heightInCM)
     {

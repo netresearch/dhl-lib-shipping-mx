@@ -35,7 +35,7 @@ class DeleteShipmentOrderRequest
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderRequest
+     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest
      */
     public function setVersion($Version)
     {
@@ -53,7 +53,7 @@ class DeleteShipmentOrderRequest
 
     /**
      * @param shipmentNumber $shipmentNumber
-     * @return \Dhl\Versenden\Bcs\Soap\DeleteShipmentOrderRequest
+     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest
      */
     public function setShipmentNumber($shipmentNumber)
     {

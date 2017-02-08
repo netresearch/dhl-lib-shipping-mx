@@ -23,12 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
-
-use \Dhl\Versenden\Api\Webservice\Request;
+namespace Dhl\Versenden\Api\Webservice;
 
 /**
- * ApiRequestMapperInterface
+ * API config
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,13 +34,26 @@ use \Dhl\Versenden\Api\Webservice\Request;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ApiRequestMapperInterface
+interface ConfigInterface
 {
     /**
-     * Create api specific request object from framework standardized object.
+     * Obtain API endpoint.
      *
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipmentRequestInterface[] $requests
-     * @return object[]
+     * @return string
      */
-    public function mapShipmentRequests(array $requests);
+    public function getApiEndpoint();
+
+    /**
+     * Obtain auth credentials: username.
+     *
+     * @return string
+     */
+    public function getAuthUsername();
+
+    /**
+     * Obtain auth credentials: password.
+     *
+     * @return string
+     */
+    public function getAuthPassword();
 }

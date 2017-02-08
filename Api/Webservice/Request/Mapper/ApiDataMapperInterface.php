@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\Response\Parser;
+namespace Dhl\Versenden\Api\Webservice\Request\Mapper;
 
-use \Dhl\Versenden\Api\Webservice\Response\Parser\GlResponseParserInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Request;
 
 /**
- * Global Label API response parser
+ * ApiDataMapperInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,29 +36,13 @@ use \Dhl\Versenden\Api\Webservice\Response\Parser\GlResponseParserInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class GlResponseParser implements GlResponseParserInterface
+interface ApiDataMapperInterface
 {
     /**
-     * Convert GLA JSON response to generic CreateShipmentResponse
+     * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Gla\Rest\GetTokenResponse $response
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\GetTokenResponseInterface
+     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @return object The "BCS shipment order" or "GL API shipment" entity
      */
-    public function parseGetTokenResponse($response)
-    {
-        //TODO(nr): implement
-    }
-
-    /**
-     * Convert GLA JSON response to generic CreateShipmentResponse
-     *
-     * @param \Dhl\Versenden\Gla\Rest\GetLabelResponse $response
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\CreateShipmentResponseInterface
-     */
-    public function parseCreateShipmentResponse($response)
-    {
-        // TODO: Implement parseCreateShipmentResponse() method.
-    }
-
-
+    public function mapShipmentOrder(Request\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder);
 }

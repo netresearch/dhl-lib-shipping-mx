@@ -141,7 +141,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationDateOfDelivery $DayOfDelivery
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setDayOfDelivery($DayOfDelivery)
     {
@@ -159,7 +159,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationDeliveryTimeframe $DeliveryTimeframe
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setDeliveryTimeframe($DeliveryTimeframe)
     {
@@ -177,7 +177,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationDeliveryTimeframe $PreferredTime
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPreferredTime($PreferredTime)
     {
@@ -195,7 +195,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationISR $IndividualSenderRequirement
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setIndividualSenderRequirement($IndividualSenderRequirement)
     {
@@ -213,7 +213,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $PackagingReturn
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPackagingReturn($PackagingReturn)
     {
@@ -231,7 +231,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $ReturnImmediately
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setReturnImmediately($ReturnImmediately)
     {
@@ -249,7 +249,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $NoticeOfNonDeliverability
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setNoticeOfNonDeliverability($NoticeOfNonDeliverability)
     {
@@ -267,7 +267,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationShipmentHandling $ShipmentHandling
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setShipmentHandling($ShipmentHandling)
     {
@@ -285,7 +285,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationEndorsement $Endorsement
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setEndorsement($Endorsement)
     {
@@ -303,7 +303,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationVisualAgeCheck $VisualCheckOfAge
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setVisualCheckOfAge($VisualCheckOfAge)
     {
@@ -321,7 +321,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationDetails $PreferredLocation
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPreferredLocation($PreferredLocation)
     {
@@ -339,7 +339,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationDetails $PreferredNeighbour
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPreferredNeighbour($PreferredNeighbour)
     {
@@ -357,7 +357,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationDetails $PreferredDay
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPreferredDay($PreferredDay)
     {
@@ -375,7 +375,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $GoGreen
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setGoGreen($GoGreen)
     {
@@ -393,7 +393,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $Perishables
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPerishables($Perishables)
     {
@@ -411,7 +411,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $Personally
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPersonally($Personally)
     {
@@ -429,7 +429,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $NoNeighbourDelivery
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setNoNeighbourDelivery($NoNeighbourDelivery)
     {
@@ -447,7 +447,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $NamedPersonOnly
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setNamedPersonOnly($NamedPersonOnly)
     {
@@ -465,7 +465,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $ReturnReceipt
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setReturnReceipt($ReturnReceipt)
     {
@@ -483,7 +483,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $Premium
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setPremium($Premium)
     {
@@ -501,7 +501,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationCashOnDelivery $CashOnDelivery
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setCashOnDelivery($CashOnDelivery)
     {
@@ -519,7 +519,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationAdditionalInsurance $AdditionalInsurance
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setAdditionalInsurance($AdditionalInsurance)
     {
@@ -537,7 +537,7 @@ class ShipmentService
 
     /**
      * @param Serviceconfiguration $BulkyGoods
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setBulkyGoods($BulkyGoods)
     {
@@ -555,7 +555,7 @@ class ShipmentService
 
     /**
      * @param ServiceconfigurationIC $IdentCheck
-     * @return \Dhl\Versenden\Bcs\Soap\ShipmentService
+     * @return \Dhl\Versenden\Bcs\ShipmentService
      */
     public function setIdentCheck($IdentCheck)
     {
