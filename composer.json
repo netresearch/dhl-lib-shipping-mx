@@ -22,7 +22,7 @@
         ],
         "psr-4": {
             "Dhl\\Versenden\\": "",
-            "Dhl\\Versenden\\Bcs": ""
+            "Dhl\\Versenden\\Bcs\\": ""
         }
     }
 }
