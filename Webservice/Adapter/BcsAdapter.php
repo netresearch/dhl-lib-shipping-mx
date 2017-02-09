@@ -82,7 +82,7 @@ class BcsAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestData\Type\CreateShipmentRequestInterface[] $shipmentRequests
-     * @return CreateShipmentResponseCollection|ResponseData\Type\CreateShipmentResponseInterface[]
+     * @return ResponseData\Type\CreateShipmentResponseInterface
      */
     public function createShipmentOrder(array $shipmentRequests)
     {
@@ -99,7 +99,7 @@ class BcsAdapter implements BcsAdapterInterface
         //TODO(nr): perform actual request
         $soapResponse = new \stdClass($request);
 
-        /** @var ResponseData\Type\CreateShipmentResponseCollection $response */
+        /** @var CreateShipmentResponseCollection $response */
         $response = $this->responseParser->parseCreateShipmentResponse($soapResponse);
         return $response;
     }

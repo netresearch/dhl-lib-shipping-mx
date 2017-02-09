@@ -39,17 +39,7 @@ interface AddressInterface
     /**
      * @return string
      */
-    public function getStreetName();
-
-    /**
-     * @return string
-     */
-    public function getStreetNumber();
-
-    /**
-     * @return string
-     */
-    public function getAddressAddition();
+    public function getStreet();
 
     /**
      * @return string
@@ -65,11 +55,6 @@ interface AddressInterface
      * @return string
      */
     public function getState();
-
-    /**
-     * @return string
-     */
-    public function getCountry();
 
     /**
      * Obtain country's ISO-2-Alpha code.
