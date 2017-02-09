@@ -62,6 +62,11 @@ interface ShipmentOrderInterface
     public function getReturnReceiver();
 
     /**
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\CustomsDetailsInterface
+     */
+    public function getCustomsDetails();
+
+    /**
      * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\PackageInterface[]
      */
     public function getPackages();
@@ -71,9 +76,4 @@ interface ShipmentOrderInterface
      * @return mixed[]
      */
     public function getServices();
-
-    /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\CustomsDetailsInterface
-     */
-    public function getCustomsDetails();
 }

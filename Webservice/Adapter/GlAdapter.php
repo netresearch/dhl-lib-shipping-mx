@@ -80,7 +80,7 @@ class GlAdapter implements GlAdapterInterface
 
     /**
      * @param RequestData\Type\CreateShipmentRequestInterface $request
-     * @return CreateShipmentResponseCollection|ResponseData\Type\CreateShipmentResponseInterface[]
+     * @return ResponseData\Type\CreateShipmentResponseInterface
      */
     private function createSingleShipmentOrder(RequestData\Type\CreateShipmentRequestInterface $request)
     {
@@ -93,7 +93,7 @@ class GlAdapter implements GlAdapterInterface
 
     /**
      * @param RequestData\Type\CreateShipmentRequestInterface[] $shipmentRequests
-     * @return CreateShipmentResponseCollection|ResponseData\Type\CreateShipmentResponseInterface[]
+     * @return ResponseData\Type\CreateShipmentResponseInterface
      */
     public function createShipmentOrder(array $shipmentRequests)
     {

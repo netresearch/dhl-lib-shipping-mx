@@ -59,6 +59,4 @@ class GlResponseParser implements GlResponseParserInterface
     {
         // TODO: Implement parseCreateShipmentResponse() method.
     }
-
-
 }

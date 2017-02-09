@@ -26,7 +26,6 @@
 namespace Dhl\Versenden\Api\Webservice\Response\Parser;
 
 use Dhl\Versenden\Api\Data\Webservice\Response;
-use Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
 
 /**
  * ResponseParserInterface
@@ -41,7 +40,7 @@ interface ResponseParserInterface
 {
     /**
      * @param object $response
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @return Response\Type\CreateShipmentResponseInterface
      */
     public function parseCreateShipmentResponse($response);
 }

@@ -42,7 +42,7 @@ interface AdapterInterface
 {
     /**
      * @param Request\Type\CreateShipmentRequestInterface[] $shipmentRequests
-     * @return CreateShipmentResponseCollection|Response\Type\CreateShipmentResponseInterface[]
+     * @return Response\Type\CreateShipmentResponseInterface
      */
     public function createShipmentOrder(array $shipmentRequests);
 }

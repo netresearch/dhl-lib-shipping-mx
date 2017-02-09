@@ -25,8 +25,9 @@
  */
 namespace Dhl\Versenden\Webservice\Response\Type;
 
-use Dhl\Versenden\Api\Webservice\Response\Type\CreateShipmentResponseInterface;
-use \Dhl\Versenden\Api\Webservice\Response\Type\Generic\ResponseStatusInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Response\Type\CreateShipmentResponseInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Response\Type\CreateShipment\LabelInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ResponseStatusInterface;
 
 /**
  * CreateShipmentResponseCollection
@@ -37,7 +38,7 @@ use \Dhl\Versenden\Api\Webservice\Response\Type\Generic\ResponseStatusInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class CreateShipmentResponseCollection extends \ArrayIterator
+class CreateShipmentResponseCollection extends \ArrayIterator implements CreateShipmentResponseInterface
 {
     const STATUS_CREATED = 0;
     const STATUS_PARTIALLY_CREATED = 1;
@@ -50,8 +51,9 @@ class CreateShipmentResponseCollection extends \ArrayIterator
 
     /**
      * CreateShipmentResponseCollection constructor.
+     *
      * @param ResponseStatusInterface $status
-     * @param CreateShipmentResponseInterface[] $array
+     * @param LabelInterface[] $array
      * @param int $flags
      */
     public function __construct(ResponseStatusInterface $status, array $array = [], $flags = 0)
@@ -66,5 +68,22 @@ class CreateShipmentResponseCollection extends \ArrayIterator
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return LabelInterface[]
+     */
+    public function getCreatedItems()
+    {
+        return $this->getArrayCopy();
+    }
+
+    /**
+     * @param string $sequenceNumber
+     * @return LabelInterface
+     */
+    public function getCreatedItem($sequenceNumber)
+    {
+        return $this->offsetGet($sequenceNumber);
     }
 }

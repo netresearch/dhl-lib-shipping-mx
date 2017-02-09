@@ -40,7 +40,8 @@ interface AppDataMapperInterface
      * Create standardized request object from framework specific object.
      *
      * @param object $request The M1 or M2 shipment request
+     * @param string $sequenceNumber
      * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrderInterface
      */
-    public function mapShipmentRequest($request);
+    public function mapShipmentRequest($request, $sequenceNumber);
 }
