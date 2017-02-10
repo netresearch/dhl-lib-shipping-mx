@@ -36,6 +36,9 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\Shipment
  */
 interface CustomsDetailsInterface
 {
+    /**
+     * @return string
+     */
     public function getInvoiceNumber();
 
     /**
@@ -80,7 +83,7 @@ interface CustomsDetailsInterface
     public function isWithElectronicExportNtfctn();
 
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\CustomsDetails\PositionInterface[]
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\CustomsDetails\ExportPositionInterface[]
      */
     public function getPositions();
 }

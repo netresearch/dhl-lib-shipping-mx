@@ -40,10 +40,6 @@ use \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ResponseStatusInter
  */
 class CreateShipmentResponseCollection extends \ArrayIterator implements CreateShipmentResponseInterface
 {
-    const STATUS_CREATED = 0;
-    const STATUS_PARTIALLY_CREATED = 1;
-    const STATUS_NOT_CREATED = 2;
-
     /**
      * @var ResponseStatusInterface
      */

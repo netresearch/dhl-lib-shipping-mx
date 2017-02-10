@@ -44,34 +44,17 @@ interface PackageInterface
     public function getPackageId();
 
     /**
-     * Three-letter ISO Currency code
-     *
-     * @return string
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\WeightInterface
      */
-    public function getCurrency();
+    public function getWeight();
 
     /**
-     * @return float
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\DimensionsInterface
      */
-    public function getWeightInKG();
+    public function getDimensions();
 
     /**
-     * @return int
-     */
-    public function getLengthInCM();
-
-    /**
-     * @return int
-     */
-    public function getWidthInCM();
-
-    /**
-     * @return int
-     */
-    public function getHeightInCM();
-
-    /**
-     * @return float
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\MonetaryValueInterface
      */
     public function getDeclaredValue();
 }

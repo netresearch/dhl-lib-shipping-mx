@@ -23,10 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Versenden\Webservice\Response\Type\Generic;
+
+use \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ItemStatusInterface;
 
 /**
- * API config
+ * ItemStatus
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,29 +36,32 @@ namespace Dhl\Versenden\Api\Webservice;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ConfigInterface
+class ItemStatus extends ResponseStatus implements ItemStatusInterface
 {
     /**
-     * Obtain API endpoint.
-     *
-     * @param mixed $store
-     * @return string
+     * @var string
      */
-    public function getApiEndpoint($store = null);
+    private $identifier;
 
     /**
-     * Obtain auth credentials: username.
-     *
-     * @param mixed $store
-     * @return string
+     * ItemStatus constructor.
+     * @param string $identifier
+     * @param int $code
+     * @param string $text
+     * @param string $message
      */
-    public function getAuthUsername($store = null);
+    public function __construct($identifier, $code, $text, $message)
+    {
+        $this->identifier = $identifier;
+
+        parent::__construct($code, $text, $message);
+    }
 
     /**
-     * Obtain auth credentials: password.
-     *
-     * @param mixed $store
      * @return string
      */
-    public function getAuthPassword($store = null);
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
 }

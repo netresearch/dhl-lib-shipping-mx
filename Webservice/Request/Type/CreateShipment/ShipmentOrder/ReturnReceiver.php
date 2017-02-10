@@ -26,10 +26,10 @@
 namespace Dhl\Versenden\Webservice\Request\Type\CreateShipment\ShipmentOrder;
 
 use Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\AddressInterface;
-use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\ShipperInterface;
+use Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\ReturnReceiverInterface;
 
 /**
- * Platform independent shipment order shipper details
+ * Platform independent shipment order return receiver details
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,7 +37,7 @@ use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Shipper implements ShipperInterface
+class ReturnReceiver implements ReturnReceiverInterface
 {
     /**
      * @var string
@@ -70,7 +70,7 @@ class Shipper implements ShipperInterface
     private $address;
 
     /**
-     * Shipper constructor.
+     * ReturnReceiver constructor.
      * @param $contactPerson
      * @param string[] $name
      * @param string $companyName

@@ -23,10 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package;
 
 /**
- * API config
+ * Package dimensions information for creating a shipment order.
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,29 +34,25 @@ namespace Dhl\Versenden\Api\Webservice;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ConfigInterface
+interface DimensionsInterface
 {
     /**
-     * Obtain API endpoint.
-     *
-     * @param mixed $store
-     * @return string
+     * @return int
      */
-    public function getApiEndpoint($store = null);
+    public function getLength();
 
     /**
-     * Obtain auth credentials: username.
-     *
-     * @param mixed $store
-     * @return string
+     * @return int
      */
-    public function getAuthUsername($store = null);
+    public function getWidth();
 
     /**
-     * Obtain auth credentials: password.
-     *
-     * @param mixed $store
+     * @return int
+     */
+    public function getHeight();
+
+    /**
      * @return string
      */
-    public function getAuthPassword($store = null);
+    public function getUnitOfMeasurement();
 }

@@ -23,10 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic;
+namespace Dhl\Versenden\Webservice\Response\Type\Generic;
+
+use \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ResponseStatusInterface;
 
 /**
- * ResponseStatusInterface
+ * ResponseStatus
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,34 +36,73 @@ namespace Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ResponseStatusInterface
+class ResponseStatus implements ResponseStatusInterface
 {
-    const STATUS_CREATED = 0;
-    const STATUS_PARTIALLY_CREATED = 1;
-    const STATUS_NOT_CREATED = 2;
+    /**
+     * @var int
+     */
+    private $code;
+
+    /**
+     * @var string
+     */
+    private $text;
+
+    /**
+     * @var string
+     */
+    private $message;
+
+    /**
+     * ResponseStatus constructor.
+     * @param int $code
+     * @param string $text
+     * @param string $message
+     */
+    public function __construct($code, $text, $message)
+    {
+        $this->code = $code;
+        $this->text = $text;
+        $this->message = $message;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
 
     /**
      * @return string
      */
-    public function getCode();
+    public function getText()
+    {
+        return $this->text;
+    }
 
     /**
      * @return string
      */
-    public function getText();
-
-    /**
-     * @return string
-     */
-    public function getMessage();
+    public function getMessage()
+    {
+        return $this->message;
+    }
 
     /**
      * @return bool
      */
-    public function isSuccess();
+    public function isSuccess()
+    {
+        return ($this->code !== self::STATUS_NOT_CREATED);
+    }
 
     /**
      * @return bool
      */
-    public function isError();
+    public function isError()
+    {
+        return $this->isSuccess();
+    }
 }

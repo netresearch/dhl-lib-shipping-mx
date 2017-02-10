@@ -41,7 +41,7 @@ interface ExportPositionInterface
      *
      * @return int
      */
-    public function getAmount();
+    public function getQty();
 
     /**
      * @return string
@@ -56,16 +56,16 @@ interface ExportPositionInterface
     /**
      * Obtain the commercial value of the commodity (per each)
      *
-     * @return float
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\MonetaryValueInterface
      */
-    public function getItemValue();
+    public function getDeclaredValue();
 
     /**
      * Obtain the net weight of the commodity (per each).
      *
-     * @return float
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\WeightInterface
      */
-    public function getNetWeightInKG();
+    public function getWeight();
 
     /**
      * Obtain ISO-2-Alpha country code for the item's origin manufacturer country.
