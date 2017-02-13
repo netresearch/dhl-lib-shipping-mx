@@ -32,7 +32,6 @@ use \Dhl\Versenden\Api\Data\Webservice\Request as RequestData;
 use \Dhl\Versenden\Api\Data\Webservice\Response as ResponseData;
 use \Dhl\Versenden\Api\Webservice\Adapter\BcsAdapterInterface;
 use \Dhl\Versenden\Bcs as BcsApi;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
 
 /**
  * Business Customer Shipping API Adapter
@@ -43,7 +42,7 @@ use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class BcsAdapter implements BcsAdapterInterface
+class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 {
     const WEBSERVICE_VERSION_MAJOR = '2';
     const WEBSERVICE_VERSION_MINOR = '2';
@@ -81,45 +80,59 @@ class BcsAdapter implements BcsAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\CreateShipmentRequestInterface[] $shipmentRequests
-     * @return ResponseData\Type\CreateShipmentResponseInterface
+     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @return bool
      */
-    public function createShipmentOrder(array $shipmentRequests)
+    protected function canHandleShipmentOrder(RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
-        // TODO(nr): build SOAP types from generic CreateShipmentRequestInterface[]
+        $shipperCountries = ['DE', 'AT'];
+        return in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
+    }
+
+    /**
+     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @return ResponseData\Type\CreateShipment\LabelInterface[]
+     */
+    protected function createShipmentOrders(array $shipmentOrders)
+    {
         $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
 
         $shipmentOrders = [];
-        foreach ($shipmentRequests as $shipmentRequest) {
-            $shipmentOrders[]= $this->apiDataMapper->mapShipmentRequest($shipmentRequest);
+        foreach ($shipmentOrders as $shipmentRequest) {
+            $shipmentOrders[]= $this->apiDataMapper->mapShipmentOrder($shipmentRequest);
         }
 
-        $request = new BcsApi\CreateShipmentOrderRequest($version, $shipmentOrders);
+        $requestType = new BcsApi\CreateShipmentOrderRequest($version, $shipmentOrders);
+        $soapResponse = $this->soapClient->createShipmentOrder($requestType);
 
-        //TODO(nr): perform actual request
-        $soapResponse = new \stdClass($request);
-
-        /** @var CreateShipmentResponseCollection $response */
         $response = $this->responseParser->parseCreateShipmentResponse($soapResponse);
         return $response;
     }
 
+    /**
+     * @param RequestData\Type\GetVersionRequestInterface $versionRequest
+     * @return ResponseData\Type\GetVersionResponseInterface
+     */
     public function getVersion(RequestData\Type\GetVersionRequestInterface $versionRequest)
     {
-        $request = new BcsApi\Version(
+        $requestType = new BcsApi\Version(
             $versionRequest->getMajorRelease(),
             $versionRequest->getMinorRelease(),
             $versionRequest->getBuild()
         );
-
-        $soapResponse = $this->soapClient->getVersion($request);
+        $soapResponse = $this->soapClient->getVersion($requestType);
 
         $response = $this->responseParser->parseGetVersionResponse($soapResponse);
         return $response;
     }
 
-    public function deleteShipmentOrder(RequestData\Type\DeleteShipmentRequestInterface $request)
+    /**
+     * @param string[] $shipmentNumbers
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\DeleteShipmentResponseInterface
+     * @throws \Exception
+     */
+    public function cancelLabels(array $shipmentNumbers)
     {
-        // TODO: Implement deleteShipmentOrder() method.
+        throw new \Exception('Not yet implemented.');
     }
 }

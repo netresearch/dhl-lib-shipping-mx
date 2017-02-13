@@ -23,10 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Versenden\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact;
+
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdCardInterface;
 
 /**
- * API config
+ * Platform independent shipment order contact id details
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,29 +36,42 @@ namespace Dhl\Versenden\Api\Webservice;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ConfigInterface
+class IdCard implements IdCardInterface
 {
     /**
-     * Obtain API endpoint.
-     *
-     * @param mixed $store
-     * @return string
+     * @var string
      */
-    public function getApiEndpoint($store = null);
+    private $type;
 
     /**
-     * Obtain auth credentials: username.
-     *
-     * @param mixed $store
-     * @return string
+     * @var string
      */
-    public function getAuthUsername($store = null);
+    private $number;
 
     /**
-     * Obtain auth credentials: password.
-     *
-     * @param mixed $store
+     * IdCard constructor.
+     * @param string $type
+     * @param string $number
+     */
+    public function __construct($type, $number)
+    {
+        $this->type = $type;
+        $this->number = $number;
+    }
+
+    /**
      * @return string
      */
-    public function getAuthPassword($store = null);
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
 }

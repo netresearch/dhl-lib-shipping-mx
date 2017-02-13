@@ -34,7 +34,7 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\Shipment
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface IdInterface
+interface IdCardInterface
 {
     const ID_TYPE_NATIONAL = 'national';
     const ID_TYPE_MILITARY = 'military';

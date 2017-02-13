@@ -37,14 +37,8 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package;
 interface MonetaryValueInterface
 {
     /**
+     * @param string $currencyCode
      * @return float
      */
-    public function getValue();
-
-    /**
-     * Three-letter ISO Currency code
-     *
-     * @return string
-     */
-    public function getCurrencyCode();
+    public function getValue($currencyCode);
 }

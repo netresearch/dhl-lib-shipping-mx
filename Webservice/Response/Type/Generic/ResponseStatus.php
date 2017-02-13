@@ -95,7 +95,7 @@ class ResponseStatus implements ResponseStatusInterface
      */
     public function isSuccess()
     {
-        return ($this->code !== self::STATUS_NOT_CREATED);
+        return ($this->code !== self::STATUS_FAILURE);
     }
 
     /**

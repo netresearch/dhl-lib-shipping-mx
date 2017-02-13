@@ -26,7 +26,7 @@
 namespace Dhl\Versenden\Webservice\Request\Type\CreateShipment\ShipmentOrder;
 
 use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\AddressInterface;
-use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdCardInterface;
 use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\ReceiverInterface;
 
 /**
@@ -71,7 +71,7 @@ class Receiver implements ReceiverInterface
     private $address;
 
     /**
-     * @var IdInterface
+     * @var IdCardInterface
      */
     private $identity;
 
@@ -83,7 +83,7 @@ class Receiver implements ReceiverInterface
      * @param string $phone
      * @param string $email
      * @param AddressInterface $address
-     * @param IdInterface $identity
+     * @param IdCardInterface $identity
      */
     public function __construct(
         $contactPerson,
@@ -92,7 +92,7 @@ class Receiver implements ReceiverInterface
         $phone,
         $email,
         AddressInterface $address,
-        IdInterface $identity
+        IdCardInterface $identity
     ) {
         $this->contactPerson = $contactPerson;
         $this->name = $name;
@@ -152,7 +152,7 @@ class Receiver implements ReceiverInterface
     }
 
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdInterface
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdCardInterface
      */
     public function getId()
     {

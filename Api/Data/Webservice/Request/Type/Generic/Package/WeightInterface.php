@@ -37,13 +37,8 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package;
 interface WeightInterface
 {
     /**
+     * @param string $unitOfMeasurement
      * @return float
      */
-    public function getValue();
-
-    /**
-     * @return string
-     */
-    public function getUnitOfMeasurement();
-
+    public function getValue($unitOfMeasurement);
 }

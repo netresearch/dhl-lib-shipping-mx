@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
+namespace Dhl\Versenden\Webservice\Request\Type\CreateShipment\ShipmentOrder;
+
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\ServiceInterface;
 
 /**
- * DeleteShipmentRequestInterface
- *
- * @deprecated No use :)
+ * Platform independent shipment service package
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,15 +36,7 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface DeleteShipmentRequestInterface
+class Service implements ServiceInterface
 {
-    /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\VersionInterface
-     */
-    public function getVersion();
 
-    /**
-     * @return \string[]
-     */
-    public function getShipmentNumbers();
 }

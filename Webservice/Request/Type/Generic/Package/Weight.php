@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
+namespace Dhl\Versenden\Webservice\Request\Type\Generic\Package;
+
+use Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\WeightInterface;
 
 /**
- * DeleteShipmentRequestInterface
- *
- * @deprecated No use :)
+ * Platform independent package weight
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,15 +36,36 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface DeleteShipmentRequestInterface
+class Weight implements WeightInterface
 {
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\VersionInterface
+     * @var int
      */
-    public function getVersion();
+    private $value;
 
     /**
-     * @return \string[]
+     * @var string
      */
-    public function getShipmentNumbers();
+    private $unitOfMeasurement;
+
+    /**
+     * Weight constructor.
+     * @param int $value
+     * @param string $unitOfMeasurement
+     */
+    public function __construct($value, $unitOfMeasurement)
+    {
+        $this->value = $value;
+        $this->unitOfMeasurement = $unitOfMeasurement;
+    }
+
+    /**
+     * @param string $unitOfMeasurement
+     * @return float
+     */
+    public function getValue($unitOfMeasurement)
+    {
+        // TODO: convert to target unit.
+        return $this->value;
+    }
 }

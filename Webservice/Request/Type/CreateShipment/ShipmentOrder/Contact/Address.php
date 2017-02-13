@@ -46,6 +46,16 @@ class Address implements AddressInterface
     /**
      * @var string
      */
+    private $streetName;
+
+    /**
+     * @var string
+     */
+    private $streetNumber;
+
+    /**
+     * @var string
+     */
     private $postalCode;
 
     /**
@@ -86,6 +96,9 @@ class Address implements AddressInterface
         $dispatchingInformation
     ) {
         $this->street = $street;
+        //TODO(nr): split street
+        $this->streetName = $street;
+        $this->streetNumber = $street;
         $this->postalCode = $postalCode;
         $this->city = $city;
         $this->state = $state;
@@ -99,6 +112,26 @@ class Address implements AddressInterface
     public function getStreet()
     {
         return $this->street;
+    }
+
+    /**
+     * Street (name part)
+     * @see getStreet()
+     * @return string
+     */
+    public function getStreetName()
+    {
+        return $this->streetName;
+    }
+
+    /**
+     * Street (number part)
+     * @see getStreet()
+     * @return string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
     }
 
     /**
