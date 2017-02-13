@@ -30,9 +30,7 @@ use \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ResponseStatusInter
 use \Dhl\Versenden\Api\Webservice\Response\Parser\BcsResponseParserInterface;
 use \Dhl\Versenden\Bcs\CreationState;
 use \Dhl\Versenden\Webservice\Response\Type\CreateShipment\Label;
-use \Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
 use \Dhl\Versenden\Webservice\Response\Type\Generic\ItemStatus;
-use \Dhl\Versenden\Webservice\Response\Type\Generic\ResponseStatus;
 
 /**
  * Geschäftskunden API response parser
@@ -54,65 +52,57 @@ class BcsResponseParser implements BcsResponseParserInterface
     private function getStatusCode($bcsCode)
     {
         if ($bcsCode == '0') {
-            return ResponseStatusInterface::STATUS_CREATED;
+            return ResponseStatusInterface::STATUS_SUCCESS;
         }
 
-        return ResponseStatusInterface::STATUS_NOT_CREATED;
+        return ResponseStatusInterface::STATUS_FAILURE;
     }
 
     /**
-     * Convert BCS SOAP response to generic CreateShipmentResponse
+     * Convert BCS SOAP response to list of generic LabelInterface
      *
      * @param \Dhl\Versenden\Bcs\CreateShipmentOrderResponse $response
-     * @return Response\Type\CreateShipmentResponseInterface
+     * @return Response\Type\CreateShipment\LabelInterface[]
+     * @throws \Exception
      */
     public function parseCreateShipmentResponse($response)
     {
-        // init overall response status with failure
-        $responseStatusCode = Response\Type\Generic\ResponseStatusInterface::STATUS_NOT_CREATED;
         $labels = [];
+        $responseStatus = $this->getStatusCode($response->getStatus()->getStatusCode());
 
-        if ($this->getStatusCode($response->getStatus()->getStatusCode()) === ResponseStatusInterface::STATUS_CREATED) {
-            $labelStatusCode = 0;
-
-            /** @var CreationState $creationState */
-            foreach ($response->getCreationState() as $creationState) {
-                $labelStatus = new ItemStatus(
-                    $creationState->getSequenceNumber(),
-                    $this->getStatusCode($creationState->getLabelData()->getStatus()->getStatusCode()),
-                    $creationState->getLabelData()->getStatus()->getStatusText(),
-                    $creationState->getLabelData()->getStatus()->getStatusMessage()
-                );
-
-                $labelStatusCode += $labelStatus->getCode();
-
-                $label = new Label(
-                    $labelStatus,
-                    $creationState->getSequenceNumber(),
-                    $creationState->getLabelData()->getShipmentNumber(),
-                    $creationState->getLabelData()->getLabelData(),
-                    $creationState->getLabelData()->getReturnLabelData(),
-                    $creationState->getLabelData()->getExportLabelData(),
-                    $creationState->getLabelData()->getCodLabelData()
-                );
-
-                $labels[(string)$creationState->getSequenceNumber()] = $label;
-            }
-
-            // update response status with success
-            $responseStatusCode = ($labelStatusCode > 0)
-                ? Response\Type\Generic\ResponseStatusInterface::STATUS_PARTIALLY_CREATED
-                : Response\Type\Generic\ResponseStatusInterface::STATUS_CREATED;
+        if ($responseStatus !== ResponseStatusInterface::STATUS_SUCCESS) {
+            $eMsg = sprintf(
+                '%s | %s',
+                $response->getStatus()->getStatusText(),
+                $response->getStatus()->getStatusMessage()
+            );
+            //TODO(nr): throw dedicated exception type
+            throw new \Exception($eMsg, $response->getStatus()->getStatusCode());
         }
 
-        $responseStatus = new ResponseStatus(
-            $responseStatusCode,
-            $response->getStatus()->getStatusText(),
-            $response->getStatus()->getStatusMessage()
-        );
+        /** @var CreationState $creationState */
+        foreach ($response->getCreationState() as $creationState) {
+            $labelStatus = new ItemStatus(
+                $creationState->getSequenceNumber(),
+                $this->getStatusCode($creationState->getLabelData()->getStatus()->getStatusCode()),
+                $creationState->getLabelData()->getStatus()->getStatusText(),
+                $creationState->getLabelData()->getStatus()->getStatusMessage()
+            );
 
-        $labelCollection = new CreateShipmentResponseCollection($responseStatus, $labels);
-        return $labelCollection;
+            $label = new Label(
+                $labelStatus,
+                $creationState->getSequenceNumber(),
+                $creationState->getLabelData()->getShipmentNumber(),
+                $creationState->getLabelData()->getLabelData(),
+                $creationState->getLabelData()->getReturnLabelData(),
+                $creationState->getLabelData()->getExportLabelData(),
+                $creationState->getLabelData()->getCodLabelData()
+            );
+
+            $labels[(string)$creationState->getSequenceNumber()] = $label;
+        }
+
+        return $labels;
     }
 
     /**

@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
+namespace Dhl\Versenden\Webservice\Request\Type\CreateShipment\ShipmentOrder\CustomsDetails;
+
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\CustomsDetails\ExportTypeInterface;
 
 /**
- * DeleteShipmentRequestInterface
- *
- * @deprecated No use :)
+ * Platform independent shipment order customs details: export type
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,15 +36,42 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface DeleteShipmentRequestInterface
+class ExportType implements ExportTypeInterface
 {
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\VersionInterface
+     * @var string
      */
-    public function getVersion();
+    private $type;
 
     /**
-     * @return \string[]
+     * @var string
      */
-    public function getShipmentNumbers();
+    private $description;
+
+    /**
+     * ExportType constructor.
+     * @param string $type
+     * @param string $description
+     */
+    public function __construct($type, $description)
+    {
+        $this->type = $type;
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 }

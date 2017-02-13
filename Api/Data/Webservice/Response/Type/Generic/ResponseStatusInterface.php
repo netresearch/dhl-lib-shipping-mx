@@ -36,9 +36,9 @@ namespace Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic;
  */
 interface ResponseStatusInterface
 {
-    const STATUS_CREATED = 0;
-    const STATUS_PARTIALLY_CREATED = 1;
-    const STATUS_NOT_CREATED = 2;
+    const STATUS_SUCCESS = 0;
+    const STATUS_PARTIAL_SUCCESS = 1;
+    const STATUS_FAILURE = 2;
 
     /**
      * @return string

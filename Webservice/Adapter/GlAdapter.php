@@ -23,13 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Adapter;
+namespace Dhl\Versenden\Webservice\Adapter;
 
+use \Dhl\Versenden\Api\Webservice\Adapter\GlAdapterInterface;
 use \Dhl\Versenden\Api\Webservice\Request;
 use \Dhl\Versenden\Api\Webservice\Response;
 use \Dhl\Versenden\Api\Data\Webservice\Request as RequestData;
 use \Dhl\Versenden\Api\Data\Webservice\Response as ResponseData;
-use Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
 
 /**
  * Global Label API Adapter
@@ -40,7 +40,7 @@ use Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class GlAdapter implements GlAdapterInterface
+class GlAdapter extends AbstractAdapter implements GlAdapterInterface
 {
     /**
      * @var Response\Parser\GlResponseParserInterface
@@ -66,8 +66,18 @@ class GlAdapter implements GlAdapterInterface
     }
 
     /**
+     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @return bool
+     */
+    protected function canHandleShipmentOrder(RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+    {
+        $shipperCountries = ['DE', 'AT'];
+        return !in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
+    }
+
+    /**
      * @param RequestData\Type\GetTokenRequestInterface $request
-     * @return RequestData\Type\GetTokenResponseInterface
+     * @return ResponseData\Type\GetTokenResponseInterface
      */
     public function getAccessToken(RequestData\Type\GetTokenRequestInterface $request)
     {
@@ -79,33 +89,32 @@ class GlAdapter implements GlAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\CreateShipmentRequestInterface $request
-     * @return ResponseData\Type\CreateShipmentResponseInterface
+     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @return \Dhl\Versenden\Gla\Rest\GetLabel\Label
      */
-    private function createSingleShipmentOrder(RequestData\Type\CreateShipmentRequestInterface $request)
+    private function createShipmentOrder(RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         //TODO(nr): perform actual request
-        $restResponse = new \stdClass($request);
-        $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
-
-        return $response;
+        /** @var \Dhl\Versenden\Gla\Rest\GetLabel\Label $restResponse */
+        $restResponse = new \stdClass($shipmentOrder);
+        return $restResponse;
     }
 
     /**
-     * @param RequestData\Type\CreateShipmentRequestInterface[] $shipmentRequests
-     * @return ResponseData\Type\CreateShipmentResponseInterface
+     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @return ResponseData\Type\CreateShipment\LabelInterface[]
      */
-    public function createShipmentOrder(array $shipmentRequests)
+    public function createShipmentOrders(array $shipmentOrders)
     {
-        $responses = [];
-        foreach ($shipmentRequests as $request) {
-            $response = $this->createSingleShipmentOrder($request);
-            $responses['sequenceNumber'] = $response;
+        //TODO(nr): create response wrapper entity
+        /** @var \Dhl\Versenden\Gla\Rest\GetLabelResponse $restResponse */
+        $restResponse = new \ArrayIterator();
+        foreach ($shipmentOrders as $request) {
+            $labelResponse = $this->createShipmentOrder($request);
+            $restResponse['sequenceNumber'] = $labelResponse;
         }
 
-        //TODO(nr) infer overall request status from response(s)
-        $status = null;
-
-        return new ResponseData\Type\CreateShipmentResponseCollection(null, $responses);
+        $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
+        return $response;
     }
 }

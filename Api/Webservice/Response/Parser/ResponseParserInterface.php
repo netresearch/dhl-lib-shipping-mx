@@ -40,7 +40,7 @@ interface ResponseParserInterface
 {
     /**
      * @param object $response
-     * @return Response\Type\CreateShipmentResponseInterface
+     * @return Response\Type\CreateShipment\LabelInterface[]
      */
     public function parseCreateShipmentResponse($response);
 }

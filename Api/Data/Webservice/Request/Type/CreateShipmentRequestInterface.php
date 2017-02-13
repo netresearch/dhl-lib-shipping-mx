@@ -28,6 +28,8 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
 /**
  * CreateShipmentRequestInterface
  *
+ * @deprecated No use :)
+ *
  * @category Dhl
  * @package  Dhl\Versenden\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>

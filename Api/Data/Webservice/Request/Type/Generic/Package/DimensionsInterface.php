@@ -37,22 +37,20 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package;
 interface DimensionsInterface
 {
     /**
+     * @param string $unitOfMeasurement
      * @return int
      */
-    public function getLength();
+    public function getLength($unitOfMeasurement);
 
     /**
+     * @param string $unitOfMeasurement
      * @return int
      */
-    public function getWidth();
+    public function getWidth($unitOfMeasurement);
 
     /**
+     * @param string $unitOfMeasurement
      * @return int
      */
-    public function getHeight();
-
-    /**
-     * @return string
-     */
-    public function getUnitOfMeasurement();
+    public function getHeight($unitOfMeasurement);
 }

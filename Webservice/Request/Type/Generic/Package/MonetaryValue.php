@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
+namespace Dhl\Versenden\Webservice\Request\Type\Generic\Package;
+
+use Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\MonetaryValueInterface;
 
 /**
- * DeleteShipmentRequestInterface
- *
- * @deprecated No use :)
+ * Platform independent package value
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,15 +36,36 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface DeleteShipmentRequestInterface
+class MonetaryValue implements MonetaryValueInterface
 {
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\VersionInterface
+     * @var int
      */
-    public function getVersion();
+    private $value;
 
     /**
-     * @return \string[]
+     * @var string
      */
-    public function getShipmentNumbers();
+    private $currencyCode;
+
+    /**
+     * MonetaryValue constructor.
+     * @param int $value
+     * @param string $currencyCode
+     */
+    public function __construct($value, $currencyCode)
+    {
+        $this->value = $value;
+        $this->currencyCode = $currencyCode;
+    }
+
+    /**
+     * @param string $currencyCode Three-letter ISO Currency code
+     * @return float
+     */
+    public function getValue($currencyCode)
+    {
+        // TODO: convert to target currency.
+        return $this->value;
+    }
 }

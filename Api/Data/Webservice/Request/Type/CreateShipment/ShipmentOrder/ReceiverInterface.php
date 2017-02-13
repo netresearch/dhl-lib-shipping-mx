@@ -37,7 +37,7 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\Shipment
 interface ReceiverInterface extends ContactInterface
 {
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdInterface
+     * @return \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\IdCardInterface
      */
     public function getId();
 }

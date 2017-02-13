@@ -46,8 +46,8 @@ interface BcsAdapterInterface extends AdapterInterface
     public function getVersion(GetVersionRequestInterface $request);
 
     /**
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface $request
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\DeleteShipmentResponseInterface
+     * @param string[] $shipmentNumbers
+     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ItemStatusInterface
      */
-    public function deleteShipmentOrder(DeleteShipmentRequestInterface $request);
+    public function cancelLabels(array $shipmentNumbers);
 }

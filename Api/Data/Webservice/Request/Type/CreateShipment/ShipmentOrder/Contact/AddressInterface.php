@@ -37,9 +37,24 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\Shipment
 interface AddressInterface
 {
     /**
+     * Full street
      * @return string
      */
     public function getStreet();
+
+    /**
+     * Street (name part)
+     * @see getStreet()
+     * @return string
+     */
+    public function getStreetName();
+
+    /**
+     * Street (number part)
+     * @see getStreet()
+     * @return string
+     */
+    public function getStreetNumber();
 
     /**
      * @return string
