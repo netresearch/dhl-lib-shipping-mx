@@ -14,35 +14,46 @@
  * Do not edit or add to this file if you wish to upgrade this extension to
  * newer versions in the future.
  *
- * PHP version 7
+ * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
- * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @package   Dhl\Versenden\Api\Data
+ * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Service;
+namespace Dhl\Versenden\Api\Data;
 
 /**
- * Bulky Goods Service
+ * InfoInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Service
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @package  Dhl\Versenden\Api\Data
+ * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class BulkyGoods extends AbstractService implements ServiceInterface
+interface BcsProductProviderInterface
 {
-    const CODE = 'bulkyGoods';
-
     /**
+     * Get the product name for shipment request
+     *
      * @return string
      */
-    public function getCode()
-    {
-        return self::CODE;
-    }
+    public function getProductName();
+
+    /**
+     * Get the account number for shipment request
+     *
+     * @return string
+     */
+    public function getAccountNumber();
+
+    /**
+     * Get the return account number for shipment request
+     *
+     * @return string
+     */
+    public function getReturnShipmentAccountNumber();
 }

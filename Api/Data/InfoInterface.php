@@ -17,22 +17,22 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Api\Data
+ * @package   Dhl\Versenden\Api\Data
  * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api\Data;
+namespace Dhl\Versenden\Api\Data;
 
-use Dhl\Versenden\Bcs\Api\Info\Receiver;
-use Dhl\Versenden\Bcs\Api\Info\Services;
+use Dhl\Versenden\Api\Info\Receiver;
+use Dhl\Versenden\Api\Info\Services;
 
 /**
  * InfoInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Api\Data
+ * @package  Dhl\Versenden\Api\Data
  * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

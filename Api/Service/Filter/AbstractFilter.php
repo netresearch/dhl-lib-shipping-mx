@@ -17,21 +17,21 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Api
+ * @package   Dhl\Versenden\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api\Service\Filter;
+namespace Dhl\Versenden\Api\Service\Filter;
 
-use \Dhl\Versenden\Bcs\Api\Service\ServiceInterface;
+use \Dhl\Versenden\Api\Service\ServiceInterface;
 
 /**
  * Abstract filter
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Api\Service
+ * @package  Dhl\Versenden\Api\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

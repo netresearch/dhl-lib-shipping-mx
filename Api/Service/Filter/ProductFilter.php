@@ -17,33 +17,33 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Api
+ * @package   Dhl\Versenden\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api\Service\Filter;
+namespace Dhl\Versenden\Api\Service\Filter;
 
-use \Dhl\Versenden\Bcs\Api\Service\BulkyGoods;
-use \Dhl\Versenden\Bcs\Api\Service\Cod;
-use \Dhl\Versenden\Bcs\Api\Service\Insurance;
-use \Dhl\Versenden\Bcs\Api\Service\ParcelAnnouncement;
-use \Dhl\Versenden\Bcs\Api\Service\PreferredDay;
-use \Dhl\Versenden\Bcs\Api\Service\PreferredLocation;
-use \Dhl\Versenden\Bcs\Api\Service\PreferredNeighbour;
-use \Dhl\Versenden\Bcs\Api\Service\PreferredTime;
-use \Dhl\Versenden\Bcs\Api\Service\PrintOnlyIfCodeable;
-use \Dhl\Versenden\Bcs\Api\Service\ReturnShipment;
-use \Dhl\Versenden\Bcs\Api\Service\ServiceInterface;
-use \Dhl\Versenden\Bcs\Api\Product as ApiProduct;
-use \Dhl\Versenden\Bcs\Api\Service\VisualCheckOfAge;
+use \Dhl\Versenden\Api\Service\BulkyGoods;
+use \Dhl\Versenden\Api\Service\Cod;
+use \Dhl\Versenden\Api\Service\Insurance;
+use \Dhl\Versenden\Api\Service\ParcelAnnouncement;
+use \Dhl\Versenden\Api\Service\PreferredDay;
+use \Dhl\Versenden\Api\Service\PreferredLocation;
+use \Dhl\Versenden\Api\Service\PreferredNeighbour;
+use \Dhl\Versenden\Api\Service\PreferredTime;
+use \Dhl\Versenden\Api\Service\PrintOnlyIfCodeable;
+use \Dhl\Versenden\Api\Service\ReturnShipment;
+use \Dhl\Versenden\Api\Service\ServiceInterface;
+use \Dhl\Versenden\Api\Product as ApiProduct;
+use \Dhl\Versenden\Api\Service\VisualCheckOfAge;
 
 /**
  * Product filter
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Api\Service
+ * @package  Dhl\Versenden\Api\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
