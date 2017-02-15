@@ -17,23 +17,23 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Api\Info
+ * @package   Dhl\Versenden\Api\Info
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api\Info;
+namespace Dhl\Versenden\Api\Info;
 
-use \Dhl\Versenden\Bcs\Api\Info\Receiver\ParcelShopFactory;
-use \Dhl\Versenden\Bcs\Api\Info\Receiver\PackstationFactory;
-use \Dhl\Versenden\Bcs\Api\Info\Receiver\PostfilialeFactory;
+use \Dhl\Versenden\Api\Info\Receiver\ParcelShopFactory;
+use \Dhl\Versenden\Api\Info\Receiver\PackstationFactory;
+use \Dhl\Versenden\Api\Info\Receiver\PostfilialeFactory;
 
 /**
  * Receiver
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Api\Info
+ * @package  Dhl\Versenden\Api\Info
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -144,7 +144,7 @@ class Receiver extends ArrayableInfo
     public static function fromObject(\stdClass $object)
     {
         /** @var Receiver $instance */
-        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Receiver');
+        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info\Receiver');
         $properties = get_object_vars($object);
         $instance->fromArray($properties);
 

@@ -17,23 +17,23 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Api\Info
+ * @package   Dhl\Versenden\Api\Info
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api;
+namespace Dhl\Versenden\Api;
 
-use Dhl\Versenden\Bcs\Api\Data\InfoInterface;
-use Dhl\Versenden\Bcs\Api\Info\ReceiverFactory;
-use Dhl\Versenden\Bcs\Api\Info\ServicesFactory;
+use Dhl\Versenden\Api\Data\InfoInterface;
+use Dhl\Versenden\Api\Info\ReceiverFactory;
+use Dhl\Versenden\Api\Info\ServicesFactory;
 
 /**
  * Info
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Api\Info
+ * @package  Dhl\Versenden\Api\Info
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -93,7 +93,7 @@ class Info extends Info\AbstractInfo implements InfoInterface
             return null;
         }
 
-        $info = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info');
+        $info = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info');
         if (isset($object->receiver)) {
             $info->receiver = Info\Receiver::fromObject($object->receiver);
         }

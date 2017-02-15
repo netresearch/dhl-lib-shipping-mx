@@ -23,26 +23,58 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Service;
+
+namespace Dhl\Versenden\Api;
+
+use Dhl\Versenden\Api\Config\BcsConfigInterface;
+use Dhl\Versenden\Api\Data\BcsProductProviderInterface;
 
 /**
- * Bulky Goods Service
+ * Product
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Service
+ * @package  Dhl\Versenden\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class BulkyGoods extends AbstractService implements ServiceInterface
+class BcsProductProvider implements BcsProductProviderInterface
 {
-    const CODE = 'bulkyGoods';
+    /** @var BcsConfigInterface */
+    public $bcsConfig;
 
     /**
-     * @return string
+     * ProductProvider constructor.
+     *
+     * @param BcsConfigInterface $bcsConfig
      */
-    public function getCode()
+    public function __construct(BcsConfigInterface $bcsConfig)
     {
-        return self::CODE;
+        $this->bcsConfig = $bcsConfig;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getProductName()
+    {
+        // TODO: Implement getProductName() method.
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAccountNumber()
+    {
+        // TODO: Implement getAccountNumber() method.
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getReturnShipmentAccountNumber()
+    {
+        // TODO: Implement getReturnShipmentAccountNumber() method.
+    }
+
 }

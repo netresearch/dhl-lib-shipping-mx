@@ -23,13 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api\Service;
+namespace Dhl\Versenden\Api\Service;
 
-use Dhl\Versenden\Bcs\Api\Product;
-use Dhl\Versenden\Bcs\Api\Service\Filter\CustomerSelectionFilter;
-use Dhl\Versenden\Bcs\Api\Service\Filter\MerchantSelectionFilter;
-use Dhl\Versenden\Bcs\Api\Service\Filter\PostalFacilityFilter;
-use Dhl\Versenden\Bcs\Api\Service\Filter\ProductFilter;
+use Dhl\Versenden\Api\BcsProductProvider;
+use Dhl\Versenden\Api\Service\Filter\CustomerSelectionFilter;
+use Dhl\Versenden\Api\Service\Filter\MerchantSelectionFilter;
+use Dhl\Versenden\Api\Service\Filter\PostalFacilityFilter;
+use Dhl\Versenden\Api\Service\Filter\ProductFilter;
 
 /**
  * ServiceCollectionTest
@@ -80,7 +80,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $codService = new Cod(true, false, false);
         $collection = new ServiceCollection([Cod::CODE => $codService]);
 
-        $productFilter = ProductFilter::create(['code' => Product::CODE_PAKET_NATIONAL]);
+        $productFilter = ProductFilter::create(['code' => BcsProductProvider::CODE_PAKET_NATIONAL]);
         $result = $collection->filter($productFilter);
 
         // array copy access
@@ -104,7 +104,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $collection = new ServiceCollection([Cod::CODE => $codService]);
 
         // valid code, not applicable to service
-        $productFilter = ProductFilter::create(['code' => Product::CODE_WELTPAKET]);
+        $productFilter = ProductFilter::create(['code' => BcsProductProvider::CODE_WELTPAKET]);
         $result = $collection->filter($productFilter);
 
         $services = $result->getArrayCopy();

@@ -17,19 +17,19 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Api\Info
+ * @package   Dhl\Versenden\Api\Info
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs\Api\Info;
+namespace Dhl\Versenden\Api\Info;
 
 /**
  * Services
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Api\Info
+ * @package  Dhl\Versenden\Api\Info
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -77,7 +77,7 @@ class Services extends ArrayableInfo
     public static function fromObject(\stdClass $object)
     {
         /** @var Services $instance */
-        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Bcs\Api\Info\Services');
+        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info\Services');
         $properties = get_object_vars($object);
         $instance->fromArray($properties);
 
