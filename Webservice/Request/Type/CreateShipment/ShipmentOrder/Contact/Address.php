@@ -157,7 +157,7 @@ class Address implements AddressInterface
      */
     public function getAddressAddition()
     {
-        return $this->streetNumber;
+        return $this->addressAddition;
     }
 
     /**
