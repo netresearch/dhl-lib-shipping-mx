@@ -103,6 +103,6 @@ class ResponseStatus implements ResponseStatusInterface
      */
     public function isError()
     {
-        return $this->isSuccess();
+        return !$this->isSuccess();
     }
 }
