@@ -95,7 +95,7 @@ class Package implements PackageInterface
      */
     public function getWeight()
     {
-        $this->weight;
+        return $this->weight;
     }
 
     /**
