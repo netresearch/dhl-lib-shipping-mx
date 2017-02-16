@@ -97,7 +97,6 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
     {
         $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
 
-        $shipmentOrders = [];
         foreach ($shipmentOrders as $shipmentRequest) {
             $shipmentOrders[]= $this->apiDataMapper->mapShipmentOrder($shipmentRequest);
         }

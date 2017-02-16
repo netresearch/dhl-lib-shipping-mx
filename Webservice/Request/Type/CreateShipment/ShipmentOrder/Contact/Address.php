@@ -23,6 +23,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Versenden\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact;
 
 use \Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\ShipmentOrder\Contact\AddressInterface;
@@ -56,6 +57,11 @@ class Address implements AddressInterface
     /**
      * @var string
      */
+    private $addressAddition;
+
+    /**
+     * @var string
+     */
     private $postalCode;
 
     /**
@@ -80,7 +86,11 @@ class Address implements AddressInterface
 
     /**
      * Address constructor.
+     *
      * @param string $street
+     * @param string $streetName
+     * @param string $streetNumber
+     * @param string $addressAddition
      * @param string $postalCode
      * @param string $city
      * @param string $state
@@ -89,20 +99,23 @@ class Address implements AddressInterface
      */
     public function __construct(
         $street,
+        $streetName,
+        $streetNumber,
+        $addressAddition,
         $postalCode,
         $city,
         $state,
         $countryCode,
         $dispatchingInformation
     ) {
-        $this->street = $street;
-        //TODO(nr): split street
-        $this->streetName = $street;
-        $this->streetNumber = $street;
-        $this->postalCode = $postalCode;
-        $this->city = $city;
-        $this->state = $state;
-        $this->countryCode = $countryCode;
+        $this->street                 = $street;
+        $this->streetName             = $streetName;
+        $this->streetNumber           = $streetNumber;
+        $this->addressAddition        = $addressAddition;
+        $this->postalCode             = $postalCode;
+        $this->city                   = $city;
+        $this->state                  = $state;
+        $this->countryCode            = $countryCode;
         $this->dispatchingInformation = $dispatchingInformation;
     }
 
@@ -116,6 +129,7 @@ class Address implements AddressInterface
 
     /**
      * Street (name part)
+     *
      * @see getStreet()
      * @return string
      */
@@ -126,10 +140,22 @@ class Address implements AddressInterface
 
     /**
      * Street (number part)
+     *
      * @see getStreet()
      * @return string
      */
     public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * Street (additional information)
+     *
+     * @see getStreet()
+     * @return string
+     */
+    public function getAddressAddition()
     {
         return $this->streetNumber;
     }

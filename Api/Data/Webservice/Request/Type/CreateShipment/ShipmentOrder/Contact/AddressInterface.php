@@ -57,6 +57,13 @@ interface AddressInterface
     public function getStreetNumber();
 
     /**
+     * Street (additional information)
+     * @see getStreet()
+     * @return string
+     */
+    public function getAddressAddition();
+
+    /**
      * @return string
      */
     public function getPostalCode();
