@@ -29,6 +29,7 @@ use \Dhl\Versenden\Api\Data\Webservice\Response;
 use \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ResponseStatusInterface;
 use \Dhl\Versenden\Api\Webservice\Response\Parser\BcsResponseParserInterface;
 use \Dhl\Versenden\Bcs\CreationState;
+use Dhl\Versenden\Webservice\Response\CreateShipmentStatusException;
 use \Dhl\Versenden\Webservice\Response\Type\CreateShipment\Label;
 use \Dhl\Versenden\Webservice\Response\Type\Generic\ItemStatus;
 
@@ -71,13 +72,8 @@ class BcsResponseParser implements BcsResponseParserInterface
         $responseStatus = $this->getStatusCode($response->getStatus()->getStatusCode());
 
         if ($responseStatus !== ResponseStatusInterface::STATUS_SUCCESS) {
-            $eMsg = sprintf(
-                '%s | %s',
-                $response->getStatus()->getStatusText(),
-                implode(', ',$response->getStatus()->getStatusMessage())
-            );
-            //TODO(nr): throw dedicated exception type
-            throw new \Exception($eMsg, $response->getStatus()->getStatusCode());
+            //TODO(nr): check API behaviour with partially created items
+            throw new CreateShipmentStatusException($response);
         }
 
         /** @var CreationState $creationState */

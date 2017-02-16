@@ -42,12 +42,12 @@ use Dhl\Versenden\Webservice\Response\Type\DeleteShipmentResponseCollection;
 interface AdapterChainInterface
 {
     const MSG_STATUS_CREATED = 'Shipping labels were created successfully.';
-    const MSG_STATUS_PARTIALLY_CREATED = 'Some shipping labels could not be created: %s.';
-    const MSG_STATUS_NOT_CREATED = 'Shipping labels could not be created: %s.';
+    const MSG_STATUS_PARTIALLY_CREATED = 'Some shipping labels could not be created: %s';
+    const MSG_STATUS_NOT_CREATED = 'Shipping labels could not be created: %s';
 
     const MSG_STATUS_DELETED = 'Sihpping labels were cancelled successfully.';
-    const MSG_STATUS_PARTIALLY_DELETED = 'Some shipping labels could not be cancelled: %s.';
-    const MSG_STATUS_NOT_DELETED = 'Shipping labels could not be cancelled: %s.';
+    const MSG_STATUS_PARTIALLY_DELETED = 'Some shipping labels could not be cancelled: %s';
+    const MSG_STATUS_NOT_DELETED = 'Shipping labels could not be cancelled: %s';
 
     /**
      * @param Request\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders

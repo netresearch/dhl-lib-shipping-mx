@@ -23,13 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\Request\Type\Generic\Package;
-
-use \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\MonetaryValueInterface;
-use \Dhl\Versenden\Api\Webservice\UnitConverterInterface;
+namespace Dhl\Versenden\Api\Webservice;
 
 /**
- * Platform independent package value
+ * Unit Converter
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,39 +34,31 @@ use \Dhl\Versenden\Api\Webservice\UnitConverterInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class MonetaryValue extends AbstractConvertibleValue implements MonetaryValueInterface
+interface UnitConverterInterface
 {
-    /**
-     * @var int
-     */
-    private $value;
+    const CONVERSION_PRECISION = 3;
 
     /**
-     * @var string
-     */
-    private $currencyCode;
-
-    /**
-     * MonetaryValue constructor.
-     * @param UnitConverterInterface $unitConverter
-     * @param int $value
-     * @param string $currencyCode
-     */
-    public function __construct(UnitConverterInterface $unitConverter, $value, $currencyCode)
-    {
-        $this->value = $value;
-        $this->currencyCode = $currencyCode;
-
-        parent::__construct($unitConverter);
-    }
-
-    /**
-     * @param string $currencyCode Three-letter ISO Currency code
+     * @param float $value
+     * @param string $unitIn
+     * @param string $unitOut
      * @return float
      */
-    public function getValue($currencyCode)
-    {
-        $value = $this->unitConverter->convertMonetaryValue($this->value, $this->currencyCode, $currencyCode);
-        return $value;
-    }
+    public function convertDimension($value, $unitIn, $unitOut);
+
+    /**
+     * @param float $value
+     * @param string $unitIn
+     * @param string $unitOut
+     * @return float
+     */
+    public function convertMonetaryValue($value, $unitIn, $unitOut);
+
+    /**
+     * @param float $value
+     * @param string $unitIn
+     * @param string $unitOut
+     * @return float
+     */
+    public function convertWeight($value, $unitIn, $unitOut);
 }
