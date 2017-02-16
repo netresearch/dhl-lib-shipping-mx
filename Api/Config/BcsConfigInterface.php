@@ -117,10 +117,12 @@ interface BcsConfigInterface
     /**
      * Obtain DHL Business Customer Shipping contract data: participation numbers.
      *
-     * @param mixed $store
-     * @return string[]
+     * @param string $procedure
+     * @param mixed  $store
+     *
+     * @return string
      */
-    public function getAccountParticipation($store = null);
+    public function getAccountParticipation($procedure, $store = null);
 
     /**
      * @param mixed $store
