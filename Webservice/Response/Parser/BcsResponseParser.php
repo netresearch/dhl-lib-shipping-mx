@@ -74,7 +74,7 @@ class BcsResponseParser implements BcsResponseParserInterface
             $eMsg = sprintf(
                 '%s | %s',
                 $response->getStatus()->getStatusText(),
-                $response->getStatus()->getStatusMessage()
+                implode(', ',$response->getStatus()->getStatusMessage())
             );
             //TODO(nr): throw dedicated exception type
             throw new \Exception($eMsg, $response->getStatus()->getStatusCode());

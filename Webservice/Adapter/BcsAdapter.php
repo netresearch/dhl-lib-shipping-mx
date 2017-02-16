@@ -97,9 +97,12 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
     {
         $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
 
-        foreach ($shipmentOrders as $shipmentRequest) {
-            $shipmentOrders[]= $this->apiDataMapper->mapShipmentOrder($shipmentRequest);
-        }
+        $shipmentOrders = array_map(
+            function($shipmentOrder) {
+                return $this->apiDataMapper->mapShipmentOrder($shipmentOrder);
+            },
+            $shipmentOrders
+        );
 
         $requestType = new BcsApi\CreateShipmentOrderRequest($version, $shipmentOrders);
         $soapResponse = $this->soapClient->createShipmentOrder($requestType);
