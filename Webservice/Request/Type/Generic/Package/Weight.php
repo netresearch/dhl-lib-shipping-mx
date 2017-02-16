@@ -25,7 +25,8 @@
  */
 namespace Dhl\Versenden\Webservice\Request\Type\Generic\Package;
 
-use Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\WeightInterface;
+use \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\WeightInterface;
+use \Dhl\Versenden\Api\Webservice\UnitConverterInterface;
 
 /**
  * Platform independent package weight
@@ -36,7 +37,7 @@ use Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\WeightInterfa
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Weight implements WeightInterface
+class Weight extends AbstractConvertibleValue implements WeightInterface
 {
     /**
      * @var int
@@ -50,13 +51,16 @@ class Weight implements WeightInterface
 
     /**
      * Weight constructor.
+     * @param UnitConverterInterface $unitConverter
      * @param int $value
      * @param string $unitOfMeasurement
      */
-    public function __construct($value, $unitOfMeasurement)
+    public function __construct(UnitConverterInterface $unitConverter, $value, $unitOfMeasurement)
     {
         $this->value = $value;
         $this->unitOfMeasurement = $unitOfMeasurement;
+
+        parent::__construct($unitConverter);
     }
 
     /**
@@ -65,7 +69,7 @@ class Weight implements WeightInterface
      */
     public function getValue($unitOfMeasurement)
     {
-        // TODO: convert to target unit.
-        return $this->value;
+        $value = $this->unitConverter->convertWeight($this->value, $this->unitOfMeasurement, $unitOfMeasurement);
+        return $value;
     }
 }

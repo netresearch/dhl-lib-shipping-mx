@@ -26,6 +26,7 @@
 namespace Dhl\Versenden\Webservice\Request\Type\Generic\Package;
 
 use \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\DimensionsInterface;
+use \Dhl\Versenden\Api\Webservice\UnitConverterInterface;
 
 /**
  * Platform independent package dimensions
@@ -36,7 +37,7 @@ use \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\DimensionsIn
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Dimensions implements DimensionsInterface
+class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
 {
     /**
      * @var int
@@ -60,17 +61,20 @@ class Dimensions implements DimensionsInterface
 
     /**
      * Dimensions constructor.
+     * @param UnitConverterInterface $unitConverter
      * @param int $length
      * @param int $width
      * @param int $height
      * @param string $unitOfMeasurement
      */
-    public function __construct($length, $width, $height, $unitOfMeasurement)
+    public function __construct(UnitConverterInterface $unitConverter, $length, $width, $height, $unitOfMeasurement)
     {
         $this->length = $length;
         $this->width = $width;
         $this->height = $height;
         $this->unitOfMeasurement = $unitOfMeasurement;
+
+        parent::__construct($unitConverter);
     }
 
     /**
@@ -79,8 +83,8 @@ class Dimensions implements DimensionsInterface
      */
     public function getLength($unitOfMeasurement)
     {
-        // TODO: convert to target unit.
-        return $this->length;
+        $value = $this->unitConverter->convertDimension($this->length, $this->unitOfMeasurement, $unitOfMeasurement);
+        return $value;
     }
 
     /**
@@ -89,8 +93,8 @@ class Dimensions implements DimensionsInterface
      */
     public function getWidth($unitOfMeasurement)
     {
-        // TODO: convert to target unit.
-        return $this->width;
+        $value = $this->unitConverter->convertDimension($this->width, $this->unitOfMeasurement, $unitOfMeasurement);
+        return $value;
     }
 
     /**
@@ -99,7 +103,7 @@ class Dimensions implements DimensionsInterface
      */
     public function getHeight($unitOfMeasurement)
     {
-        // TODO: convert to target unit.
-        return $this->height;
+        $value = $this->unitConverter->convertDimension($this->height, $this->unitOfMeasurement, $unitOfMeasurement);
+        return $value;
     }
 }

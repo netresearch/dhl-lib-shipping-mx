@@ -25,11 +25,10 @@
  */
 namespace Dhl\Versenden\Webservice\Request\Type\Generic\Package;
 
-use \Dhl\Versenden\Api\Data\Webservice\Request\Type\Generic\Package\MonetaryValueInterface;
 use \Dhl\Versenden\Api\Webservice\UnitConverterInterface;
 
 /**
- * Platform independent package value
+ * Platform independent convertible value
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -37,39 +36,19 @@ use \Dhl\Versenden\Api\Webservice\UnitConverterInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class MonetaryValue extends AbstractConvertibleValue implements MonetaryValueInterface
+abstract class AbstractConvertibleValue
 {
     /**
-     * @var int
+     * @var UnitConverterInterface
      */
-    private $value;
+    protected $unitConverter;
 
     /**
-     * @var string
-     */
-    private $currencyCode;
-
-    /**
-     * MonetaryValue constructor.
+     * AbstractConvertibleValue constructor.
      * @param UnitConverterInterface $unitConverter
-     * @param int $value
-     * @param string $currencyCode
      */
-    public function __construct(UnitConverterInterface $unitConverter, $value, $currencyCode)
+    public function __construct(UnitConverterInterface $unitConverter)
     {
-        $this->value = $value;
-        $this->currencyCode = $currencyCode;
-
-        parent::__construct($unitConverter);
-    }
-
-    /**
-     * @param string $currencyCode Three-letter ISO Currency code
-     * @return float
-     */
-    public function getValue($currencyCode)
-    {
-        $value = $this->unitConverter->convertMonetaryValue($this->value, $this->currencyCode, $currencyCode);
-        return $value;
+        $this->unitConverter = $unitConverter;
     }
 }
