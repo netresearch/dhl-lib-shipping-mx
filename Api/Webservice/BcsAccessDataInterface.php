@@ -24,10 +24,13 @@
  * @link      http://www.netresearch.de/
  */
 
-namespace Dhl\Versenden\Api\Data;
+namespace Dhl\Versenden\Api\Webservice;
 
 /**
- * InfoInterface
+ * BcsAccessDataInterface
+ * Calculate access data for setting up a BCS webservice connection.
+ * - product
+ * - billing number
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api\Data
@@ -35,7 +38,7 @@ namespace Dhl\Versenden\Api\Data;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface BcsProductProviderInterface
+interface BcsAccessDataInterface
 {
     const CODE_PAKET_NATIONAL      = 'V01PAK';
     const CODE_WELTPAKET           = 'V53WPAK';
@@ -59,31 +62,31 @@ interface BcsProductProviderInterface
     const PROCEDURE_RETURNSHIPMENT_CONNECT  = '85';
 
     /**
-     * Get the product name for shipment request
+     * Get the GK API product code.
      *
      * @param string $shipperCountry
      * @param string $recipientCountry
-     * @param array  $euCountries
+     * @param string[] $euCountries
      *
      * @return string
      */
-    public function getProductName($shipperCountry, $recipientCountry, $euCountries);
+    public function getProductCode($shipperCountry, $recipientCountry, $euCountries);
 
     /**
-     * Get the account number for shipment request
+     * Get the billing number a.k.a. account number based on selected product.
      *
-     * @param string $product
+     * @param string $productCode
      *
      * @return string
      */
-    public function getAccountNumber($product);
+    public function getBillingNumber($productCode);
 
     /**
-     * Get the return account number for shipment request
+     * Get the billing number a.k.a. account number for shipment returns.
      *
-     * @param string $product
+     * @param string $productCode
      *
      * @return string
      */
-    public function getReturnShipmentAccountNumber($product);
+    public function getReturnShipmentBillingNumber($productCode);
 }
