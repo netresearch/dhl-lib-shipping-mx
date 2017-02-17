@@ -26,7 +26,7 @@
 namespace Dhl\Versenden\Api\Webservice\Client;
 
 /**
- * Business Customer Shipping API SOAP client adapter
+ * Shipping API HTTP client adapter
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -34,30 +34,25 @@ namespace Dhl\Versenden\Api\Webservice\Client;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface BcsSoapClientInterface extends HttpClientInterface
+interface HttpClientInterface
 {
     /**
-     * Returns the actual version of the implementation of the whole ISService
-     *         webservice.
-     *
-     * @param \Dhl\Versenden\Bcs\Version $part1
-     * @return \Dhl\Versenden\Bcs\GetVersionResponse
+     * @return string
      */
-    public function getVersion(\Dhl\Versenden\Bcs\Version $part1);
+    public function getLastRequestHeaders();
 
     /**
-     * Creates shipments.
-     *
-     * @param \Dhl\Versenden\Bcs\CreateShipmentOrderRequest $part1
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
+     * @return string
      */
-    public function createShipmentOrder(\Dhl\Versenden\Bcs\CreateShipmentOrderRequest $part1);
+    public function getLastRequest();
 
     /**
-     * Deletes the requested shipments.
-     *
-     * @param \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest $part1
-     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse
+     * @return string
      */
-    public function deleteShipmentOrder(\Dhl\Versenden\Bcs\DeleteShipmentOrderRequest $part1);
+    public function getLastResponse();
+
+    /**
+     * @return string
+     */
+    public function getLastResponseHeaders();
 }
