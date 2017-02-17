@@ -24,13 +24,13 @@
  * @link      http://www.netresearch.de/
  */
 
-namespace Dhl\Versenden\Api;
+namespace Dhl\Versenden\Webservice;
 
 use Dhl\Versenden\Api\Config\BcsConfigInterface;
-use Dhl\Versenden\Api\Data\BcsProductProviderInterface;
+use \Dhl\Versenden\Api\Webservice\BcsAccessDataInterface;
 
 /**
- * Product
+ * BcsAccessData
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -38,25 +38,33 @@ use Dhl\Versenden\Api\Data\BcsProductProviderInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class BcsProductProvider implements BcsProductProviderInterface
+class BcsAccessData implements BcsAccessDataInterface
 {
-    /** @var BcsConfigInterface */
-    public $bcsConfig;
+    /**
+     * @var BcsConfigInterface
+     */
+    public $config;
 
     /**
      * ProductProvider constructor.
      *
-     * @param BcsConfigInterface $bcsConfig
+     * @param BcsConfigInterface $config
      */
-    public function __construct(BcsConfigInterface $bcsConfig)
+    public function __construct(BcsConfigInterface $config)
     {
-        $this->bcsConfig = $bcsConfig;
+        $this->config = $config;
     }
 
     /**
-     * @inheritdoc
+     * Get the GK API product code.
+     *
+     * @param string $shipperCountry
+     * @param string $recipientCountry
+     * @param string[] $euCountries
+     *
+     * @return string
      */
-    public function getProductName($shipperCountry, $recipientCountry, $euCountries)
+    public function getProductCode($shipperCountry, $recipientCountry, $euCountries)
     {
         // domestic
         if ($shipperCountry == 'DE' && $recipientCountry == 'DE') {
@@ -89,32 +97,40 @@ class BcsProductProvider implements BcsProductProviderInterface
     }
 
     /**
-     * @inheritdoc
+     * Get the billing number a.k.a. account number based on selected product.
+     *
+     * @param string $productCode
+     *
+     * @return string
      */
-    public function getAccountNumber($product)
+    public function getBillingNumber($productCode)
     {
-        $procedure = $this->getProcedure($product);
+        $procedure = $this->getProcedure($productCode);
 
         return sprintf(
             '%s%s%s',
-            $this->bcsConfig->getAccountEkp(),
+            $this->config->getAccountEkp(),
             $procedure,
-            $this->bcsConfig->getAccountParticipation($procedure)
+            $this->config->getAccountParticipation($procedure)
         );
     }
 
     /**
-     * @inheritdoc
+     * Get the billing number a.k.a. account number for shipment returns.
+     *
+     * @param string $productCode
+     *
+     * @return string
      */
-    public function getReturnShipmentAccountNumber($product)
+    public function getReturnShipmentBillingNumber($productCode)
     {
-        $procedure = $this->getProcedureReturn($product);
+        $procedure = $this->getProcedureReturn($productCode);
 
         return sprintf(
             '%s%s%s',
-            $this->bcsConfig->getAccountEkp(),
+            $this->config->getAccountEkp(),
             $procedure,
-            $this->bcsConfig->getAccountParticipation($procedure)
+            $this->config->getAccountParticipation($procedure)
         );
     }
 
