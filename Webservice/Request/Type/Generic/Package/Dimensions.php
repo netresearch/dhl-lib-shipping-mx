@@ -61,17 +61,18 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
 
     /**
      * Dimensions constructor.
+     *
      * @param UnitConverterInterface $unitConverter
-     * @param int $length
-     * @param int $width
-     * @param int $height
-     * @param string $unitOfMeasurement
+     * @param int | string           $length
+     * @param int | string           $width
+     * @param int | string           $height
+     * @param string                 $unitOfMeasurement
      */
     public function __construct(UnitConverterInterface $unitConverter, $length, $width, $height, $unitOfMeasurement)
     {
-        $this->length = $length;
-        $this->width = $width;
-        $this->height = $height;
+        $this->length            = $length;
+        $this->width             = $width;
+        $this->height            = $height;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         parent::__construct($unitConverter);
@@ -79,31 +80,34 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
 
     /**
      * @param string $unitOfMeasurement
-     * @return int
+     *
+     * @return int | string
      */
     public function getLength($unitOfMeasurement)
     {
-        $value = $this->unitConverter->convertDimension($this->length, $this->unitOfMeasurement, $unitOfMeasurement);
-        return $value;
+        return empty($this->length) ? $this->length
+            : $this->unitConverter->convertDimension($this->length, $this->unitOfMeasurement, $unitOfMeasurement);
     }
 
     /**
      * @param string $unitOfMeasurement
-     * @return int
+     *
+     * @return int | string
      */
     public function getWidth($unitOfMeasurement)
     {
-        $value = $this->unitConverter->convertDimension($this->width, $this->unitOfMeasurement, $unitOfMeasurement);
-        return $value;
+        return empty($this->width) ? $this->width
+            : $this->unitConverter->convertDimension($this->width, $this->unitOfMeasurement, $unitOfMeasurement);
     }
 
     /**
      * @param string $unitOfMeasurement
-     * @return int
+     *
+     * @return int | string
      */
     public function getHeight($unitOfMeasurement)
     {
-        $value = $this->unitConverter->convertDimension($this->height, $this->unitOfMeasurement, $unitOfMeasurement);
-        return $value;
+        return empty($this->height) ? $this->height
+            : $this->unitConverter->convertDimension($this->height, $this->unitOfMeasurement, $unitOfMeasurement);
     }
 }
