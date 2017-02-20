@@ -81,33 +81,33 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
     /**
      * @param string $unitOfMeasurement
      *
-     * @return int | string
+     * @return int | null
      */
     public function getLength($unitOfMeasurement)
     {
-        return empty($this->length) ? $this->length
+        return empty($this->length) ? null
             : $this->unitConverter->convertDimension($this->length, $this->unitOfMeasurement, $unitOfMeasurement);
     }
 
     /**
      * @param string $unitOfMeasurement
      *
-     * @return int | string
+     * @return int | null
      */
     public function getWidth($unitOfMeasurement)
     {
-        return empty($this->width) ? $this->width
+        return empty($this->width) ? null
             : $this->unitConverter->convertDimension($this->width, $this->unitOfMeasurement, $unitOfMeasurement);
     }
 
     /**
      * @param string $unitOfMeasurement
      *
-     * @return int | string
+     * @return int | null
      */
     public function getHeight($unitOfMeasurement)
     {
-        return empty($this->height) ? $this->height
+        return empty($this->height) ? null
             : $this->unitConverter->convertDimension($this->height, $this->unitOfMeasurement, $unitOfMeasurement);
     }
 }
