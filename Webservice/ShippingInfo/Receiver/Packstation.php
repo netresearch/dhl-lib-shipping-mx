@@ -17,40 +17,28 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Data
- * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
+ * @package   Dhl\Versenden\Webservice
+ * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data;
-
-use Dhl\Versenden\Api\Info\Receiver;
-use Dhl\Versenden\Api\Info\Services;
+namespace Dhl\Versenden\Webservice\ShippingInfo\Receiver;
 
 /**
- * InfoInterface
+ * Packstation
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Data
- * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
+ * @package  Dhl\Versenden\Webservice
+ * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface InfoInterface
+class Packstation extends PostalFacility
 {
-    /**
-     * @return Receiver
-     */
-    public function getReceiver();
+    /** @var string */
+    public $packstationNumber;
 
-    /**
-     * @return Services
-     */
-    public function getServices();
-
-    /**
-     * @return string
-     */
-    public function __toString();
+    /** @var string */
+    public $postNumber;
 }

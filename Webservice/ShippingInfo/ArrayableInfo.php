@@ -17,19 +17,21 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
+ * @package   Dhl\Versenden\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info;
+namespace Dhl\Versenden\Webservice\ShippingInfo;
+
+use Dhl\Versenden\Api\Data\ShippingInfo\ArrayableInterface;
 
 /**
  * ArrayableInfo
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
+ * @package  Dhl\Versenden\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -126,5 +128,19 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
         };
 
         array_walk($values, $setter);
+    }
+
+    /**
+     * @param \stdClass $object
+     *
+     * @return ArrayableInfo|null
+     */
+    public static function fromObject(\stdClass $object)
+    {
+        $instance = new static();
+        $properties = get_object_vars($object);
+        $instance->fromArray($properties);
+
+        return $instance;
     }
 }

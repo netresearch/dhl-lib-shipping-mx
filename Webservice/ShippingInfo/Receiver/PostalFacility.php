@@ -17,47 +17,43 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
+ * @package   Dhl\Versenden\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info;
+namespace Dhl\Versenden\Webservice\ShippingInfo\Receiver;
+
+use Dhl\Versenden\Webservice\ShippingInfo\ArrayableInfo;
 
 /**
- * Info
+ * PostalFacility
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
+ * @package  Dhl\Versenden\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-abstract class AbstractInfo implements \JsonSerializable, UnserializableInterface
+abstract class PostalFacility extends ArrayableInfo
 {
-    /**
-     * Specify data which should be serialized to JSON
-     *
-     * @link  http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     *        which is a value of any type other than a resource.
-     * @since 5.4.0
-     */
-    public function jsonSerialize()
-    {
-        return get_object_vars($this);
-    }
+    const TYPE_PACKSTATION = 'packStation';
+    const TYPE_PAKETSHOP   = 'parcelShop';
+    const TYPE_POSTFILIALE = 'postOffice';
 
-    /**
-     * @param $json
-     *
-     * @return AbstractInfo|null
-     */
-    public static function fromJson($json)
-    {
-        $object = json_decode($json);
+    /** @var string */
+    public $zip;
 
-        return static::fromObject($object);
-    }
+    /** @var string */
+    public $city;
+
+    /** @var string */
+    public $country;
+
+    /** @var string */
+    public $countryISOCode;
+
+    /** @var string */
+    public $state;
 }

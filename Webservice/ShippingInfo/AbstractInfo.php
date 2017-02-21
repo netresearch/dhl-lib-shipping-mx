@@ -17,47 +17,49 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
+ * @package   Dhl\Versenden\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info\Receiver;
+namespace Dhl\Versenden\Webservice\ShippingInfo;
+
+use \Dhl\Versenden\Api\Data\ShippingInfo\UnserializableInterface;
 
 /**
- * ParcelShop
+ * Info
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
+ * @package  Dhl\Versenden\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class ParcelShop extends PostalFacility
+abstract class AbstractInfo implements \JsonSerializable, UnserializableInterface
 {
-    /** @var string */
-    public $parcelShopNumber;
-
-    /** @var string */
-    public $streetName;
-
-    /** @var string */
-    public $streetNumber;
+    /**
+     * Specify data which should be serialized to JSON
+     *
+     * @link  http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     *        which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 
     /**
-     * @param \stdClass $object
+     * @param $json
      *
-     * @return ParcelShop|null
+     * @return AbstractInfo|null
      */
-    public static function fromObject(\stdClass $object)
+    public static function fromJson($json)
     {
-        /** @var ParcelShop $instance */
-        $instance   =
-            \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info\Receiver\ParcelShop');
-        $properties = get_object_vars($object);
-        $instance->fromArray($properties);
+        $object = json_decode($json);
 
-        return $instance;
+        return static::fromObject($object);
     }
 }

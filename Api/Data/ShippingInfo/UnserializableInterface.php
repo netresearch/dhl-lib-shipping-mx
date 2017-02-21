@@ -23,10 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info\Receiver;
+namespace Dhl\Versenden\Api\Data\ShippingInfo;
+
+use Dhl\Versenden\Webservice\ShippingInfo\AbstractInfo;
 
 /**
- * Packstation
+ * UnserializableInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api\Info
@@ -34,27 +36,19 @@ namespace Dhl\Versenden\Api\Info\Receiver;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Packstation extends PostalFacility
+interface UnserializableInterface
 {
-    /** @var string */
-    public $packstationNumber;
-
-    /** @var string */
-    public $postNumber;
+    /**
+     * @param $json
+     *
+     * @return AbstractInfo|null
+     */
+    public static function fromJson($json);
 
     /**
      * @param \stdClass $object
      *
-     * @return Packstation|null
+     * @return AbstractInfo|null
      */
-    public static function fromObject(\stdClass $object)
-    {
-        /** @var Packstation $instance */
-        $instance   =
-            \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info\Receiver\Packstation');
-        $properties = get_object_vars($object);
-        $instance->fromArray($properties);
-
-        return $instance;
-    }
+    public static function fromObject(\stdClass $object);
 }

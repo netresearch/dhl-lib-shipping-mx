@@ -17,36 +17,31 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
+ * @package   Dhl\Versenden\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info;
+namespace Dhl\Versenden\Webservice\ShippingInfo\Receiver;
 
 /**
- * UnserializableInterface
+ * ParcelShop
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
+ * @package  Dhl\Versenden\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface UnserializableInterface
+class ParcelShop extends PostalFacility
 {
-    /**
-     * @param $json
-     *
-     * @return AbstractInfo|null
-     */
-    public static function fromJson($json);
+    /** @var string */
+    public $parcelShopNumber;
 
-    /**
-     * @param \stdClass $object
-     *
-     * @return AbstractInfo|null
-     */
-    public static function fromObject(\stdClass $object);
+    /** @var string */
+    public $streetName;
+
+    /** @var string */
+    public $streetNumber;
 }
