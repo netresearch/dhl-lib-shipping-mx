@@ -36,5 +36,13 @@ namespace Dhl\Versenden\Api\Data\Webservice\Request\Type\CreateShipment\Shipment
  */
 interface ServiceInterface
 {
+    /**
+     * @return string
+     */
+    public function getCode();
 
+    /**
+     * @return bool
+     */
+    public function isActive();
 }
