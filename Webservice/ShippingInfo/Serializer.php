@@ -17,44 +17,44 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
+ * @package   Dhl\Versenden\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info\Receiver;
+namespace Dhl\Versenden\Webservice\ShippingInfo;
+
+use Dhl\Versenden\Api\Data\ShippingInfo\InfoInterface;
 
 /**
- * Postfiliale
+ * Serializer
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
+ * @package  Dhl\Versenden\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Postfiliale extends PostalFacility
+class Serializer
 {
-    /** @var string */
-    public $postfilialNumber;
-
-    /** @var string */
-    public $postNumber;
+    /**
+     * @param InfoInterface $info
+     *
+     * @return string
+     */
+    public static function serialize(InfoInterface $info)
+    {
+        return json_encode($info, JSON_FORCE_OBJECT);
+    }
 
     /**
-     * @param \stdClass $object
+     * @param $serialized
      *
-     * @return Postfiliale|null
+     * @return AbstractInfo|null
      */
-    public static function fromObject(\stdClass $object)
+    public static function unserialize($serialized)
     {
-        /** @var Postfiliale $instance */
-        $instance   =
-            \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info\Receiver\Postfiliale');
-        $properties = get_object_vars($object);
-        $instance->fromArray($properties);
-
-        return $instance;
+        return AbstractInfo::fromJson($serialized);
     }
 }

@@ -17,23 +17,19 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
+ * @package   Dhl\Versenden\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info;
-
-use \Dhl\Versenden\Api\Info\Receiver\ParcelShopFactory;
-use \Dhl\Versenden\Api\Info\Receiver\PackstationFactory;
-use \Dhl\Versenden\Api\Info\Receiver\PostfilialeFactory;
+namespace Dhl\Versenden\Webservice\ShippingInfo;
 
 /**
  * Receiver
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
+ * @package  Dhl\Versenden\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -97,19 +93,18 @@ class Receiver extends ArrayableInfo
     /**
      * Receiver constructor.
      *
-     * @param ParcelShopFactory  $parcelShopFactory
-     * @param PackstationFactory $packstationFactory
-     * @param PostfilialeFactory $postfilialeFactory
+     * @param Receiver\ParcelShop $parcelShop
+     * @param Receiver\Packstation $packstation
+     * @param Receiver\Postfiliale $postfiliale
      */
     public function __construct(
-        ParcelShopFactory $parcelShopFactory,
-        PackstationFactory $packstationFactory,
-        PostfilialeFactory $postfilialeFactory
-    )
-    {
-        $this->packstation = $packstationFactory->create();
-        $this->postfiliale = $postfilialeFactory->create();
-        $this->parcelShop  = $parcelShopFactory->create();
+        Receiver\ParcelShop $parcelShop = null,
+        Receiver\Packstation $packstation = null,
+        Receiver\Postfiliale $postfiliale = null
+    ) {
+        $this->packstation = $packstation;
+        $this->postfiliale = $postfiliale;
+        $this->parcelShop  = $parcelShop;
     }
 
     /**
@@ -134,20 +129,5 @@ class Receiver extends ArrayableInfo
     public function getParcelShop()
     {
         return $this->parcelShop;
-    }
-
-    /**
-     * @param \stdClass $object
-     *
-     * @return Receiver|null
-     */
-    public static function fromObject(\stdClass $object)
-    {
-        /** @var Receiver $instance */
-        $instance   = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info\Receiver');
-        $properties = get_object_vars($object);
-        $instance->fromArray($properties);
-
-        return $instance;
     }
 }

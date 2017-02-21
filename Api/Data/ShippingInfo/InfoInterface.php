@@ -17,44 +17,40 @@
  * PHP version 5
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Info
- * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @package   Dhl\Versenden\Api\Data
+ * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Info;
+namespace Dhl\Versenden\Api\Data\ShippingInfo;
 
-use Dhl\Versenden\Api\Data\InfoInterface;
+use Dhl\Versenden\Webservice\ShippingInfo\Receiver;
+use Dhl\Versenden\Webservice\ShippingInfo\Services;
 
 /**
- * Serializer
+ * InfoInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Info
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @package  Dhl\Versenden\Api\Data
+ * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Serializer
+interface InfoInterface
 {
     /**
-     * @param InfoInterface $info
-     *
-     * @return string
+     * @return Receiver
      */
-    public static function serialize(InfoInterface $info)
-    {
-        return json_encode($info, JSON_FORCE_OBJECT);
-    }
+    public function getReceiver();
 
     /**
-     * @param $serialized
-     *
-     * @return AbstractInfo|null
+     * @return Services
      */
-    public static function unserialize($serialized)
-    {
-        return AbstractInfo::fromJson($serialized);
-    }
+    public function getServices();
+
+    /**
+     * @return string
+     */
+    public function __toString();
 }

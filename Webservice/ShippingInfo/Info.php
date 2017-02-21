@@ -23,11 +23,9 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api;
+namespace Dhl\Versenden\Webservice\ShippingInfo;
 
-use Dhl\Versenden\Api\Data\InfoInterface;
-use Dhl\Versenden\Api\Info\ReceiverFactory;
-use Dhl\Versenden\Api\Info\ServicesFactory;
+use Dhl\Versenden\Api\Data\ShippingInfo\InfoInterface;
 
 /**
  * Info
@@ -38,36 +36,34 @@ use Dhl\Versenden\Api\Info\ServicesFactory;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Info extends Info\AbstractInfo implements InfoInterface
+class Info extends AbstractInfo implements InfoInterface
 {
     const SCHEMA_VERSION = '1.0';
 
     /** @var string */
     public $schemaVersion;
 
-    /** @var Info\Receiver */
+    /** @var Receiver */
     public $receiver;
 
-    /** @var Info\Services */
+    /** @var Services */
     public $services;
 
     /**
      * Info constructor.
      *
-     * @param ReceiverFactory $receiverFactory
-     * @param ServicesFactory $servicesFactory
+     * @param Receiver $receiver
+     * @param Services $services
      */
-    public function __construct(
-        ReceiverFactory $receiverFactory,
-        ServicesFactory $servicesFactory
-    ) {
+    public function __construct(Receiver $receiver = null, Services $services = null)
+    {
         $this->schemaVersion = self::SCHEMA_VERSION;
-        $this->receiver      = $receiverFactory->create();
-        $this->services      = $servicesFactory->create();
+        $this->receiver = $receiver;
+        $this->services = $services;
     }
 
     /**
-     * @return Info\Receiver
+     * @return Receiver
      */
     public function getReceiver()
     {
@@ -75,7 +71,7 @@ class Info extends Info\AbstractInfo implements InfoInterface
     }
 
     /**
-     * @return Info\Services
+     * @return Services
      */
     public function getServices()
     {
@@ -93,13 +89,13 @@ class Info extends Info\AbstractInfo implements InfoInterface
             return null;
         }
 
-        $info = \Magento\Framework\App\ObjectManager::getInstance()->get('Dhl\Versenden\Api\Info');
+        $info = new self();
         if (isset($object->receiver)) {
-            $info->receiver = Info\Receiver::fromObject($object->receiver);
+            $info->receiver = Receiver::fromObject($object->receiver);
         }
 
         if (isset($object->services)) {
-            $info->services = Info\Services::fromObject($object->services);
+            $info->services = Services::fromObject($object->services);
         }
 
         return $info;
@@ -110,6 +106,6 @@ class Info extends Info\AbstractInfo implements InfoInterface
      */
     public function __toString()
     {
-        return Info\Serializer::serialize($this);
+        return Serializer::serialize($this);
     }
 }
