@@ -25,8 +25,8 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Adapter;
 
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
+use \Dhl\Versenden\Api\Data\Webservice\RequestType;
+use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
 
 /**
  * AdapterInterface
@@ -40,8 +40,8 @@ use \Dhl\Versenden\Api\Data\Webservice\Response;
 interface AdapterInterface
 {
     /**
-     * @param Request\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return Response\Type\CreateShipment\LabelInterface[]
+     * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createLabels(array $shipmentOrders);
 }

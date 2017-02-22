@@ -25,10 +25,10 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Adapter;
 
-use \Dhl\Versenden\Api\Data\Webservice\Request;
-use \Dhl\Versenden\Api\Data\Webservice\Response;
-use Dhl\Versenden\Webservice\Response\Type\CreateShipmentResponseCollection;
-use Dhl\Versenden\Webservice\Response\Type\DeleteShipmentResponseCollection;
+use \Dhl\Versenden\Api\Data\Webservice\RequestType;
+use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
+use \Dhl\Versenden\Webservice\ResponseType\CreateShipmentResponseCollection;
+use \Dhl\Versenden\Webservice\ResponseType\DeleteShipmentResponseCollection;
 
 /**
  * API Adapter Chain
@@ -50,14 +50,14 @@ interface AdapterChainInterface
     const MSG_STATUS_NOT_DELETED = 'Shipping labels could not be cancelled: %s';
 
     /**
-     * @param Request\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return Response\Type\CreateShipmentResponseInterface|CreateShipmentResponseCollection
+     * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @return ResponseType\CreateShipmentResponseInterface|CreateShipmentResponseCollection
      */
     public function createLabels(array $shipmentOrders);
 
     /**
      * @param string[] $shipmentNumbers
-     * @return Response\Type\DeleteShipmentResponseInterface|DeleteShipmentResponseCollection
+     * @return ResponseType\DeleteShipmentResponseInterface|DeleteShipmentResponseCollection
      */
     public function cancelLabels(array $shipmentNumbers);
 }

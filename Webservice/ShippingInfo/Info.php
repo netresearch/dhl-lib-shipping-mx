@@ -14,7 +14,7 @@
  * Do not edit or add to this file if you wish to upgrade this extension to
  * newer versions in the future.
  *
- * PHP version 5
+ * PHP version 7
  *
  * @category  Dhl
  * @package   Dhl\Versenden\Api\Info
@@ -51,15 +51,12 @@ class Info extends AbstractInfo implements InfoInterface
 
     /**
      * Info constructor.
-     *
-     * @param Receiver $receiver
-     * @param Services $services
      */
-    public function __construct(Receiver $receiver = null, Services $services = null)
+    public function __construct()
     {
         $this->schemaVersion = self::SCHEMA_VERSION;
-        $this->receiver = $receiver;
-        $this->services = $services;
+        $this->receiver = new Receiver();
+        $this->services = new Services();
     }
 
     /**

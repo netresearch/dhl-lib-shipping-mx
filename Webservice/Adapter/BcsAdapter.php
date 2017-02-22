@@ -26,10 +26,10 @@
 namespace Dhl\Versenden\Webservice\Adapter;
 
 use Dhl\Versenden\Api\Webservice\Client\BcsSoapClientInterface;
-use \Dhl\Versenden\Api\Webservice\Request;
-use \Dhl\Versenden\Api\Webservice\Response;
-use \Dhl\Versenden\Api\Data\Webservice\Request as RequestData;
-use \Dhl\Versenden\Api\Data\Webservice\Response as ResponseData;
+use \Dhl\Versenden\Api\Webservice\RequestMapper;
+use \Dhl\Versenden\Api\Webservice\ResponseParser;
+use \Dhl\Versenden\Api\Data\Webservice\RequestType;
+use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
 use \Dhl\Versenden\Api\Webservice\Adapter\BcsAdapterInterface;
 use \Dhl\Versenden\Bcs as BcsApi;
 
@@ -49,12 +49,12 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
     const WEBSERVICE_VERSION_BUILD = '';
 
     /**
-     * @var Response\Parser\BcsResponseParserInterface
+     * @var ResponseParser\BcsResponseParserInterface
      */
     private $responseParser;
 
     /**
-     * @var Request\Mapper\BcsDataMapperInterface
+     * @var RequestMapper\BcsDataMapperInterface
      */
     private $apiDataMapper;
 
@@ -65,13 +65,13 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * BcsAdapter constructor.
-     * @param Response\Parser\BcsResponseParserInterface $responseParser
-     * @param Request\Mapper\BcsDataMapperInterface $dataMapper
+     * @param ResponseParser\BcsResponseParserInterface $responseParser
+     * @param RequestMapper\BcsDataMapperInterface $dataMapper
      * @param BcsSoapClientInterface $soapClient
      */
     public function __construct(
-        Response\Parser\BcsResponseParserInterface $responseParser,
-        Request\Mapper\BcsDataMapperInterface $dataMapper,
+        ResponseParser\BcsResponseParserInterface $responseParser,
+        RequestMapper\BcsDataMapperInterface $dataMapper,
         BcsSoapClientInterface $soapClient
     ) {
         $this->responseParser = $responseParser;
@@ -80,18 +80,18 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
      * @return bool
      */
-    protected function canHandleShipmentOrder(RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+    protected function canHandleShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         $shipperCountries = ['DE', 'AT'];
         return in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
     }
 
     /**
-     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return ResponseData\Type\CreateShipment\LabelInterface[]
+     * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @return ResponseType\CreateShipment\LabelInterface[]
      */
     protected function createShipmentOrders(array $shipmentOrders)
     {
@@ -112,10 +112,10 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\GetVersionRequestInterface $versionRequest
-     * @return ResponseData\Type\GetVersionResponseInterface
+     * @param RequestType\GetVersionRequestInterface $versionRequest
+     * @return ResponseType\GetVersionResponseInterface
      */
-    public function getVersion(RequestData\Type\GetVersionRequestInterface $versionRequest)
+    public function getVersion(RequestType\GetVersionRequestInterface $versionRequest)
     {
         $requestType = new BcsApi\Version(
             $versionRequest->getMajorRelease(),
@@ -130,7 +130,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\DeleteShipmentResponseInterface
+     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\DeleteShipmentResponseInterface
      * @throws \Exception
      */
     public function cancelLabels(array $shipmentNumbers)
