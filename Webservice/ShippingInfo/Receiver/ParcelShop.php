@@ -14,7 +14,7 @@
  * Do not edit or add to this file if you wish to upgrade this extension to
  * newer versions in the future.
  *
- * PHP version 5
+ * PHP version 7
  *
  * @category  Dhl
  * @package   Dhl\Versenden\Webservice

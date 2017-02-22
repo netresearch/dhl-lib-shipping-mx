@@ -26,10 +26,10 @@
 namespace Dhl\Versenden\Webservice\Adapter;
 
 use \Dhl\Versenden\Api\Webservice\Adapter\GlAdapterInterface;
-use \Dhl\Versenden\Api\Webservice\Request;
-use \Dhl\Versenden\Api\Webservice\Response;
-use \Dhl\Versenden\Api\Data\Webservice\Request as RequestData;
-use \Dhl\Versenden\Api\Data\Webservice\Response as ResponseData;
+use \Dhl\Versenden\Api\Webservice\RequestMapper;
+use \Dhl\Versenden\Api\Webservice\ResponseParser;
+use \Dhl\Versenden\Api\Data\Webservice\RequestType;
+use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
 
 /**
  * Global Label API Adapter
@@ -43,43 +43,43 @@ use \Dhl\Versenden\Api\Data\Webservice\Response as ResponseData;
 class GlAdapter extends AbstractAdapter implements GlAdapterInterface
 {
     /**
-     * @var Response\Parser\GlResponseParserInterface
+     * @var ResponseParser\GlResponseParserInterface
      */
     private $responseParser;
 
     /**
-     * @var Request\Mapper\GlDataMapperInterface
+     * @var RequestMapper\GlDataMapperInterface
      */
     private $requestMapper;
 
     /**
      * GkAdapter constructor.
-     * @param Response\Parser\GlResponseParserInterface $responseParser
-     * @param Request\Mapper\GlDataMapperInterface $requestMapper
+     * @param ResponseParser\GlResponseParserInterface $responseParser
+     * @param RequestMapper\GlDataMapperInterface $requestMapper
      */
     public function __construct(
-        Response\Parser\GlResponseParserInterface $responseParser,
-        Request\Mapper\GlDataMapperInterface $requestMapper
+        ResponseParser\GlResponseParserInterface $responseParser,
+        RequestMapper\GlDataMapperInterface $requestMapper
     ) {
         $this->responseParser = $responseParser;
         $this->requestMapper = $requestMapper;
     }
 
     /**
-     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
      * @return bool
      */
-    protected function canHandleShipmentOrder(RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+    protected function canHandleShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         $shipperCountries = ['DE', 'AT'];
         return !in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
     }
 
     /**
-     * @param RequestData\Type\GetTokenRequestInterface $request
-     * @return ResponseData\Type\GetTokenResponseInterface
+     * @param RequestType\GetTokenRequestInterface $request
+     * @return ResponseType\GetTokenResponseInterface
      */
-    public function getAccessToken(RequestData\Type\GetTokenRequestInterface $request)
+    public function getAccessToken(RequestType\GetTokenRequestInterface $request)
     {
         //TODO(nr): perform actual request
         $restResponse = new \stdClass($request);
@@ -89,10 +89,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
      * @return \Dhl\Versenden\Gla\Rest\GetLabel\Label
      */
-    private function createShipmentOrder(RequestData\Type\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+    private function createShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         //TODO(nr): perform actual request
         /** @var \Dhl\Versenden\Gla\Rest\GetLabel\Label $restResponse */
@@ -101,8 +101,8 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     }
 
     /**
-     * @param RequestData\Type\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return ResponseData\Type\CreateShipment\LabelInterface[]
+     * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createShipmentOrders(array $shipmentOrders)
     {

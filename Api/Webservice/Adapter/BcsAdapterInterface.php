@@ -25,8 +25,7 @@
  */
 namespace Dhl\Versenden\Api\Webservice\Adapter;
 
-use \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface;
-use \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterface;
+use \Dhl\Versenden\Api\Data\Webservice\RequestType\GetVersionRequestInterface;
 
 /**
  * Business Customer Shipping API Adapter
@@ -40,14 +39,14 @@ use \Dhl\Versenden\Api\Data\Webservice\Request\Type\DeleteShipmentRequestInterfa
 interface BcsAdapterInterface extends AdapterInterface
 {
     /**
-     * @param \Dhl\Versenden\Api\Data\Webservice\Request\Type\GetVersionRequestInterface $request
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\GetVersionResponseInterface
+     * @param \Dhl\Versenden\Api\Data\Webservice\RequestType\GetVersionRequestInterface $request
+     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\GetVersionResponseInterface
      */
     public function getVersion(GetVersionRequestInterface $request);
 
     /**
      * @param string[] $shipmentNumbers
-     * @return \Dhl\Versenden\Api\Data\Webservice\Response\Type\Generic\ItemStatusInterface
+     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface
      */
     public function cancelLabels(array $shipmentNumbers);
 }
