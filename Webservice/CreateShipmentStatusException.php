@@ -27,10 +27,11 @@ namespace Dhl\Versenden\Webservice;
 
 use \Dhl\Versenden\Bcs\CreateShipmentOrderResponse;
 use \Dhl\Versenden\Bcs\CreationState;
-use \Exception;
 
 /**
- * StatusException
+ * Webservice could not create shipment order. Server side validation error, e.g.
+ * - hard validation error
+ * - login failed
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -44,13 +45,13 @@ class CreateShipmentStatusException extends \Exception
      * @param CreateShipmentOrderResponse $response
      * @param string $message [optional] The Exception message to throw.
      * @param int $code [optional] The Exception code.
-     * @param Exception $previous [optional] The previous exception used for the exception chaining. Since 5.3.0
+     * @param \Exception $previous [optional] The previous exception used for the exception chaining. Since 5.3.0
      */
     public function __construct(
         CreateShipmentOrderResponse $response,
         $message = "",
         $code = 0,
-        Exception $previous = null
+        \Exception $previous = null
     ) {
         $messages = [];
 

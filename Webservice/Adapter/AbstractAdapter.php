@@ -84,11 +84,16 @@ abstract class AbstractAdapter implements AdapterInterface
             }
         }
 
-        $labels = $this->createShipmentOrders($myOrders);
+        if (!empty($myOrders)) {
+            $labels = $this->createShipmentOrders($myOrders);
+        } else {
+            $labels = [];
+        }
+
         if ($this->successor !== null) {
             array_merge($labels, $this->successor->createLabels($theirOrders));
         }
 
-        return $labels ? $labels : [] ;
+        return $labels;
     }
 }

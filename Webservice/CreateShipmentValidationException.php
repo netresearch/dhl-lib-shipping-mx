@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\RequestMapper;
-
-use \Dhl\Versenden\Webservice\CreateShipmentValidationException;
+namespace Dhl\Versenden\Webservice;
 
 /**
- * AppDataMapperInterface
+ * Shipment order cannot be processed. Client side validation error, e.g.:
+ * - invalid field lengths
+ * - unavailable features (e.g. partial shipments with COD payment)
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,16 +36,6 @@ use \Dhl\Versenden\Webservice\CreateShipmentValidationException;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AppDataMapperInterface
+class CreateShipmentValidationException extends \Exception
 {
-    /**
-     * Create standardized request object from framework specific object.
-     *
-     * @param object $request The M1 or M2 shipment request
-     * @param string $sequenceNumber
-     *
-     * @return \Dhl\Versenden\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface
-     * @throws CreateShipmentValidationException
-     */
-    public function mapShipmentRequest($request, $sequenceNumber);
 }

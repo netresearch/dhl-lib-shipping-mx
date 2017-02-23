@@ -23,12 +23,14 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\RequestMapper;
+namespace Dhl\Versenden\Api\Webservice;
 
+use \Dhl\Versenden\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
+use \Dhl\Versenden\Api\Webservice\Adapter\AdapterInterface;
 use \Dhl\Versenden\Webservice\CreateShipmentValidationException;
 
 /**
- * AppDataMapperInterface
+ * RequestValidatorInterface
  *
  * @category Dhl
  * @package  Dhl\Versenden\Api
@@ -36,16 +38,17 @@ use \Dhl\Versenden\Webservice\CreateShipmentValidationException;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface AppDataMapperInterface
+interface RequestValidatorInterface
 {
+    const MSG_PARTIAL_SHIPMENT_NOT_AVAILABLE = 'Cannot do partial shipment with COD or Additional Insurance.';
+
     /**
-     * Create standardized request object from framework specific object.
+     * Validate shipment order before creating labels.
      *
-     * @param object $request The M1 or M2 shipment request
-     * @param string $sequenceNumber
-     *
-     * @return \Dhl\Versenden\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface
+     * @see AdapterInterface::createLabels()
+     * @param ShipmentOrderInterface $shipmentOrder
+     * @return ShipmentOrderInterface
      * @throws CreateShipmentValidationException
      */
-    public function mapShipmentRequest($request, $sequenceNumber);
+    public function validateShipmentOrder(ShipmentOrderInterface $shipmentOrder);
 }
