@@ -42,6 +42,14 @@ interface ShipmentDetailsInterface
     public function isPrintOnlyIfCodeable();
 
     /**
+     * Check if the current shipment order includes all ordered items.
+     * Some services cannot be booked with partial shipments (cod, insurance).
+     *
+     * @return bool
+     */
+    public function isPartialShipment();
+
+    /**
      * Obtain the product to be booked for the current shipment order, e.g.
      * - DHL Paket
      * - DHL Paket International

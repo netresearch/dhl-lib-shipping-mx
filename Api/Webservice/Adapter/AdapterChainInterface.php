@@ -51,9 +51,10 @@ interface AdapterChainInterface
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     * @param string[] $invalidOrders
      * @return ResponseType\CreateShipmentResponseInterface|CreateShipmentResponseCollection
      */
-    public function createLabels(array $shipmentOrders);
+    public function createLabels(array $shipmentOrders, array $invalidOrders = []);
 
     /**
      * @param string[] $shipmentNumbers

@@ -30,8 +30,6 @@ use \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterf
 use \Dhl\Versenden\Api\Webservice\ResponseParser\BcsResponseParserInterface;
 use \Dhl\Versenden\Bcs\CreationState;
 use \Dhl\Versenden\Webservice\CreateShipmentStatusException;
-use \Dhl\Versenden\Webservice\ResponseType\CreateShipment\Label;
-use \Dhl\Versenden\Webservice\ResponseType\Generic\ItemStatus;
 
 /**
  * Geschäftskunden API response parser
@@ -46,6 +44,20 @@ use \Dhl\Versenden\Webservice\ResponseType\Generic\ItemStatus;
  */
 class BcsResponseParser implements BcsResponseParserInterface
 {
+    /**
+     * @var LabelFactory
+     */
+    private $labelFactory;
+
+    /**
+     * BcsResponseParser constructor.
+     * @param LabelFactory $labelFactory
+     */
+    public function __construct(LabelFactory $labelFactory)
+    {
+        $this->labelFactory = $labelFactory;
+    }
+
     /**
      * @param string $bcsCode
      * @return int
@@ -78,16 +90,11 @@ class BcsResponseParser implements BcsResponseParserInterface
 
         /** @var CreationState $creationState */
         foreach ($response->getCreationState() as $creationState) {
-            $labelStatus = new ItemStatus(
+            $label = $this->labelFactory->create(
                 $creationState->getSequenceNumber(),
                 $this->getStatusCode($creationState->getLabelData()->getStatus()->getStatusCode()),
                 $creationState->getLabelData()->getStatus()->getStatusText(),
-                $creationState->getLabelData()->getStatus()->getStatusMessage()
-            );
-
-            $label = new Label(
-                $labelStatus,
-                $creationState->getSequenceNumber(),
+                $creationState->getLabelData()->getStatus()->getStatusMessage(),
                 $creationState->getLabelData()->getShipmentNumber(),
                 $creationState->getLabelData()->getLabelData(),
                 $creationState->getLabelData()->getReturnLabelData(),

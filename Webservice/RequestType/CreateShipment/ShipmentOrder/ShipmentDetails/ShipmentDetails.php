@@ -45,6 +45,11 @@ class ShipmentDetails implements ShipmentDetailsInterface
     private $isPrintOnlyIfCodeable;
 
     /**
+     * @var bool
+     */
+    private $isPartialShipment;
+
+    /**
      * @var string
      */
     private $product;
@@ -87,6 +92,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * ShipmentDetails constructor.
      * @param bool $isPrintOnlyIfCodeable
+     * @param bool $isPartialShipment
      * @param string $product
      * @param string $accountNumber
      * @param string $returnShipmentAccountNumber
@@ -98,6 +104,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      */
     public function __construct(
         $isPrintOnlyIfCodeable,
+        $isPartialShipment,
         $product,
         $accountNumber,
         $returnShipmentAccountNumber,
@@ -108,6 +115,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         BankDataInterface $bankData
     ) {
         $this->isPrintOnlyIfCodeable = $isPrintOnlyIfCodeable;
+        $this->isPartialShipment = $isPartialShipment;
         $this->product = $product;
         $this->accountNumber = $accountNumber;
         $this->returnShipmentAccountNumber = $returnShipmentAccountNumber;
@@ -124,6 +132,17 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public function isPrintOnlyIfCodeable()
     {
         return $this->isPrintOnlyIfCodeable;
+    }
+
+    /**
+     * Check if the current shipment order includes all ordered items.
+     * Some services cannot be booked with partial shipments (cod, insurance).
+     *
+     * @return bool
+     */
+    public function isPartialShipment()
+    {
+        return $this->isPartialShipment;
     }
 
     /**
