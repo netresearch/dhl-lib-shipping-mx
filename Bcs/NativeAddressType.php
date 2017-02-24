@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class NativeAddressType
 {
@@ -66,7 +66,7 @@ class NativeAddressType
 
     /**
      * @param streetName $streetName
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setStreetName($streetName)
     {
@@ -84,7 +84,7 @@ class NativeAddressType
 
     /**
      * @param streetNumber $streetNumber
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setStreetNumber($streetNumber)
     {
@@ -102,7 +102,7 @@ class NativeAddressType
 
     /**
      * @param addressAddition[] $addressAddition
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setAddressAddition(array $addressAddition = null)
     {
@@ -120,7 +120,7 @@ class NativeAddressType
 
     /**
      * @param dispatchingInformation $dispatchingInformation
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setDispatchingInformation($dispatchingInformation)
     {
@@ -138,7 +138,7 @@ class NativeAddressType
 
     /**
      * @param ZipType $zip
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setZip($zip)
     {
@@ -156,7 +156,7 @@ class NativeAddressType
 
     /**
      * @param city $city
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setCity($city)
     {
@@ -174,7 +174,7 @@ class NativeAddressType
 
     /**
      * @param CountryType $Origin
-     * @return \Dhl\Versenden\Bcs\NativeAddressType
+     * @return \Dhl\Shipping\Bcs\NativeAddressType
      */
     public function setOrigin($Origin)
     {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,34 +17,34 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\RequestMapper;
+namespace Dhl\Shipping\Api\Webservice\RequestMapper;
 
-use \Dhl\Versenden\Api\Data\Webservice\RequestType;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 
 /**
  * BcsDataMapperInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  *
- * @method \Dhl\Versenden\Bcs\ShipmentOrderType mapShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+ * @method \Dhl\Shipping\Bcs\ShipmentOrderType mapShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
  */
 interface BcsDataMapperInterface extends ApiDataMapperInterface
 {
     /**
      * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Versenden\Api\Data\Webservice\RequestType\GetVersionRequestInterface $request
-     * @return \Dhl\Versenden\Bcs\Version
+     * @param \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface $request
+     * @return \Dhl\Shipping\Bcs\Version
      */
     public function mapVersion(RequestType\GetVersionRequestInterface $request);
 
@@ -52,7 +52,7 @@ interface BcsDataMapperInterface extends ApiDataMapperInterface
      * Create api specific request object from framework standardized object.
      * TODO(nr): shipment numbers are a simple type, no need to convert something?
      *
-     * @param \Dhl\Versenden\Api\Data\Webservice\RequestType\DeleteShipmentRequestInterface[] $numbers
+     * @param \Dhl\Shipping\Api\Data\Webservice\RequestType\DeleteShipmentRequestInterface[] $numbers
      * @return string[]
      */
     public function mapShipmentNumbers(array $numbers);

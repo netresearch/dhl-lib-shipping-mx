@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class CreationState
 {
@@ -35,7 +35,7 @@ class CreationState
 
     /**
      * @param SequenceNumber $sequenceNumber
-     * @return \Dhl\Versenden\Bcs\CreationState
+     * @return \Dhl\Shipping\Bcs\CreationState
      */
     public function setSequenceNumber($sequenceNumber)
     {
@@ -53,7 +53,7 @@ class CreationState
 
     /**
      * @param LabelData $LabelData
-     * @return \Dhl\Versenden\Bcs\CreationState
+     * @return \Dhl\Shipping\Bcs\CreationState
      */
     public function setLabelData($LabelData)
     {

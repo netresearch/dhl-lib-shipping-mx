@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,25 +17,25 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\Adapter;
+namespace Dhl\Shipping\Webservice\Adapter;
 
-use \Dhl\Versenden\Api\Webservice\Adapter\GlAdapterInterface;
-use \Dhl\Versenden\Api\Webservice\RequestMapper;
-use \Dhl\Versenden\Api\Webservice\ResponseParser;
-use \Dhl\Versenden\Api\Data\Webservice\RequestType;
-use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
+use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
+use \Dhl\Shipping\Api\Webservice\RequestMapper;
+use \Dhl\Shipping\Api\Webservice\ResponseParser;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType;
+use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 
 /**
  * Global Label API Adapter
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -90,12 +90,12 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
-     * @return \Dhl\Versenden\Gla\Rest\GetLabel\Label
+     * @return \Dhl\Shipping\Gla\Rest\GetLabel\Label
      */
     private function createShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         //TODO(nr): perform actual request
-        /** @var \Dhl\Versenden\Gla\Rest\GetLabel\Label $restResponse */
+        /** @var \Dhl\Shipping\Gla\Rest\GetLabel\Label $restResponse */
         $restResponse = new \stdClass($shipmentOrder);
         return $restResponse;
     }
@@ -107,7 +107,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     public function createShipmentOrders(array $shipmentOrders)
     {
         //TODO(nr): create response wrapper entity
-        /** @var \Dhl\Versenden\Gla\Rest\GetLabelResponse $restResponse */
+        /** @var \Dhl\Shipping\Gla\Rest\GetLabelResponse $restResponse */
         $restResponse = new \ArrayIterator();
         foreach ($shipmentOrders as $request) {
             $labelResponse = $this->createShipmentOrder($request);

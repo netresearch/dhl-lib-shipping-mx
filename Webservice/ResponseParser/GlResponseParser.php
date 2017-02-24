@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,21 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\ResponseParser;
+namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Versenden\Api\Webservice\ResponseParser\GlResponseParserInterface;
+use \Dhl\Shipping\Api\Webservice\ResponseParser\GlResponseParserInterface;
 
 /**
  * Global Label API response parser
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -41,8 +41,8 @@ class GlResponseParser implements GlResponseParserInterface
     /**
      * Convert GLA JSON response to generic CreateShipmentResponse
      *
-     * @param \Dhl\Versenden\Gla\Rest\GetTokenResponse $response
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\GetTokenResponseInterface
+     * @param \Dhl\Shipping\Gla\Rest\GetTokenResponse $response
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\GetTokenResponseInterface
      */
     public function parseGetTokenResponse($response)
     {
@@ -52,8 +52,8 @@ class GlResponseParser implements GlResponseParserInterface
     /**
      * Convert GLA JSON response to generic CreateShipmentResponse
      *
-     * @param \Dhl\Versenden\Gla\Rest\GetLabelResponse[] $response
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface[]
+     * @param \Dhl\Shipping\Gla\Rest\GetLabelResponse[] $response
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface[]
      */
     public function parseCreateShipmentResponse($response)
     {

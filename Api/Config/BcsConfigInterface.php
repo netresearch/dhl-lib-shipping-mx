@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,54 +17,54 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden
+ * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Config;
+namespace Dhl\Shipping\Api\Config;
 
 /**
  * BcsConfigInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden
+ * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
 interface BcsConfigInterface
 {
-    const CONFIG_XML_PATH_ENDPOINT = 'carriers/dhlversenden/bcs_api_endpoint';
-    const CONFIG_XML_PATH_AUTH_USERNAME = 'carriers/dhlversenden/bcs_api_auth_username';
-    const CONFIG_XML_PATH_AUTH_PASSWORD = 'carriers/dhlversenden/bcs_api_auth_password';
-    const CONFIG_XML_PATH_ACCOUNT_USER = 'carriers/dhlversenden/bcs_account_user';
-    const CONFIG_XML_PATH_ACCOUNT_SIGNATURE = 'carriers/dhlversenden/bcs_account_signature';
-    const CONFIG_XML_PATH_ACCOUNT_EKP = 'carriers/dhlversenden/bcs_account_ekp';
-    const CONFIG_XML_PATH_ACCOUNT_PARTICIPATION = 'carriers/dhlversenden/bcs_account_participation';
+    const CONFIG_XML_PATH_ENDPOINT = 'carriers/dhlshipping/bcs_api_endpoint';
+    const CONFIG_XML_PATH_AUTH_USERNAME = 'carriers/dhlshipping/bcs_api_auth_username';
+    const CONFIG_XML_PATH_AUTH_PASSWORD = 'carriers/dhlshipping/bcs_api_auth_password';
+    const CONFIG_XML_PATH_ACCOUNT_USER = 'carriers/dhlshipping/bcs_account_user';
+    const CONFIG_XML_PATH_ACCOUNT_SIGNATURE = 'carriers/dhlshipping/bcs_account_signature';
+    const CONFIG_XML_PATH_ACCOUNT_EKP = 'carriers/dhlshipping/bcs_account_ekp';
+    const CONFIG_XML_PATH_ACCOUNT_PARTICIPATION = 'carriers/dhlshipping/bcs_account_participation';
 
-    const CONFIG_XML_PATH_SANDBOX_ENDPOINT = 'carriers/dhlversenden/bcs_sandbox_api_endpoint';
-    const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlversenden/bcs_sandbox_api_auth_username';
-    const CONFIG_XML_PATH_SANDBOX_AUTH_PASSWORD = 'carriers/dhlversenden/bcs_sandbox_api_auth_password';
-    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_USER = 'carriers/dhlversenden/bcs_sandbox_account_user';
-    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_SIGNATURE = 'carriers/dhlversenden/bcs_sandbox_account_signature';
-    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_EKP = 'carriers/dhlversenden/bcs_sandbox_account_ekp';
-    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_PARTICIPATION = 'carriers/dhlversenden/bcs_sandbox_account_participation';
+    const CONFIG_XML_PATH_SANDBOX_ENDPOINT = 'carriers/dhlshipping/bcs_sandbox_api_endpoint';
+    const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/bcs_sandbox_api_auth_username';
+    const CONFIG_XML_PATH_SANDBOX_AUTH_PASSWORD = 'carriers/dhlshipping/bcs_sandbox_api_auth_password';
+    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_USER = 'carriers/dhlshipping/bcs_sandbox_account_user';
+    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_SIGNATURE = 'carriers/dhlshipping/bcs_sandbox_account_signature';
+    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_EKP = 'carriers/dhlshipping/bcs_sandbox_account_ekp';
+    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_PARTICIPATION = 'carriers/dhlshipping/bcs_sandbox_account_participation';
 
-    const CONFIG_XML_PATH_SHIPMENT_PRINTONLYIFCODEABLE = 'carriers/dhlversenden/bcs_shipment_printonlyifcodeable';
+    const CONFIG_XML_PATH_SHIPMENT_PRINTONLYIFCODEABLE = 'carriers/dhlshipping/bcs_shipment_printonlyifcodeable';
 
-    const CONFIG_XML_PATH_BANKDATA_ACCOUNT_OWNER = 'carriers/dhlversenden/bcs_bankdata_account_owner';
-    const CONFIG_XML_PATH_BANKDATA_BANKNAME = 'carriers/dhlversenden/bcs_bankdata_bankname';
-    const CONFIG_XML_PATH_BANKDATA_IBAN = 'carriers/dhlversenden/bcs_bankdata_iban';
-    const CONFIG_XML_PATH_BANKDATA_BIC = 'carriers/dhlversenden/bcs_bankdata_bic';
-    const CONFIG_XML_PATH_BANKDATA_NOTE1 = 'carriers/dhlversenden/bcs_bankdata_note1';
-    const CONFIG_XML_PATH_BANKDATA_NOTE2 = 'carriers/dhlversenden/bcs_bankdata_note2';
-    const CONFIG_XML_PATH_BANKDATA_ACCOUNT_REFERENCE = 'carriers/dhlversenden/bcs_bankdata_account_reference';
+    const CONFIG_XML_PATH_BANKDATA_ACCOUNT_OWNER = 'carriers/dhlshipping/bcs_bankdata_account_owner';
+    const CONFIG_XML_PATH_BANKDATA_BANKNAME = 'carriers/dhlshipping/bcs_bankdata_bankname';
+    const CONFIG_XML_PATH_BANKDATA_IBAN = 'carriers/dhlshipping/bcs_bankdata_iban';
+    const CONFIG_XML_PATH_BANKDATA_BIC = 'carriers/dhlshipping/bcs_bankdata_bic';
+    const CONFIG_XML_PATH_BANKDATA_NOTE1 = 'carriers/dhlshipping/bcs_bankdata_note1';
+    const CONFIG_XML_PATH_BANKDATA_NOTE2 = 'carriers/dhlshipping/bcs_bankdata_note2';
+    const CONFIG_XML_PATH_BANKDATA_ACCOUNT_REFERENCE = 'carriers/dhlshipping/bcs_bankdata_account_reference';
 
-    const CONFIG_XML_PATH_SHIPPER_CONTACT_PERSON = 'carriers/dhlversenden/bcs_shipper_contact_person';
-    const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANY_ADDITION = 'carriers/dhlversenden/bcs_shipper_contact_company_addition';
-    const CONFIG_XML_PATH_SHIPPER_CONTACT_DISPATCHINFO = 'carriers/dhlversenden/bcs_shipper_contact_dispatchinfo';
+    const CONFIG_XML_PATH_SHIPPER_CONTACT_PERSON = 'carriers/dhlshipping/bcs_shipper_contact_person';
+    const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANY_ADDITION = 'carriers/dhlshipping/bcs_shipper_contact_company_addition';
+    const CONFIG_XML_PATH_SHIPPER_CONTACT_DISPATCHINFO = 'carriers/dhlshipping/bcs_shipper_contact_dispatchinfo';
 
     /**
      * Obtain API endpoint.

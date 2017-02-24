@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,26 +17,26 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 /**
  * autoload classes for unit testing
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Test\Unit
+ * @package  Dhl\Shipping\Bcs\Test\Unit
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
 spl_autoload_register(function ($class) {
     $baseDir = __DIR__ . '/../../';
-    $prefix = 'Dhl\\Versenden\\Bcs\\';
+    $prefix = 'Dhl\\Shipping\\Bcs\\';
 
     $len = strlen($prefix);
     $class = substr($class, $len);

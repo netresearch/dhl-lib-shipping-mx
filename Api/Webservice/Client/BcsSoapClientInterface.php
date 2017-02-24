@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,19 +17,19 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Webservice\Client;
+namespace Dhl\Shipping\Api\Webservice\Client;
 
 /**
  * Business Customer Shipping API SOAP client adapter
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -40,24 +40,24 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * Returns the actual version of the implementation of the whole ISService
      *         webservice.
      *
-     * @param \Dhl\Versenden\Bcs\Version $part1
-     * @return \Dhl\Versenden\Bcs\GetVersionResponse
+     * @param \Dhl\Shipping\Bcs\Version $part1
+     * @return \Dhl\Shipping\Bcs\GetVersionResponse
      */
-    public function getVersion(\Dhl\Versenden\Bcs\Version $part1);
+    public function getVersion(\Dhl\Shipping\Bcs\Version $part1);
 
     /**
      * Creates shipments.
      *
-     * @param \Dhl\Versenden\Bcs\CreateShipmentOrderRequest $part1
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
+     * @param \Dhl\Shipping\Bcs\CreateShipmentOrderRequest $part1
+     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
-    public function createShipmentOrder(\Dhl\Versenden\Bcs\CreateShipmentOrderRequest $part1);
+    public function createShipmentOrder(\Dhl\Shipping\Bcs\CreateShipmentOrderRequest $part1);
 
     /**
      * Deletes the requested shipments.
      *
-     * @param \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest $part1
-     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse
+     * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest $part1
+     * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse
      */
-    public function deleteShipmentOrder(\Dhl\Versenden\Bcs\DeleteShipmentOrderRequest $part1);
+    public function deleteShipmentOrder(\Dhl\Shipping\Bcs\DeleteShipmentOrderRequest $part1);
 }

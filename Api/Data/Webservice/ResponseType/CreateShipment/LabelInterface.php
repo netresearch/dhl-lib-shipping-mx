@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,19 +17,19 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\ResponseType\CreateShipment;
+namespace Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment;
 
 /**
  * LabelInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -37,7 +37,7 @@ namespace Dhl\Versenden\Api\Data\Webservice\ResponseType\CreateShipment;
 interface LabelInterface
 {
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface
      */
     public function getStatus();
 

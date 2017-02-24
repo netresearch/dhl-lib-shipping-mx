@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationEndorsement
 {
@@ -35,7 +35,7 @@ class ServiceconfigurationEndorsement
 
     /**
      * @param anonymous133 $active
-     * @return \Dhl\Versenden\Bcs\ServiceconfigurationEndorsement
+     * @return \Dhl\Shipping\Bcs\ServiceconfigurationEndorsement
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationEndorsement
 
     /**
      * @param anonymous134 $type
-     * @return \Dhl\Versenden\Bcs\ServiceconfigurationEndorsement
+     * @return \Dhl\Shipping\Bcs\ServiceconfigurationEndorsement
      */
     public function setType($type)
     {

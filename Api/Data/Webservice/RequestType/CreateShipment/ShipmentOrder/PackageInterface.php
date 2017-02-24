@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,19 +17,19 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrder;
+namespace Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrder;
 
 /**
  * Package information for creating a shipment order.
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -44,17 +44,17 @@ interface PackageInterface
     public function getPackageId();
 
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\RequestType\Generic\Package\WeightInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\RequestType\Generic\Package\WeightInterface
      */
     public function getWeight();
 
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\RequestType\Generic\Package\DimensionsInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\RequestType\Generic\Package\DimensionsInterface
      */
     public function getDimensions();
 
     /**
-     * @return \Dhl\Versenden\Api\Data\Webservice\RequestType\Generic\Package\MonetaryValueInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\RequestType\Generic\Package\MonetaryValueInterface
      */
     public function getDeclaredValue();
 }

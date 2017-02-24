@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class CreateShipmentOrderResponse
 {
@@ -42,7 +42,7 @@ class CreateShipmentOrderResponse
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
+     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function setVersion($Version)
     {
@@ -60,7 +60,7 @@ class CreateShipmentOrderResponse
 
     /**
      * @param Statusinformation $Status
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
+     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function setStatus($Status)
     {
@@ -78,7 +78,7 @@ class CreateShipmentOrderResponse
 
     /**
      * @param CreationState $CreationState
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderResponse
+     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function setCreationState($CreationState)
     {

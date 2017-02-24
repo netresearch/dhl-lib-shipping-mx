@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class GetVersionResponse
 {
@@ -28,7 +28,7 @@ class GetVersionResponse
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\GetVersionResponse
+     * @return \Dhl\Shipping\Bcs\GetVersionResponse
      */
     public function setVersion($Version)
     {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,25 +17,25 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Bcs\Test\Unit
+ * @package   Dhl\Shipping\Bcs\Test\Unit
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Service;
+namespace Dhl\Shipping\Api\Service;
 
-use Dhl\Versenden\Api\BcsAccessData;
-use Dhl\Versenden\Api\Service\Filter\CustomerSelectionFilter;
-use Dhl\Versenden\Api\Service\Filter\MerchantSelectionFilter;
-use Dhl\Versenden\Api\Service\Filter\PostalFacilityFilter;
-use Dhl\Versenden\Api\Service\Filter\ProductFilter;
+use Dhl\Shipping\Api\BcsAccessData;
+use Dhl\Shipping\Api\Service\Filter\CustomerSelectionFilter;
+use Dhl\Shipping\Api\Service\Filter\MerchantSelectionFilter;
+use Dhl\Shipping\Api\Service\Filter\PostalFacilityFilter;
+use Dhl\Shipping\Api\Service\Filter\ProductFilter;
 
 /**
  * ServiceCollectionTest
  *
  * @category Dhl
- * @package  Dhl\Versenden\Bcs\Test\Unit
+ * @package  Dhl\Shipping\Bcs\Test\Unit
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

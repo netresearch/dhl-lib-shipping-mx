@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationDeliveryTimeframe
 {
@@ -35,7 +35,7 @@ class ServiceconfigurationDeliveryTimeframe
 
     /**
      * @param anonymous145 $active
-     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDeliveryTimeframe
+     * @return \Dhl\Shipping\Bcs\ServiceconfigurationDeliveryTimeframe
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationDeliveryTimeframe
 
     /**
      * @param anonymous146 $type
-     * @return \Dhl\Versenden\Bcs\ServiceconfigurationDeliveryTimeframe
+     * @return \Dhl\Shipping\Bcs\ServiceconfigurationDeliveryTimeframe
      */
     public function setType($type)
     {

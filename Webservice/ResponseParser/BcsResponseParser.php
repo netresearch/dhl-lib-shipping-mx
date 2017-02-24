@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,25 +17,25 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\ResponseParser;
+namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
-use \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Versenden\Api\Webservice\ResponseParser\BcsResponseParserInterface;
-use \Dhl\Versenden\Bcs\CreationState;
-use \Dhl\Versenden\Webservice\CreateShipmentStatusException;
+use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
+use \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface;
+use \Dhl\Shipping\Api\Webservice\ResponseParser\BcsResponseParserInterface;
+use \Dhl\Shipping\Bcs\CreationState;
+use \Dhl\Shipping\Webservice\CreateShipmentStatusException;
 
 /**
  * Geschäftskunden API response parser
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -74,7 +74,7 @@ class BcsResponseParser implements BcsResponseParserInterface
     /**
      * Convert BCS SOAP response to list of generic LabelInterface
      *
-     * @param \Dhl\Versenden\Bcs\CreateShipmentOrderResponse $response
+     * @param \Dhl\Shipping\Bcs\CreateShipmentOrderResponse $response
      * @return ResponseType\CreateShipment\LabelInterface[]
      * @throws \Exception
      */
@@ -111,7 +111,7 @@ class BcsResponseParser implements BcsResponseParserInterface
     /**
      * Convert BCS SOAP response to generic GetVersionResponse
      *
-     * @param \Dhl\Versenden\Bcs\GetVersionResponse $response
+     * @param \Dhl\Shipping\Bcs\GetVersionResponse $response
      * @return ResponseType\GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response)
@@ -122,7 +122,7 @@ class BcsResponseParser implements BcsResponseParserInterface
     /**
      * Convert BCS SOAP response to generic DeleteShipmentResponse
      *
-     * @param \Dhl\Versenden\Bcs\DeleteShipmentOrderResponse $response
+     * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse $response
      * @return ResponseType\DeleteShipmentResponseInterface[]
      */
     public function parseDeleteShipmentResponse($response)

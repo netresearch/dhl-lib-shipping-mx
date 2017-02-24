@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class Version
 {
@@ -42,7 +42,7 @@ class Version
 
     /**
      * @param majorRelease $majorRelease
-     * @return \Dhl\Versenden\Bcs\Version
+     * @return \Dhl\Shipping\Bcs\Version
      */
     public function setMajorRelease($majorRelease)
     {
@@ -60,7 +60,7 @@ class Version
 
     /**
      * @param minorRelease $minorRelease
-     * @return \Dhl\Versenden\Bcs\Version
+     * @return \Dhl\Shipping\Bcs\Version
      */
     public function setMinorRelease($minorRelease)
     {
@@ -78,7 +78,7 @@ class Version
 
     /**
      * @param build $build
-     * @return \Dhl\Versenden\Bcs\Version
+     * @return \Dhl\Shipping\Bcs\Version
      */
     public function setBuild($build)
     {
