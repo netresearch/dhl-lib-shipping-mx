@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class Shipment
 {
@@ -56,7 +56,7 @@ class Shipment
 
     /**
      * @param ShipmentDetailsTypeType $ShipmentDetails
-     * @return \Dhl\Versenden\Bcs\Shipment
+     * @return \Dhl\Shipping\Bcs\Shipment
      */
     public function setShipmentDetails($ShipmentDetails)
     {
@@ -74,7 +74,7 @@ class Shipment
 
     /**
      * @param ShipperType $Shipper
-     * @return \Dhl\Versenden\Bcs\Shipment
+     * @return \Dhl\Shipping\Bcs\Shipment
      */
     public function setShipper($Shipper)
     {
@@ -92,7 +92,7 @@ class Shipment
 
     /**
      * @param ReceiverType $Receiver
-     * @return \Dhl\Versenden\Bcs\Shipment
+     * @return \Dhl\Shipping\Bcs\Shipment
      */
     public function setReceiver($Receiver)
     {
@@ -110,7 +110,7 @@ class Shipment
 
     /**
      * @param ShipperType $ReturnReceiver
-     * @return \Dhl\Versenden\Bcs\Shipment
+     * @return \Dhl\Shipping\Bcs\Shipment
      */
     public function setReturnReceiver($ReturnReceiver)
     {
@@ -128,7 +128,7 @@ class Shipment
 
     /**
      * @param ExportDocumentType $ExportDocument
-     * @return \Dhl\Versenden\Bcs\Shipment
+     * @return \Dhl\Shipping\Bcs\Shipment
      */
     public function setExportDocument($ExportDocument)
     {

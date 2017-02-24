@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,19 +17,19 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Data\Webservice\ResponseType;
+namespace Dhl\Shipping\Api\Data\Webservice\ResponseType;
 
 /**
  * DeleteShipmentResponseInterface
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -39,20 +39,20 @@ interface DeleteShipmentResponseInterface
     /**
      * Obtain overall deletion operation status.
      *
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface
      */
     public function getStatus();
 
     /**
      * Obtain status for all items contained in the deletion operation.
      *
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface[]
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface[]
      */
     public function getDeletedItems();
 
     /**
      * @param string $shipmentNumber
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface
      */
     public function getDeletedItem($shipmentNumber);
 }

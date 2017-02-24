@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class DeleteShipmentOrderRequest
 {
@@ -35,7 +35,7 @@ class DeleteShipmentOrderRequest
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest
+     * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest
      */
     public function setVersion($Version)
     {
@@ -53,7 +53,7 @@ class DeleteShipmentOrderRequest
 
     /**
      * @param shipmentNumber $shipmentNumber
-     * @return \Dhl\Versenden\Bcs\DeleteShipmentOrderRequest
+     * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest
      */
     public function setShipmentNumber($shipmentNumber)
     {

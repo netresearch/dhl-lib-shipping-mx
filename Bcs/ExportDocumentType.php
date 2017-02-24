@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ExportDocumentType
 {
@@ -77,7 +77,7 @@ class ExportDocumentType
 
     /**
      * @param invoiceNumber $invoiceNumber
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setInvoiceNumber($invoiceNumber)
     {
@@ -95,7 +95,7 @@ class ExportDocumentType
 
     /**
      * @param exportType $exportType
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportType($exportType)
     {
@@ -113,7 +113,7 @@ class ExportDocumentType
 
     /**
      * @param exportTypeDescription $exportTypeDescription
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportTypeDescription($exportTypeDescription)
     {
@@ -131,7 +131,7 @@ class ExportDocumentType
 
     /**
      * @param termsOfTrade $termsOfTrade
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setTermsOfTrade($termsOfTrade)
     {
@@ -149,7 +149,7 @@ class ExportDocumentType
 
     /**
      * @param placeOfCommital $placeOfCommital
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setPlaceOfCommital($placeOfCommital)
     {
@@ -167,7 +167,7 @@ class ExportDocumentType
 
     /**
      * @param additionalFee $additionalFee
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setAdditionalFee($additionalFee)
     {
@@ -185,7 +185,7 @@ class ExportDocumentType
 
     /**
      * @param permitNumber $permitNumber
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setPermitNumber($permitNumber)
     {
@@ -203,7 +203,7 @@ class ExportDocumentType
 
     /**
      * @param attestationNumber $attestationNumber
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setAttestationNumber($attestationNumber)
     {
@@ -221,7 +221,7 @@ class ExportDocumentType
 
     /**
      * @param Serviceconfiguration $WithElectronicExportNtfctn
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setWithElectronicExportNtfctn($WithElectronicExportNtfctn)
     {
@@ -239,7 +239,7 @@ class ExportDocumentType
 
     /**
      * @param ExportDocPosition[] $ExportDocPosition
-     * @return \Dhl\Versenden\Bcs\ExportDocumentType
+     * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportDocPosition(array $ExportDocPosition = null)
     {

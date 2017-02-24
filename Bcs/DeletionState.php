@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class DeletionState
 {
@@ -35,7 +35,7 @@ class DeletionState
 
     /**
      * @param shipmentNumber $shipmentNumber
-     * @return \Dhl\Versenden\Bcs\DeletionState
+     * @return \Dhl\Shipping\Bcs\DeletionState
      */
     public function setShipmentNumber($shipmentNumber)
     {
@@ -53,7 +53,7 @@ class DeletionState
 
     /**
      * @param Statusinformation $Status
-     * @return \Dhl\Versenden\Bcs\DeletionState
+     * @return \Dhl\Shipping\Bcs\DeletionState
      */
     public function setStatus($Status)
     {

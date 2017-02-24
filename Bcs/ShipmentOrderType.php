@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ShipmentOrderType
 {
@@ -45,7 +45,7 @@ class ShipmentOrderType
 
     /**
      * @param SequenceNumber $sequenceNumber
-     * @return \Dhl\Versenden\Bcs\ShipmentOrderType
+     * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setSequenceNumber($sequenceNumber)
     {
@@ -63,7 +63,7 @@ class ShipmentOrderType
 
     /**
      * @param Shipment $Shipment
-     * @return \Dhl\Versenden\Bcs\ShipmentOrderType
+     * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setShipment($Shipment)
     {
@@ -81,7 +81,7 @@ class ShipmentOrderType
 
     /**
      * @param Serviceconfiguration $PrintOnlyIfCodeable
-     * @return \Dhl\Versenden\Bcs\ShipmentOrderType
+     * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setPrintOnlyIfCodeable($PrintOnlyIfCodeable)
     {
@@ -99,7 +99,7 @@ class ShipmentOrderType
 
     /**
      * @param labelResponseType $labelResponseType
-     * @return \Dhl\Versenden\Bcs\ShipmentOrderType
+     * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setLabelResponseType($labelResponseType)
     {

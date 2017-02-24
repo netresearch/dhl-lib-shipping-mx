@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ShipperTypeType
 {
@@ -42,7 +42,7 @@ class ShipperTypeType
 
     /**
      * @param NameType $Name
-     * @return \Dhl\Versenden\Bcs\ShipperTypeType
+     * @return \Dhl\Shipping\Bcs\ShipperTypeType
      */
     public function setName($Name)
     {
@@ -60,7 +60,7 @@ class ShipperTypeType
 
     /**
      * @param NativeAddressType $Address
-     * @return \Dhl\Versenden\Bcs\ShipperTypeType
+     * @return \Dhl\Shipping\Bcs\ShipperTypeType
      */
     public function setAddress($Address)
     {
@@ -78,7 +78,7 @@ class ShipperTypeType
 
     /**
      * @param CommunicationType $Communication
-     * @return \Dhl\Versenden\Bcs\ShipperTypeType
+     * @return \Dhl\Shipping\Bcs\ShipperTypeType
      */
     public function setCommunication($Communication)
     {

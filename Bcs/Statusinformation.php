@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class Statusinformation
 {
@@ -42,7 +42,7 @@ class Statusinformation
 
     /**
      * @param int $statusCode
-     * @return \Dhl\Versenden\Bcs\Statusinformation
+     * @return \Dhl\Shipping\Bcs\Statusinformation
      */
     public function setStatusCode($statusCode)
     {
@@ -60,7 +60,7 @@ class Statusinformation
 
     /**
      * @param string $statusText
-     * @return \Dhl\Versenden\Bcs\Statusinformation
+     * @return \Dhl\Shipping\Bcs\Statusinformation
      */
     public function setStatusText($statusText)
     {
@@ -78,7 +78,7 @@ class Statusinformation
 
     /**
      * @param string[] $statusMessage
-     * @return \Dhl\Versenden\Bcs\Statusinformation
+     * @return \Dhl\Shipping\Bcs\Statusinformation
      */
     public function setStatusMessage(array $statusMessage)
     {

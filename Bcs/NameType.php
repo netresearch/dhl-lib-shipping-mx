@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class NameType
 {
@@ -42,7 +42,7 @@ class NameType
 
     /**
      * @param name1 $name1
-     * @return \Dhl\Versenden\Bcs\NameType
+     * @return \Dhl\Shipping\Bcs\NameType
      */
     public function setName1($name1)
     {
@@ -60,7 +60,7 @@ class NameType
 
     /**
      * @param name2 $name2
-     * @return \Dhl\Versenden\Bcs\NameType
+     * @return \Dhl\Shipping\Bcs\NameType
      */
     public function setName2($name2)
     {
@@ -78,7 +78,7 @@ class NameType
 
     /**
      * @param name3 $name3
-     * @return \Dhl\Versenden\Bcs\NameType
+     * @return \Dhl\Shipping\Bcs\NameType
      */
     public function setName3($name3)
     {

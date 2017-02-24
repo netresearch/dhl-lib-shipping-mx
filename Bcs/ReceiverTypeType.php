@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ReceiverTypeType
 {
@@ -63,7 +63,7 @@ class ReceiverTypeType
 
     /**
      * @param name1 $name1
-     * @return \Dhl\Versenden\Bcs\ReceiverTypeType
+     * @return \Dhl\Shipping\Bcs\ReceiverTypeType
      */
     public function setName1($name1)
     {
@@ -81,7 +81,7 @@ class ReceiverTypeType
 
     /**
      * @param ReceiverNativeAddressType $Address
-     * @return \Dhl\Versenden\Bcs\ReceiverTypeType
+     * @return \Dhl\Shipping\Bcs\ReceiverTypeType
      */
     public function setAddress($Address)
     {
@@ -99,7 +99,7 @@ class ReceiverTypeType
 
     /**
      * @param PackStationType $Packstation
-     * @return \Dhl\Versenden\Bcs\ReceiverTypeType
+     * @return \Dhl\Shipping\Bcs\ReceiverTypeType
      */
     public function setPackstation($Packstation)
     {
@@ -117,7 +117,7 @@ class ReceiverTypeType
 
     /**
      * @param PostfilialeType $Postfiliale
-     * @return \Dhl\Versenden\Bcs\ReceiverTypeType
+     * @return \Dhl\Shipping\Bcs\ReceiverTypeType
      */
     public function setPostfiliale($Postfiliale)
     {
@@ -135,7 +135,7 @@ class ReceiverTypeType
 
     /**
      * @param ParcelShopType $ParcelShop
-     * @return \Dhl\Versenden\Bcs\ReceiverTypeType
+     * @return \Dhl\Shipping\Bcs\ReceiverTypeType
      */
     public function setParcelShop($ParcelShop)
     {
@@ -153,7 +153,7 @@ class ReceiverTypeType
 
     /**
      * @param CommunicationType $Communication
-     * @return \Dhl\Versenden\Bcs\ReceiverTypeType
+     * @return \Dhl\Shipping\Bcs\ReceiverTypeType
      */
     public function setCommunication($Communication)
     {

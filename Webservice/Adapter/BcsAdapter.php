@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,27 +17,27 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Webservice\Adapter;
+namespace Dhl\Shipping\Webservice\Adapter;
 
-use Dhl\Versenden\Api\Webservice\Client\BcsSoapClientInterface;
-use \Dhl\Versenden\Api\Webservice\RequestMapper;
-use \Dhl\Versenden\Api\Webservice\ResponseParser;
-use \Dhl\Versenden\Api\Data\Webservice\RequestType;
-use \Dhl\Versenden\Api\Data\Webservice\ResponseType;
-use \Dhl\Versenden\Api\Webservice\Adapter\BcsAdapterInterface;
-use \Dhl\Versenden\Bcs as BcsApi;
+use Dhl\Shipping\Api\Webservice\Client\BcsSoapClientInterface;
+use \Dhl\Shipping\Api\Webservice\RequestMapper;
+use \Dhl\Shipping\Api\Webservice\ResponseParser;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType;
+use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
+use \Dhl\Shipping\Api\Webservice\Adapter\BcsAdapterInterface;
+use \Dhl\Shipping\Bcs as BcsApi;
 
 /**
  * Business Customer Shipping API Adapter
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api
+ * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
@@ -130,7 +130,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
-     * @return \Dhl\Versenden\Api\Data\Webservice\ResponseType\DeleteShipmentResponseInterface
+     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\DeleteShipmentResponseInterface
      * @throws \Exception
      */
     public function cancelLabels(array $shipmentNumbers)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class CreateShipmentOrderRequest
 {
@@ -35,7 +35,7 @@ class CreateShipmentOrderRequest
 
     /**
      * @param Version $Version
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderRequest
+     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderRequest
      */
     public function setVersion($Version)
     {
@@ -53,7 +53,7 @@ class CreateShipmentOrderRequest
 
     /**
      * @param ShipmentOrderType $ShipmentOrder
-     * @return \Dhl\Versenden\Bcs\CreateShipmentOrderRequest
+     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderRequest
      */
     public function setShipmentOrder($ShipmentOrder)
     {

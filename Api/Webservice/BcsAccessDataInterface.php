@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,14 +17,14 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api\Data
+ * @package   Dhl\Shipping\Api\Data
  * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 
-namespace Dhl\Versenden\Api\Webservice;
+namespace Dhl\Shipping\Api\Webservice;
 
 /**
  * BcsAccessDataInterface
@@ -33,7 +33,7 @@ namespace Dhl\Versenden\Api\Webservice;
  * - billing number
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Data
+ * @package  Dhl\Shipping\Api\Data
  * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

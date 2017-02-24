@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationVisualAgeCheck
 {
@@ -35,7 +35,7 @@ class ServiceconfigurationVisualAgeCheck
 
     /**
      * @param anonymous142 $active
-     * @return \Dhl\Versenden\Bcs\ServiceconfigurationVisualAgeCheck
+     * @return \Dhl\Shipping\Bcs\ServiceconfigurationVisualAgeCheck
      */
     public function setActive($active)
     {
@@ -53,7 +53,7 @@ class ServiceconfigurationVisualAgeCheck
 
     /**
      * @param anonymous143 $type
-     * @return \Dhl\Versenden\Bcs\ServiceconfigurationVisualAgeCheck
+     * @return \Dhl\Shipping\Bcs\ServiceconfigurationVisualAgeCheck
      */
     public function setType($type)
     {

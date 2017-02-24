@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class BankType
 {
@@ -62,7 +62,7 @@ class BankType
 
     /**
      * @param accountOwner $accountOwner
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setAccountOwner($accountOwner)
     {
@@ -80,7 +80,7 @@ class BankType
 
     /**
      * @param bankName $bankName
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setBankName($bankName)
     {
@@ -98,7 +98,7 @@ class BankType
 
     /**
      * @param iban $iban
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setIban($iban)
     {
@@ -116,7 +116,7 @@ class BankType
 
     /**
      * @param note1 $note1
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setNote1($note1)
     {
@@ -134,7 +134,7 @@ class BankType
 
     /**
      * @param note2 $note2
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setNote2($note2)
     {
@@ -152,7 +152,7 @@ class BankType
 
     /**
      * @param bic $bic
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setBic($bic)
     {
@@ -170,7 +170,7 @@ class BankType
 
     /**
      * @param accountreference $accountreference
-     * @return \Dhl\Versenden\Bcs\BankType
+     * @return \Dhl\Shipping\Bcs\BankType
      */
     public function setAccountreference($accountreference)
     {

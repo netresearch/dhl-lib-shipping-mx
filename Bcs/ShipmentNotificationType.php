@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhl\Versenden\Bcs;
+namespace Dhl\Shipping\Bcs;
 
 class ShipmentNotificationType
 {
@@ -28,7 +28,7 @@ class ShipmentNotificationType
 
     /**
      * @param recipientEmailAddress $recipientEmailAddress
-     * @return \Dhl\Versenden\Bcs\ShipmentNotificationType
+     * @return \Dhl\Shipping\Bcs\ShipmentNotificationType
      */
     public function setRecipientEmailAddress($recipientEmailAddress)
     {

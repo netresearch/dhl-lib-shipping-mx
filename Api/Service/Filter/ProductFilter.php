@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Versenden
+ * Dhl Shipping
  *
  * NOTICE OF LICENSE
  *
@@ -17,33 +17,33 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Versenden\Api
+ * @package   Dhl\Shipping\Api
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Versenden\Api\Service\Filter;
+namespace Dhl\Shipping\Api\Service\Filter;
 
-use Dhl\Versenden\Api\Webservice\BcsAccessDataInterface;
-use \Dhl\Versenden\Api\Service\BulkyGoods;
-use \Dhl\Versenden\Api\Service\Cod;
-use \Dhl\Versenden\Api\Service\Insurance;
-use \Dhl\Versenden\Api\Service\ParcelAnnouncement;
-use \Dhl\Versenden\Api\Service\PreferredDay;
-use \Dhl\Versenden\Api\Service\PreferredLocation;
-use \Dhl\Versenden\Api\Service\PreferredNeighbour;
-use \Dhl\Versenden\Api\Service\PreferredTime;
-use \Dhl\Versenden\Api\Service\PrintOnlyIfCodeable;
-use \Dhl\Versenden\Api\Service\ReturnShipment;
-use \Dhl\Versenden\Api\Service\ServiceInterface;
-use \Dhl\Versenden\Api\Service\VisualCheckOfAge;
+use Dhl\Shipping\Api\Webservice\BcsAccessDataInterface;
+use \Dhl\Shipping\Api\Service\BulkyGoods;
+use \Dhl\Shipping\Api\Service\Cod;
+use \Dhl\Shipping\Api\Service\Insurance;
+use \Dhl\Shipping\Api\Service\ParcelAnnouncement;
+use \Dhl\Shipping\Api\Service\PreferredDay;
+use \Dhl\Shipping\Api\Service\PreferredLocation;
+use \Dhl\Shipping\Api\Service\PreferredNeighbour;
+use \Dhl\Shipping\Api\Service\PreferredTime;
+use \Dhl\Shipping\Api\Service\PrintOnlyIfCodeable;
+use \Dhl\Shipping\Api\Service\ReturnShipment;
+use \Dhl\Shipping\Api\Service\ServiceInterface;
+use \Dhl\Shipping\Api\Service\VisualCheckOfAge;
 
 /**
  * Product filter
  *
  * @category Dhl
- * @package  Dhl\Versenden\Api\Service
+ * @package  Dhl\Shipping\Api\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
