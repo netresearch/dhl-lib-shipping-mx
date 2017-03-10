@@ -23,7 +23,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Webservice;
+namespace Dhl\Shipping\Webservice\Exception;
 
 /**
  * Shipment order cannot be processed. Client side validation error, e.g.:

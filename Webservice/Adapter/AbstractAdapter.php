@@ -25,8 +25,8 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use \Dhl\Shipping\Api\Data\Webservice\RequestType;
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
+use \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\AdapterInterface;
 
 /**
@@ -56,20 +56,20 @@ abstract class AbstractAdapter implements AdapterInterface
     }
 
     /**
-     * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     * @param ShipmentOrderInterface $shipmentOrder
      * @return bool
      */
-    abstract protected function canHandleShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder);
+    abstract protected function canHandleShipmentOrder(ShipmentOrderInterface $shipmentOrder);
 
     /**
-     * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return ResponseType\CreateShipment\LabelInterface[]
+     * @param ShipmentOrderInterface[] $shipmentOrders
+     * @return LabelInterface[]
      */
     abstract protected function createShipmentOrders(array $shipmentOrders);
 
     /**
-     * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return ResponseType\CreateShipment\LabelInterface[]
+     * @param ShipmentOrderInterface[] $shipmentOrders
+     * @return LabelInterface[]
      */
     public function createLabels(array $shipmentOrders)
     {

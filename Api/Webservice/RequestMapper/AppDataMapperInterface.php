@@ -25,7 +25,7 @@
  */
 namespace Dhl\Shipping\Api\Webservice\RequestMapper;
 
-use \Dhl\Shipping\Webservice\CreateShipmentValidationException;
+use \Dhl\Shipping\Webservice\Exception\CreateShipmentValidationException;
 
 /**
  * AppDataMapperInterface

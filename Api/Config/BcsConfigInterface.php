@@ -63,7 +63,7 @@ interface BcsConfigInterface
     const CONFIG_XML_PATH_BANKDATA_ACCOUNT_REFERENCE = 'carriers/dhlshipping/bcs_bankdata_account_reference';
 
     const CONFIG_XML_PATH_SHIPPER_CONTACT_PERSON = 'carriers/dhlshipping/bcs_shipper_contact_person';
-    const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANY_ADDITION = 'carriers/dhlshipping/bcs_shipper_contact_company_addition';
+    const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANYADDITION = 'carriers/dhlshipping/bcs_shipper_contact_company_addition';
     const CONFIG_XML_PATH_SHIPPER_CONTACT_DISPATCHINFO = 'carriers/dhlshipping/bcs_shipper_contact_dispatchinfo';
 
     /**

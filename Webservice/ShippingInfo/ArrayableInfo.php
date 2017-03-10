@@ -26,6 +26,7 @@
 namespace Dhl\Shipping\Webservice\ShippingInfo;
 
 use Dhl\Shipping\Api\Data\ShippingInfo\ArrayableInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\UnserializableInterface;
 
 /**
  * ArrayableInfo
@@ -79,7 +80,7 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
      */
     public function toArray($underscoreKeys = true)
     {
-        $getter = function($value) use ($underscoreKeys) {
+        $getter = function ($value) use ($underscoreKeys) {
             if ($value instanceof ArrayableInterface) {
                 return $value->toArray($underscoreKeys);
             } else {
@@ -87,7 +88,7 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
             }
         };
 
-        $keysMapper = function($key) {
+        $keysMapper = function ($key) {
             return static::underscore($key);
         };
 
@@ -108,7 +109,7 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
      */
     public function fromArray(array $values, $camelizeKeys = true)
     {
-        $setter = function($value, $key) use ($camelizeKeys) {
+        $setter = function ($value, $key) use ($camelizeKeys) {
             $key = $camelizeKeys ? static::camelize($key) : $key;
 
             if (property_exists($this, $key)) {
