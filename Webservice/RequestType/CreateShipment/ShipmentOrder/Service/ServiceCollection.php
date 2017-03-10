@@ -48,14 +48,14 @@ class ServiceCollection extends \ArrayIterator implements ServiceCollectionInter
     /**
      * Construct an ArrayIterator
      * @param AbstractServiceFactory $serviceFactory
-     * @param array $array The array or object to be iterated on.
+     * @param array $labels The array or object to be iterated on.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      */
-    public function __construct(AbstractServiceFactory $serviceFactory, array $array = [], $flags = 0)
+    public function __construct(AbstractServiceFactory $serviceFactory, array $labels = [], $flags = 0)
     {
         $this->serviceFactory = $serviceFactory;
 
-        parent::__construct($array, $flags);
+        parent::__construct($labels, $flags);
     }
 
     /**

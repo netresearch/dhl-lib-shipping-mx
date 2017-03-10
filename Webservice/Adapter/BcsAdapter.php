@@ -98,7 +98,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
         $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
 
         $shipmentOrders = array_map(
-            function($shipmentOrder) {
+            function ($shipmentOrder) {
                 return $this->apiDataMapper->mapShipmentOrder($shipmentOrder);
             },
             $shipmentOrders

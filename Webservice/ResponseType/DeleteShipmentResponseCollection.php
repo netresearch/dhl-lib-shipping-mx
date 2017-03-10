@@ -49,13 +49,13 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
      * DeleteShipmentResponseCollection constructor.
      *
      * @param ResponseStatusInterface $status
-     * @param ItemStatusInterface[] $array
+     * @param ItemStatusInterface[] $labels
      * @param int $flags
      */
-    public function __construct(ResponseStatusInterface $status, array $array = [], $flags = 0)
+    public function __construct(ResponseStatusInterface $status, array $labels = [], $flags = 0)
     {
         $this->status = $status;
-        parent::__construct($array, $flags);
+        parent::__construct($labels, $flags);
     }
 
     /**

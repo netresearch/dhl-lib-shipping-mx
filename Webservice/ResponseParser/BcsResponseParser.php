@@ -29,7 +29,7 @@ use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface;
 use \Dhl\Shipping\Api\Webservice\ResponseParser\BcsResponseParserInterface;
 use \Dhl\Shipping\Bcs\CreationState;
-use \Dhl\Shipping\Webservice\CreateShipmentStatusException;
+use \Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
 
 /**
  * Geschäftskunden API response parser

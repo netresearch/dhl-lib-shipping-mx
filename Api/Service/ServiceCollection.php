@@ -41,7 +41,7 @@ class ServiceCollection extends \ArrayIterator
      * @param ServiceInterface[] $services
      * @param int $flags
      */
-    public function __construct(array $services = array(), $flags = 0)
+    public function __construct(array $services = [], $flags = 0)
     {
         $codes = array_map(function (ServiceInterface $service) {
             return $service->getCode();

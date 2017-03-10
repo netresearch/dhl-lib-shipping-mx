@@ -27,7 +27,7 @@ namespace Dhl\Shipping\Api\Webservice;
 
 use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\AdapterInterface;
-use \Dhl\Shipping\Webservice\CreateShipmentValidationException;
+use \Dhl\Shipping\Webservice\Exception\CreateShipmentValidationException;
 
 /**
  * RequestValidatorInterface

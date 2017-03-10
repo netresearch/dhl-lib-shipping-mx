@@ -49,13 +49,13 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
      * CreateShipmentResponseCollection constructor.
      *
      * @param ResponseStatusInterface $status
-     * @param LabelInterface[] $array
+     * @param LabelInterface[] $labels
      * @param int $flags
      */
-    public function __construct(ResponseStatusInterface $status, array $array = [], $flags = 0)
+    public function __construct(ResponseStatusInterface $status, array $labels = [], $flags = 0)
     {
         $this->status = $status;
-        parent::__construct($array, $flags);
+        parent::__construct($labels, $flags);
     }
 
     /**

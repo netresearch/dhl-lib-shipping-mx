@@ -25,7 +25,9 @@
  */
 namespace Dhl\Shipping\Api\Webservice\RequestMapper;
 
-use \Dhl\Shipping\Api\Data\Webservice\RequestType;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType\DeleteShipmentRequestInterface;
+use \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface;
 
 /**
  * BcsDataMapperInterface
@@ -36,23 +38,23 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  *
- * @method \Dhl\Shipping\Bcs\ShipmentOrderType mapShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+ * @method \Dhl\Shipping\Bcs\ShipmentOrderType mapShipmentOrder(ShipmentOrderInterface $shipmentOrder)
  */
 interface BcsDataMapperInterface extends ApiDataMapperInterface
 {
     /**
      * Create api specific request object from framework standardized object.
      *
-     * @param \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface $request
+     * @param GetVersionRequestInterface $request
      * @return \Dhl\Shipping\Bcs\Version
      */
-    public function mapVersion(RequestType\GetVersionRequestInterface $request);
+    public function mapVersion(GetVersionRequestInterface $request);
 
     /**
      * Create api specific request object from framework standardized object.
      * TODO(nr): shipment numbers are a simple type, no need to convert something?
      *
-     * @param \Dhl\Shipping\Api\Data\Webservice\RequestType\DeleteShipmentRequestInterface[] $numbers
+     * @param DeleteShipmentRequestInterface[] $numbers
      * @return string[]
      */
     public function mapShipmentNumbers(array $numbers);
