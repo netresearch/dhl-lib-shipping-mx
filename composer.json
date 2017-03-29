@@ -1,5 +1,6 @@
 {
     "name": "dhl/lib-shipping-mx",
+    "version": "0.1.0",
     "description": "Communication types and other utilities for DHL Business Customer Shipping SOAP API access.",
     "type": "magento2-library",
     "license": "OSL-3.0",

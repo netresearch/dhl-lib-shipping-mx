@@ -1,8 +1,8 @@
-DHL BCS API Library
-===================
+DHL Shipping API Library
+========================
 
-The DHL BCS API library for Magento 2 provides communication types, data types
-and other utilities for Business Customer Shipping SOAP API access.
+The DHL Shipping API library for Magento® provides communication types, data
+types and other utilities for DHL API access.
 
 Facts
 -----
@@ -11,19 +11,25 @@ Facts
 Description
 -----------
 This library enables extension developers to prepare and parse messages for
-BCS API communication and provides functionality for collecting request data.
+DHL Shipping API communication and provides functionality for collecting request
+data. Supported APIs are
+* DHL Business Customer Shipping API
+* DHL Global Label API
 
 Requirements
 ------------
-* PHP >= 5.6.0
+* PHP >= 5.6.5
 
 Installation Instructions
 -------------------------
-t.b.d.
+This library is installed as dependency to DHL Shipping modules for Magento®.
+It is not meant to be installed standalone.
 
 Uninstallation
 --------------
-t.b.d.
+This library is installed as dependency to DHL Shipping modules for Magento®.
+Following the module's uninstallation instructions will also remove the library
+source files from the system.
 
 Support
 -------
@@ -33,10 +39,6 @@ In case of questions or problems, please have a look at the
 If the issue cannot be resolved, you can contact the support team via the
 [Support Portal](http://dhl.support.netresearch.de/) or by sending an email
 to <dhl.support@netresearch.de>.
-
-Contribution
-------------
-t.b.d.
 
 Developer
 ---------
