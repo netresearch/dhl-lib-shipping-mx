@@ -19,6 +19,7 @@
  * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author    Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
@@ -31,14 +32,68 @@ namespace Dhl\Shipping\Api\Config;
  * @category Dhl
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
 interface GlConfigInterface
 {
+    const CONFIG_XML_PATH_PICKUP_NUMBER_SANDBOX = 'carriers/dhlshipping/gl_sandbox_pickup_number';
+    const CONFIG_XML_PATH_PICKUP_NUMBER         = 'carriers/dhlshipping/gl_pickup_number';
+
+    const CONFIG_XML_PATH_ENDPOINT      = 'carriers/dhlshipping/gl_api_endpoint';
+    const CONFIG_XML_PATH_AUTH_USERNAME = 'carriers/dhlshipping/gl_api_auth_username';
+    const CONFIG_XML_PATH_AUTH_PASSWORD = 'carriers/dhlshipping/gl_api_auth_password';
+
+    const CONFIG_XML_PATH_SANDBOX_ENDPOINT      = 'carriers/dhlshipping/gl_sandbox_api_endpoint';
+    const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/gl_sandbox_api_auth_username';
+    const CONFIG_XML_PATH_SANDBOX_AUTH_PASSWORD = 'carriers/dhlshipping/gl_sandbox_api_auth_password';
+
+
+    const LABEL_SIZE_4X6    = '4x6';
+    const LABEL_SIZE_4X4    = '4x4';
+    const PAGE_LAYOUT_1X1   = '1x1';
+    const PAGE_LAYOUT_4X1   = '4x1';
+    const PAGE_SIZE_A4      = 'A4';
+    const PAGE_SIZE_400X400 = '400x400';
+    const PAGE_SIZE_400X600 = '400x600';
+    const PRODUCT_PKG       = 'PKG';
+    const PRODUCT_PPS       = 'PPS';
+    const PRODUCT_PPM       = 'PPM';
+    const PRODUCT_PLD       = 'PLD';
+    const PRODUCT_PKD       = 'PKD';
+    const PRODUCT_PLE       = 'PLE';
+    const PRODUCT_PLT       = 'PLT';
+    const PRODUCT_PKM       = 'PKM';
+
+
     /**
      * @param mixed $store
      * @return string
      */
     public function getPickupAccountNumber($store = null);
+
+    /**
+     * Obtain API endpoint.
+     *
+     * @param mixed $store
+     * @return string
+     */
+    public function getApiEndpoint($store = null);
+
+    /**
+     * Obtain auth credentials: username.
+     *
+     * @param mixed $store
+     * @return string
+     */
+    public function getAuthUsername($store = null);
+
+    /**
+     * Obtain auth credentials: password.
+     *
+     * @param mixed $store
+     * @return string
+     */
+    public function getAuthPassword($store = null);
 }
