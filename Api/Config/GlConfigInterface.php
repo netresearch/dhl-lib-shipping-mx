@@ -49,7 +49,6 @@ interface GlConfigInterface
     const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/gl_sandbox_api_auth_username';
     const CONFIG_XML_PATH_SANDBOX_AUTH_PASSWORD = 'carriers/dhlshipping/gl_sandbox_api_auth_password';
 
-
     const LABEL_SIZE_4X6    = '4x6';
     const LABEL_SIZE_4X4    = '4x4';
     const PAGE_LAYOUT_1X1   = '1x1';
@@ -65,7 +64,6 @@ interface GlConfigInterface
     const PRODUCT_PLE       = 'PLE';
     const PRODUCT_PLT       = 'PLT';
     const PRODUCT_PKM       = 'PKM';
-
 
     /**
      * @param mixed $store
