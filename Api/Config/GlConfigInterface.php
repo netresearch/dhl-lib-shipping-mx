@@ -49,23 +49,6 @@ interface GlConfigInterface
     const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/gl_sandbox_api_auth_username';
     const CONFIG_XML_PATH_SANDBOX_AUTH_PASSWORD = 'carriers/dhlshipping/gl_sandbox_api_auth_password';
 
-<<<<<<< Updated upstream
-    const LABEL_SIZE_4X6    = '4x6';
-    const LABEL_SIZE_4X4    = '4x4';
-    const PAGE_LAYOUT_1X1   = '1x1';
-    const PAGE_LAYOUT_4X1   = '4x1';
-    const PAGE_SIZE_A4      = 'A4';
-    const PAGE_SIZE_400X400 = '400x400';
-    const PAGE_SIZE_400X600 = '400x600';
-    const PRODUCT_PKG       = 'PKG';
-    const PRODUCT_PPS       = 'PPS';
-    const PRODUCT_PPM       = 'PPM';
-    const PRODUCT_PLD       = 'PLD';
-    const PRODUCT_PKD       = 'PKD';
-    const PRODUCT_PLE       = 'PLE';
-    const PRODUCT_PLT       = 'PLT';
-    const PRODUCT_PKM       = 'PKM';
-=======
     const CONFIG_XML_PATH_LABEL_SIZE = 'carriers/dhlshipping/label_size';
     const LABEL_SIZE_4X6    = 0;
     const LABEL_SIZE_4X4    = 1;
@@ -88,7 +71,6 @@ interface GlConfigInterface
     const PRODUCT_PLE       = 5;
     const PRODUCT_PLT       = 6;
     const PRODUCT_PKM       = 7;
->>>>>>> Stashed changes
 
     /**
      * @param mixed $store
