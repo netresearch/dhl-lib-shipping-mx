@@ -26,10 +26,10 @@
 
 namespace Dhl\Shipping\Util;
 
-use Dhl\Shipping\Api\Config\RouteConfigInterface;
+use Dhl\Shipping\Api\Util\ShippingRoutesInterface;
 
 /**
- * RouteConfig
+ * ShippingRoutes
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
@@ -37,9 +37,11 @@ use Dhl\Shipping\Api\Config\RouteConfigInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class RouteConfig implements RouteConfigInterface
+class ShippingRoutes implements ShippingRoutesInterface
 {
     /**
+     * Obtain all supported origin-destination routes.
+     *
      * @return string[]
      */
     private function getRoutes()
@@ -47,12 +49,12 @@ class RouteConfig implements RouteConfigInterface
         return [
             // Germany: EU only, international will be added in 0.3.0
             'DE' => [
-                'included' => [self::COUNTRY_CODE_EU],
+                'included' => [self::REGION_EU],
                 'excluded' => [],
             ],
             // Austria: EU only, international will be added in 0.3.0
             'AT' => [
-                'included' => [self::COUNTRY_CODE_EU],
+                'included' => [self::REGION_EU],
                 'excluded' => [],
             ],
             // United States of America: Domestic only, international will be added in 0.4.0
@@ -89,10 +91,10 @@ class RouteConfig implements RouteConfigInterface
     }
 
     /**
-     * @param $originCountryId
-     * @param $destCountryId
-     * @param array $euCountries
-     * @return mixed
+     * @param string $originCountryId
+     * @param string $destCountryId
+     * @param string[] $euCountries
+     * @return bool
      */
     public function canProcessRoute($originCountryId, $destCountryId, array $euCountries)
     {
@@ -108,10 +110,10 @@ class RouteConfig implements RouteConfigInterface
         // check inclusion of current destination country
         $isIncluded = false;
         $includedCountries = $rules['included'];
-        if (in_array(self::COUNTRY_CODE_INTERNATIONAL, $includedCountries)) {
+        if (in_array(self::REGION_INTERNATIONAL, $includedCountries)) {
             // shipping everywhere
             $isIncluded = true;
-        } elseif (in_array(self::COUNTRY_CODE_EU, $includedCountries) && in_array($destCountryId, $euCountries)) {
+        } elseif (in_array(self::REGION_EU, $includedCountries) && in_array($destCountryId, $euCountries)) {
             // shipping to EU, destination is EU
             $isIncluded = true;
         } elseif (in_array($destCountryId, $includedCountries)) {
@@ -127,10 +129,10 @@ class RouteConfig implements RouteConfigInterface
         // check exclusion of current destination country
         $isExcluded = false;
         $excludedCountries = $rules['excluded'];
-        if (in_array(self::COUNTRY_CODE_INTERNATIONAL, $excludedCountries)) {
+        if (in_array(self::REGION_INTERNATIONAL, $excludedCountries)) {
             // shipping nowhere
             $isExcluded = true;
-        } elseif (in_array(self::COUNTRY_CODE_EU, $excludedCountries) && in_array($destCountryId, $euCountries)) {
+        } elseif (in_array(self::REGION_EU, $excludedCountries) && in_array($destCountryId, $euCountries)) {
             // not shipping to EU, destination is EU
             $isExcluded = true;
         } elseif (in_array($destCountryId, $excludedCountries)) {
