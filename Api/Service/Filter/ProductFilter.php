@@ -42,6 +42,9 @@ use \Dhl\Shipping\Api\Service\VisualCheckOfAge;
 /**
  * Product filter
  *
+ * @deprecated
+ * @todo Create new solution taking into account global label api
+ *
  * @category Dhl
  * @package  Dhl\Shipping\Api\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
