@@ -59,12 +59,17 @@ class ShippingRoutes implements ShippingRoutesInterface
             ],
             // United States of America: Domestic only, international will be added in 0.4.0
             'US' => [
-                'included' => ['US'],
+                'included' => [self::COUNTRY_CODE_USA],
                 'excluded' => [],
             ],
             // Chile: Domestic only
             'CL' => [
-                'included' => ['CL'],
+                'included' => [self::COUNTRY_CODE_CHILE],
+                'excluded' => [],
+            ],
+            // Canada: Cross Border only, will be added in 0.4.0
+            'CA' => [
+                'included' => [],
                 'excluded' => [],
             ],
             // Singapore: Cross Border only, will be added in 0.4.0
@@ -72,18 +77,43 @@ class ShippingRoutes implements ShippingRoutesInterface
                 'included' => [],
                 'excluded' => [],
             ],
-            // Singapore: Cross Border only, will be added in 0.4.0
+            // Hongkong: Cross Border only, will be added in 0.4.0
             'HK' => [
                 'included' => [],
                 'excluded' => [],
             ],
             // Thailand: Domestic only
             'TH' => [
-                'included' => ['TH'],
+                'included' => [self::COUNTRY_CODE_THAILAND],
                 'excluded' => [],
             ],
             // Japan: Cross Border only, will be added in 0.4.0
             'JP' => [
+                'included' => [],
+                'excluded' => [],
+            ],
+            // China: Cross Border only, will be added in 0.4.0
+            'CN' => [
+                'included' => [],
+                'excluded' => [],
+            ],
+            // India: n/a
+            'IN' => [
+                'included' => [],
+                'excluded' => [],
+            ],
+            // Malaysia: Domestic and Cross Border (will be added in 0.4.0)
+            'MY' => [
+                'included' => [self::COUNTRY_CODE_MALAYSIA],
+                'excluded' => [],
+            ],
+            // Vietnam: Domestic and Cross Border (will be added in 0.4.0)
+            'VN' => [
+                'included' => [self::COUNTRY_CODE_VIETNAM],
+                'excluded' => [],
+            ],
+            // Australia: Cross Border only, will be added in 0.4.0
+            'AU' => [
                 'included' => [],
                 'excluded' => [],
             ],
