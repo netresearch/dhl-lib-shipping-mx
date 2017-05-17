@@ -24,10 +24,10 @@
  * @link      http://www.netresearch.de/
  */
 
-namespace Dhl\Shipping\Gla\Request;
+namespace Dhl\Shipping\Gla\Response;
 
 /**
- * LabelRequest
+ * LabelResponse
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
@@ -35,24 +35,15 @@ namespace Dhl\Shipping\Gla\Request;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class LabelRequest implements \JsonSerializable
+class LabelResponse
 {
     /**
-     * @var \Dhl\Shipping\Gla\Request\Type\ShipmentRequestType[]
+     * @var \Dhl\Shipping\Gla\Response\Type\ShipmentResponseType[]
      */
     private $shipments;
 
     /**
-     * LabelRequest constructor.
-     * @param Type\ShipmentRequestType[] $shipments
-     */
-    public function __construct(array $shipments)
-    {
-        $this->shipments = $shipments;
-    }
-
-    /**
-     * @return \Dhl\Shipping\Gla\Request\Type\ShipmentRequestType[]
+     * @return Type\ShipmentResponseType[]
      */
     public function getShipments()
     {
@@ -60,10 +51,10 @@ class LabelRequest implements \JsonSerializable
     }
 
     /**
-     * @return \Dhl\Shipping\Gla\Request\Type\ShipmentRequestType[]
+     * @param Type\ShipmentResponseType[] $shipments
      */
-    function jsonSerialize()
+    public function setShipments($shipments)
     {
-        return get_object_vars($this);
+        $this->shipments = $shipments;
     }
 }

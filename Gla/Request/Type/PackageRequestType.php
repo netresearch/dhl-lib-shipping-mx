@@ -75,8 +75,8 @@ class PackageRequestType implements \JsonSerializable
     public function __construct(
         ConsigneeAddressRequestType $consigneeAddress,
         PackageDetailsRequestType $packageDetails,
-        ReturnAddressRequestType $returnAddress,
-        CustomsDetailsRequestType $customsDetails
+        ReturnAddressRequestType $returnAddress = null,
+        CustomsDetailsRequestType $customsDetails = null
     ) {
         $this->consigneeAddress = $consigneeAddress;
         $this->packageDetails = $packageDetails;

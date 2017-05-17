@@ -24,10 +24,10 @@
  * @link      http://www.netresearch.de/
  */
 
-namespace Dhl\Shipping\Gla\Request\Type;
+namespace Dhl\Shipping\Gla\Response\Type;
 
 /**
- * ShipmentRequestType
+ * LabelDetailsResponseType
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
@@ -35,71 +35,90 @@ namespace Dhl\Shipping\Gla\Request\Type;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class ShipmentRequestType implements \JsonSerializable
+class LabelDetailsResponseType
 {
     /**
-     * The DHL eCommerce pickup account number. Required. 5-10 chars.
-     *
      * @var string
      */
-    private $pickupAccount;
+    private $packageId;
 
     /**
-     * Primary DHL eCommerce Distribution. Required. 6 chars.
-     *
      * @var string
      */
-    private $distributionCenter;
+    private $format;
 
     /**
-     * One or more packages. Required.
-     *
-     * @var \Dhl\Shipping\Gla\Request\Type\PackageRequestType[]
+     * @var string
      */
-    private $packages;
+    private $templateId;
 
     /**
-     * ShipmentRequestType constructor.
-     * @param string $pickupAccount
-     * @param string $distributionCenter
-     * @param PackageRequestType[] $packages
+     * @var string
      */
-    public function __construct($pickupAccount, $distributionCenter, array $packages)
+    private $labelData;
+
+    /**
+     * @return string
+     */
+    public function getPackageId()
     {
-        $this->pickupAccount = $pickupAccount;
-        $this->distributionCenter = $distributionCenter;
-        $this->packages = $packages;
+        return $this->packageId;
+    }
+
+    /**
+     * @param string $packageId
+     */
+    public function setPackageId($packageId)
+    {
+        $this->packageId = $packageId;
     }
 
     /**
      * @return string
      */
-    public function getPickupAccount()
+    public function getFormat()
     {
-        return $this->pickupAccount;
+        return $this->format;
+    }
+
+    /**
+     * @param string $format
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
     }
 
     /**
      * @return string
      */
-    public function getDistributionCenter()
+    public function getTemplateId()
     {
-        return $this->distributionCenter;
+        return $this->templateId;
     }
 
     /**
-     * @return \Dhl\Shipping\Gla\Request\Type\PackageRequestType[]
+     * @param string $templateId
      */
-    public function getPackages()
+    public function setTemplateId($templateId)
     {
-        return $this->packages;
+        $this->templateId = $templateId;
     }
 
     /**
-     * @return mixed[]
+     * @return string
      */
-    function jsonSerialize()
+    public function getLabelData()
     {
-        return get_object_vars($this);
+        return $this->labelData;
     }
+
+    /**
+     * @param string $labelData
+     */
+    public function setLabelData($labelData)
+    {
+        $this->labelData = $labelData;
+    }
+
 }
