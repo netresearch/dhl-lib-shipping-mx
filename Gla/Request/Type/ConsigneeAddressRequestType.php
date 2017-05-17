@@ -45,6 +45,27 @@ class ConsigneeAddressRequestType implements \JsonSerializable
     private $address1;
 
     /**
+     * Consignee's city. Required. 1-30 chars.
+     *
+     * @var string
+     */
+    private $city;
+
+    /**
+     * Two-character ISO consignee address country code. Required. 2 chars.
+     *
+     * @var string
+     */
+    private $country;
+
+    /**
+     * Consignee's phone number. Required. 1-80 chars.
+     *
+     * @var string
+     */
+    private $phone;
+
+    /**
      * Line 2 of the consignee's street address or delivery location. Optional. 1-40 chars.
      *
      * @var string
@@ -59,25 +80,11 @@ class ConsigneeAddressRequestType implements \JsonSerializable
     private $address3;
 
     /**
-     * Consignee's city. Required. 1-30 chars.
-     *
-     * @var string
-     */
-    private $city;
-
-    /**
      * Name of the institution receiving the shipment. Optional. 1-30 chars.
      *
      * @var string
      */
     private $companyName;
-
-    /**
-     * Two-character ISO consignee address country code. Required. 2 chars.
-     *
-     * @var string
-     */
-    private $country;
 
     /**
      * Consignee's email address. Optional. 1-80 chars.
@@ -108,13 +115,6 @@ class ConsigneeAddressRequestType implements \JsonSerializable
     private $name;
 
     /**
-     * Consignee's phone number. Required. 1-80 chars.
-     *
-     * @var string
-     */
-    private $phone;
-
-    /**
      * Consignee's postal code. Optional. 5-11 chars.
      *
      * @var string
@@ -131,47 +131,151 @@ class ConsigneeAddressRequestType implements \JsonSerializable
     /**
      * ConsigneeAddressRequestType constructor.
      * @param string $address1
+     * @param string $city
+     * @param string $country
+     * @param string $phone
      * @param string $address2
      * @param string $address3
-     * @param string $city
      * @param string $companyName
-     * @param string $country
      * @param string $email
      * @param string $idNumber
      * @param string $idType
      * @param string $name
-     * @param string $phone
      * @param string $postalCode
      * @param string $state
      */
     public function __construct(
         $address1,
-        $address2,
-        $address3,
         $city,
-        $companyName,
         $country,
-        $email,
-        $idNumber,
-        $idType,
-        $name,
         $phone,
-        $postalCode,
-        $state
+        $address2 = null,
+        $address3 = null,
+        $companyName = null,
+        $email = null,
+        $idNumber = null,
+        $idType = null,
+        $name = null,
+        $postalCode = null,
+        $state = null
     ) {
         $this->address1 = $address1;
+        $this->city = $city;
+        $this->country = $country;
+        $this->phone = $phone;
         $this->address2 = $address2;
         $this->address3 = $address3;
-        $this->city = $city;
         $this->companyName = $companyName;
-        $this->country = $country;
         $this->email = $email;
         $this->idNumber = $idNumber;
         $this->idType = $idType;
         $this->name = $name;
-        $this->phone = $phone;
         $this->postalCode = $postalCode;
         $this->state = $state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress1()
+    {
+        return $this->address1;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress2()
+    {
+        return $this->address2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress3()
+    {
+        return $this->address3;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdNumber()
+    {
+        return $this->idNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdType()
+    {
+        return $this->idType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 
     /**
