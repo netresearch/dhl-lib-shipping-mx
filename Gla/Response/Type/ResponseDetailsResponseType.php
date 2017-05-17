@@ -43,7 +43,7 @@ class ResponseDetailsResponseType
     private $labelDetails;
 
     /**
-     * @return LabelDetailsResponseType[]
+     * @return \Dhl\Shipping\Gla\Response\Type\LabelDetailsResponseType[]
      */
     public function getLabelDetails()
     {
@@ -51,7 +51,7 @@ class ResponseDetailsResponseType
     }
 
     /**
-     * @param LabelDetailsResponseType[] $labelDetails
+     * @param \Dhl\Shipping\Gla\Response\Type\LabelDetailsResponseType[] $labelDetails
      */
     public function setLabelDetails($labelDetails)
     {

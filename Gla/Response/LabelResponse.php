@@ -43,7 +43,7 @@ class LabelResponse
     private $shipments;
 
     /**
-     * @return Type\ShipmentResponseType[]
+     * @return \Dhl\Shipping\Gla\Response\Type\ShipmentResponseType[]
      */
     public function getShipments()
     {
@@ -51,7 +51,7 @@ class LabelResponse
     }
 
     /**
-     * @param Type\ShipmentResponseType[] $shipments
+     * @param \Dhl\Shipping\Gla\Response\Type\ShipmentResponseType[] $shipments
      */
     public function setShipments($shipments)
     {

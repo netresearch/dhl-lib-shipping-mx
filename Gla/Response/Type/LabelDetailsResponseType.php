@@ -120,5 +120,4 @@ class LabelDetailsResponseType
     {
         $this->labelData = $labelData;
     }
-
 }
