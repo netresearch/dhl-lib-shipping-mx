@@ -17,44 +17,35 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ * @package   Dhl\Shipping\Util\Serializer
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+namespace Dhl\Shipping\Util\Serializer;
 
-namespace Dhl\Shipping\Gla\Response\Type;
+use \Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
 
 /**
- * PackageResponseType
+ * REST API JSON Serializer
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ * @package  Dhl\Shipping\Util\Serializer
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PackageResponseType
+class Json extends AbstractSerializer implements SerializerInterface
 {
     /**
-     * @var \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * @param string $data The data to be parsed
+     * @param string $type The type (interface) to map the data to
+     * @return mixed The object with populated properties
      */
-    private $responseDetails;
-
-    /**
-     * @return \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
-     */
-    public function getResponseDetails()
+    public function deserialize($data, $type)
     {
-        return $this->responseDetails;
-    }
-
-    /**
-     * @param \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType $responseDetails
-     */
-    public function setResponseDetails($responseDetails)
-    {
-        $this->responseDetails = $responseDetails;
+        $properties = json_decode($data, true);
+        return $this->parseProperties($properties, $type);
     }
 }

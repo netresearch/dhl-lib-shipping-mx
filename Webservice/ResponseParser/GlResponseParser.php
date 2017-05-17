@@ -52,7 +52,7 @@ class GlResponseParser implements GlResponseParserInterface
     /**
      * Convert GLA JSON response to generic CreateShipmentResponse
      *
-     * @param \Dhl\Shipping\Gla\Rest\GetLabelResponse[] $response
+     * @param \Dhl\Shipping\Gla\Response\LabelResponse[] $response
      * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface[]
      */
     public function parseCreateShipmentResponse($response)

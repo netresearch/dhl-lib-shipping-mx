@@ -43,7 +43,7 @@ class ShipmentResponseType
     private $packages;
 
     /**
-     * @return PackageResponseType[]
+     * @return \Dhl\Shipping\Gla\Response\Type\PackageResponseType[]
      */
     public function getPackages()
     {
@@ -51,7 +51,7 @@ class ShipmentResponseType
     }
 
     /**
-     * @param PackageResponseType[] $packages
+     * @param \Dhl\Shipping\Gla\Response\Type\PackageResponseType[] $packages
      */
     public function setPackages($packages)
     {

@@ -89,30 +89,19 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     }
 
     /**
-     * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
-     * @return \Dhl\Shipping\Gla\Rest\GetLabel\Label
-     */
-    private function createShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
-    {
-        //TODO(nr): perform actual request
-        /** @var \Dhl\Shipping\Gla\Rest\GetLabel\Label $restResponse */
-        $restResponse = new \stdClass($shipmentOrder);
-        return $restResponse;
-    }
-
-    /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
-        //TODO(nr): create response wrapper entity
-        /** @var \Dhl\Shipping\Gla\Rest\GetLabelResponse $restResponse */
-        $restResponse = new \ArrayIterator();
-        foreach ($shipmentOrders as $request) {
-            $labelResponse = $this->createShipmentOrder($request);
-            $restResponse['sequenceNumber'] = $labelResponse;
-        }
+        // (1) GlApiDataMapper maps shipment orders to json request body
+        $payload = '{}';
+
+        // (2) http client sends payload to API, passes through response
+        $restResponseJson = '{}';
+
+        // (3) deserialize json before passing it to the parser
+        $restResponse = new \stdClass();
 
         $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
         return $response;

@@ -17,44 +17,40 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ * @package   Dhl\Shipping\Util\Serializer
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-
-namespace Dhl\Shipping\Gla\Response\Type;
+namespace Dhl\Shipping\Api\Util\Serializer\Reflection;
 
 /**
- * PackageResponseType
+ * Wrapper for Reflection API access.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ * @package  Dhl\Shipping\Util\Serializer
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PackageResponseType
+interface ReflectionInterface
 {
     /**
-     * @var \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * Obtain the data type of a class property.
+     *
+     * @param \stdClass $type
+     * @param string $property
+     * @return string
      */
-    private $responseDetails;
+    public function getPropertyType($type, $property);
 
     /**
-     * @return \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * Obtain the return type of a class property getter.
+     *
+     * @param \stdClass $type
+     * @param string $getter
+     * @return string
      */
-    public function getResponseDetails()
-    {
-        return $this->responseDetails;
-    }
-
-    /**
-     * @param \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType $responseDetails
-     */
-    public function setResponseDetails($responseDetails)
-    {
-        $this->responseDetails = $responseDetails;
-    }
+    public function getReturnValueType($type, $getter);
 }

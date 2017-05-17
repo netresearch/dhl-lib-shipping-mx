@@ -17,44 +17,58 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ * @package   Dhl\Shipping\Util\Serializer
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-
-namespace Dhl\Shipping\Gla\Response\Type;
+namespace Dhl\Shipping\Api\Util\Serializer\Reflection;
 
 /**
- * PackageResponseType
+ * Property Handler
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ * @package  Dhl\Shipping\Util\Serializer
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PackageResponseType
+interface PropertyHandlerInterface
 {
     /**
-     * @var \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * Convert snake case to UpperCamelCase.
+     *
+     * @param string $key
+     * @return string
      */
-    private $responseDetails;
+    public function camelizeUp($key);
 
     /**
-     * @return \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * Convert snake case to lowerCamelCase.
+     *
+     * @param string $key
+     * @return string
      */
-    public function getResponseDetails()
-    {
-        return $this->responseDetails;
-    }
+    public function camelizeLow($key);
 
     /**
-     * @param \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType $responseDetails
+     * Convert Capitalized, UpperCamelCase or lowerCamelCase to snake case.
+     *
+     * @param string $key
+     * @return string
      */
-    public function setResponseDetails($responseDetails)
-    {
-        $this->responseDetails = $responseDetails;
-    }
+    public function underscore($key);
+
+    /**
+     * @param string $key
+     * @return string
+     */
+    public function getter($key);
+
+    /**
+     * @param string $key
+     * @return string
+     */
+    public function setter($key);
 }

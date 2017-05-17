@@ -58,6 +58,9 @@ class BcsAccessData implements BcsAccessDataInterface
     /**
      * Get the GK API product code.
      *
+     * @deprecated
+     * @see \Dhl\Shipping\Api\Util\ShippingProductsInterface::getApplicableCodes()
+     *
      * @param string $shipperCountry
      * @param string $recipientCountry
      * @param string[] $euCountries
