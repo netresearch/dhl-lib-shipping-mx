@@ -193,6 +193,10 @@ class CustomsDetailsRequestType implements \JsonSerializable
      */
     function jsonSerialize()
     {
-        return get_object_vars($this);
+        $properties = get_object_vars($this);
+        $properties = array_filter($properties, function ($value) {
+            return !empty($value);
+        });
+        return $properties;
     }
 }
