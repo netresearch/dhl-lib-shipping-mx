@@ -38,7 +38,7 @@ interface AddressInterface
 {
     /**
      * Full street
-     * @return string
+     * @return string[]
      */
     public function getStreet();
 

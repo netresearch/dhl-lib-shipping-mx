@@ -61,7 +61,7 @@ class PackageRequestType implements \JsonSerializable
     /**
      * Details for one or more customs commodities. Required if orderedProduct is an international product.
      *
-     * @var \Dhl\Shipping\Gla\Request\Type\CustomsDetailsRequestType
+     * @var \Dhl\Shipping\Gla\Request\Type\CustomsDetailsRequestType[]
      */
     private $customsDetails;
 
@@ -70,13 +70,13 @@ class PackageRequestType implements \JsonSerializable
      * @param ConsigneeAddressRequestType $consigneeAddress
      * @param PackageDetailsRequestType $packageDetails
      * @param ReturnAddressRequestType $returnAddress
-     * @param CustomsDetailsRequestType $customsDetails
+     * @param CustomsDetailsRequestType[] $customsDetails
      */
     public function __construct(
         ConsigneeAddressRequestType $consigneeAddress,
         PackageDetailsRequestType $packageDetails,
         ReturnAddressRequestType $returnAddress = null,
-        CustomsDetailsRequestType $customsDetails = null
+        array $customsDetails = []
     ) {
         $this->consigneeAddress = $consigneeAddress;
         $this->packageDetails = $packageDetails;
@@ -109,7 +109,7 @@ class PackageRequestType implements \JsonSerializable
     }
 
     /**
-     * @return \Dhl\Shipping\Gla\Request\Type\CustomsDetailsRequestType
+     * @return \Dhl\Shipping\Gla\Request\Type\CustomsDetailsRequestType[]
      */
     public function getCustomsDetails()
     {
