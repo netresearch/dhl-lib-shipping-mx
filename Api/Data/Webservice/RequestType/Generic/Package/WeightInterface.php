@@ -41,4 +41,9 @@ interface WeightInterface
      * @return float
      */
     public function getValue($unitOfMeasurement);
+
+    /**
+     * @return string
+     */
+    public function getUnitOfMeasurement();
 }

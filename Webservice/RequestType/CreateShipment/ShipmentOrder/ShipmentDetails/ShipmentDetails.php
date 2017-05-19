@@ -72,6 +72,11 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @var string
      */
+    private $distributionCenter;
+
+    /**
+     * @var string
+     */
     private $reference;
 
     /**
@@ -97,6 +102,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param string $accountNumber
      * @param string $returnShipmentAccountNumber
      * @param string $pickupAccountNumber
+     * @param string $distributionCenter
      * @param string $reference
      * @param string $returnShipmentReference
      * @param string $shipmentDate
@@ -109,6 +115,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $accountNumber,
         $returnShipmentAccountNumber,
         $pickupAccountNumber,
+        $distributionCenter,
         $reference,
         $returnShipmentReference,
         $shipmentDate,
@@ -120,6 +127,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->accountNumber = $accountNumber;
         $this->returnShipmentAccountNumber = $returnShipmentAccountNumber;
         $this->pickupAccountNumber = $pickupAccountNumber;
+        $this->distributionCenter = $distributionCenter;
         $this->reference = $reference;
         $this->returnShipmentReference = $returnShipmentReference;
         $this->shipmentDate = $shipmentDate;
@@ -186,6 +194,16 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public function getPickupAccountNumber()
     {
         return $this->pickupAccountNumber;
+    }
+
+    /**
+     * Obtain the primary DHL eCommerce Distribution center.
+     *
+     * @return string
+     */
+    public function getDistributionCenter()
+    {
+        return $this->distributionCenter;
     }
 
     /**

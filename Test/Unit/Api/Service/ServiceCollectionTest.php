@@ -25,11 +25,11 @@
  */
 namespace Dhl\Shipping\Api\Service;
 
-use Dhl\Shipping\Api\BcsAccessData;
 use Dhl\Shipping\Api\Service\Filter\CustomerSelectionFilter;
 use Dhl\Shipping\Api\Service\Filter\MerchantSelectionFilter;
 use Dhl\Shipping\Api\Service\Filter\PostalFacilityFilter;
 use Dhl\Shipping\Api\Service\Filter\ProductFilter;
+use Dhl\Shipping\Util\ShippingProducts;
 
 /**
  * ServiceCollectionTest
@@ -80,7 +80,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $codService = new Cod(true, false, false);
         $collection = new ServiceCollection([Cod::CODE => $codService]);
 
-        $productFilter = ProductFilter::create(['code' => BcsAccessData::CODE_PAKET_NATIONAL]);
+        $productFilter = ProductFilter::create(['code' => ShippingProducts::CODE_PAKET_NATIONAL]);
         $result = $collection->filter($productFilter);
 
         // array copy access
@@ -104,7 +104,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $collection = new ServiceCollection([Cod::CODE => $codService]);
 
         // valid code, not applicable to service
-        $productFilter = ProductFilter::create(['code' => BcsAccessData::CODE_WELTPAKET]);
+        $productFilter = ProductFilter::create(['code' => ShippingProducts::CODE_WELTPAKET]);
         $result = $collection->filter($productFilter);
 
         $services = $result->getArrayCopy();

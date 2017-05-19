@@ -41,4 +41,9 @@ interface MonetaryValueInterface
      * @return float
      */
     public function getValue($currencyCode);
+
+    /**
+     * @return string
+     */
+    public function getCurrencyCode();
 }

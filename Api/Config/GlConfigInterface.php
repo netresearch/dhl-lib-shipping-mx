@@ -40,6 +40,7 @@ interface GlConfigInterface
 {
     const CONFIG_XML_PATH_PICKUP_NUMBER_SANDBOX = 'carriers/dhlshipping/gl_sandbox_pickup_number';
     const CONFIG_XML_PATH_PICKUP_NUMBER         = 'carriers/dhlshipping/gl_pickup_number';
+    const CONFIG_XML_PATH_DISTRIBUTION_CENTER   = 'carriers/dhlshipping/gl_distribution_center';
 
     const CONFIG_XML_PATH_ENDPOINT      = 'carriers/dhlshipping/gl_api_endpoint';
     const CONFIG_XML_PATH_AUTH_USERNAME = 'carriers/dhlshipping/gl_api_auth_username';
@@ -62,6 +63,7 @@ interface GlConfigInterface
     const PAGE_SIZE_400X400 = 1;
     const PAGE_SIZE_400X600 = 2;
 
+    // FIXME(nr): read valid products from \Dhl\Shipping\Util\ShippingProducts
     const CONFIG_XML_PATH_DEFAULT_PRODUCT = 'carriers/dhlshipping/default_product';
     const PRODUCT_PKG       = 0;
     const PRODUCT_PPS       = 1;
@@ -77,6 +79,12 @@ interface GlConfigInterface
      * @return string
      */
     public function getPickupAccountNumber($store = null);
+
+    /**
+     * @param mixed $store
+     * @return string
+     */
+    public function getDistributionCenter($store = null);
 
     /**
      * Obtain API endpoint.
