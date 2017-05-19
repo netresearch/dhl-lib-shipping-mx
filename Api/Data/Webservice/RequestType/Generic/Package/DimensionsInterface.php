@@ -53,4 +53,9 @@ interface DimensionsInterface
      * @return int
      */
     public function getHeight($unitOfMeasurement);
+
+    /**
+     * @return string
+     */
+    public function getUnitOfMeasurement();
 }

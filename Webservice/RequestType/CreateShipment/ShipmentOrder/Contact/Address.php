@@ -40,7 +40,7 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrder\C
 class Address implements AddressInterface
 {
     /**
-     * @var string
+     * @var string[]
      */
     private $street;
 
@@ -87,7 +87,7 @@ class Address implements AddressInterface
     /**
      * Address constructor.
      *
-     * @param string $street
+     * @param string[] $street
      * @param string $streetName
      * @param string $streetNumber
      * @param string $addressAddition
@@ -98,7 +98,7 @@ class Address implements AddressInterface
      * @param string $dispatchingInformation
      */
     public function __construct(
-        $street,
+        array $street,
         $streetName,
         $streetNumber,
         $addressAddition,
@@ -120,7 +120,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getStreet()
     {

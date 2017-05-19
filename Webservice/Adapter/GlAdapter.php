@@ -30,6 +30,7 @@ use \Dhl\Shipping\Api\Webservice\RequestMapper;
 use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
+use Dhl\Shipping\Gla\Request\LabelRequest;
 
 /**
  * Global Label API Adapter
@@ -95,7 +96,15 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     public function createShipmentOrders(array $shipmentOrders)
     {
         // (1) GlApiDataMapper maps shipment orders to json request body
-        $payload = '{}';
+        $shipmentOrders = array_map(
+            function ($shipmentOrder) {
+                return $this->requestMapper->mapShipmentOrder($shipmentOrder);
+            },
+            $shipmentOrders
+        );
+
+        $shipmentRequest = new LabelRequest($shipmentOrders);
+        $payload = json_encode($shipmentRequest);
 
         // (2) http client sends payload to API, passes through response
         $restResponseJson = '{}';

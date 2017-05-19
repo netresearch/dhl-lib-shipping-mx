@@ -110,4 +110,12 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
         $height = $this->unitConverter->convertDimension($this->height, $this->unitOfMeasurement, $unitOfMeasurement);
         return $height;
     }
+
+    /**
+     * @return string
+     */
+    public function getUnitOfMeasurement()
+    {
+        return $this->unitOfMeasurement;
+    }
 }
