@@ -72,4 +72,12 @@ class Weight extends AbstractConvertibleValue implements WeightInterface
         $value = $this->unitConverter->convertWeight($this->value, $this->unitOfMeasurement, $unitOfMeasurement);
         return $value;
     }
+
+    /**
+     * @return string
+     */
+    public function getUnitOfMeasurement()
+    {
+        return $this->unitOfMeasurement;
+    }
 }

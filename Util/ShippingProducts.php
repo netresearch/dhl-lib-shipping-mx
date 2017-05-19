@@ -255,6 +255,55 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     }
 
     /**
+     * Obtain procedure number by product code.
+     *
+     * @param string $code Product code
+     *
+     * @return string
+     */
+    private function getProcedure($code)
+    {
+        $procedures = [
+            self::CODE_PAKET_NATIONAL      => self::PROCEDURE_PAKET_NATIONAL,
+            self::CODE_WELTPAKET           => self::PROCEDURE_WELTPAKET,
+            self::CODE_EUROPAKET           => self::PROCEDURE_EUROPAKET,
+            self::CODE_KURIER_TAGGLEICH    => self::PROCEDURE_KURIER_TAGGLEICH,
+            self::CODE_KURIER_WUNSCHZEIT   => self::PROCEDURE_KURIER_WUNSCHZEIT,
+            self::CODE_PAKET_AUSTRIA       => self::PROCEDURE_PAKET_AUSTRIA,
+            self::CODE_PAKET_CONNECT       => self::PROCEDURE_PAKET_CONNECT,
+            self::CODE_PAKET_INTERNATIONAL => self::PROCEDURE_PAKET_INTERNATIONAL,
+        ];
+
+        if (!isset($procedures[$code])) {
+            return '';
+        }
+
+        return $procedures[$code];
+    }
+
+    /**
+     * Obtain procedure number for return shipments.
+     *
+     * @param string $code Product code
+     *
+     * @return string
+     */
+    private function getProcedureReturn($code)
+    {
+        $procedures = [
+            self::CODE_PAKET_NATIONAL => self::PROCEDURE_RETURNSHIPMENT_NATIONAL,
+            self::CODE_PAKET_AUSTRIA  => self::PROCEDURE_RETURNSHIPMENT_AUSTRIA,
+            self::CODE_PAKET_CONNECT  => self::PROCEDURE_RETURNSHIPMENT_CONNECT,
+        ];
+
+        if (!isset($procedures[$code])) {
+            return '';
+        }
+
+        return $procedures[$code];
+    }
+
+    /**
      * @param string $originCountryId
      * @param string $destCountryId
      * @param string[] $euCountries
@@ -285,5 +334,39 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
         }
 
         return [];
+    }
+
+    /**
+     * Get the billing number a.k.a. account number based on selected product.
+     *
+     * @param string $productCode
+     * @param string $ekp
+     * @param string[] $participations
+     *
+     * @return string
+     */
+    public function getBillingNumber($productCode, $ekp, $participations)
+    {
+        $procedure = $this->getProcedure($productCode);
+        $participation = isset($participations[$procedure]) ? $participations[$procedure] : '';
+
+        return $ekp . $procedure . $participation;
+    }
+
+    /**
+     * Get the billing number a.k.a. account number for shipment returns.
+     *
+     * @param string $productCode
+     * @param string $ekp
+     * @param string[] $participations
+     *
+     * @return string
+     */
+    public function getReturnBillingNumber($productCode, $ekp, $participations)
+    {
+        $procedure = $this->getProcedureReturn($productCode);
+        $participation = isset($participations[$procedure]) ? $participations[$procedure] : '';
+
+        return $ekp . $procedure . $participation;
     }
 }

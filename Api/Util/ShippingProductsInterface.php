@@ -36,5 +36,13 @@ namespace Dhl\Shipping\Api\Util;
  */
 interface ShippingProductsInterface
 {
+    /**
+     * Find all shipping products that apply to the given shipping route.
+     *
+     * @param string $originCountryId
+     * @param string $destCountryId
+     * @param string[] $euCountries
+     * @return string[]
+     */
     public function getApplicableCodes($originCountryId, $destCountryId, array $euCountries);
 }

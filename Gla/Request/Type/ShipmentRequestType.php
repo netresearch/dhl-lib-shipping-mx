@@ -45,7 +45,7 @@ class ShipmentRequestType implements \JsonSerializable
     private $pickupAccount;
 
     /**
-     * Primary DHL eCommerce Distribution. Required. 6 chars.
+     * Primary DHL eCommerce Distribution center. Required. 6 chars.
      *
      * @var string
      */

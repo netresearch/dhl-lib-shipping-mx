@@ -72,4 +72,12 @@ class MonetaryValue extends AbstractConvertibleValue implements MonetaryValueInt
         $value = $this->unitConverter->convertMonetaryValue($this->value, $this->currencyCode, $currencyCode);
         return $value;
     }
+
+    /**
+     * @return string
+     */
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
+    }
 }

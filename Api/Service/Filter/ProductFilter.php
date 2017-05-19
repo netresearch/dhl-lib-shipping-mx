@@ -25,7 +25,6 @@
  */
 namespace Dhl\Shipping\Api\Service\Filter;
 
-use Dhl\Shipping\Api\Webservice\BcsAccessDataInterface;
 use \Dhl\Shipping\Api\Service\BulkyGoods;
 use \Dhl\Shipping\Api\Service\Cod;
 use \Dhl\Shipping\Api\Service\Insurance;
@@ -38,6 +37,7 @@ use \Dhl\Shipping\Api\Service\PrintOnlyIfCodeable;
 use \Dhl\Shipping\Api\Service\ReturnShipment;
 use \Dhl\Shipping\Api\Service\ServiceInterface;
 use \Dhl\Shipping\Api\Service\VisualCheckOfAge;
+use \Dhl\Shipping\Util\ShippingProducts;
 
 /**
  * Product filter
@@ -61,7 +61,7 @@ class ProductFilter extends AbstractFilter implements FilterInterface
     public function __construct($data)
     {
         $allowedServices = [
-            BcsAccessDataInterface::CODE_PAKET_NATIONAL => [
+            ShippingProducts::CODE_PAKET_NATIONAL => [
                 BulkyGoods::CODE,
                 Cod::CODE,
                 Insurance::CODE,
@@ -74,44 +74,44 @@ class ProductFilter extends AbstractFilter implements FilterInterface
                 PreferredDay::CODE,
                 PreferredTime::CODE
             ],
-            BcsAccessDataInterface::CODE_WELTPAKET => [
+            ShippingProducts::CODE_WELTPAKET => [
                 BulkyGoods::CODE,
                 Insurance::CODE,
                 ParcelAnnouncement::CODE,
                 PrintOnlyIfCodeable::CODE,
             ],
-            BcsAccessDataInterface::CODE_EUROPAKET => [
+            ShippingProducts::CODE_EUROPAKET => [
                 Insurance::CODE,
                 ParcelAnnouncement::CODE,
                 PrintOnlyIfCodeable::CODE,
             ],
-            BcsAccessDataInterface::CODE_KURIER_TAGGLEICH => [
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-                ReturnShipment::CODE,
-            ],
-            BcsAccessDataInterface::CODE_KURIER_WUNSCHZEIT => [
+            ShippingProducts::CODE_KURIER_TAGGLEICH => [
                 Insurance::CODE,
                 ParcelAnnouncement::CODE,
                 PrintOnlyIfCodeable::CODE,
                 ReturnShipment::CODE,
             ],
-            BcsAccessDataInterface::CODE_PAKET_AUSTRIA => [
+            ShippingProducts::CODE_KURIER_WUNSCHZEIT => [
+                Insurance::CODE,
+                ParcelAnnouncement::CODE,
+                PrintOnlyIfCodeable::CODE,
+                ReturnShipment::CODE,
+            ],
+            ShippingProducts::CODE_PAKET_AUSTRIA => [
                 BulkyGoods::CODE,
                 Cod::CODE,
                 Insurance::CODE,
                 ParcelAnnouncement::CODE,
                 PrintOnlyIfCodeable::CODE,
             ],
-            BcsAccessDataInterface::CODE_PAKET_CONNECT => [
+            ShippingProducts::CODE_PAKET_CONNECT => [
                 BulkyGoods::CODE,
                 Cod::CODE,
                 Insurance::CODE,
                 ParcelAnnouncement::CODE,
                 PrintOnlyIfCodeable::CODE,
             ],
-            BcsAccessDataInterface::CODE_PAKET_INTERNATIONAL => [
+            ShippingProducts::CODE_PAKET_INTERNATIONAL => [
                 BulkyGoods::CODE,
                 Insurance::CODE,
                 ParcelAnnouncement::CODE,

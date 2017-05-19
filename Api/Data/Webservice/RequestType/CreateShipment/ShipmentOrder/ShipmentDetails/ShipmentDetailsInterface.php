@@ -81,6 +81,13 @@ interface ShipmentDetailsInterface
     public function getPickupAccountNumber();
 
     /**
+     * Obtain the primary DHL eCommerce Distribution center.
+     *
+     * @return string
+     */
+    public function getDistributionCenter();
+
+    /**
      * Obtain the order reference, usually shipment increment ID.
      *
      * @return string
