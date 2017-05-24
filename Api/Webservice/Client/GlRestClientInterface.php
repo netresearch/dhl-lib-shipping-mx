@@ -23,10 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Api\Webservice\Adapter;
+namespace Dhl\Shipping\Api\Webservice\Client;
 
 /**
- * Global Label API Adapter
+ * Global Label API REST client
  *
  * @category Dhl
  * @package  Dhl\Shipping\Api
@@ -34,6 +34,20 @@ namespace Dhl\Shipping\Api\Webservice\Adapter;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface GlAdapterInterface extends AdapterInterface
+interface GlRestClientInterface extends HttpClientInterface
 {
+    /**
+     * Requests new tokens.
+     *
+     * @return string
+     */
+    public function authenticate();
+
+    /**
+     * Creates shipments.
+     *
+     * @param string $rawRequest
+     * @return string
+     */
+    public function generateLabels($rawRequest);
 }

@@ -26,6 +26,7 @@
 namespace Dhl\Shipping\Webservice\Adapter;
 
 use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
+use Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
 use \Dhl\Shipping\Api\Webservice\RequestMapper;
 use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
@@ -54,16 +55,24 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     private $requestMapper;
 
     /**
+     * @var GlRestClientInterface
+     */
+    private $restClient;
+
+    /**
      * GkAdapter constructor.
      * @param ResponseParser\GlResponseParserInterface $responseParser
      * @param RequestMapper\GlDataMapperInterface $requestMapper
+     * @param GlRestClientInterface $restClient
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
-        RequestMapper\GlDataMapperInterface $requestMapper
+        RequestMapper\GlDataMapperInterface $requestMapper,
+        GlRestClientInterface $restClient
     ) {
         $this->responseParser = $responseParser;
         $this->requestMapper = $requestMapper;
+        $this->restClient = $restClient;
     }
 
     /**
@@ -77,36 +86,21 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     }
 
     /**
-     * @param RequestType\GetTokenRequestInterface $request
-     * @return ResponseType\GetTokenResponseInterface
-     */
-    public function getAccessToken(RequestType\GetTokenRequestInterface $request)
-    {
-        //TODO(nr): perform actual request
-        $restResponse = new \stdClass($request);
-        $response = $this->responseParser->parseGetTokenResponse($restResponse);
-
-        return $response;
-    }
-
-    /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
         // (1) GlApiDataMapper maps shipment orders to json request body
-        $shipmentOrders = array_map(
-            function ($shipmentOrder) {
+        $shipmentOrders = array_map(function ($shipmentOrder) {
                 return $this->requestMapper->mapShipmentOrder($shipmentOrder);
-            },
-            $shipmentOrders
-        );
+        }, $shipmentOrders);
 
-        $shipmentRequest = new LabelRequest($shipmentOrders);
-        $payload = json_encode($shipmentRequest);
+        $labelRequest = new LabelRequest($shipmentOrders);
+        $payload = json_encode($labelRequest);
 
         // (2) http client sends payload to API, passes through response
+        $this->restClient->generateLabels($payload);
         $restResponseJson = '{}';
 
         // (3) deserialize json before passing it to the parser

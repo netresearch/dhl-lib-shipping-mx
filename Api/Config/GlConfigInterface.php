@@ -45,6 +45,7 @@ interface GlConfigInterface
     const CONFIG_XML_PATH_ENDPOINT      = 'carriers/dhlshipping/gl_api_endpoint';
     const CONFIG_XML_PATH_AUTH_USERNAME = 'carriers/dhlshipping/gl_api_auth_username';
     const CONFIG_XML_PATH_AUTH_PASSWORD = 'carriers/dhlshipping/gl_api_auth_password';
+    const CONFIG_XML_PATH_AUTH_TOKEN    = 'carriers/dhlshipping/gl_api_auth_token';
 
     const CONFIG_XML_PATH_SANDBOX_ENDPOINT      = 'carriers/dhlshipping/gl_sandbox_api_endpoint';
     const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/gl_sandbox_api_auth_username';
@@ -87,6 +88,24 @@ interface GlConfigInterface
     public function getDistributionCenter($store = null);
 
     /**
+     * @param mixed $store
+     * @return string
+     */
+    public function getLabelSize($store = null);
+
+    /**
+     * @param mixed $store
+     * @return string
+     */
+    public function getPageSize($store = null);
+
+    /**
+     * @param mixed $store
+     * @return string
+     */
+    public function getPageLayout($store = null);
+
+    /**
      * Obtain API endpoint.
      *
      * @param mixed $store
@@ -109,4 +128,17 @@ interface GlConfigInterface
      * @return string
      */
     public function getAuthPassword($store = null);
+
+    /**
+     * @param mixed $store
+     * @return mixed
+     */
+    public function getAuthToken($store = null);
+
+    /**
+     * @param string $token
+     * @param mixed $store
+     * @return void
+     */
+    public function saveAuthToken($token, $store = null);
 }
