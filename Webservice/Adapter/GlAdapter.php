@@ -26,12 +26,12 @@
 namespace Dhl\Shipping\Webservice\Adapter;
 
 use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
-use Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
+use \Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
 use \Dhl\Shipping\Api\Webservice\RequestMapper;
 use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
-use Dhl\Shipping\Gla\Request\LabelRequest;
+use \Dhl\Shipping\Gla\Request\LabelRequest;
 
 /**
  * Global Label API Adapter
