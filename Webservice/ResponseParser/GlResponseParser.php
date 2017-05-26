@@ -25,6 +25,7 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
+use Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface;
 use \Dhl\Shipping\Api\Webservice\ResponseParser\GlResponseParserInterface;
 
 /**
@@ -39,24 +40,56 @@ use \Dhl\Shipping\Api\Webservice\ResponseParser\GlResponseParserInterface;
 class GlResponseParser implements GlResponseParserInterface
 {
     /**
-     * Convert GLA JSON response to generic CreateShipmentResponse
-     *
-     * @param \Dhl\Shipping\Gla\Rest\GetTokenResponse $response
-     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\GetTokenResponseInterface
+     * @var LabelFactory
      */
-    public function parseGetTokenResponse($response)
+    private $labelFactory;
+
+    /**
+     * GlResponseParser constructor.
+     * @param LabelFactory $labelFactory
+     */
+    public function __construct(LabelFactory $labelFactory)
     {
-        //TODO(nr): implement
+        $this->labelFactory = $labelFactory;
     }
 
     /**
      * Convert GLA JSON response to generic CreateShipmentResponse
      *
-     * @param \Dhl\Shipping\Gla\Response\LabelResponse[] $response
+     * @param \Dhl\Shipping\Gla\Response\LabelResponse $response
      * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface[]
+     * @throws \Exception
      */
     public function parseCreateShipmentResponse($response)
     {
-        // TODO: Implement parseCreateShipmentResponse() method.
+        $labels = [];
+
+        $shipments = $response->getShipments();
+
+        foreach ($shipments as $shipment) {
+            $packages = $shipment->getPackages();
+            foreach ($packages as $package) {
+                if (!empty($package->getErrors())) {
+                    //TODO(nr): use dedicated exception type, align with BcsResponseParser, read all errors from response
+                    throw new \Exception($package->getErrors()[0]->getErrorCode());
+                }
+
+                $labelDetails = $package->getResponseDetails()->getLabelDetails();
+                foreach ($labelDetails as $labelInfo) {
+                    $label = $this->labelFactory->create(
+                        $labelInfo->getPackageId(),
+                        ResponseStatusInterface::STATUS_SUCCESS,
+                        'OK',
+                        'OK',
+                        '',
+                        $labelInfo->getLabelData()
+                    );
+
+                    $labels[$labelInfo->getPackageId()] = $label;
+                }
+            }
+        }
+
+        return $labels;
     }
 }

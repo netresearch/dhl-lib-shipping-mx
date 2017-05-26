@@ -27,7 +27,7 @@
 namespace Dhl\Shipping\Gla\Response\Type;
 
 /**
- * PackageResponseType
+ * ErrorResponseType
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
@@ -35,47 +35,68 @@ namespace Dhl\Shipping\Gla\Response\Type;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PackageResponseType
+class ErrorResponseType
 {
     /**
-     * @var \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * @var string
      */
-    private $responseDetails;
+    private $errorFiled;
 
     /**
-     * @var \Dhl\Shipping\Gla\Response\Type\ErrorResponseType[]
+     * @var string
      */
-    private $errors;
+    private $errorCode;
 
     /**
-     * @return \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
+     * @var string
      */
-    public function getResponseDetails()
+    private $errorId;
+
+    /**
+     * @return string
+     */
+    public function getErrorFiled()
     {
-        return $this->responseDetails;
+        return $this->errorFiled;
     }
 
     /**
-     * @param \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType $responseDetails
+     * @param string $errorFiled
      */
-    public function setResponseDetails($responseDetails)
+    public function setErrorFiled($errorFiled)
     {
-        $this->responseDetails = $responseDetails;
+        $this->errorFiled = $errorFiled;
     }
 
     /**
-     * @return \Dhl\Shipping\Gla\Response\Type\ErrorResponseType[]
+     * @return string
      */
-    public function getErrors()
+    public function getErrorCode()
     {
-        return $this->errors;
+        return $this->errorCode;
     }
 
     /**
-     * @param \Dhl\Shipping\Gla\Response\Type\ErrorResponseType[] $errors
+     * @param string $errorCode
      */
-    public function setErrors($errors)
+    public function setErrorCode($errorCode)
     {
-        $this->errors = $errors;
+        $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorId()
+    {
+        return $this->errorId;
+    }
+
+    /**
+     * @param string $errorId
+     */
+    public function setErrorId($errorId)
+    {
+        $this->errorId = $errorId;
     }
 }
