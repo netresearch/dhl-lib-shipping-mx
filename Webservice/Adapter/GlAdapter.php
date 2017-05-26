@@ -25,6 +25,7 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
+use Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
 use \Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
 use \Dhl\Shipping\Api\Webservice\RequestMapper;
@@ -32,6 +33,7 @@ use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
+use Dhl\Shipping\Gla\Response\LabelResponse;
 
 /**
  * Global Label API Adapter
@@ -60,19 +62,27 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     private $restClient;
 
     /**
+     * @var SerializerInterface
+     */
+    private $serializer;
+
+    /**
      * GkAdapter constructor.
      * @param ResponseParser\GlResponseParserInterface $responseParser
      * @param RequestMapper\GlDataMapperInterface $requestMapper
      * @param GlRestClientInterface $restClient
+     * @param SerializerInterface $serializer
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
         RequestMapper\GlDataMapperInterface $requestMapper,
-        GlRestClientInterface $restClient
+        GlRestClientInterface $restClient,
+        SerializerInterface $serializer
     ) {
         $this->responseParser = $responseParser;
         $this->requestMapper = $requestMapper;
         $this->restClient = $restClient;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -100,11 +110,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
         $payload = json_encode($labelRequest);
 
         // (2) http client sends payload to API, passes through response
-        $this->restClient->generateLabels($payload);
-        $restResponseJson = '{}';
+        $restResponseJson = $this->restClient->generateLabels($payload);
 
         // (3) deserialize json before passing it to the parser
-        $restResponse = new \stdClass();
+        $restResponse = $this->serializer->deserialize($restResponseJson, LabelResponse::class);
 
         $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
         return $response;

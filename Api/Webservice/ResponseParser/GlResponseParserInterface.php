@@ -36,9 +36,4 @@ namespace Dhl\Shipping\Api\Webservice\ResponseParser;
  */
 interface GlResponseParserInterface extends ResponseParserInterface
 {
-    /**
-     * @param object $response
-     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\GetTokenResponseInterface
-     */
-    public function parseGetTokenResponse($response);
 }
