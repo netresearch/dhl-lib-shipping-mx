@@ -23,9 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
+use \Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
 use \Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
 use \Dhl\Shipping\Api\Webservice\RequestMapper;
@@ -33,7 +34,7 @@ use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
-use Dhl\Shipping\Gla\Response\LabelResponse;
+use \Dhl\Shipping\Gla\Response\LabelResponse;
 
 /**
  * Global Label API Adapter
@@ -67,55 +68,69 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     private $serializer;
 
     /**
-     * GkAdapter constructor.
+     * GlAdapter constructor.
+     *
      * @param ResponseParser\GlResponseParserInterface $responseParser
-     * @param RequestMapper\GlDataMapperInterface $requestMapper
-     * @param GlRestClientInterface $restClient
-     * @param SerializerInterface $serializer
+     * @param RequestMapper\GlDataMapperInterface      $requestMapper
+     * @param GlRestClientInterface                    $restClient
+     * @param SerializerInterface                      $serializer
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
         RequestMapper\GlDataMapperInterface $requestMapper,
         GlRestClientInterface $restClient,
         SerializerInterface $serializer
-    ) {
+    )
+    {
         $this->responseParser = $responseParser;
-        $this->requestMapper = $requestMapper;
-        $this->restClient = $restClient;
-        $this->serializer = $serializer;
+        $this->requestMapper  = $requestMapper;
+        $this->restClient     = $restClient;
+        $this->serializer     = $serializer;
     }
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     *
      * @return bool
      */
     protected function canHandleShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         $shipperCountries = ['DE', 'AT'];
+
         return !in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
     }
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     *
      * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
         // (1) GlApiDataMapper maps shipment orders to json request body
-        $shipmentOrders = array_map(function ($shipmentOrder) {
+        $shipmentOrders = array_map(
+            function($shipmentOrder) {
                 return $this->requestMapper->mapShipmentOrder($shipmentOrder);
-        }, $shipmentOrders);
+            }, $shipmentOrders
+        );
 
         $labelRequest = new LabelRequest($shipmentOrders);
-        $payload = json_encode($labelRequest);
+        $payload      = json_encode($labelRequest);
 
         // (2) http client sends payload to API, passes through response
-        $restResponseJson = $this->restClient->generateLabels($payload);
+        $restResponse = $this->restClient->generateLabels($payload);
+
+        // 400 (Bad Request), 429 (Too many requests), or 503 (Service Unavailable)
+        if (!$restResponse->isSuccess()) {
+            //TODO(nr): throw meaningful exception
+            throw new \Exception($restResponse->getReasonPhrase());
+        }
 
         // (3) deserialize json before passing it to the parser
-        $restResponse = $this->serializer->deserialize($restResponseJson, LabelResponse::class);
+        $restResponse = $this->serializer->deserialize($restResponse->getBody(), LabelResponse::class);
 
         $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
+
         return $response;
     }
 }
