@@ -25,7 +25,7 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use Dhl\Shipping\Webservice\ResponseType\CreateShipment\Label;
+use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\Label;
 use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatus;
 
 /**

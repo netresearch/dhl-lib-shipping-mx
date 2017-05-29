@@ -23,6 +23,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
 use Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface;
@@ -46,6 +47,7 @@ class GlResponseParser implements GlResponseParserInterface
 
     /**
      * GlResponseParser constructor.
+     *
      * @param LabelFactory $labelFactory
      */
     public function __construct(LabelFactory $labelFactory)
@@ -57,6 +59,7 @@ class GlResponseParser implements GlResponseParserInterface
      * Convert GLA JSON response to generic CreateShipmentResponse
      *
      * @param \Dhl\Shipping\Gla\Response\LabelResponse $response
+     *
      * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface[]
      * @throws \Exception
      */
@@ -70,22 +73,28 @@ class GlResponseParser implements GlResponseParserInterface
             $packages = $shipment->getPackages();
             foreach ($packages as $package) {
                 if (!empty($package->getErrors())) {
-                    //TODO(nr): use dedicated exception type, align with BcsResponseParser, read all errors from response
-                    throw new \Exception($package->getErrors()[0]->getErrorCode());
-                }
-
-                $labelDetails = $package->getResponseDetails()->getLabelDetails();
-                foreach ($labelDetails as $labelInfo) {
                     $label = $this->labelFactory->create(
-                        $labelInfo->getPackageId(),
-                        ResponseStatusInterface::STATUS_SUCCESS,
-                        'OK',
-                        'OK',
-                        '',
-                        $labelInfo->getLabelData()
+                        $package->getPackageDetails()->getPackageId(),
+                        ResponseStatusInterface::STATUS_FAILURE,
+                        'Error',
+                        'Error occured, while creating Label'
                     );
 
-                    $labels[$labelInfo->getPackageId()] = $label;
+                    $labels[$package->getPackageDetails()->getPackageId()] = $label;
+                } else {
+                    $labelDetails = $package->getResponseDetails()->getLabelDetails();
+                    foreach ($labelDetails as $labelInfo) {
+                        $label = $this->labelFactory->create(
+                            $labelInfo->getPackageId(),
+                            ResponseStatusInterface::STATUS_SUCCESS,
+                            'OK',
+                            'OK',
+                            '',
+                            $labelInfo->getLabelData()
+                        );
+
+                        $labels[$labelInfo->getPackageId()] = $label;
+                    }
                 }
             }
         }

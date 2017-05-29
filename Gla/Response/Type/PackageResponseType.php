@@ -48,6 +48,11 @@ class PackageResponseType
     private $errors;
 
     /**
+     * @var \Dhl\Shipping\Gla\Response\Type\PackageDetailsResponseType
+     */
+    private $packageDetails;
+
+    /**
      * @return \Dhl\Shipping\Gla\Response\Type\ResponseDetailsResponseType
      */
     public function getResponseDetails()
@@ -77,5 +82,21 @@ class PackageResponseType
     public function setErrors($errors)
     {
         $this->errors = $errors;
+    }
+
+    /**
+     * @return \Dhl\Shipping\Gla\Response\Type\PackageDetailsResponseType
+     */
+    public function getPackageDetails()
+    {
+        return $this->packageDetails;
+    }
+
+    /**
+     * @param \Dhl\Shipping\Gla\Response\Type\PackageDetailsResponseType $packageDetails
+     */
+    public function setPackageDetails($packageDetails)
+    {
+        $this->packageDetails = $packageDetails;
     }
 }
