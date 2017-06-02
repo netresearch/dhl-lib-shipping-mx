@@ -43,6 +43,11 @@ class ResponseDetailsResponseType
     private $labelDetails;
 
     /**
+     * @var string
+     */
+    private $trackingNumber;
+
+    /**
      * @return \Dhl\Shipping\Gla\Response\Type\LabelDetailsResponseType[]
      */
     public function getLabelDetails()
@@ -56,5 +61,21 @@ class ResponseDetailsResponseType
     public function setLabelDetails($labelDetails)
     {
         $this->labelDetails = $labelDetails;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingNumber()
+    {
+        return $this->trackingNumber;
+    }
+
+    /**
+     * @param string $trackingNumber
+     */
+    public function setTrackingNumber($trackingNumber)
+    {
+        $this->trackingNumber = $trackingNumber;
     }
 }
