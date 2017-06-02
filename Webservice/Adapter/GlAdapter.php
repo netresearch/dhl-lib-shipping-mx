@@ -34,7 +34,11 @@ use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
+use \Dhl\Shipping\Gla\Response\ErrorResponse;
 use \Dhl\Shipping\Gla\Response\LabelResponse;
+use \Dhl\Shipping\Webservice\Exception\ApiAdapterException;
+use \Dhl\Shipping\Webservice\Exception\CatchableGlWebserviceException;
+use \Dhl\Shipping\Webservice\Exception\FatalGlWebserviceException;
 
 /**
  * Global Label API Adapter
@@ -51,6 +55,11 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      * @var ResponseParser\GlResponseParserInterface
      */
     private $responseParser;
+
+    /**
+     * @var ResponseParser\GlResponseParserInterface
+     */
+    private $errorResponseParser;
 
     /**
      * @var RequestMapper\GlDataMapperInterface
@@ -70,22 +79,23 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     /**
      * GlAdapter constructor.
      *
-     * @param ResponseParser\GlResponseParserInterface $responseParser
-     * @param RequestMapper\GlDataMapperInterface      $requestMapper
-     * @param GlRestClientInterface                    $restClient
-     * @param SerializerInterface                      $serializer
+     * @param ResponseParser\GlResponseParserInterface      $responseParser
+     * @param ResponseParser\GlErrorResponseParserInterface $errorResponseParser
+     * @param GlRestClientInterface                         $restClient
+     * @param SerializerInterface                           $serializer
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
+        ResponseParser\GlErrorResponseParserInterface $errorResponseParser,
         RequestMapper\GlDataMapperInterface $requestMapper,
         GlRestClientInterface $restClient,
         SerializerInterface $serializer
-    )
-    {
-        $this->responseParser = $responseParser;
-        $this->requestMapper  = $requestMapper;
-        $this->restClient     = $restClient;
-        $this->serializer     = $serializer;
+    ) {
+        $this->responseParser      = $responseParser;
+        $this->errorResponseParser = $errorResponseParser;
+        $this->requestMapper       = $requestMapper;
+        $this->restClient          = $restClient;
+        $this->serializer          = $serializer;
     }
 
     /**
@@ -104,32 +114,36 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      *
      * @return ResponseType\CreateShipment\LabelInterface[]
+     * @throws ApiAdapterException | CatchableGlWebserviceException | FatalGlWebserviceException
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
         // (1) GlApiDataMapper maps shipment orders to json request body
         $shipmentOrders = array_map(
-            function($shipmentOrder) {
+            function ($shipmentOrder) {
                 return $this->requestMapper->mapShipmentOrder($shipmentOrder);
-            }, $shipmentOrders
+            },
+            $shipmentOrders
         );
 
         $labelRequest = new LabelRequest($shipmentOrders);
         $payload      = json_encode($labelRequest);
 
-        // (2) http client sends payload to API, passes through response
-        $restResponse = $this->restClient->generateLabels($payload);
-
-        // 400 (Bad Request), 429 (Too many requests), or 503 (Service Unavailable)
-        if (!$restResponse->isSuccess()) {
-            //TODO(nr): throw meaningful exception
-            throw new \Exception($restResponse->getReasonPhrase());
+        try {
+            // (2) http client sends payload to API, passes through response
+            $restResponse = $this->restClient->generateLabels($payload);
+            // (3) deserialize json before passing it to the parser
+            /** @var LabelResponse $responseData */
+            $responseData = $this->serializer->deserialize($restResponse->getBody(), LabelResponse::class);
+            $response = $this->responseParser->parseCreateShipmentResponse($responseData);
+        } catch (CatchableGlWebserviceException $e) {
+            $restResponse = $this->serializer->deserialize($e->getMessage(), ErrorResponse::class);
+            /** @var ErrorResponse $restResponse */
+            $response = $this->errorResponseParser->parseErrorResponse($restResponse);
+            throw new ApiAdapterException($response);
+        } catch (FatalGlWebserviceException $e) {
+            throw new ApiAdapterException($e->getMessage());
         }
-
-        // (3) deserialize json before passing it to the parser
-        $restResponse = $this->serializer->deserialize($restResponse->getBody(), LabelResponse::class);
-
-        $response = $this->responseParser->parseCreateShipmentResponse($restResponse);
 
         return $response;
     }
