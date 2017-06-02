@@ -91,7 +91,7 @@ abstract class AbstractAdapter implements AdapterInterface
         }
 
         if ($this->successor !== null) {
-            array_merge($labels, $this->successor->createLabels($theirOrders));
+            $labels = array_merge($labels, $this->successor->createLabels($theirOrders));
         }
 
         return $labels;
