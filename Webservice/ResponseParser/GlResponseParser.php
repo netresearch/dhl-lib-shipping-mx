@@ -90,7 +90,7 @@ class GlResponseParser implements GlResponseParserInterface
                             'OK',
                             'OK',
                             $package->getResponseDetails()->getTrackingNumber(),
-                            $labelInfo->getLabelData()
+                            base64_decode($labelInfo->getLabelData())
                         );
 
                         $labels[$labelInfo->getPackageId()] = $label;
