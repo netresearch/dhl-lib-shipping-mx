@@ -114,7 +114,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      *
      * @return ResponseType\CreateShipment\LabelInterface[]
-     * @throws ApiAdapterException | CatchableGlWebserviceException | FatalGlWebserviceException
+     * @throws ApiAdapterException
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
