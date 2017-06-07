@@ -43,7 +43,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     /**
      * Obtain all origin-destination-products combinations.
      *
-     * @return string[]
+     * @return string[][][]
      */
     private function getCodes()
     {
@@ -255,6 +255,124 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     }
 
     /**
+     * Obtain human readable name for given product code
+     *
+     * @param string $code
+     * @return string
+     */
+    public function getProductName($code)
+    {
+        $names = [
+            self::CODE_PAKET_NATIONAL => 'DHL Paket',
+            self::CODE_WELTPAKET => 'DHL Paket International',
+            self::CODE_PAKET_AUSTRIA => 'DHL Paket Austria',
+            self::CODE_PAKET_CONNECT => 'DHL PAKET Connect',
+            self::CODE_PAKET_INTERNATIONAL => 'DHL PAKET International',
+
+            self::CODE_APAC_PPS => 'GM Packet Plus Standard',
+            self::CODE_APAC_PPM => 'GM Packet Plus Priority Manifest',
+            self::CODE_APAC_PKD => 'GM Packet Standard',
+            self::CODE_APAC_PKG => 'GM Packet Economy',
+            self::CODE_APAC_PKM => 'GM Packet Priority Manifest',
+            self::CODE_APAC_PLT => 'Parcel International Direct',
+            self::CODE_APAC_PLD => 'Parcel International Standard',
+            self::CODE_APAC_PLE => 'Parcel International Direct Expedited',
+            self::CODE_APAC_AP7 => 'GM Paket Pus Manifest Clearance',
+            self::CODE_APAC_PDP => 'GM Parcel Direct Plus',
+
+            self::CODE_APAC_PDO => 'Parcel Thailand',
+
+            self::CODE_AMER_BMY => 'DHL GM Business Priority',
+            self::CODE_AMER_34 => 'DHL GM Business Priority',
+            self::CODE_AMER_BMD => 'DHL GM Business Standard',
+            self::CODE_AMER_35 => 'DHL GM Business Standard',
+            self::CODE_AMER_PKT => 'DHL GM Packet Plus',
+            self::CODE_AMER_29 => 'DHL GM Packet Plus',
+            self::CODE_AMER_PLX => 'DHL GM Parcel Direct Express',
+            self::CODE_AMER_58 => 'DHL GM Parcel Direct Express',
+            self::CODE_AMER_PLY => 'DHL Parcel International Standard',
+            self::CODE_AMER_54 => 'DHL Parcel International Standard',
+            self::CODE_AMER_PLT => 'DHL Parcel International Direct',
+            self::CODE_AMER_60 => 'DHL Parcel International Direct',
+            self::CODE_AMER_PID => 'DHL Parcel International Direct Standard',
+            self::CODE_AMER_22 => 'DHL Parcel International Direct Standard',
+            self::CODE_AMER_PIY => 'DHL Parcel International Direct Priority',
+            self::CODE_AMER_21 => 'DHL Parcel International Direct Priority',
+
+            self::CODE_AMER_72 => 'DHL SM Flats Expedited',
+            self::CODE_AMER_73 => 'DHL SM Flats Ground',
+            self::CODE_AMER_76 => 'DHL SM BPM Expedited',
+            self::CODE_AMER_77 => 'DHL SM BPM Ground',
+            self::CODE_AMER_36 => 'DHL SM Parcel Plus Expedited',
+            self::CODE_AMER_83 => 'DHL SM Parcel Plus Ground',
+            self::CODE_AMER_81 => 'DHL SM Parcel Expedited',
+            self::CODE_AMER_82 => 'DHL SM Parcel Ground',
+            self::CODE_AMER_631 => 'DHL SM Parcel Expedited Max',
+            self::CODE_AMER_80 => 'DHL SM Media Mail Ground',
+            self::CODE_AMER_284 => 'DHL SM Media Mail Expedited',
+            self::CODE_AMER_761 => 'DHL Parcel Metro Sameday',
+        ];
+
+        if (!isset($names[$code])) {
+            return $code;
+        }
+
+        return $names[$code];
+    }
+
+    /**
+     * Obtain a list of all supported shipping products.
+     *
+     * @return string[]
+     */
+    public function getAllCodes()
+    {
+        $codes = [];
+
+        $rules = $this->getCodes();
+        foreach ($rules as $origin => $route) {
+            foreach ($route as $routeName => $routeCodes) {
+                $codes = array_merge($codes, $routeCodes);
+            }
+        }
+
+        return array_unique($codes);
+    }
+
+    /**
+     * @param string $originCountryId
+     * @param string $destCountryId
+     * @param string[] $euCountries
+     * @return string[]
+     */
+    public function getApplicableCodes($originCountryId, $destCountryId, array $euCountries)
+    {
+        $codes = $this->getCodes();
+        if (!isset($codes[$originCountryId])) {
+            // no codes found for origin country, cannot ship with DHL at all
+            return [];
+        }
+
+        $applicableCodes = $codes[$originCountryId];
+        if (isset($applicableCodes[$destCountryId])) {
+            // exact match
+            return $applicableCodes[$destCountryId];
+        }
+
+        if (in_array($destCountryId, $euCountries) && isset($applicableCodes[ShippingRoutes::REGION_EU])) {
+            // match by region EU
+            return $applicableCodes[ShippingRoutes::REGION_EU];
+        }
+
+        if (isset($applicableCodes[ShippingRoutes::REGION_INTERNATIONAL])) {
+            // match by region ROW
+            return $applicableCodes[ShippingRoutes::REGION_INTERNATIONAL];
+        }
+
+        return [];
+    }
+
+    /**
      * Obtain procedure number by product code.
      *
      * @param string $code Product code
@@ -301,39 +419,6 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
         }
 
         return $procedures[$code];
-    }
-
-    /**
-     * @param string $originCountryId
-     * @param string $destCountryId
-     * @param string[] $euCountries
-     * @return string[]
-     */
-    public function getApplicableCodes($originCountryId, $destCountryId, array $euCountries)
-    {
-        $codes = $this->getCodes();
-        if (!isset($codes[$originCountryId])) {
-            // no codes found for origin country, cannot ship with DHL at all
-            return [];
-        }
-
-        $applicableCodes = $codes[$originCountryId];
-        if (isset($applicableCodes[$destCountryId])) {
-            // exact match
-            return $applicableCodes[$destCountryId];
-        }
-
-        if (in_array($destCountryId, $euCountries) && isset($applicableCodes[ShippingRoutes::REGION_EU])) {
-            // match by region EU
-            return $applicableCodes[ShippingRoutes::REGION_EU];
-        }
-
-        if (isset($applicableCodes[ShippingRoutes::REGION_INTERNATIONAL])) {
-            // match by region ROW
-            return $applicableCodes[ShippingRoutes::REGION_INTERNATIONAL];
-        }
-
-        return [];
     }
 
     /**

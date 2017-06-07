@@ -51,10 +51,9 @@ interface GlConfigInterface
     const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/gl_sandbox_api_auth_username';
     const CONFIG_XML_PATH_SANDBOX_AUTH_PASSWORD = 'carriers/dhlshipping/gl_sandbox_api_auth_password';
 
-    const CONFIG_XML_PATH_LABEL_SIZE      = 'carriers/dhlshipping/label_size';
-    const CONFIG_XML_PATH_PAGE_SIZE       = 'carriers/dhlshipping/page_size';
-    const CONFIG_XML_PATH_PAGE_LAYOUT     = 'carriers/dhlshipping/page_layout';
-    const CONFIG_XML_PATH_DEFAULT_PRODUCT = 'carriers/dhlshipping/default_product';
+    const CONFIG_XML_PATH_LABEL_SIZE      = 'carriers/dhlshipping/gl_label_size';
+    const CONFIG_XML_PATH_PAGE_SIZE       = 'carriers/dhlshipping/gl_page_size';
+    const CONFIG_XML_PATH_PAGE_LAYOUT     = 'carriers/dhlshipping/gl_page_layout';
 
     const LABEL_SIZE_4X6    = '4x6';
     const LABEL_SIZE_4X4    = '4x4';
