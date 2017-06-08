@@ -37,8 +37,8 @@ use \Dhl\Shipping\Gla\Request\LabelRequest;
 use \Dhl\Shipping\Gla\Response\ErrorResponse;
 use \Dhl\Shipping\Gla\Response\LabelResponse;
 use \Dhl\Shipping\Webservice\Exception\ApiAdapterException;
-use \Dhl\Shipping\Webservice\Exception\CatchableGlWebserviceException;
-use \Dhl\Shipping\Webservice\Exception\FatalGlWebserviceException;
+use \Dhl\Shipping\Webservice\Exception\GlOperationException;
+use \Dhl\Shipping\Webservice\Exception\GlCommunicationException;
 
 /**
  * Global Label API Adapter
@@ -81,6 +81,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      *
      * @param ResponseParser\GlResponseParserInterface      $responseParser
      * @param ResponseParser\GlErrorResponseParserInterface $errorResponseParser
+     * @param RequestMapper\GlDataMapperInterface           $requestMapper
      * @param GlRestClientInterface                         $restClient
      * @param SerializerInterface                           $serializer
      */
@@ -136,12 +137,12 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
             /** @var LabelResponse $responseData */
             $responseData = $this->serializer->deserialize($restResponse->getBody(), LabelResponse::class);
             $response = $this->responseParser->parseCreateShipmentResponse($responseData);
-        } catch (CatchableGlWebserviceException $e) {
+        } catch (GlOperationException $e) {
             $restResponse = $this->serializer->deserialize($e->getMessage(), ErrorResponse::class);
             /** @var ErrorResponse $restResponse */
             $response = $this->errorResponseParser->parseErrorResponse($restResponse);
             throw new ApiAdapterException($response);
-        } catch (FatalGlWebserviceException $e) {
+        } catch (GlCommunicationException $e) {
             throw new ApiAdapterException($e->getMessage());
         }
 

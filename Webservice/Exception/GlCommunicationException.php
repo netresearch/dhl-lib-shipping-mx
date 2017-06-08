@@ -27,7 +27,8 @@
 namespace Dhl\Shipping\Webservice\Exception;
 
 /**
- * GLA Webservice could not create shipment order. Error Message cannot be parsed
+ * Webservice connection to Global Label API could not be established, reason
+ * cannot be parsed from any response.
  *
  * @category Dhl
  * @package  Dhl\Shipping\Api
@@ -35,6 +36,6 @@ namespace Dhl\Shipping\Webservice\Exception;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class FatalGlWebserviceException extends \Exception
+class GlCommunicationException extends \Exception
 {
 }
