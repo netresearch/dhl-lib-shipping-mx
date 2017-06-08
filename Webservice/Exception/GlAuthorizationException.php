@@ -18,7 +18,7 @@
  *
  * @category  Dhl
  * @package   Dhl\Shipping\Api
- * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
+ * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
@@ -27,14 +27,29 @@
 namespace Dhl\Shipping\Webservice\Exception;
 
 /**
- * GLA Webservice could not create shipment order. Error Message can be encrypted and parsed
+ * Authorization failed. Reason is given in response.
  *
  * @category Dhl
  * @package  Dhl\Shipping\Api
- * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
+ * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class CatchableGlWebserviceException extends \Exception
+class GlAuthorizationException extends \Exception
 {
+    /**
+     * @param string $responseBody
+     * @return static
+     */
+    public static function create($responseBody)
+    {
+        $response = json_decode($responseBody, true);
+        if ($response && isset($response['error_description'])) {
+            $message = $response['error_description'];
+        } else {
+            $message = 'API authentication failed. Please check your credentials.';
+        }
+
+        return new static($message);
+    }
 }
