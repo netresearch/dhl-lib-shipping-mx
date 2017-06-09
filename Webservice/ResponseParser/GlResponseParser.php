@@ -72,30 +72,21 @@ class GlResponseParser implements GlResponseParserInterface
         foreach ($shipments as $shipment) {
             $packages = $shipment->getPackages();
             foreach ($packages as $package) {
-                if (!empty($package->getErrors())) {
+                $labelDetails = $package->getResponseDetails()->getLabelDetails();
+
+                foreach ($labelDetails as $labelInfo) {
                     $label = $this->labelFactory->create(
-                        $package->getPackageDetails()->getPackageId(),
-                        ResponseStatusInterface::STATUS_FAILURE,
-                        'Error',
-                        'Error occured, while creating Label'
+                        $labelInfo->getPackageId(),
+                        ResponseStatusInterface::STATUS_SUCCESS,
+                        'OK',
+                        'OK',
+                        $package->getResponseDetails()->getTrackingNumber(),
+                        base64_decode($labelInfo->getLabelData())
                     );
 
-                    $labels[$package->getPackageDetails()->getPackageId()] = $label;
-                } else {
-                    $labelDetails = $package->getResponseDetails()->getLabelDetails();
-                    foreach ($labelDetails as $labelInfo) {
-                        $label = $this->labelFactory->create(
-                            $labelInfo->getPackageId(),
-                            ResponseStatusInterface::STATUS_SUCCESS,
-                            'OK',
-                            'OK',
-                            $package->getResponseDetails()->getTrackingNumber(),
-                            base64_decode($labelInfo->getLabelData())
-                        );
-
-                        $labels[$labelInfo->getPackageId()] = $label;
-                    }
+                    $labels[$labelInfo->getPackageId()] = $label;
                 }
+
             }
         }
 

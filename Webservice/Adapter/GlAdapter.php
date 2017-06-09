@@ -34,7 +34,6 @@ use \Dhl\Shipping\Api\Webservice\ResponseParser;
 use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
-use \Dhl\Shipping\Gla\Response\ErrorResponse;
 use \Dhl\Shipping\Gla\Response\LabelResponse;
 use \Dhl\Shipping\Webservice\Exception\ApiAdapterException;
 use \Dhl\Shipping\Webservice\Exception\GlOperationException;
@@ -57,11 +56,6 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     private $responseParser;
 
     /**
-     * @var ResponseParser\GlResponseParserInterface
-     */
-    private $errorResponseParser;
-
-    /**
      * @var RequestMapper\GlDataMapperInterface
      */
     private $requestMapper;
@@ -80,20 +74,17 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      * GlAdapter constructor.
      *
      * @param ResponseParser\GlResponseParserInterface      $responseParser
-     * @param ResponseParser\GlErrorResponseParserInterface $errorResponseParser
      * @param RequestMapper\GlDataMapperInterface           $requestMapper
      * @param GlRestClientInterface                         $restClient
      * @param SerializerInterface                           $serializer
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
-        ResponseParser\GlErrorResponseParserInterface $errorResponseParser,
         RequestMapper\GlDataMapperInterface $requestMapper,
         GlRestClientInterface $restClient,
         SerializerInterface $serializer
     ) {
         $this->responseParser      = $responseParser;
-        $this->errorResponseParser = $errorResponseParser;
         $this->requestMapper       = $requestMapper;
         $this->restClient          = $restClient;
         $this->serializer          = $serializer;
@@ -138,12 +129,9 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
             $responseData = $this->serializer->deserialize($restResponse->getBody(), LabelResponse::class);
             $response = $this->responseParser->parseCreateShipmentResponse($responseData);
         } catch (GlOperationException $e) {
-            $restResponse = $this->serializer->deserialize($e->getMessage(), ErrorResponse::class);
-            /** @var ErrorResponse $restResponse */
-            $response = $this->errorResponseParser->parseErrorResponse($restResponse);
-            throw new ApiAdapterException($response);
+            throw new ApiAdapterException('API operation failed', 0, $e);
         } catch (GlCommunicationException $e) {
-            throw new ApiAdapterException($e->getMessage());
+            throw new ApiAdapterException('API communication failed', 0, $e);
         }
 
         return $response;
