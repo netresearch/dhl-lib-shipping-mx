@@ -175,9 +175,10 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
         $collection = new self([]);
 
         $messages = [];
-        $messages[]= $exception->getMessage();
         if ($exception->getPrevious()) {
             $messages[]= $exception->getPrevious()->getMessage();
+        } else {
+            $messages[]= $exception->getMessage();
         }
 
         $responseStatus = new ResponseStatus(
