@@ -89,8 +89,10 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
      */
     protected function canCreateLabel(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
-        $shipperCountries = ['DE', 'AT'];
-        return in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
+        $eligibleCountries = ['DE', 'AT'];
+        $shippingOrigin = $shipmentOrder->getShipper()->getAddress()->getCountryCode();
+
+        return in_array($shippingOrigin, $eligibleCountries);
     }
 
     /**

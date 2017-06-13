@@ -185,9 +185,10 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
         $collection = new self([]);
 
         $messages = self::getStatusMessages([], $invalidRequests);
-        $messages[]= $exception->getMessage();
         if ($exception->getPrevious()) {
             $messages[]= $exception->getPrevious()->getMessage();
+        } else {
+            $messages[]= $exception->getMessage();
         }
 
         $responseStatus = new ResponseStatus(

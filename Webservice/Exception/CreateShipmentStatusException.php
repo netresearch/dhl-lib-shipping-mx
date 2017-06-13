@@ -39,20 +39,14 @@ use \Dhl\Shipping\Bcs\CreationState;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class CreateShipmentStatusException extends \Exception
+class CreateShipmentStatusException extends ApiOperationException
 {
     /**
      * @param CreateShipmentOrderResponse $response
-     * @param string $message [optional] The Exception message to throw.
-     * @param int $code [optional] The Exception code.
-     * @param \Exception $previous [optional] The previous exception used for the exception chaining. Since 5.3.0
+     * @return static
      */
-    public function __construct(
-        CreateShipmentOrderResponse $response,
-        $message = "",
-        $code = 0,
-        \Exception $previous = null
-    ) {
+    public static function create(CreateShipmentOrderResponse $response)
+    {
         $messages = [];
 
         if ($response->getCreationState()) {
@@ -66,10 +60,7 @@ class CreateShipmentStatusException extends \Exception
             $messages[]= sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
         }
 
-        if ($message) {
-            array_unshift($messages, $message);
-        }
-
-        parent::__construct(implode(' ', $messages), $code, $previous);
+        $message = implode(' ', $messages);
+        return new static($message);
     }
 }

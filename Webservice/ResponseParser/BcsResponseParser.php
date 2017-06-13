@@ -85,7 +85,7 @@ class BcsResponseParser implements BcsResponseParserInterface
 
         if ($responseStatus !== ResponseStatusInterface::STATUS_SUCCESS) {
             //TODO(nr): check API behaviour with partially created items
-            throw new CreateShipmentStatusException($response);
+            throw CreateShipmentStatusException::create($response);
         }
 
         /** @var CreationState $creationState */

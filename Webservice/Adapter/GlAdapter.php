@@ -99,12 +99,15 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      */
     protected function canCreateLabel(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
-        $shipperCountries = ['DE', 'AT'];
+        $ineligibleCountries = ['DE', 'AT'];
+        $shippingOrigin = $shipmentOrder->getShipper()->getAddress()->getCountryCode();
 
-        return !in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
+        return !in_array($shippingOrigin, $ineligibleCountries);
     }
 
     /**
+     * Global Label API cannot cancel labels.
+     *
      * @param string $shipmentNumber
      * @return bool
      */
