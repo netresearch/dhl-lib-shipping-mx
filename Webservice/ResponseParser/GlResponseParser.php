@@ -86,7 +86,6 @@ class GlResponseParser implements GlResponseParserInterface
 
                     $labels[$labelInfo->getPackageId()] = $label;
                 }
-
             }
         }
 

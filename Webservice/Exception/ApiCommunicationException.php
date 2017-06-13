@@ -23,12 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Api\Webservice\Adapter;
 
-use \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface;
+namespace Dhl\Shipping\Webservice\Exception;
 
 /**
- * Business Customer Shipping API Adapter
+ * Webservice operation could not be performed, e.g.
+ * - bcs: soap fault
+ * - gla: zend runtime exception or unknown error code
  *
  * @category Dhl
  * @package  Dhl\Shipping\Api
@@ -36,11 +37,6 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface BcsAdapterInterface extends AdapterInterface
+class ApiCommunicationException extends ApiAdapterException
 {
-    /**
-     * @param \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface $request
-     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\GetVersionResponseInterface
-     */
-    public function getVersion(GetVersionRequestInterface $request);
 }

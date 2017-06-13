@@ -27,6 +27,7 @@ namespace Dhl\Shipping\Webservice\Adapter;
 
 use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface;
+use \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\AdapterInterface;
 
 /**
@@ -46,6 +47,30 @@ abstract class AbstractAdapter implements AdapterInterface
     private $successor;
 
     /**
+     * @param ShipmentOrderInterface $shipmentOrder
+     * @return bool
+     */
+    abstract protected function canCreateLabel(ShipmentOrderInterface $shipmentOrder);
+
+    /**
+     * @param string $shipmentNumber
+     * @return bool
+     */
+    abstract protected function canCancelLabel($shipmentNumber);
+
+    /**
+     * @param ShipmentOrderInterface[] $shipmentOrders
+     * @return LabelInterface[]
+     */
+    abstract protected function createShipmentOrders(array $shipmentOrders);
+
+    /**
+     * @param string[] $shipmentNumbers
+     * @return ItemStatusInterface[]
+     */
+    abstract protected function deleteShipmentOrders(array $shipmentNumbers);
+
+    /**
      * @param AdapterInterface $adapter
      * @return $this
      */
@@ -54,18 +79,6 @@ abstract class AbstractAdapter implements AdapterInterface
         $this->successor = $adapter;
         return $this;
     }
-
-    /**
-     * @param ShipmentOrderInterface $shipmentOrder
-     * @return bool
-     */
-    abstract protected function canHandleShipmentOrder(ShipmentOrderInterface $shipmentOrder);
-
-    /**
-     * @param ShipmentOrderInterface[] $shipmentOrders
-     * @return LabelInterface[]
-     */
-    abstract protected function createShipmentOrders(array $shipmentOrders);
 
     /**
      * @param ShipmentOrderInterface[] $shipmentOrders
@@ -77,7 +90,7 @@ abstract class AbstractAdapter implements AdapterInterface
         $theirOrders = [];
 
         foreach ($shipmentOrders as $sequenceNumber => $shipmentOrder) {
-            if ($this->canHandleShipmentOrder($shipmentOrder)) {
+            if ($this->canCreateLabel($shipmentOrder)) {
                 $myOrders[$sequenceNumber] = $shipmentOrder;
             } else {
                 $theirOrders[$sequenceNumber] = $shipmentOrder;
@@ -95,5 +108,35 @@ abstract class AbstractAdapter implements AdapterInterface
         }
 
         return $labels;
+    }
+
+    /**
+     * @param string[] $shipmentNumbers
+     * @return ItemStatusInterface[]
+     */
+    public function cancelLabels(array $shipmentNumbers)
+    {
+        $myNumbers = [];
+        $theirNumbers = [];
+
+        foreach ($shipmentNumbers as $shipmentNumber) {
+            if ($this->canCancelLabel($shipmentNumber)) {
+                $myNumbers[] = $shipmentNumber;
+            } else {
+                $theirNumbers[] = $shipmentNumber;
+            }
+        }
+
+        if (!empty($myNumbers)) {
+            $items = $this->deleteShipmentOrders($myNumbers);
+        } else {
+            $items = [];
+        }
+
+        if ($this->successor !== null) {
+            $items = array_merge($items, $this->successor->cancelLabels($theirNumbers));
+        }
+
+        return $items;
     }
 }

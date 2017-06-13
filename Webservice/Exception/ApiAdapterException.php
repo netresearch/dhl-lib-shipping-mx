@@ -27,8 +27,7 @@
 namespace Dhl\Shipping\Webservice\Exception;
 
 /**
- * GLA Webservice could not create shipment order. Server side validation error, e.g.
- * - hard validation error
+ * Webservice operation failed.
  *
  * @category Dhl
  * @package  Dhl\Shipping\Api
