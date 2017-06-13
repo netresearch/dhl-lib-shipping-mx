@@ -23,12 +23,13 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Api\Webservice\Adapter;
 
-use \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface;
+namespace Dhl\Shipping\Webservice\Exception;
 
 /**
- * Business Customer Shipping API Adapter
+ * Webservice operation returned error response, e.g.
+ * - bcs: hard validation error
+ * - gla: bad request
  *
  * @category Dhl
  * @package  Dhl\Shipping\Api
@@ -36,11 +37,6 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface BcsAdapterInterface extends AdapterInterface
+class ApiOperationException extends ApiAdapterException
 {
-    /**
-     * @param \Dhl\Shipping\Api\Data\Webservice\RequestType\GetVersionRequestInterface $request
-     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\GetVersionResponseInterface
-     */
-    public function getVersion(GetVersionRequestInterface $request);
 }

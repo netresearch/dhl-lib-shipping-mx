@@ -25,6 +25,7 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
+use Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface;
 use Dhl\Shipping\Api\Webservice\Client\BcsSoapClientInterface;
 use \Dhl\Shipping\Api\Webservice\RequestMapper;
 use \Dhl\Shipping\Api\Webservice\ResponseParser;
@@ -32,6 +33,9 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Api\Webservice\Adapter\BcsAdapterInterface;
 use \Dhl\Shipping\Bcs as BcsApi;
+use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
+use Dhl\Shipping\Webservice\Exception\ApiOperationException;
+use Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
 
 /**
  * Business Customer Shipping API Adapter
@@ -83,15 +87,29 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
      * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
      * @return bool
      */
-    protected function canHandleShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+    protected function canCreateLabel(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         $shipperCountries = ['DE', 'AT'];
         return in_array($shipmentOrder->getShipper()->getAddress()->getCountryCode(), $shipperCountries);
     }
 
     /**
+     * There is no efficient check if the shipment number exists at the BCS API.
+     * For now, let the request fail if it does not exist.
+     *
+     * @param string $shipmentNumber
+     * @return bool
+     */
+    protected function canCancelLabel($shipmentNumber)
+    {
+        return true;
+    }
+
+    /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      * @return ResponseType\CreateShipment\LabelInterface[]
+     * @throws ApiOperationException
+     * @throws ApiCommunicationException
      */
     protected function createShipmentOrders(array $shipmentOrders)
     {
@@ -104,10 +122,17 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
             $shipmentOrders
         );
 
-        $requestType = new BcsApi\CreateShipmentOrderRequest($version, $shipmentOrders);
-        $soapResponse = $this->soapClient->createShipmentOrder($requestType);
+        $labelRequest = new BcsApi\CreateShipmentOrderRequest($version, $shipmentOrders);
 
-        $response = $this->responseParser->parseCreateShipmentResponse($soapResponse);
+        try {
+            $soapResponse = $this->soapClient->createShipmentOrder($labelRequest);
+            $response = $this->responseParser->parseCreateShipmentResponse($soapResponse);
+        } catch (CreateShipmentStatusException $e) {
+            throw new ApiOperationException('API operation failed', 0, $e);
+        } catch (\SoapFault $e) {
+            throw new ApiCommunicationException('API communication failed', 0, $e);
+        }
+
         return $response;
     }
 
@@ -130,11 +155,11 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
-     * @return \Dhl\Shipping\Api\Data\Webservice\ResponseType\DeleteShipmentResponseInterface
-     * @throws \Exception
+     * @return ItemStatusInterface[]
+     * @throws ApiOperationException
      */
-    public function cancelLabels(array $shipmentNumbers)
+    protected function deleteShipmentOrders(array $shipmentNumbers)
     {
-        throw new \Exception('Not yet implemented.');
+        throw new ApiOperationException('Not yet implemented.');
     }
 }

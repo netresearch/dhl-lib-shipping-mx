@@ -26,6 +26,7 @@
 
 namespace Dhl\Shipping\Webservice\Adapter;
 
+use Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface;
 use \Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
 use \Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
@@ -35,7 +36,8 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
 use \Dhl\Shipping\Gla\Response\LabelResponse;
-use \Dhl\Shipping\Webservice\Exception\ApiAdapterException;
+use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
+use Dhl\Shipping\Webservice\Exception\ApiOperationException;
 use \Dhl\Shipping\Webservice\Exception\GlOperationException;
 use \Dhl\Shipping\Webservice\Exception\GlCommunicationException;
 
@@ -95,7 +97,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      *
      * @return bool
      */
-    protected function canHandleShipmentOrder(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
+    protected function canCreateLabel(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
     {
         $shipperCountries = ['DE', 'AT'];
 
@@ -103,10 +105,20 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     }
 
     /**
+     * @param string $shipmentNumber
+     * @return bool
+     */
+    protected function canCancelLabel($shipmentNumber)
+    {
+        return false;
+    }
+
+    /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      *
      * @return ResponseType\CreateShipment\LabelInterface[]
-     * @throws ApiAdapterException
+     * @throws ApiOperationException
+     * @throws ApiCommunicationException
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
@@ -129,11 +141,21 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
             $responseData = $this->serializer->deserialize($restResponse->getBody(), LabelResponse::class);
             $response = $this->responseParser->parseCreateShipmentResponse($responseData);
         } catch (GlOperationException $e) {
-            throw new ApiAdapterException('API operation failed', 0, $e);
+            throw new ApiOperationException('API operation failed', 0, $e);
         } catch (GlCommunicationException $e) {
-            throw new ApiAdapterException('API communication failed', 0, $e);
+            throw new ApiCommunicationException('API communication failed', 0, $e);
         }
 
         return $response;
+    }
+
+    /**
+     * @param string[] $shipmentNumbers
+     * @return ResponseType\Generic\ItemStatusInterface[]
+     * @throws ApiOperationException
+     */
+    protected function deleteShipmentOrders(array $shipmentNumbers)
+    {
+        throw new ApiOperationException('Operation not available.');
     }
 }

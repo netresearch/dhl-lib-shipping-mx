@@ -44,4 +44,10 @@ interface AdapterInterface
      * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createLabels(array $shipmentOrders);
+
+    /**
+     * @param string[] $shipmentNumbers
+     * @return ResponseType\Generic\ItemStatusInterface[]
+     */
+    public function cancelLabels(array $shipmentNumbers);
 }
