@@ -26,7 +26,6 @@
 
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface;
 use \Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
 use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
 use \Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
@@ -36,10 +35,10 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType;
 use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
 use \Dhl\Shipping\Gla\Response\LabelResponse;
-use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
-use Dhl\Shipping\Webservice\Exception\ApiOperationException;
-use \Dhl\Shipping\Webservice\Exception\GlOperationException;
+use \Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
+use \Dhl\Shipping\Webservice\Exception\ApiOperationException;
 use \Dhl\Shipping\Webservice\Exception\GlCommunicationException;
+use \Dhl\Shipping\Webservice\Exception\GlOperationException;
 
 /**
  * Global Label API Adapter
