@@ -42,17 +42,22 @@ class ReturnReceiver implements ReturnReceiverInterface
     /**
      * @var string
      */
-    private $contactPerson;
+    private $companyName;
 
     /**
-     * @var array|\string[]
+     * @var string
      */
     private $name;
 
     /**
      * @var string
      */
-    private $companyName;
+    private $nameAddition;
+
+    /**
+     * @var string
+     */
+    private $contactPerson;
 
     /**
      * @var string
@@ -71,24 +76,27 @@ class ReturnReceiver implements ReturnReceiverInterface
 
     /**
      * ReturnReceiver constructor.
-     * @param $contactPerson
-     * @param string[] $name
      * @param string $companyName
+     * @param string $name
+     * @param string $nameAddition
+     * @param string $contactPerson
      * @param string $phone
      * @param string $email
      * @param AddressInterface $address
      */
     public function __construct(
-        $contactPerson,
-        array $name,
         $companyName,
+        $name,
+        $nameAddition,
+        $contactPerson,
         $phone,
         $email,
         AddressInterface $address
     ) {
-        $this->contactPerson = $contactPerson;
-        $this->name = $name;
         $this->companyName = $companyName;
+        $this->name = $name;
+        $this->nameAddition = $nameAddition;
+        $this->contactPerson = $contactPerson;
         $this->phone = $phone;
         $this->email = $email;
         $this->address = $address;
@@ -97,13 +105,13 @@ class ReturnReceiver implements ReturnReceiverInterface
     /**
      * @return string
      */
-    public function getContactPerson()
+    public function getCompanyName()
     {
-        return $this->contactPerson;
+        return $this->companyName;
     }
 
     /**
-     * @return string[]
+     * @return string
      */
     public function getName()
     {
@@ -113,9 +121,17 @@ class ReturnReceiver implements ReturnReceiverInterface
     /**
      * @return string
      */
-    public function getCompanyName()
+    public function getNameAddition()
     {
-        return $this->companyName;
+        return $this->nameAddition;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactPerson()
+    {
+        return $this->contactPerson;
     }
 
     /**
