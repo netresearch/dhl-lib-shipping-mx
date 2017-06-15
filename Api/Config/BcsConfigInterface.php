@@ -62,7 +62,6 @@ interface BcsConfigInterface
     const CONFIG_XML_PATH_BANKDATA_NOTE2 = 'carriers/dhlshipping/bcs_bankdata_note2';
     const CONFIG_XML_PATH_BANKDATA_ACCOUNT_REFERENCE = 'carriers/dhlshipping/bcs_bankdata_account_reference';
 
-    const CONFIG_XML_PATH_SHIPPER_CONTACT_PERSON = 'carriers/dhlshipping/bcs_shipper_contact_person';
     const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANYADDITION = 'carriers/dhlshipping/bcs_shipper_contact_company_addition';
     const CONFIG_XML_PATH_SHIPPER_CONTACT_DISPATCHINFO = 'carriers/dhlshipping/bcs_shipper_contact_dispatchinfo';
 
@@ -173,14 +172,6 @@ interface BcsConfigInterface
      * @return string
      */
     public function getBankDataAccountReference($store = null);
-
-    /**
-     * Obtain communication contact person.
-     *
-     * @param mixed $store
-     * @return string
-     */
-    public function getContactPerson($store = null);
 
     /**
      * Obtain name of shipper (first name part)

@@ -39,17 +39,22 @@ interface ContactInterface
     /**
      * @return string
      */
-    public function getContactPerson();
+    public function getCompanyName();
 
     /**
-     * @return string[]
+     * @return string
      */
     public function getName();
 
     /**
      * @return string
      */
-    public function getCompanyName();
+    public function getNameAddition();
+
+    /**
+     * @return string
+     */
+    public function getContactPerson();
 
     /**
      * @return string

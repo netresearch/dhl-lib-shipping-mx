@@ -40,26 +40,45 @@ use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrder\C
 class Shipper implements ShipperInterface
 {
     /**
-     * @var string
-     */
-    private $contactPerson;
-
-    /**
-     * @var array|\string[]
-     */
-    private $name;
-
-    /**
+     * The shipper company name.
+     *
      * @var string
      */
     private $companyName;
 
     /**
+     * The shipper surname and given name. Currently not in use.
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
+     * Any additional name info, such as second company line.
+     *
+     * @var string
+     */
+    private $nameAddition;
+
+    /**
+     * The shipper contact person surname and given name. Usually used by the
+     * carrier to contact the shipper in case of fulfillment issues.
+     *
+     * @var string
+     */
+    private $contactPerson;
+
+    /**
+     * The shipper contact phone number. Usually used by the
+     * carrier to contact the shipper in case of fulfillment issues.
+     *
      * @var string
      */
     private $phone;
 
     /**
+     * The shipper contact email address.
+     *
      * @var string
      */
     private $email;
@@ -71,24 +90,27 @@ class Shipper implements ShipperInterface
 
     /**
      * Shipper constructor.
-     * @param $contactPerson
-     * @param string[] $name
      * @param string $companyName
+     * @param string $name
+     * @param string $nameAddition
+     * @param string $contactPerson
      * @param string $phone
      * @param string $email
      * @param AddressInterface $address
      */
     public function __construct(
-        $contactPerson,
-        array $name,
         $companyName,
+        $name,
+        $nameAddition,
+        $contactPerson,
         $phone,
         $email,
         AddressInterface $address
     ) {
-        $this->contactPerson = $contactPerson;
-        $this->name = $name;
         $this->companyName = $companyName;
+        $this->name = $name;
+        $this->nameAddition = $nameAddition;
+        $this->contactPerson = $contactPerson;
         $this->phone = $phone;
         $this->email = $email;
         $this->address = $address;
@@ -97,13 +119,13 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getContactPerson()
+    public function getCompanyName()
     {
-        return $this->contactPerson;
+        return $this->companyName;
     }
 
     /**
-     * @return string[]
+     * @return string
      */
     public function getName()
     {
@@ -113,9 +135,17 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getCompanyName()
+    public function getNameAddition()
     {
-        return $this->companyName;
+        return $this->nameAddition;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactPerson()
+    {
+        return $this->contactPerson;
     }
 
     /**
