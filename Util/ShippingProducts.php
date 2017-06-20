@@ -280,7 +280,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             self::CODE_APAC_AP7 => 'GM Paket Pus Manifest Clearance',
             self::CODE_APAC_PDP => 'GM Parcel Direct Plus',
 
-            self::CODE_APAC_PDO => 'Parcel Thailand',
+            self::CODE_APAC_PDO => 'DHL Standard Parcel',
 
             self::CODE_AMER_BMY => 'DHL GM Business Priority',
             self::CODE_AMER_34 => 'DHL GM Business Priority',
