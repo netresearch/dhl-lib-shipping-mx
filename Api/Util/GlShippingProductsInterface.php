@@ -59,7 +59,7 @@ interface GlShippingProductsInterface extends ShippingProductsInterface
     const CODE_APAC_PDP = 'PDP';
 
     // APAC DOMESTIC
-    // Parcel Thailand
+    // DHL Standard Parcel
     const CODE_APAC_PDO = 'PDO';
 
     // AMER INTERNATIONAL
