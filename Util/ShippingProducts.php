@@ -26,8 +26,8 @@
 
 namespace Dhl\Shipping\Util;
 
-use Dhl\Shipping\Api\Util\BcsShippingProductsInterface;
-use Dhl\Shipping\Api\Util\GlShippingProductsInterface;
+use Dhl\Shipping\Util\BcsShippingProductsInterface;
+use Dhl\Shipping\Util\GlShippingProductsInterface;
 
 /**
  * ShippingProducts

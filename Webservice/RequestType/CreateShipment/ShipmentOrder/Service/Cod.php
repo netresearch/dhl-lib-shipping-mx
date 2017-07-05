@@ -26,8 +26,8 @@
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service;
 
-use Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceInterface;
-use Dhl\Shipping\Api\Data\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceInterface;
+use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 
 /**
  * Additional service: Cash On Delivery

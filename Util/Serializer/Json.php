@@ -25,7 +25,7 @@
  */
 namespace Dhl\Shipping\Util\Serializer;
 
-use \Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
+use \Dhl\Shipping\Util\Serializer\SerializerInterface;
 
 /**
  * REST API JSON Serializer

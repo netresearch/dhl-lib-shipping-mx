@@ -17,7 +17,7 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Api
+ * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -25,9 +25,9 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Api\Webservice\ResponseParser\BcsResponseParserInterface;
+use \Dhl\Shipping\Webservice\ResponseType;
+use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
+use \Dhl\Shipping\Webservice\ResponseParser\BcsResponseParserInterface;
 use \Dhl\Shipping\Bcs\CreationState;
 use \Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
 
@@ -35,7 +35,7 @@ use \Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
  * Geschäftskunden API response parser
  *
  * @category Dhl
- * @package  Dhl\Shipping\Api
+ * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

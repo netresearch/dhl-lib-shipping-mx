@@ -23,12 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Api\Service;
+namespace Dhl\Shipping\Service;
 
-use Dhl\Shipping\Api\Service\Filter\CustomerSelectionFilter;
-use Dhl\Shipping\Api\Service\Filter\MerchantSelectionFilter;
-use Dhl\Shipping\Api\Service\Filter\PostalFacilityFilter;
-use Dhl\Shipping\Api\Service\Filter\ProductFilter;
+use Dhl\Shipping\Service\Filter\CustomerSelectionFilter;
+use Dhl\Shipping\Service\Filter\MerchantSelectionFilter;
+use Dhl\Shipping\Service\Filter\PostalFacilityFilter;
+use Dhl\Shipping\Service\Filter\ProductFilter;
 use Dhl\Shipping\Util\ShippingProducts;
 
 /**

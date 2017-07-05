@@ -17,7 +17,7 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Api
+ * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -26,13 +26,13 @@
 
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use \Dhl\Shipping\Api\Util\Serializer\SerializerInterface;
-use \Dhl\Shipping\Api\Webservice\Adapter\GlAdapterInterface;
-use \Dhl\Shipping\Api\Webservice\Client\GlRestClientInterface;
-use \Dhl\Shipping\Api\Webservice\RequestMapper;
-use \Dhl\Shipping\Api\Webservice\ResponseParser;
-use \Dhl\Shipping\Api\Data\Webservice\RequestType;
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
+use \Dhl\Shipping\Util\Serializer\SerializerInterface;
+use \Dhl\Shipping\Webservice\Adapter\GlAdapterInterface;
+use \Dhl\Shipping\Webservice\Client\GlRestClientInterface;
+use \Dhl\Shipping\Webservice\RequestMapper;
+use \Dhl\Shipping\Webservice\ResponseParser;
+use \Dhl\Shipping\Webservice\RequestType;
+use \Dhl\Shipping\Webservice\ResponseType;
 use \Dhl\Shipping\Gla\Request\LabelRequest;
 use \Dhl\Shipping\Gla\Response\LabelResponse;
 use \Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
@@ -44,7 +44,7 @@ use \Dhl\Shipping\Webservice\Exception\GlOperationException;
  * Global Label API Adapter
  *
  * @category Dhl
- * @package  Dhl\Shipping\Api
+ * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

@@ -17,7 +17,7 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Api
+ * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -25,16 +25,16 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use \Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType\CreateShipment\LabelInterface;
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface;
-use \Dhl\Shipping\Api\Webservice\Adapter\AdapterInterface;
+use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
+use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
+use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use \Dhl\Shipping\Webservice\Adapter\AdapterInterface;
 
 /**
  * Shipping API Adapter
  *
  * @category Dhl
- * @package  Dhl\Shipping\Api
+ * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
