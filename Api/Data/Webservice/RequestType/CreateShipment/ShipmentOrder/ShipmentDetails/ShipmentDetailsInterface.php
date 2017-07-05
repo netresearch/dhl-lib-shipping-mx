@@ -23,6 +23,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Api\Data\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails;
 
 /**
@@ -119,4 +120,12 @@ interface ShipmentDetailsInterface
      * @return BankDataInterface
      */
     public function getBankData();
+
+    /**
+     * Obtain optional shipment comment
+     *
+     * @return string
+     *
+     */
+    public function getShipmentComment();
 }
