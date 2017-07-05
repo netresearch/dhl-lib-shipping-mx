@@ -88,6 +88,13 @@ interface ShipmentDetailsInterface
     public function getDistributionCenter();
 
     /**
+     * Obtain merchants DHL customer prefix
+     *
+     * @return string
+     */
+    public function getCustomerPrefix();
+
+    /**
      * Obtain the order reference, usually shipment increment ID.
      *
      * @return string

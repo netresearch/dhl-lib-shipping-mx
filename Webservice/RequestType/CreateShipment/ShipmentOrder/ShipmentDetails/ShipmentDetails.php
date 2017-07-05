@@ -95,17 +95,23 @@ class ShipmentDetails implements ShipmentDetailsInterface
     private $bankData;
 
     /**
+     * @var string
+     */
+    private $customerPrefix;
+
+    /**
      * ShipmentDetails constructor.
-     * @param bool $isPrintOnlyIfCodeable
-     * @param bool $isPartialShipment
-     * @param string $product
-     * @param string $accountNumber
-     * @param string $returnShipmentAccountNumber
-     * @param string $pickupAccountNumber
-     * @param string $distributionCenter
-     * @param string $reference
-     * @param string $returnShipmentReference
-     * @param string $shipmentDate
+     * @param $isPrintOnlyIfCodeable
+     * @param $isPartialShipment
+     * @param $product
+     * @param $accountNumber
+     * @param $returnShipmentAccountNumber
+     * @param $pickupAccountNumber
+     * @param $distributionCenter
+     * @param $customerPrefix
+     * @param $reference
+     * @param $returnShipmentReference
+     * @param $shipmentDate
      * @param BankDataInterface $bankData
      */
     public function __construct(
@@ -116,6 +122,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $returnShipmentAccountNumber,
         $pickupAccountNumber,
         $distributionCenter,
+        $customerPrefix,
         $reference,
         $returnShipmentReference,
         $shipmentDate,
@@ -128,6 +135,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->returnShipmentAccountNumber = $returnShipmentAccountNumber;
         $this->pickupAccountNumber = $pickupAccountNumber;
         $this->distributionCenter = $distributionCenter;
+        $this->customerPrefix = $customerPrefix;
         $this->reference = $reference;
         $this->returnShipmentReference = $returnShipmentReference;
         $this->shipmentDate = $shipmentDate;
@@ -205,6 +213,17 @@ class ShipmentDetails implements ShipmentDetailsInterface
     {
         return $this->distributionCenter;
     }
+
+    /**
+     * Obtain merchants DHL customer prefix
+     *
+     * @return string
+     */
+    public function getCustomerPrefix()
+    {
+        return $this->customerPrefix;
+    }
+
 
     /**
      * Obtain the order reference, usually shipment increment ID.

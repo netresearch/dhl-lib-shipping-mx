@@ -39,6 +39,7 @@ namespace Dhl\Shipping\Api\Config;
 interface GlConfigInterface
 {
     const CONFIG_XML_PATH_PICKUP_NUMBER         = 'carriers/dhlshipping/gl_pickup_number';
+    const CONFIG_XML_PATH_CUSTOMER_PREFIX       = 'carriers/dhlshipping/gl_customer_prefix';
     const CONFIG_XML_PATH_DISTRIBUTION_CENTER   = 'carriers/dhlshipping/gl_distribution_center';
 
     const CONFIG_XML_PATH_ENDPOINT      = 'carriers/dhlshipping/gl_api_endpoint';
@@ -47,7 +48,6 @@ interface GlConfigInterface
     const CONFIG_XML_PATH_AUTH_TOKEN    = 'carriers/dhlshipping/gl_api_auth_token';
 
     const CONFIG_XML_PATH_SANDBOX_ENDPOINT = 'carriers/dhlshipping/gl_sandbox_api_endpoint';
-
     const CONFIG_XML_PATH_LABEL_SIZE      = 'carriers/dhlshipping/gl_label_size';
     const CONFIG_XML_PATH_PAGE_SIZE       = 'carriers/dhlshipping/gl_page_size';
     const CONFIG_XML_PATH_PAGE_LAYOUT     = 'carriers/dhlshipping/gl_page_layout';
@@ -65,6 +65,12 @@ interface GlConfigInterface
      * @return string
      */
     public function getPickupAccountNumber($store = null);
+
+    /**
+     * @param mixed $store
+     * @return string
+     */
+    public function getCustomerPrefix($store = null);
 
     /**
      * @param mixed $store
