@@ -63,4 +63,12 @@ interface ShippingRoutesInterface
      * @return mixed
      */
     public function canProcessRoute($originCountryId, $destCountryId, array $euCountries);
+
+    /**
+     * @param $originCountryId
+     * @param $destCountryId
+     * @param array $euCountries
+     * @return mixed
+     */
+    public function isCrossBorderRoute($originCountryId, $destCountryId, array $euCountries);
 }
