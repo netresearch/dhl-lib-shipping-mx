@@ -172,4 +172,23 @@ class ShippingRoutes implements ShippingRoutesInterface
 
         return ($isIncluded && !$isExcluded);
     }
+
+    /**
+     * @param string $originCountryId
+     * @param string $destCountryId
+     * @param string[] $euCountries
+     * @return bool
+     */
+    public function isCrossBorderRoute($originCountryId, $destCountryId, array $euCountries)
+    {
+        if ($originCountryId === 'DE') {
+            return !in_array($destCountryId, $euCountries);
+        }
+
+        if ($originCountryId === 'AT') {
+            return !in_array($destCountryId, $euCountries);
+        }
+
+        return ($originCountryId !== $destCountryId);
+    }
 }
