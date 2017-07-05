@@ -26,7 +26,7 @@
 
 namespace Dhl\Shipping\Util;
 
-use Dhl\Shipping\Api\Util\ShippingRoutesInterface;
+use Dhl\Shipping\Util\ShippingRoutesInterface;
 
 /**
  * ShippingRoutes

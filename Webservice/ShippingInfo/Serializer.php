@@ -25,8 +25,6 @@
  */
 namespace Dhl\Shipping\Webservice\ShippingInfo;
 
-use Dhl\Shipping\Api\Data\ShippingInfo\InfoInterface;
-
 /**
  * Serializer
  *

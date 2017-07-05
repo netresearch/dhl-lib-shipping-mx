@@ -25,7 +25,7 @@
  */
 namespace Dhl\Shipping\Util\Serializer\Reflection;
 
-use \Dhl\Shipping\Api\Util\Serializer\Reflection\PropertyHandlerInterface;
+use \Dhl\Shipping\Util\Serializer\Reflection\PropertyHandlerInterface;
 
 /**
  * Dhl Property Handler

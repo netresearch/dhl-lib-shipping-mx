@@ -17,7 +17,7 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Api
+ * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -25,13 +25,13 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use Dhl\Shipping\Api\Data\Webservice\ResponseType\Generic\ItemStatusInterface;
-use Dhl\Shipping\Api\Webservice\Client\BcsSoapClientInterface;
-use \Dhl\Shipping\Api\Webservice\RequestMapper;
-use \Dhl\Shipping\Api\Webservice\ResponseParser;
-use \Dhl\Shipping\Api\Data\Webservice\RequestType;
-use \Dhl\Shipping\Api\Data\Webservice\ResponseType;
-use \Dhl\Shipping\Api\Webservice\Adapter\BcsAdapterInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use Dhl\Shipping\Webservice\Client\BcsSoapClientInterface;
+use \Dhl\Shipping\Webservice\RequestMapper;
+use \Dhl\Shipping\Webservice\ResponseParser;
+use \Dhl\Shipping\Webservice\RequestType;
+use \Dhl\Shipping\Webservice\ResponseType;
+use \Dhl\Shipping\Webservice\Adapter\BcsAdapterInterface;
 use \Dhl\Shipping\Bcs as BcsApi;
 use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
 use Dhl\Shipping\Webservice\Exception\ApiOperationException;
@@ -41,7 +41,7 @@ use Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
  * Business Customer Shipping API Adapter
  *
  * @category Dhl
- * @package  Dhl\Shipping\Api
+ * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/

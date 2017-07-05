@@ -17,7 +17,7 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Api
+ * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -32,7 +32,7 @@ namespace Dhl\Shipping\Webservice\Exception;
  * - gla: bad request
  *
  * @category Dhl
- * @package  Dhl\Shipping\Api
+ * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
