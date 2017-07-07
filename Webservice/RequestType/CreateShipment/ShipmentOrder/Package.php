@@ -62,22 +62,70 @@ class Package implements PackageInterface
     private $declaredValue;
 
     /**
+     * @var string
+     */
+    private $termsOfTrade;
+
+    /**
+     * @var string
+     */
+    private $additionalFee;
+
+    /**
+     * @var string
+     */
+    private $placeOfCommital;
+
+    /**
+     * @var string
+     */
+    private $permitNumber;
+
+    /**
+     * @var string
+     */
+    private $attestationNumber;
+
+    /**
+     * @var string
+     */
+    private $exportNotification;
+
+    /**
      * Package constructor.
-     * @param string $packageId
+     * @param $packageId
      * @param WeightInterface $weight
      * @param DimensionsInterface $dimensions
      * @param MonetaryValueInterface $declaredValue
+     * @param $termsOfTrade
+     * @param $additionalFee
+     * @param $placeOfCommital
+     * @param $permitNumber
+     * @param $attestationNumber
+     * @param $exportNotification
      */
     public function __construct(
         $packageId,
         WeightInterface $weight,
         DimensionsInterface $dimensions,
-        MonetaryValueInterface $declaredValue
+        MonetaryValueInterface $declaredValue,
+        $termsOfTrade,
+        $additionalFee,
+        $placeOfCommital,
+        $permitNumber,
+        $attestationNumber,
+        $exportNotification
     ) {
         $this->packageId = $packageId;
         $this->weight = $weight;
         $this->dimensions = $dimensions;
         $this->declaredValue = $declaredValue;
+        $this->termsOfTrade = $termsOfTrade;
+        $this->additionalFee = $additionalFee;
+        $this->placeOfCommital = $placeOfCommital;
+        $this->permitNumber =  $permitNumber;
+        $this->attestationNumber = $attestationNumber;
+        $this->exportNotification = $exportNotification;
     }
 
     /**
@@ -112,5 +160,53 @@ class Package implements PackageInterface
     public function getDeclaredValue()
     {
         return $this->declaredValue;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTermsOfTrade(): string
+    {
+        return $this->termsOfTrade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdditionalFee(): string
+    {
+        return $this->additionalFee;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlaceOfCommital(): string
+    {
+        return $this->placeOfCommital;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPermitNumber(): string
+    {
+        return $this->permitNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttestationNumber(): string
+    {
+        return $this->attestationNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExportNotification(): string
+    {
+        return $this->exportNotification;
     }
 }

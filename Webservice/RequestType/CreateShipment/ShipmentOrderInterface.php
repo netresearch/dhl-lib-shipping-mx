@@ -67,11 +67,6 @@ interface ShipmentOrderInterface
     public function getServices();
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\CustomsDetailsInterface
-     */
-    public function getCustomsDetails();
-
-    /**
      * @return \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\PackageInterface[]
      */
     public function getPackages();

@@ -18,76 +18,72 @@
  *
  * @category  Dhl
  * @package   Dhl\Shipping
- * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author    Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder;
+namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
 
 /**
- * Package information for creating a shipment order.
+ * Package item information for creating a shipment order.
  *
  * @category Dhl
  * @package  Dhl\Shipping
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface PackageInterface
+interface PackageItemInterface
 {
 
-
-
     /**
-     * Customer Confirmation Number, usually composed of increment id and package sequence number
-     *
      * @return string
      */
-    public function getPackageId();
+    public function getQty();
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface
+     * @return string
+     */
+    public function getCustomsValue();
+
+    /**
+     * @return string
+     */
+    public function getName();
+
+    /**
+     * @return string
+     */
+    public function getPrice();
+
+    /**
+     * @return string
      */
     public function getWeight();
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\DimensionsInterface
+     * @return string
      */
-    public function getDimensions();
-
-    /**
-     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface
-     */
-    public function getDeclaredValue();
+    public function getProductId();
 
     /**
      * @return string
      */
-    public function getTermsOfTrade();
+    public function getOrderItemId();
 
     /**
      * @return string
      */
-    public function getAdditionalFee();
+    public function getCustomsItemDescription();
 
     /**
      * @return string
      */
-    public function getPlaceOfCommital();
+    public function getItemOriginCountry();
 
     /**
      * @return string
      */
-    public function getPermitNumber();
-
-    /**
-     * @return string
-     */
-    public function getAttestationNumber();
-
-    /**
-     * @return string
-     */
-    public function getExportNotification();
+    public function getTariffNumber();
 }
