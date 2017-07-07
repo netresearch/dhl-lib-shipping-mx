@@ -76,11 +76,6 @@ class ShipmentOrder implements ShipmentOrderInterface
     private $services;
 
     /**
-     * @var CustomsDetailsInterface
-     */
-    private $customsDetails;
-
-    /**
      * @var PackageInterface[]
      */
     private $packages;
@@ -93,8 +88,7 @@ class ShipmentOrder implements ShipmentOrderInterface
      * @param ReceiverInterface $receiver
      * @param ReturnReceiverInterface $returnReceiver
      * @param ServiceCollectionInterface $services
-     * @param CustomsDetailsInterface $customsDetails
-     * @param PackageInterface[] $packages
+     * @param array $packages
      */
     public function __construct(
         $sequenceNumber,
@@ -103,7 +97,6 @@ class ShipmentOrder implements ShipmentOrderInterface
         ReceiverInterface $receiver,
         ReturnReceiverInterface $returnReceiver,
         ServiceCollectionInterface $services,
-        CustomsDetailsInterface $customsDetails,
         array $packages
     ) {
         $this->sequenceNumber = $sequenceNumber;
@@ -111,7 +104,6 @@ class ShipmentOrder implements ShipmentOrderInterface
         $this->shipper = $shipper;
         $this->receiver = $receiver;
         $this->returnReceiver = $returnReceiver;
-        $this->customsDetails = $customsDetails;
         $this->packages = $packages;
         $this->services = $services;
     }
@@ -162,14 +154,6 @@ class ShipmentOrder implements ShipmentOrderInterface
     public function getServices()
     {
         return $this->services;
-    }
-
-    /**
-     * @return CustomsDetailsInterface
-     */
-    public function getCustomsDetails()
-    {
-        return $this->customsDetails;
     }
 
     /**
