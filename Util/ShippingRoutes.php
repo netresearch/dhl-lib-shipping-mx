@@ -49,7 +49,7 @@ class ShippingRoutes implements ShippingRoutesInterface
         return [
             // Germany: EU only, international will be added in 0.3.0
             'DE' => [
-                'included' => [self::REGION_EU],
+                'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [],
             ],
             // Austria: EU only, international will be added in 0.3.0

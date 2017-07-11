@@ -23,8 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder;
 
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
 use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\PackageInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\DimensionsInterface;
@@ -92,40 +94,87 @@ class Package implements PackageInterface
     private $exportNotification;
 
     /**
+     * @var string
+     */
+    private $dangerousGoodsCategory;
+
+    /**
+     * @var PackageItemInterface[]
+     */
+    private $items;
+
+    /**
+     * @var string
+     */
+    private $exportTypeDescription;
+
+    /**
      * Package constructor.
      * @param $packageId
      * @param WeightInterface $weight
      * @param DimensionsInterface $dimensions
      * @param MonetaryValueInterface $declaredValue
+     * @param $exportType
      * @param $termsOfTrade
-     * @param $additionalFee
+     * @param MonetaryValueInterface $additionalFee
      * @param $placeOfCommital
      * @param $permitNumber
      * @param $attestationNumber
      * @param $exportNotification
+     * @param $dangerousGoodsCategory
+     * @param PackageItemInterface[] $items
      */
     public function __construct(
         $packageId,
         WeightInterface $weight,
         DimensionsInterface $dimensions,
         MonetaryValueInterface $declaredValue,
+        $exportType,
         $termsOfTrade,
-        $additionalFee,
+        MonetaryValueInterface $additionalFee,
         $placeOfCommital,
         $permitNumber,
         $attestationNumber,
-        $exportNotification
+        $exportNotification,
+        $dangerousGoodsCategory,
+        $exportTypeDescription = '',
+        $items = []
     ) {
         $this->packageId = $packageId;
         $this->weight = $weight;
         $this->dimensions = $dimensions;
         $this->declaredValue = $declaredValue;
+        $this->exportType = $exportType;
         $this->termsOfTrade = $termsOfTrade;
         $this->additionalFee = $additionalFee;
         $this->placeOfCommital = $placeOfCommital;
-        $this->permitNumber =  $permitNumber;
+        $this->permitNumber = $permitNumber;
         $this->attestationNumber = $attestationNumber;
-        $this->exportNotification = $exportNotification;
+        $this->exportNotification = (int) $exportNotification;
+        $this->dangerousGoodsCategory = $dangerousGoodsCategory;
+        $this->exportTypeDescription = $exportTypeDescription;
+        $this->items = $items;
+    }
+
+    /**
+     * Export type ("OTHER", "PRESENT", "COMMERCIAL_SAMPLE", "DOCUMENT", "RETURN_OF_GOODS") (depends on chosen product
+     * -> only mandatory for international, non EU shipments).
+     *
+     * @return string
+     */
+    public function getExportType()
+    {
+        return $this->exportType;
+    }
+
+    /**
+     * Description mandatory if ExportType is OTHER.
+     *
+     * @return string
+     */
+    public function getExportTypeDescription()
+    {
+        return $this->exportTypeDescription;
     }
 
     /**
@@ -171,9 +220,9 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return string
+     * @return MonetaryValueInterface
      */
-    public function getAdditionalFee(): string
+    public function getAdditionalFee(): MonetaryValueInterface
     {
         return $this->additionalFee;
     }
@@ -203,10 +252,26 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getExportNotification(): string
+    public function getExportNotification(): int
     {
         return $this->exportNotification;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDangerousGoodsCategory(): string
+    {
+        return $this->dangerousGoodsCategory;
+    }
+
+    /**
+     * @return PackageItemInterface[]
+     */
+    public function getItems(): array
+    {
+        return $this->items;
     }
 }
