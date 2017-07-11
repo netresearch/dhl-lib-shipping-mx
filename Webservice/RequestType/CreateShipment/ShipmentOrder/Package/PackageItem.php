@@ -23,9 +23,9 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 
@@ -46,12 +46,12 @@ class PackageItem implements PackageItemInterface
     private $qty;
 
     /**
-     * @var string
+     * @var MonetaryValueInterface
      */
     private $customsValue;
 
     /**
-     * @var string
+     * @var MonetaryValueInterface
      */
     private $price;
 
@@ -61,7 +61,7 @@ class PackageItem implements PackageItemInterface
     private $name;
 
     /**
-     * @var string
+     * @var WeightInterface
      */
     private $weight;
 
@@ -95,7 +95,7 @@ class PackageItem implements PackageItemInterface
      * @param $qty
      * @param $price
      * @param $name
-     * @param $weight
+     * @param WeightInterface $weight
      * @param $productId
      * @param $orderItemId
      * @param string $customsItemDescription
@@ -105,15 +105,15 @@ class PackageItem implements PackageItemInterface
      */
     public function __construct(
         $qty,
-        $price,
+        MonetaryValueInterface $price,
         $name,
-        $weight,
+        WeightInterface $weight,
         $productId,
         $orderItemId,
+        MonetaryValueInterface $customsValue,
         $customsItemDescription = '',
         $tariffNumber = '',
-        $itemOriginCountry = '',
-        $customsValue = ''
+        $itemOriginCountry = ''
     ) {
         $this->qty = $qty;
         $this->customsValue = $customsValue;

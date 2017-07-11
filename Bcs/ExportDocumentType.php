@@ -56,9 +56,9 @@ class ExportDocumentType
     protected $ExportDocPosition = null;
 
     /**
-     * @param exportType $exportType
-     * @param placeOfCommital $placeOfCommital
-     * @param additionalFee $additionalFee
+     * @param string $exportType
+     * @param string $placeOfCommital
+     * @param float $additionalFee
      */
     public function __construct($exportType, $placeOfCommital, $additionalFee)
     {
@@ -68,7 +68,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return invoiceNumber
+     * @return string
      */
     public function getInvoiceNumber()
     {
@@ -76,7 +76,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param invoiceNumber $invoiceNumber
+     * @param string $invoiceNumber
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setInvoiceNumber($invoiceNumber)
@@ -86,7 +86,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return exportType
+     * @return string
      */
     public function getExportType()
     {
@@ -94,7 +94,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param exportType $exportType
+     * @param string $exportType
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportType($exportType)
@@ -104,7 +104,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return exportTypeDescription
+     * @return string
      */
     public function getExportTypeDescription()
     {
@@ -112,7 +112,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param exportTypeDescription $exportTypeDescription
+     * @param string $exportTypeDescription
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportTypeDescription($exportTypeDescription)
@@ -122,7 +122,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return termsOfTrade
+     * @return string
      */
     public function getTermsOfTrade()
     {
@@ -130,7 +130,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param termsOfTrade $termsOfTrade
+     * @param string $termsOfTrade
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setTermsOfTrade($termsOfTrade)
@@ -140,7 +140,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return placeOfCommital
+     * @return string
      */
     public function getPlaceOfCommital()
     {
@@ -148,7 +148,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param placeOfCommital $placeOfCommital
+     * @param string $placeOfCommital
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setPlaceOfCommital($placeOfCommital)
@@ -158,7 +158,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return additionalFee
+     * @return float
      */
     public function getAdditionalFee()
     {
@@ -166,7 +166,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param additionalFee $additionalFee
+     * @param float $additionalFee
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setAdditionalFee($additionalFee)
@@ -176,7 +176,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return permitNumber
+     * @return string
      */
     public function getPermitNumber()
     {
@@ -184,7 +184,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param permitNumber $permitNumber
+     * @param string $permitNumber
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setPermitNumber($permitNumber)
@@ -194,7 +194,7 @@ class ExportDocumentType
     }
 
     /**
-     * @return attestationNumber
+     * @return string
      */
     public function getAttestationNumber()
     {
@@ -202,7 +202,7 @@ class ExportDocumentType
     }
 
     /**
-     * @param attestationNumber $attestationNumber
+     * @param string $attestationNumber
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setAttestationNumber($attestationNumber)

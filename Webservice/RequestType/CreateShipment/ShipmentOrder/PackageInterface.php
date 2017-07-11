@@ -23,7 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder;
+
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
 
 /**
  * Package information for creating a shipment order.
@@ -36,8 +39,6 @@ namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder;
  */
 interface PackageInterface
 {
-
-
 
     /**
      * Customer Confirmation Number, usually composed of increment id and package sequence number
@@ -64,10 +65,20 @@ interface PackageInterface
     /**
      * @return string
      */
-    public function getTermsOfTrade();
+    public function getExportType();
 
     /**
      * @return string
+     */
+    public function getExportTypeDescription();
+
+    /**
+     * @return string
+     */
+    public function getTermsOfTrade();
+
+    /**
+     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface
      */
     public function getAdditionalFee();
 
@@ -87,7 +98,17 @@ interface PackageInterface
     public function getAttestationNumber();
 
     /**
-     * @return string
+     * @return int
      */
     public function getExportNotification();
+
+    /**
+     * @return string
+     */
+    public function getDangerousGoodsCategory();
+
+    /**
+     * @return PackageItemInterface[]
+     */
+    public function getItems();
 }

@@ -6,159 +6,165 @@ class ExportDocPosition
 {
 
     /**
-     * @var description $description
+     * @var string $description
      */
-    protected $description = null;
+    private $description = null;
 
     /**
-     * @var countryCodeOrigin $countryCodeOrigin
+     * @var string $countryCodeOrigin
      */
-    protected $countryCodeOrigin = null;
+    private $countryCodeOrigin = null;
 
     /**
-     * @var customsTariffNumber $customsTariffNumber
+     * @var string $customsTariffNumber
      */
-    protected $customsTariffNumber = null;
+    private $customsTariffNumber = null;
 
     /**
-     * @var amount $amount
+     * @var string $amount
      */
-    protected $amount = null;
+    private $amount = null;
 
     /**
-     * @var netWeightInKG $netWeightInKG
+     * @var string $netWeightInKG
      */
-    protected $netWeightInKG = null;
+    private $netWeightInKG = null;
 
     /**
-     * @var customsValue $customsValue
+     * @var string $customsValue
      */
-    protected $customsValue = null;
+    private $customsValue = null;
 
     /**
-     * @param description $description
-     * @param countryCodeOrigin $countryCodeOrigin
-     * @param customsTariffNumber $customsTariffNumber
-     * @param amount $amount
-     * @param netWeightInKG $netWeightInKG
-     * @param customsValue $customsValue
+     * @param string $description
+     * @param string $countryCodeOrigin
+     * @param string $customsTariffNumber
+     * @param int $amount
+     * @param float $netWeightInKG
+     * @param float $customsValue
      */
-    public function __construct($description, $countryCodeOrigin, $customsTariffNumber, $amount, $netWeightInKG, $customsValue)
-    {
-      $this->description = $description;
-      $this->countryCodeOrigin = $countryCodeOrigin;
-      $this->customsTariffNumber = $customsTariffNumber;
-      $this->amount = $amount;
-      $this->netWeightInKG = $netWeightInKG;
-      $this->customsValue = $customsValue;
+    public function __construct(
+        $description,
+        $countryCodeOrigin,
+        $customsTariffNumber,
+        $amount,
+        $netWeightInKG,
+        $customsValue
+    ) {
+        $this->description = $description;
+        $this->countryCodeOrigin = $countryCodeOrigin;
+        $this->customsTariffNumber = $customsTariffNumber;
+        $this->amount = $amount;
+        $this->netWeightInKG = $netWeightInKG;
+        $this->customsValue = $customsValue;
     }
 
     /**
-     * @return description
+     * @return string
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
-     * @param description $description
+     * @param string $description
      * @return \Dhl\Shipping\Bcs\ExportDocPosition
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
-     * @return countryCodeOrigin
+     * @return string
      */
     public function getCountryCodeOrigin()
     {
-      return $this->countryCodeOrigin;
+        return $this->countryCodeOrigin;
     }
 
     /**
-     * @param countryCodeOrigin $countryCodeOrigin
+     * @param string $countryCodeOrigin
      * @return \Dhl\Shipping\Bcs\ExportDocPosition
      */
     public function setCountryCodeOrigin($countryCodeOrigin)
     {
-      $this->countryCodeOrigin = $countryCodeOrigin;
-      return $this;
+        $this->countryCodeOrigin = $countryCodeOrigin;
+        return $this;
     }
 
     /**
-     * @return customsTariffNumber
+     * @return string
      */
     public function getCustomsTariffNumber()
     {
-      return $this->customsTariffNumber;
+        return $this->customsTariffNumber;
     }
 
     /**
-     * @param customsTariffNumber $customsTariffNumber
+     * @param string $customsTariffNumber
      * @return \Dhl\Shipping\Bcs\ExportDocPosition
      */
     public function setCustomsTariffNumber($customsTariffNumber)
     {
-      $this->customsTariffNumber = $customsTariffNumber;
-      return $this;
+        $this->customsTariffNumber = $customsTariffNumber;
+        return $this;
     }
 
     /**
-     * @return amount
+     * @return int
      */
     public function getAmount()
     {
-      return $this->amount;
+        return $this->amount;
     }
 
     /**
-     * @param amount $amount
+     * @param int $amount
      * @return \Dhl\Shipping\Bcs\ExportDocPosition
      */
     public function setAmount($amount)
     {
-      $this->amount = $amount;
-      return $this;
+        $this->amount = $amount;
+        return $this;
     }
 
     /**
-     * @return netWeightInKG
+     * @return float
      */
     public function getNetWeightInKG()
     {
-      return $this->netWeightInKG;
+        return $this->netWeightInKG;
     }
 
     /**
-     * @param netWeightInKG $netWeightInKG
+     * @param float $netWeightInKG
      * @return \Dhl\Shipping\Bcs\ExportDocPosition
      */
     public function setNetWeightInKG($netWeightInKG)
     {
-      $this->netWeightInKG = $netWeightInKG;
-      return $this;
+        $this->netWeightInKG = $netWeightInKG;
+        return $this;
     }
 
     /**
-     * @return customsValue
+     * @return float
      */
     public function getCustomsValue()
     {
-      return $this->customsValue;
+        return $this->customsValue;
     }
 
     /**
-     * @param customsValue $customsValue
+     * @param float $customsValue
      * @return \Dhl\Shipping\Bcs\ExportDocPosition
      */
     public function setCustomsValue($customsValue)
     {
-      $this->customsValue = $customsValue;
-      return $this;
+        $this->customsValue = $customsValue;
+        return $this;
     }
 
 }

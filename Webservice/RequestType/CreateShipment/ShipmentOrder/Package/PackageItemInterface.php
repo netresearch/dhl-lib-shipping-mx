@@ -24,6 +24,8 @@
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
+use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
+use Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 
 /**
  * Package item information for creating a shipment order.
@@ -43,7 +45,7 @@ interface PackageItemInterface
     public function getQty();
 
     /**
-     * @return string
+     * @return MonetaryValueInterface
      */
     public function getCustomsValue();
 
@@ -53,12 +55,12 @@ interface PackageItemInterface
     public function getName();
 
     /**
-     * @return string
+     * @return MonetaryValueInterface
      */
     public function getPrice();
 
     /**
-     * @return string
+     * @return WeightInterface
      */
     public function getWeight();
 
