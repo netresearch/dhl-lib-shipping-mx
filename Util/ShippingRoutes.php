@@ -26,8 +26,6 @@
 
 namespace Dhl\Shipping\Util;
 
-use Dhl\Shipping\Util\ShippingRoutesInterface;
-
 /**
  * ShippingRoutes
  *
@@ -47,75 +45,62 @@ class ShippingRoutes implements ShippingRoutesInterface
     private function getRoutes()
     {
         return [
-            // Germany: EU only, international will be added in 0.3.0
             'DE' => [
                 'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [],
             ],
-            // Austria: EU only, international will be added in 0.3.0
             'AT' => [
-                'included' => [self::REGION_EU],
+                'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [],
             ],
-            // United States of America: Domestic only, international will be added in 0.4.0
             'US' => [
-                'included' => [self::COUNTRY_CODE_USA],
+                'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [],
             ],
-            // Chile: Domestic only
             'CL' => [
                 'included' => [self::COUNTRY_CODE_CHILE],
                 'excluded' => [],
             ],
-            // Canada: Cross Border only, will be added in 0.4.0
             'CA' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_CANADA],
             ],
-            // Singapore: Cross Border only, will be added in 0.4.0
             'SG' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_SINGAPORE],
             ],
-            // Hongkong: Cross Border only, will be added in 0.4.0
             'HK' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_HONGKONG],
             ],
             // Thailand: Domestic only
             'TH' => [
                 'included' => [self::COUNTRY_CODE_THAILAND],
                 'excluded' => [],
             ],
-            // Japan: Cross Border only, will be added in 0.4.0
             'JP' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_JAPAN],
             ],
-            // China: Cross Border only, will be added in 0.4.0
             'CN' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_CHINA],
             ],
-            // India: n/a
             'IN' => [
                 'included' => [],
                 'excluded' => [],
             ],
-            // Malaysia: Domestic and Cross Border (will be added in 0.4.0)
             'MY' => [
-                'included' => [self::COUNTRY_CODE_MALAYSIA],
+                'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [],
             ],
-            // Vietnam: Domestic and Cross Border (will be added in 0.4.0)
             'VN' => [
-                'included' => [self::COUNTRY_CODE_VIETNAM],
+                'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [],
             ],
-            // Australia: Cross Border only, will be added in 0.4.0
             'AU' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_AUSTRALIA],
             ],
         ];
     }
