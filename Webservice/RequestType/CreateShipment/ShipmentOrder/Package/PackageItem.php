@@ -91,6 +91,11 @@ class PackageItem implements PackageItemInterface
     private $itemOriginCountry;
 
     /**
+     * @var string
+     */
+    private $sku;
+
+    /**
      * PackageItem constructor.
      * @param $qty
      * @param $price
@@ -113,7 +118,8 @@ class PackageItem implements PackageItemInterface
         MonetaryValueInterface $customsValue,
         $customsItemDescription = '',
         $tariffNumber = '',
-        $itemOriginCountry = ''
+        $itemOriginCountry = '',
+        $sku = ''
     ) {
         $this->qty = $qty;
         $this->customsValue = $customsValue;
@@ -125,6 +131,7 @@ class PackageItem implements PackageItemInterface
         $this->orderItemId = $orderItemId;
         $this->tariffNumber = $tariffNumber;
         $this->itemOriginCountry = $itemOriginCountry;
+        $this->sku = $sku;
     }
 
     public function getQty()
@@ -175,5 +182,10 @@ class PackageItem implements PackageItemInterface
     public function getTariffNumber()
     {
         return $this->tariffNumber;
+    }
+
+    public function getSku(): string
+    {
+        return $this->sku;
     }
 }

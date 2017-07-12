@@ -88,4 +88,9 @@ interface PackageItemInterface
      * @return string
      */
     public function getTariffNumber();
+
+    /**
+     * @return string
+     */
+    public function getSku();
 }
