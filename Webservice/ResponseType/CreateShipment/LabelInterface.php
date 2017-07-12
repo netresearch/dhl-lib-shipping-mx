@@ -70,4 +70,8 @@ interface LabelInterface
      * @return string
      */
     public function getCodLabel();
+    /**
+     * @return string
+     */
+    public function getAllLabels();
 }
