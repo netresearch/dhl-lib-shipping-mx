@@ -99,7 +99,7 @@ class CustomsDetails implements CustomsDetailsInterface
      */
     public function __construct(
         $invoiceNumber,
-        ExportTypeInterface $exportType,
+        $exportType,
         $termsOfTrade,
         $placeOfCommital,
         $additionalFee,
