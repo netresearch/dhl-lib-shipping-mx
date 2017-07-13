@@ -108,14 +108,14 @@ class CustomsDetails implements CustomsDetailsInterface
         $isWithElectronicExportNtfctn,
         array $positions
     ) {
-        $this->invoiceNumber = $invoiceNumber;
-        $this->exportType = $exportType;
-        $this->termsOfTrade = $termsOfTrade;
-        $this->placeOfCommital = $placeOfCommital;
-        $this->additionalFee = $additionalFee;
-        $this->permitNumber = $permitNumber;
-        $this->attestationNumber = $attestationNumber;
-        $this->isWithElectronicExportNtfctn = $isWithElectronicExportNtfctn;
+        $this->invoiceNumber = (string) $invoiceNumber;
+        $this->exportType = (string) $exportType;
+        $this->termsOfTrade = (string) $termsOfTrade;
+        $this->placeOfCommital = (string) $placeOfCommital;
+        $this->additionalFee = (float) $additionalFee;
+        $this->permitNumber = (string) $permitNumber;
+        $this->attestationNumber = (string) $attestationNumber;
+        $this->isWithElectronicExportNtfctn = (bool) $isWithElectronicExportNtfctn;
         $this->positions = $positions;
     }
 
