@@ -128,7 +128,7 @@ class CustomsDetails implements CustomsDetailsInterface
     }
 
     /**
-     * @return ExportTypeInterface
+     * @return string
      */
     public function getExportType()
     {

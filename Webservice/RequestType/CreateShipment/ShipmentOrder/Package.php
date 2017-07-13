@@ -144,15 +144,15 @@ class Package implements PackageInterface
         $this->weight = $weight;
         $this->dimensions = $dimensions;
         $this->declaredValue = $declaredValue;
-        $this->exportType = $exportType;
-        $this->termsOfTrade = $termsOfTrade;
+        $this->exportType = (string) $exportType;
+        $this->termsOfTrade = (string) $termsOfTrade;
         $this->additionalFee = $additionalFee;
-        $this->placeOfCommital = $placeOfCommital;
-        $this->permitNumber = $permitNumber;
-        $this->attestationNumber = $attestationNumber;
+        $this->placeOfCommital = (string) $placeOfCommital;
+        $this->permitNumber = (string) $permitNumber;
+        $this->attestationNumber = (string) $attestationNumber;
         $this->exportNotification = (int) $exportNotification;
-        $this->dangerousGoodsCategory = $dangerousGoodsCategory;
-        $this->exportTypeDescription = $exportTypeDescription;
+        $this->dangerousGoodsCategory = (string) $dangerousGoodsCategory;
+        $this->exportTypeDescription = (string) $exportTypeDescription;
         $this->items = $items;
     }
 

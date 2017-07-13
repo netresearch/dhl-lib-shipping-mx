@@ -42,7 +42,7 @@ interface CustomsDetailsInterface
     public function getInvoiceNumber();
 
     /**
-     * @return ExportTypeInterface
+     * @return string
      */
     public function getExportType();
 
