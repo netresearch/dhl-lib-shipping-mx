@@ -131,7 +131,7 @@ class Package implements PackageInterface
         MonetaryValueInterface $declaredValue,
         $exportType = '',
         $termsOfTrade = '',
-        MonetaryValueInterface $additionalFee = null,
+        MonetaryValueInterface $additionalFee,
         $placeOfCommital = '',
         $permitNumber = '',
         $attestationNumber = '',
