@@ -71,7 +71,7 @@ interface LabelInterface
      */
     public function getCodLabel();
     /**
-     * @return string
+     * @return string[]
      */
     public function getAllLabels();
 }

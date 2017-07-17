@@ -47,6 +47,14 @@ class GlOperationException extends \Exception
         $response = json_decode($responseBody, true);
         if ($response && isset($response['message'])) {
             $message = $response['message'];
+            if ($response['backendError']) {
+                $parts = [
+                    $message,
+                    $response['backendError']['system'],
+                    $response['backendError']['message']
+                ];
+                $message = implode(" ", $parts);
+            }
         } else {
             $message = sprintf('API operation failed. Response: "%s"', $responseBody);
         }
