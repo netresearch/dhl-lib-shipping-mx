@@ -55,6 +55,7 @@ interface ShippingRoutesInterface
     const COUNTRY_CODE_MALAYSIA = 'MY';
     const COUNTRY_CODE_VIETNAM = 'VN';
     const COUNTRY_CODE_AUSTRALIA = 'AU';
+    const COUNTRY_CODE_NEW_ZEALAND = 'NZ';
 
     /**
      * @param $originCountryId

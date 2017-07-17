@@ -73,10 +73,9 @@ class ShippingRoutes implements ShippingRoutesInterface
                 'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [self::COUNTRY_CODE_HONGKONG],
             ],
-            // Thailand: Domestic only
             'TH' => [
-                'included' => [self::COUNTRY_CODE_THAILAND],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_THAILAND],
             ],
             'JP' => [
                 'included' => [self::REGION_INTERNATIONAL],
@@ -87,8 +86,8 @@ class ShippingRoutes implements ShippingRoutesInterface
                 'excluded' => [self::COUNTRY_CODE_CHINA],
             ],
             'IN' => [
-                'included' => [],
-                'excluded' => [],
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_INDIA],
             ],
             'MY' => [
                 'included' => [self::REGION_INTERNATIONAL],
@@ -96,11 +95,15 @@ class ShippingRoutes implements ShippingRoutesInterface
             ],
             'VN' => [
                 'included' => [self::REGION_INTERNATIONAL],
-                'excluded' => [],
+                'excluded' => [self::COUNTRY_CODE_VIETNAM],
             ],
             'AU' => [
                 'included' => [self::REGION_INTERNATIONAL],
                 'excluded' => [self::COUNTRY_CODE_AUSTRALIA],
+            ],
+            'NZ' => [
+                'included' => [self::REGION_INTERNATIONAL],
+                'excluded' => [self::COUNTRY_CODE_NEW_ZEALAND],
             ],
         ];
     }
