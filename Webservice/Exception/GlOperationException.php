@@ -47,7 +47,7 @@ class GlOperationException extends \Exception
         $response = json_decode($responseBody, true);
         if ($response && isset($response['message'])) {
             $message = $response['message'];
-            if ($response['backendError']) {
+            if (isset($response['backendError'])) {
                 $parts = [
                     $message,
                     $response['backendError']['system'],
