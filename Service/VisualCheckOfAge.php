@@ -38,6 +38,9 @@ class VisualCheckOfAge extends AbstractService implements ServiceInterface
 {
     const CODE = 'visualCheckOfAge';
 
+    const A16 = 'A16';
+    const A18 = 'A18';
+
     /**
      * @return string
      */
