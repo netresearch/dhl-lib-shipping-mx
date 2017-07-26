@@ -51,6 +51,7 @@ abstract class AbstractService implements ServiceInterface
      */
     private $customerSelection;
 
+
     /**
      * AbstractService constructor.
      * @param bool $postalFacility
