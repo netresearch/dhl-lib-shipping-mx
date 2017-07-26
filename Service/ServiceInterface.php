@@ -36,6 +36,7 @@ namespace Dhl\Shipping\Service;
  */
 interface ServiceInterface
 {
+
     /**
      * Obtain service code.
      *
