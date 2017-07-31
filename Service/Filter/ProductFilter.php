@@ -42,7 +42,7 @@ use \Dhl\Shipping\Util\ShippingProducts;
 /**
  * Product filter
  *
- * @deprecated
+ *
  * @todo Create new solution taking into account global label api
  *
  * @category Dhl
@@ -51,79 +51,82 @@ use \Dhl\Shipping\Util\ShippingProducts;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class ProductFilter extends AbstractFilter implements FilterInterface
+class ProductFilter implements FilterInterface
 {
     /**
      * @var string[]
      */
-    private $allowedServices;
+    private $allowedServices = [
+        ShippingProducts::CODE_PAKET_NATIONAL => [
+            BulkyGoods::CODE,
+            Cod::CODE,
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PreferredLocation::CODE,
+            PreferredNeighbour::CODE,
+            PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
+            VisualCheckOfAge::CODE,
+            PreferredDay::CODE,
+            PreferredTime::CODE
+        ],
+        ShippingProducts::CODE_WELTPAKET => [
+            BulkyGoods::CODE,
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+        ],
+        ShippingProducts::CODE_EUROPAKET => [
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+        ],
+        ShippingProducts::CODE_KURIER_TAGGLEICH => [
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
+        ],
+        ShippingProducts::CODE_KURIER_WUNSCHZEIT => [
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
+        ],
+        ShippingProducts::CODE_PAKET_AUSTRIA => [
+            BulkyGoods::CODE,
+            Cod::CODE,
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+        ],
+        ShippingProducts::CODE_PAKET_CONNECT => [
+            BulkyGoods::CODE,
+            Cod::CODE,
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+        ],
+        ShippingProducts::CODE_PAKET_INTERNATIONAL => [
+            BulkyGoods::CODE,
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+        ],
+    ];
 
-    public function __construct($data)
+    /**
+     * @var string
+     */
+    private $productCode;
+
+    /**
+     * ProductFilter constructor.
+     * @param $productCode
+     */
+    private function __construct($productCode)
     {
-        $allowedServices = [
-            ShippingProducts::CODE_PAKET_NATIONAL => [
-                BulkyGoods::CODE,
-                Cod::CODE,
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PreferredLocation::CODE,
-                PreferredNeighbour::CODE,
-                PrintOnlyIfCodeable::CODE,
-                ReturnShipment::CODE,
-                VisualCheckOfAge::CODE,
-                PreferredDay::CODE,
-                PreferredTime::CODE
-            ],
-            ShippingProducts::CODE_WELTPAKET => [
-                BulkyGoods::CODE,
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-            ],
-            ShippingProducts::CODE_EUROPAKET => [
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-            ],
-            ShippingProducts::CODE_KURIER_TAGGLEICH => [
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-                ReturnShipment::CODE,
-            ],
-            ShippingProducts::CODE_KURIER_WUNSCHZEIT => [
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-                ReturnShipment::CODE,
-            ],
-            ShippingProducts::CODE_PAKET_AUSTRIA => [
-                BulkyGoods::CODE,
-                Cod::CODE,
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-            ],
-            ShippingProducts::CODE_PAKET_CONNECT => [
-                BulkyGoods::CODE,
-                Cod::CODE,
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-            ],
-            ShippingProducts::CODE_PAKET_INTERNATIONAL => [
-                BulkyGoods::CODE,
-                Insurance::CODE,
-                ParcelAnnouncement::CODE,
-                PrintOnlyIfCodeable::CODE,
-            ],
-        ];
-
-        if (!isset($data['code']) || !is_string($data['code']) || !isset($allowedServices[$data['code']])) {
-            $this->allowedServices = [];
-        } else {
-            $this->allowedServices = $allowedServices[$data['code']];
-        }
+        $this->productCode = $productCode;
     }
 
     /**
@@ -133,5 +136,17 @@ class ProductFilter extends AbstractFilter implements FilterInterface
     public function isAllowed(ServiceInterface $service)
     {
         return in_array($service->getCode(), $this->allowedServices);
+    }
+
+    /**
+     * @param string $productCode
+     * @return \Closure
+     */
+    public static function create($productCode)
+    {
+        return function (ServiceInterface $service) use ($productCode) {
+            $filter = new static($productCode);
+            return $filter->isAllowed($service);
+        };
     }
 }

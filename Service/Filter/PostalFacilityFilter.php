@@ -25,6 +25,11 @@
  */
 namespace Dhl\Shipping\Service\Filter;
 
+use Dhl\Shipping\Service\Cod;
+use Dhl\Shipping\Service\Insurance;
+use Dhl\Shipping\Service\ParcelAnnouncement;
+use Dhl\Shipping\Service\PrintOnlyIfCodeable;
+use Dhl\Shipping\Service\ReturnShipment;
 use \Dhl\Shipping\Service\ServiceInterface;
 
 /**
@@ -36,14 +41,55 @@ use \Dhl\Shipping\Service\ServiceInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PostalFacilityFilter extends AbstractFilter implements FilterInterface
+class PostalFacilityFilter implements FilterInterface
 {
+    /**
+     * @var bool
+     */
+    private $isPostalFacility;
+
+    /**
+     * @var string[]
+     */
+    private $postalFacilityServices = [
+        Cod::CODE, // up to 1500 euro
+        Insurance::CODE,
+        ParcelAnnouncement::CODE,
+        PrintOnlyIfCodeable::CODE,
+        ReturnShipment::CODE,
+    ];
+
+    /**
+     * PostalFacilityFilter constructor.
+     * @param bool $isPostalFacility
+     */
+    private function __construct($isPostalFacility)
+    {
+        $this->isPostalFacility = $isPostalFacility;
+    }
+
     /**
      * @param ServiceInterface $service
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return $service->isApplicableToPostalFacility();
+        if (!$this->isPostalFacility) {
+            return true;
+        }
+
+        return in_array($service->getCode(), $this->postalFacilityServices);
+    }
+
+    /**
+     * @param bool $isPostalFacility
+     * @return \Closure
+     */
+    public static function create($isPostalFacility = false)
+    {
+        return function (ServiceInterface $service) use ($isPostalFacility) {
+            $filter = new static($isPostalFacility);
+            return $filter->isAllowed($service);
+        };
     }
 }

@@ -45,11 +45,4 @@ interface FilterInterface
      * @return bool
      */
     public function isAllowed(ServiceInterface $service);
-
-    /**
-     * Create a callable instance of the filter.
-     *
-     * @return \Closure
-     */
-    public static function create();
 }

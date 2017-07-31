@@ -25,6 +25,11 @@
  */
 namespace Dhl\Shipping\Service\Filter;
 
+use Dhl\Shipping\Service\ParcelAnnouncement;
+use Dhl\Shipping\Service\PreferredDay;
+use Dhl\Shipping\Service\PreferredLocation;
+use Dhl\Shipping\Service\PreferredNeighbour;
+use Dhl\Shipping\Service\PreferredTime;
 use \Dhl\Shipping\Service\ServiceInterface;
 
 /**
@@ -36,14 +41,55 @@ use \Dhl\Shipping\Service\ServiceInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class CustomerSelectionFilter extends AbstractFilter implements FilterInterface
+class CustomerSelectionFilter implements FilterInterface
 {
+    /**
+     * @var string[]
+     */
+    private $customerServices = [
+        PreferredDay::CODE,
+        PreferredTime::CODE,
+        PreferredLocation::CODE,
+        PreferredNeighbour::CODE,
+        ParcelAnnouncement::CODE,
+    ];
+
+    /**
+     * @var bool
+     */
+    private $isCustomerSelection;
+
+    /**
+     * CustomerSelectionFilter constructor.
+     * @param bool $isCustomerSelection
+     */
+    private function __construct($isCustomerSelection)
+    {
+        $this->isCustomerSelection = $isCustomerSelection;
+    }
+
     /**
      * @param ServiceInterface $service
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return $service->isApplicableToCustomerSelection();
+        if (!$this->isCustomerSelection) {
+            return true;
+        }
+
+        return in_array($service->getCode(), $this->customerServices);
+    }
+
+    /**
+     * @param bool $isCustomerSelection
+     * @return \Closure
+     */
+    public static function create($isCustomerSelection = false)
+    {
+        return function (ServiceInterface $service) use ($isCustomerSelection) {
+            $filter = new static($isCustomerSelection);
+            return $filter->isAllowed($service);
+        };
     }
 }
