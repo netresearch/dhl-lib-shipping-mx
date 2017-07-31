@@ -36,7 +36,7 @@ use \Dhl\Shipping\Service\ServiceInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class MerchantSelectionFilter extends AbstractFilter implements FilterInterface
+class MerchantSelectionFilter implements FilterInterface
 {
     /**
      * @param ServiceInterface $service
@@ -44,6 +44,17 @@ class MerchantSelectionFilter extends AbstractFilter implements FilterInterface
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return $service->isApplicableToMerchantSelection();
+        return true;
+    }
+
+    /**
+     * @return \Closure
+     */
+    public static function create()
+    {
+        return function (ServiceInterface $service) {
+            $filter = new static();
+            return $filter->isAllowed($service);
+        };
     }
 }

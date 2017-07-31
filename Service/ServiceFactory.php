@@ -44,27 +44,27 @@ class ServiceFactory
     {
         switch ($code) {
             case BulkyGoods::CODE:
-                return new BulkyGoods(false, true, false);
+                return new BulkyGoods();
             case Cod::CODE:
-                return new Cod(true, false, false);
+                return new Cod();
             case Insurance::CODE:
-                return new Insurance(true, true, false);
+                return new Insurance();
             case ParcelAnnouncement::CODE:
-                return new ParcelAnnouncement(true, true, true);
+                return new ParcelAnnouncement();
             case PreferredDay::CODE:
-                return new PreferredDay(false, true, true);
+                return new PreferredDay();
             case PreferredLocation::CODE:
-                return new PreferredLocation(false, true, true);
+                return new PreferredLocation();
             case PreferredNeighbour::CODE:
-                return new PreferredNeighbour(false, true, true);
+                return new PreferredNeighbour();
             case PreferredTime::CODE:
-                return new PreferredTime(false, true, true);
+                return new PreferredTime();
             case PrintOnlyIfCodeable::CODE:
-                return new PrintOnlyIfCodeable(true, true, false);
+                return new PrintOnlyIfCodeable();
             case ReturnShipment::CODE:
-                return new ReturnShipment(true, true, false);
+                return new ReturnShipment();
             case VisualCheckOfAge::CODE:
-                return new VisualCheckOfAge(false, true, false);
+                return new VisualCheckOfAge();
             default:
                 return null;
         }

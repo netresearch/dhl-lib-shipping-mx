@@ -37,19 +37,17 @@ namespace Dhl\Shipping\Service;
 class ServiceCollection extends \ArrayIterator
 {
     /**
-     * ServiceCollection constructor.
      * @param ServiceInterface[] $services
-     * @param int $flags
+     * @return static
      */
-    public function __construct(array $services = [], $flags = 0)
+    public static function fromArray($services)
     {
         $codes = array_map(function (ServiceInterface $service) {
             return $service->getCode();
         }, $services);
 
         $services = array_combine($codes, $services);
-
-        parent::__construct($services, $flags);
+        return new static($services);
     }
 
     /**
@@ -58,6 +56,7 @@ class ServiceCollection extends \ArrayIterator
      */
     public function filter(callable $callback)
     {
-        return new static(\array_filter($this->getArrayCopy(), $callback));
+        $filteredServices = array_filter($this->getArrayCopy(), $callback);
+        return static::fromArray($filteredServices);
     }
 }

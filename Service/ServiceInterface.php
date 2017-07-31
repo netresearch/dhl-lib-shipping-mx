@@ -36,32 +36,10 @@ namespace Dhl\Shipping\Service;
  */
 interface ServiceInterface
 {
-
     /**
      * Obtain service code.
      *
      * @return string
      */
     public function getCode();
-
-    /**
-     * Check if service is applicable for postal facility delivery.
-     *
-     * @return bool
-     */
-    public function isApplicableToPostalFacility();
-
-    /**
-     * Check if service can be selected by merchant.
-     *
-     * @return bool
-     */
-    public function isApplicableToMerchantSelection();
-
-    /**
-     * Check if service can be selected by customer.
-     *
-     * @return bool
-     */
-    public function isApplicableToCustomerSelection();
 }

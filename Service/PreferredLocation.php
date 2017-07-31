@@ -34,7 +34,7 @@ namespace Dhl\Shipping\Service;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PreferredLocation extends AbstractService implements ServiceInterface
+class PreferredLocation implements ServiceInterface
 {
     const CODE = 'preferredLocation';
 
