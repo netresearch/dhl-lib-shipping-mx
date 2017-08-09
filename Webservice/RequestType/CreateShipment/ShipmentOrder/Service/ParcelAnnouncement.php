@@ -18,7 +18,7 @@
  *
  * @category  Dhl
  * @package   Dhl\Shipping\Webservice
- * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author    Max Melzer <max.melzer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
@@ -26,29 +26,46 @@
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceInterface;
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceInterface;
 
 /**
- * Generic service factory
+ * Additional service: Parcel Announcement
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author    Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-abstract class AbstractServiceFactory
+class ParcelAnnouncement implements ServiceInterface
 {
-    const SERVICE_CODE_COD = 'cod';
-    const SERVICE_CODE_BULKY_GOODS = 'bulkyGoods';
-    const SERVICE_CODE_PARCEL_ANNOUNCEMENT = 'parcelAnnouncement';
-    const SERVICE_CODE_INSURANCE = 'additionalInsurance';
-    const SERVICE_CODE_VISUAL_CHECK_OF_AGE = 'visualCheckOfAge';
+    /**
+     * @var String
+     */
+    private $emailAddress;
 
     /**
-     * @param string $instanceCode
-     * @param mixed[] $data
-     * @return ServiceInterface
+     * Parcel Announcement constructor.
+     * @param String $emailAddress
      */
-    abstract public function create($instanceCode, array $data = []);
+    public function __construct(String $emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
 }
