@@ -26,8 +26,6 @@
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceInterface;
-
 /**
  * Additional service: Visual check of age
  *
