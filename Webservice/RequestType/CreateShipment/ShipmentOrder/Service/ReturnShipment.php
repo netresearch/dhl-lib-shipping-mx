@@ -17,38 +17,33 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
- * @author    Max Melzer <max.melzer@netresearch.de>
+ * @package   Dhl\Shipping
+ * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service;
 
 /**
- * Additional service: Parcel Announcement
+ * Return Shipment Service
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
- * @author    Max Melzer <max.melzer@netresearch.de>
+ * @package  Dhl\Shipping\Service
+ * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class ParcelAnnouncement implements ServiceInterface
+class ReturnShipment implements ServiceInterface
 {
-    /**
-     * @var String
-     */
-    private $emailAddress;
+    const CODE = 'returnShipment';
 
     /**
-     * Parcel Announcement constructor.
-     * @param String $emailAddress
+     * @return string
      */
-    public function __construct(String $emailAddress)
+    public function getCode()
     {
-        $this->emailAddress = $emailAddress;
+        return self::CODE;
     }
 
     /**
@@ -57,13 +52,5 @@ class ParcelAnnouncement implements ServiceInterface
     public function isActive()
     {
         return true;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmailAddress()
-    {
-        return $this->emailAddress;
     }
 }

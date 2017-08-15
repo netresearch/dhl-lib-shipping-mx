@@ -44,6 +44,8 @@ abstract class AbstractServiceFactory
     const SERVICE_CODE_PARCEL_ANNOUNCEMENT = 'parcelAnnouncement';
     const SERVICE_CODE_INSURANCE = 'additionalInsurance';
     const SERVICE_CODE_VISUAL_CHECK_OF_AGE = 'visualCheckOfAge';
+    const SERVICE_CODE_RETURN_SHIPMENT = 'returnShipment';
+    const SERVICE_CODE_PRINT_ONLY_IF_CODEABLE = 'printOnlyIfCodeable';
 
     /**
      * @param string $instanceCode
