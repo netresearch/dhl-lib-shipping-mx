@@ -36,7 +36,7 @@ namespace Dhl\Shipping\Service;
  */
 class Insurance implements ServiceInterface
 {
-    const CODE = 'insurance';
+    const CODE = 'additionalInsurance';
 
     /**
      * @return string
