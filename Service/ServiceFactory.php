@@ -38,61 +38,36 @@ class ServiceFactory
 {
     /**
      * @param string $code
+     * @param string $value
      * @return ServiceInterface|null
      */
-    public static function get($code)
+    public static function get($code, $value)
     {
         switch ($code) {
             case BulkyGoods::CODE:
-                return new BulkyGoods();
+                return new BulkyGoods($value);
             case Cod::CODE:
-                return new Cod();
+                return new Cod($value);
             case Insurance::CODE:
-                return new Insurance();
+                return new Insurance($value);
             case ParcelAnnouncement::CODE:
-                return new ParcelAnnouncement();
+                return new ParcelAnnouncement($value);
             case PreferredDay::CODE:
-                return new PreferredDay();
+                return new PreferredDay($value);
             case PreferredLocation::CODE:
-                return new PreferredLocation();
+                return new PreferredLocation($value);
             case PreferredNeighbour::CODE:
-                return new PreferredNeighbour();
+                return new PreferredNeighbour($value);
             case PreferredTime::CODE:
-                return new PreferredTime();
+                return new PreferredTime($value);
             case PrintOnlyIfCodeable::CODE:
-                return new PrintOnlyIfCodeable();
+                return new PrintOnlyIfCodeable($value);
             case ReturnShipment::CODE:
-                return new ReturnShipment();
+                return new ReturnShipment($value);
             case VisualCheckOfAge::CODE:
-                return new VisualCheckOfAge();
+                return new VisualCheckOfAge($value);
             default:
                 return null;
         }
-    }
-
-    /**
-     * @return ServiceInterface[]
-     */
-    public static function getAll()
-    {
-        $availableCodes = [
-            BulkyGoods::CODE,
-            Cod::CODE,
-            Insurance::CODE,
-            ParcelAnnouncement::CODE,
-            PreferredDay::CODE,
-            PreferredLocation::CODE,
-            PreferredNeighbour::CODE,
-            PreferredTime::CODE,
-            PrintOnlyIfCodeable::CODE,
-            ReturnShipment::CODE,
-            VisualCheckOfAge::CODE,
-        ];
-
-        $services = array_map(function ($code) {
-            return static::get($code);
-        }, $availableCodes);
-
-        return array_combine($availableCodes, $services);
     }
 }

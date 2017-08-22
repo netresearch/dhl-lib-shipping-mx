@@ -34,15 +34,7 @@ namespace Dhl\Shipping\Service;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PrintOnlyIfCodeable implements ServiceInterface
+class PrintOnlyIfCodeable extends AbstractService
 {
     const CODE = 'printOnlyIfCodeable';
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::CODE;
-    }
 }

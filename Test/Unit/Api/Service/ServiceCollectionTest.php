@@ -61,20 +61,6 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function createCollection()
-    {
-        $services = ServiceFactory::getAll();
-
-        $collection = new ServiceCollection($services);
-        $this->assertSame(count($services), count($collection));
-        foreach ($services as $service) {
-            $this->assertTrue(isset($collection[$service->getCode()]));
-        }
-    }
-
-    /**
-     * @test
-     */
     public function productFilterPositive()
     {
         $codService = new Cod(true, false, false);

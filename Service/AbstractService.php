@@ -18,7 +18,7 @@
  *
  * @category  Dhl
  * @package   Dhl\Shipping
- * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author    Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
@@ -26,15 +26,45 @@
 namespace Dhl\Shipping\Service;
 
 /**
- * Preferred Neighbour Service
+ * AbstractService
  *
  * @category Dhl
  * @package  Dhl\Shipping\Service
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PreferredNeighbour extends AbstractService
+abstract class AbstractService implements ServiceInterface
 {
-    const CODE = 'preferredNeighbour';
+    const CODE = '';
+
+    /**
+     * @var string
+     */
+    private $value;
+
+    /**
+     * AbstractService constructor.
+     * @param $value
+     */
+    public function __construct($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return static::CODE;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
 }

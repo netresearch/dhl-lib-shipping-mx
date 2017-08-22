@@ -34,15 +34,7 @@ namespace Dhl\Shipping\Service;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Cod implements ServiceInterface
+class Cod extends AbstractService
 {
     const CODE = 'cod';
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::CODE;
-    }
 }

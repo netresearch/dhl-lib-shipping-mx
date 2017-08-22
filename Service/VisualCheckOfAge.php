@@ -34,18 +34,10 @@ namespace Dhl\Shipping\Service;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class VisualCheckOfAge implements ServiceInterface
+class VisualCheckOfAge extends AbstractService
 {
     const CODE = 'visualCheckOfAge';
 
     const A16 = 'A16';
     const A18 = 'A18';
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::CODE;
-    }
 }

@@ -133,12 +133,6 @@ interface BcsConfigInterface
 
     /**
      * @param mixed $store
-     * @return bool
-     */
-    public function isPrintOnlyIfCodeable($store = null);
-
-    /**
-     * @param mixed $store
      * @return string
      */
     public function getBankDataAccountOwner($store = null);
