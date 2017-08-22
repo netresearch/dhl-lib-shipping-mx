@@ -42,4 +42,11 @@ interface  ServiceInterface
      * @return string
      */
     public function getCode();
+
+    /**
+     * Obtain selected service value.
+     *
+     * @return string
+     */
+    public function getValue();
 }

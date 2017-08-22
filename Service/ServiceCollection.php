@@ -59,4 +59,26 @@ class ServiceCollection extends \ArrayIterator
         $filteredServices = array_filter($this->getArrayCopy(), $callback);
         return static::fromArray($filteredServices);
     }
+
+    /**
+     * @param callable $callback
+     * @return mixed[]
+     */
+    public function map(callable $callback)
+    {
+        $mappedServices = array_map($callback, $this->getArrayCopy());
+        return $mappedServices;
+    }
+
+    /**
+     * @return \string[]
+     */
+    public function getConfiguration()
+    {
+        $valuesMapper = function (ServiceInterface $service) {
+            return $service->getValue();
+        };
+
+        return $this->map($valuesMapper);
+    }
 }

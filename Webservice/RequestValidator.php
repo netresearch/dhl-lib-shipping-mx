@@ -26,6 +26,7 @@
 
 namespace Dhl\Shipping\Webservice;
 
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
 use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 use \Dhl\Shipping\Webservice\RequestValidatorInterface;
 use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\AbstractServiceFactory;
@@ -58,6 +59,12 @@ class RequestValidator implements RequestValidatorInterface
 
         if ($isPartial && !$canShipPartially) {
             throw new CreateShipmentValidationException(self::MSG_PARTIAL_SHIPMENT_NOT_AVAILABLE);
+        }
+
+        /** @var Package $package */
+        $package = current($shipmentOrder->getPackages());
+        if (!$package->getWeight()->getValue(\Zend_Measure_Weight::KILOGRAM)) {
+            throw new CreateShipmentValidationException(self::MSG_NO_PRODUCT_WEIGHT);
         }
 
         return $shipmentOrder;

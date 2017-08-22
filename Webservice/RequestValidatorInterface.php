@@ -42,6 +42,8 @@ interface RequestValidatorInterface
 {
     const MSG_PARTIAL_SHIPMENT_NOT_AVAILABLE = 'Cannot do partial shipment with COD or Additional Insurance.';
 
+    const MSG_NO_PRODUCT_WEIGHT = 'Please add a Weight. It looks like your products dont have a weight configured.';
+
     /**
      * Validate shipment order before creating labels.
      *

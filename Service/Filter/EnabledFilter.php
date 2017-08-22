@@ -23,10 +23,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Service;
+namespace Dhl\Shipping\Service\Filter;
+
+use \Dhl\Shipping\Service\ServiceInterface;
 
 /**
- * Preferred Neighbour Service
+ * MerchantSelection filter
  *
  * @category Dhl
  * @package  Dhl\Shipping\Service
@@ -34,7 +36,25 @@ namespace Dhl\Shipping\Service;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class PreferredNeighbour extends AbstractService
+class EnabledFilter implements FilterInterface
 {
-    const CODE = 'preferredNeighbour';
+    /**
+     * @param ServiceInterface $service
+     * @return bool
+     */
+    public function isAllowed(ServiceInterface $service)
+    {
+        return (bool)$service->getValue();
+    }
+
+    /**
+     * @return \Closure
+     */
+    public static function create()
+    {
+        return function (ServiceInterface $service) {
+            $filter = new static();
+            return $filter->isAllowed($service);
+        };
+    }
 }
