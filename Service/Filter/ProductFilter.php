@@ -135,7 +135,7 @@ class ProductFilter implements FilterInterface
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return in_array($service->getCode(), $this->allowedServices);
+        return in_array($service->getCode(), $this->allowedServices[$this->productCode]);
     }
 
     /**
