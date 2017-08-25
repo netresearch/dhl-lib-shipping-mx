@@ -46,7 +46,7 @@ class ParcelAnnouncement implements ServiceInterface
      * Parcel Announcement constructor.
      * @param String $emailAddress
      */
-    public function __construct(String $emailAddress)
+    public function __construct($emailAddress)
     {
         $this->emailAddress = $emailAddress;
     }

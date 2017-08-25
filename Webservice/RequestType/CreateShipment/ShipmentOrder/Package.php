@@ -214,7 +214,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getTermsOfTrade(): string
+    public function getTermsOfTrade()
     {
         return $this->termsOfTrade;
     }
@@ -222,7 +222,7 @@ class Package implements PackageInterface
     /**
      * @return MonetaryValueInterface
      */
-    public function getAdditionalFee(): MonetaryValueInterface
+    public function getAdditionalFee()
     {
         return $this->additionalFee;
     }
@@ -230,7 +230,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getPlaceOfCommital(): string
+    public function getPlaceOfCommital()
     {
         return $this->placeOfCommital;
     }
@@ -238,7 +238,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getPermitNumber(): string
+    public function getPermitNumber()
     {
         return $this->permitNumber;
     }
@@ -246,7 +246,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getAttestationNumber(): string
+    public function getAttestationNumber()
     {
         return $this->attestationNumber;
     }
@@ -254,7 +254,7 @@ class Package implements PackageInterface
     /**
      * @return int
      */
-    public function getExportNotification(): int
+    public function getExportNotification()
     {
         return $this->exportNotification;
     }
@@ -262,7 +262,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getDangerousGoodsCategory(): string
+    public function getDangerousGoodsCategory()
     {
         return $this->dangerousGoodsCategory;
     }
@@ -270,7 +270,7 @@ class Package implements PackageInterface
     /**
      * @return PackageItemInterface[]
      */
-    public function getItems(): array
+    public function getItems()
     {
         return $this->items;
     }
