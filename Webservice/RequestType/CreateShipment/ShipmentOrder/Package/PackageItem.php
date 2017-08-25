@@ -184,7 +184,7 @@ class PackageItem implements PackageItemInterface
         return $this->tariffNumber;
     }
 
-    public function getSku(): string
+    public function getSku()
     {
         return $this->sku;
     }
