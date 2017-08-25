@@ -149,10 +149,19 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             ],
             'TH' => [
                 ShippingRoutes::COUNTRY_CODE_THAILAND => [
-                    self::CODE_APAC_PDO,
+                    // not applicable atm
                 ],
                 ShippingRoutes::REGION_INTERNATIONAL => [
-                    // not applicable atm
+                    self::CODE_APAC_PPS,
+                    self::CODE_APAC_PPM,
+                    self::CODE_APAC_PKD,
+                    self::CODE_APAC_PKG,
+                    self::CODE_APAC_PKM,
+                    self::CODE_APAC_PLT,
+                    self::CODE_APAC_PLD,
+                    self::CODE_APAC_PLE,
+                    self::CODE_APAC_AP7,
+                    self::CODE_APAC_PDP,
                 ],
             ],
             'JP' => [
@@ -194,7 +203,16 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     // not applicable atm
                 ],
                 ShippingRoutes::REGION_INTERNATIONAL => [
-                    // not applicable atm
+                    self::CODE_APAC_PPS,
+                    self::CODE_APAC_PPM,
+                    self::CODE_APAC_PKD,
+                    self::CODE_APAC_PKG,
+                    self::CODE_APAC_PKM,
+                    self::CODE_APAC_PLT,
+                    self::CODE_APAC_PLD,
+                    self::CODE_APAC_PLE,
+                    self::CODE_APAC_AP7,
+                    self::CODE_APAC_PDP,
                 ],
             ],
             'MY' => [
@@ -216,7 +234,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             ],
             'VN' => [
                 ShippingRoutes::COUNTRY_CODE_VIETNAM => [
-                    self::CODE_APAC_PDO,
+                    // not applicable atm
                 ],
                 ShippingRoutes::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
@@ -248,6 +266,23 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PDP,
                 ],
             ],
+            'NZ' => [
+                ShippingRoutes::COUNTRY_CODE_NEW_ZEALAND => [
+                    // not applicable atm
+                ],
+                ShippingRoutes::REGION_INTERNATIONAL => [
+                    self::CODE_APAC_PPS,
+                    self::CODE_APAC_PPM,
+                    self::CODE_APAC_PKD,
+                    self::CODE_APAC_PKG,
+                    self::CODE_APAC_PKM,
+                    self::CODE_APAC_PLT,
+                    self::CODE_APAC_PLD,
+                    self::CODE_APAC_PLE,
+                    self::CODE_APAC_AP7,
+                    self::CODE_APAC_PDP,
+                ],
+            ]
         ];
     }
 
