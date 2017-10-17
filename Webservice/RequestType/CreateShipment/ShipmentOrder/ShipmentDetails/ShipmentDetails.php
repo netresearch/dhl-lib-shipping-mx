@@ -25,15 +25,13 @@
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails\BankDataInterface;
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails\ShipmentDetailsInterface;
-
 /**
  * Platform independent shipment order details
  *
  * @category Dhl
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
@@ -102,10 +100,16 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @var string
      */
+    private $consignmentNumber;
+
+    /**
+     * @var string
+     */
     private $shipmentComment;
 
     /**
      * ShipmentDetails constructor.
+     *
      * @param $isPrintOnlyIfCodeable
      * @param $isPartialShipment
      * @param $product
@@ -114,6 +118,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param $pickupAccountNumber
      * @param $distributionCenter
      * @param $customerPrefix
+     * @param $consignmentNumber
      * @param $reference
      * @param $returnShipmentReference
      * @param $shipmentDate
@@ -129,6 +134,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $pickupAccountNumber,
         $distributionCenter,
         $customerPrefix,
+        $consignmentNumber,
         $reference,
         $returnShipmentReference,
         $shipmentDate,
@@ -143,6 +149,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->pickupAccountNumber = $pickupAccountNumber;
         $this->distributionCenter = $distributionCenter;
         $this->customerPrefix = $customerPrefix;
+        $this->consignmentNumber = $consignmentNumber;
         $this->reference = $reference;
         $this->returnShipmentReference = $returnShipmentReference;
         $this->shipmentDate = $shipmentDate;
@@ -232,6 +239,13 @@ class ShipmentDetails implements ShipmentDetailsInterface
         return $this->customerPrefix;
     }
 
+    /**
+     * @return string
+     */
+    public function getConsignmentNumber()
+    {
+        return $this->consignmentNumber;
+    }
 
     /**
      * Obtain the order reference, usually shipment increment ID.

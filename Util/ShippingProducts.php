@@ -162,6 +162,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PLE,
                     self::CODE_APAC_AP7,
                     self::CODE_APAC_PDP,
+                    self::CODE_APAC_PDO,
                 ],
             ],
             'JP' => [

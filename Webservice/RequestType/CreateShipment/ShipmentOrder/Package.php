@@ -26,8 +26,7 @@
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\PackageInterface;
+use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\DimensionsInterface;
 use \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
@@ -44,84 +43,119 @@ use \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 class Package implements PackageInterface
 {
     /**
-     * @var string
+     * Package identifier
+     *
+     * @var int
      */
     private $packageId;
 
     /**
+     * Package weight
+     *
      * @var WeightInterface
      */
     private $weight;
 
     /**
+     * Package dimensions
+     *
      * @var DimensionsInterface
      */
     private $dimensions;
 
     /**
+     * Customs value
+     *
      * @var MonetaryValueInterface
      */
     private $declaredValue;
 
     /**
-     * @var string
-     */
-    private $termsOfTrade;
-
-    /**
+     * Additional custom fees to be payed
+     *
      * @var string
      */
     private $additionalFee;
 
     /**
+     * OTHER, PRESENT, COMMERCIAL_SAMPLE, DOCUMENT, RETURN_OF_GOODS
+     *
      * @var string
      */
-    private $placeOfCommital;
+    private $exportType;
 
     /**
-     * @var string
-     */
-    private $permitNumber;
-
-    /**
-     * @var string
-     */
-    private $attestationNumber;
-
-    /**
-     * @var string
-     */
-    private $exportNotification;
-
-    /**
-     * @var string
-     */
-    private $dangerousGoodsCategory;
-
-    /**
-     * @var PackageItemInterface[]
-     */
-    private $items;
-
-    /**
+     * Additional information for export type OTHER
+     * @see exportType
+     *
      * @var string
      */
     private $exportTypeDescription;
 
     /**
+     * Incoterms code
+     *
+     * @var string
+     */
+    private $termsOfTrade;
+
+    /**
+     * Committal location
+     *
+     * @var string
+     */
+    private $placeOfCommittal;
+
+    /**
+     * Customs permit number
+     *
+     * @var string
+     */
+    private $permitNumber;
+
+    /**
+     * Customs attestation number
+     *
+     * @var string
+     */
+    private $attestationNumber;
+
+    /**
+     * Select electronic export notification (EEI)
+     *
+     * @var bool
+     */
+    private $exportNotification;
+
+    /**
+     * Dangerous goods category
+     *
+     * @var string
+     */
+    private $dgCategory;
+
+    /**
+     * Package items
+     *
+     * @var PackageItemInterface[]
+     */
+    private $items;
+
+    /**
      * Package constructor.
-     * @param $packageId
+     * @param int $packageId
      * @param WeightInterface $weight
      * @param DimensionsInterface $dimensions
      * @param MonetaryValueInterface $declaredValue
-     * @param $exportType
-     * @param $termsOfTrade
      * @param MonetaryValueInterface $additionalFee
-     * @param $placeOfCommital
-     * @param $permitNumber
-     * @param $attestationNumber
-     * @param $exportNotification
-     * @param $dangerousGoodsCategory
+     * @param string $exportType
+     * @param string $exportTypeDescription
+     * @param string $termsOfTrade
+     * @param string $placeOfCommittal
+     * @param string $permitNumber
+     * @param string $attestationNumber
+     * @param bool $exportNotification
+     * @param string $dgCategory
      * @param PackageItemInterface[] $items
      */
     public function __construct(
@@ -129,58 +163,35 @@ class Package implements PackageInterface
         WeightInterface $weight,
         DimensionsInterface $dimensions,
         MonetaryValueInterface $declaredValue,
-        $exportType = '',
-        $termsOfTrade = '',
         MonetaryValueInterface $additionalFee,
-        $placeOfCommital = '',
+        $exportType = '',
+        $exportTypeDescription = '',
+        $termsOfTrade = '',
+        $placeOfCommittal = '',
         $permitNumber = '',
         $attestationNumber = '',
-        $exportNotification = '',
-        $dangerousGoodsCategory = '',
-        $exportTypeDescription = '',
+        $exportNotification = false,
+        $dgCategory = '',
         $items = []
     ) {
         $this->packageId = $packageId;
         $this->weight = $weight;
         $this->dimensions = $dimensions;
         $this->declaredValue = $declaredValue;
-        $this->exportType = (string) $exportType;
-        $this->termsOfTrade = (string) $termsOfTrade;
         $this->additionalFee = $additionalFee;
-        $this->placeOfCommital = (string) $placeOfCommital;
-        $this->permitNumber = (string) $permitNumber;
-        $this->attestationNumber = (string) $attestationNumber;
-        $this->exportNotification = (int) $exportNotification;
-        $this->dangerousGoodsCategory = (string) $dangerousGoodsCategory;
-        $this->exportTypeDescription = (string) $exportTypeDescription;
+        $this->exportType = $exportType;
+        $this->exportTypeDescription = $exportTypeDescription;
+        $this->termsOfTrade = $termsOfTrade;
+        $this->placeOfCommittal = $placeOfCommittal;
+        $this->permitNumber = $permitNumber;
+        $this->attestationNumber = $attestationNumber;
+        $this->exportNotification = $exportNotification;
+        $this->dgCategory = $dgCategory;
         $this->items = $items;
     }
 
     /**
-     * Export type ("OTHER", "PRESENT", "COMMERCIAL_SAMPLE", "DOCUMENT", "RETURN_OF_GOODS") (depends on chosen product
-     * -> only mandatory for international, non EU shipments).
-     *
-     * @return string
-     */
-    public function getExportType()
-    {
-        return $this->exportType;
-    }
-
-    /**
-     * Description mandatory if ExportType is OTHER.
-     *
-     * @return string
-     */
-    public function getExportTypeDescription()
-    {
-        return $this->exportTypeDescription;
-    }
-
-    /**
-     * Customer Confirmation Number, usually composed of increment id and package sequence number
-     *
-     * @return string
+     * @return int
      */
     public function getPackageId()
     {
@@ -212,14 +223,6 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return string
-     */
-    public function getTermsOfTrade()
-    {
-        return $this->termsOfTrade;
-    }
-
-    /**
      * @return MonetaryValueInterface
      */
     public function getAdditionalFee()
@@ -228,11 +231,40 @@ class Package implements PackageInterface
     }
 
     /**
+     * Export type ("OTHER", "PRESENT", "COMMERCIAL_SAMPLE", "DOCUMENT", "RETURN_OF_GOODS") (depends on chosen product
+     * -> only mandatory for international, non EU shipments).
+     *
      * @return string
      */
-    public function getPlaceOfCommital()
+    public function getExportType()
     {
-        return $this->placeOfCommital;
+        return $this->exportType;
+    }
+
+    /**
+     * Description mandatory if ExportType is OTHER.
+     *
+     * @return string
+     */
+    public function getExportTypeDescription()
+    {
+        return $this->exportTypeDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTermsOfTrade()
+    {
+        return $this->termsOfTrade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlaceOfCommittal()
+    {
+        return $this->placeOfCommittal;
     }
 
     /**
@@ -252,9 +284,9 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getExportNotification()
+    public function isWithExportNotification()
     {
         return $this->exportNotification;
     }
@@ -264,7 +296,7 @@ class Package implements PackageInterface
      */
     public function getDangerousGoodsCategory()
     {
-        return $this->dangerousGoodsCategory;
+        return $this->dgCategory;
     }
 
     /**

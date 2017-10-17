@@ -38,9 +38,10 @@ namespace Dhl\Shipping\Config;
  */
 interface GlConfigInterface
 {
-    const CONFIG_XML_PATH_PICKUP_NUMBER         = 'carriers/dhlshipping/gl_pickup_number';
-    const CONFIG_XML_PATH_CUSTOMER_PREFIX       = 'carriers/dhlshipping/gl_customer_prefix';
-    const CONFIG_XML_PATH_DISTRIBUTION_CENTER   = 'carriers/dhlshipping/gl_distribution_center';
+    const CONFIG_XML_PATH_PICKUP_NUMBER       = 'carriers/dhlshipping/gl_pickup_number';
+    const CONFIG_XML_PATH_CUSTOMER_PREFIX     = 'carriers/dhlshipping/gl_customer_prefix';
+    const CONFIG_XML_PATH_DISTRIBUTION_CENTER = 'carriers/dhlshipping/gl_distribution_center';
+    const CONFIG_XML_PATH_CONSIGNMENT_SUFFIX  = 'carriers/dhlshipping/shipment_consignment_number';
 
     const CONFIG_XML_PATH_ENDPOINT      = 'carriers/dhlshipping/gl_api_endpoint';
     const CONFIG_XML_PATH_AUTH_USERNAME = 'carriers/dhlshipping/gl_api_auth_username';
@@ -132,4 +133,19 @@ interface GlConfigInterface
      * @return void
      */
     public function saveAuthToken($token, $store = null);
+
+    /**
+     * Get consignment number config.
+     *
+     * @param int|null $store
+     * @return string
+     */
+    public function getConsignmentNumber($store = null);
+
+    /**
+     * Increment consignment number by one.
+     *
+     * @param int|null $storeId
+     */
+    public function incrementConsignmentNumber($storeId = null);
 }
