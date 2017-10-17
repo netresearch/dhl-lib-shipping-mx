@@ -85,7 +85,7 @@ interface PackageInterface
     /**
      * @return string
      */
-    public function getPlaceOfCommital();
+    public function getPlaceOfCommittal();
 
     /**
      * @return string
@@ -100,7 +100,7 @@ interface PackageInterface
     /**
      * @return int
      */
-    public function getExportNotification();
+    public function isWithExportNotification();
 
     /**
      * @return string

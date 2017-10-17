@@ -96,6 +96,13 @@ interface ShipmentDetailsInterface
     public function getCustomerPrefix();
 
     /**
+     * Obtain current consignment number.
+     *
+     * @return string
+     */
+    public function getConsignmentNumber();
+
+    /**
      * Obtain the order reference, usually shipment increment ID.
      *
      * @return string

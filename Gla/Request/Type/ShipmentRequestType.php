@@ -59,15 +59,29 @@ class ShipmentRequestType implements \JsonSerializable
     private $packages;
 
     /**
+     * Customer defined number for identifying the consignment. Optional. 1-50 chars.
+     *
+     * @var string
+     */
+    private $consignmentNumber;
+
+    /**
      * ShipmentRequestType constructor.
+     *
      * @param string $pickupAccount
      * @param string $distributionCenter
-     * @param PackageRequestType[] $packages
+     * @param \Dhl\Shipping\Gla\Request\Type\PackageRequestType[] $packages
+     * @param string $consignmentNumber
      */
-    public function __construct($pickupAccount, $distributionCenter, array $packages)
-    {
+    public function __construct(
+        $pickupAccount,
+        $distributionCenter,
+        array $packages,
+        $consignmentNumber = ''
+    ) {
         $this->pickupAccount = $pickupAccount;
         $this->distributionCenter = $distributionCenter;
+        $this->consignmentNumber = $consignmentNumber;
         $this->packages = $packages;
     }
 
@@ -93,6 +107,14 @@ class ShipmentRequestType implements \JsonSerializable
     public function getPackages()
     {
         return $this->packages;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConsignmentNumber()
+    {
+        return $this->consignmentNumber;
     }
 
     /**
