@@ -42,7 +42,7 @@ interface BcsConfigInterface
     const CONFIG_XML_PATH_ACCOUNT_USER = 'carriers/dhlshipping/bcs_account_user';
     const CONFIG_XML_PATH_ACCOUNT_SIGNATURE = 'carriers/dhlshipping/bcs_account_signature';
     const CONFIG_XML_PATH_ACCOUNT_EKP = 'carriers/dhlshipping/bcs_account_ekp';
-    const CONFIG_XML_PATH_ACCOUNT_PARTICIPATION = 'carriers/dhlshipping/bcs_account_participations';
+    const CONFIG_XML_PATH_ACCOUNT_PARTICIPATIONS = 'carriers/dhlshipping/bcs_account_participations';
 
     const CONFIG_XML_PATH_SANDBOX_ENDPOINT = 'carriers/dhlshipping/bcs_sandbox_api_endpoint';
     const CONFIG_XML_PATH_SANDBOX_AUTH_USERNAME = 'carriers/dhlshipping/bcs_sandbox_api_auth_username';
@@ -50,7 +50,7 @@ interface BcsConfigInterface
     const CONFIG_XML_PATH_SANDBOX_ACCOUNT_USER = 'carriers/dhlshipping/bcs_sandbox_account_user';
     const CONFIG_XML_PATH_SANDBOX_ACCOUNT_SIGNATURE = 'carriers/dhlshipping/bcs_sandbox_account_signature';
     const CONFIG_XML_PATH_SANDBOX_ACCOUNT_EKP = 'carriers/dhlshipping/bcs_sandbox_account_ekp';
-    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_PARTICIPATION = 'carriers/dhlshipping/bcs_sandbox_account_participations';
+    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_PARTICIPATIONS = 'carriers/dhlshipping/bcs_sandbox_account_participations';
 
     const CONFIG_XML_PATH_SHIPMENT_PRINTONLYIFCODEABLE = 'carriers/dhlshipping/bcs_shipment_printonlyifcodeable';
 
@@ -64,6 +64,18 @@ interface BcsConfigInterface
 
     const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANYADDITION = 'carriers/dhlshipping/bcs_shipper_contact_company_addition';
     const CONFIG_XML_PATH_SHIPPER_CONTACT_DISPATCHINFO = 'carriers/dhlshipping/bcs_shipper_contact_dispatchinfo';
+
+    /**
+     * @deprecated since 0.6.0
+     * @see BcsConfigInterface::CONFIG_XML_PATH_ACCOUNT_PARTICIPATIONS
+     */
+    const CONFIG_XML_PATH_ACCOUNT_PARTICIPATION = 'carriers/dhlshipping/bcs_account_participation';
+
+    /**
+     * @deprecated since 0.6.0
+     * @see BcsConfigInterface::CONFIG_XML_PATH_SANDBOX_ACCOUNT_PARTICIPATIONS
+     */
+    const CONFIG_XML_PATH_SANDBOX_ACCOUNT_PARTICIPATION = 'carriers/dhlshipping/bcs_sandbox_account_participation';
 
     /**
      * Obtain API endpoint.
