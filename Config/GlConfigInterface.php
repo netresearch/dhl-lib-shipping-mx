@@ -144,8 +144,6 @@ interface GlConfigInterface
 
     /**
      * Increment consignment number by one.
-     *
-     * @param int|null $storeId
      */
-    public function incrementConsignmentNumber($storeId = null);
+    public function incrementConsignmentNumber();
 }
