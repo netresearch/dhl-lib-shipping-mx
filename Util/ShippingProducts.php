@@ -47,18 +47,63 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
         return [
             'DE' => [
                 ShippingRoutes::COUNTRY_CODE_GERMANY => [
-                    self::CODE_PAKET_NATIONAL,
+                    self::CODE_NATIONAL,
+                ],
+                ShippingRoutes::COUNTRY_CODE_AUSTRIA => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::COUNTRY_CODE_BELGIUM => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::COUNTRY_CODE_LUXEMBURG => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::COUNTRY_CODE_NETHERLANDS => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::COUNTRY_CODE_POLAND => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::COUNTRY_CODE_SLOVAKIA => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::COUNTRY_CODE_CZECH_REPUBLIC => [
+                    self::CODE_CONNECT,
+                ],
+                ShippingRoutes::REGION_EU => [
+                    self::CODE_INTERNATIONAL,
                 ],
                 ShippingRoutes::REGION_INTERNATIONAL => [
-                    self::CODE_WELTPAKET,
+                    self::CODE_INTERNATIONAL,
                 ],
             ],
             'AT' => [
                 ShippingRoutes::COUNTRY_CODE_AUSTRIA => [
                     self::CODE_PAKET_AUSTRIA,
                 ],
+                ShippingRoutes::COUNTRY_CODE_GERMANY => [
+                    self::CODE_PAKET_CONNECT
+                ],
+                ShippingRoutes::COUNTRY_CODE_BELGIUM => [
+                    self::CODE_PAKET_CONNECT
+                ],
+                ShippingRoutes::COUNTRY_CODE_LUXEMBURG => [
+                    self::CODE_PAKET_CONNECT
+                ],
+                ShippingRoutes::COUNTRY_CODE_NETHERLANDS => [
+                    self::CODE_PAKET_CONNECT
+                ],
+                ShippingRoutes::COUNTRY_CODE_POLAND => [
+                    self::CODE_PAKET_CONNECT
+                ],
+                ShippingRoutes::COUNTRY_CODE_SLOVAKIA => [
+                    self::CODE_PAKET_CONNECT
+                ],
+                ShippingRoutes::COUNTRY_CODE_CZECH_REPUBLIC => [
+                    self::CODE_PAKET_CONNECT
+                ],
                 ShippingRoutes::REGION_EU => [
-                    self::CODE_PAKET_CONNECT,
+                    self::CODE_PAKET_INTERNATIONAL,
                 ],
                 ShippingRoutes::REGION_INTERNATIONAL => [
                     self::CODE_PAKET_INTERNATIONAL,
@@ -296,10 +341,11 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     public function getProductName($code)
     {
         $names = [
-            self::CODE_PAKET_NATIONAL => 'DHL Paket',
-            self::CODE_WELTPAKET => 'DHL Paket International',
-            self::CODE_PAKET_AUSTRIA => 'DHL Paket Austria',
-            self::CODE_PAKET_CONNECT => 'DHL PAKET Connect',
+            self::CODE_NATIONAL            => 'DHL Paket',
+            self::CODE_CONNECT             => 'DHL Paket Connect',
+            self::CODE_INTERNATIONAL       => 'DHL Paket International',
+            self::CODE_PAKET_AUSTRIA       => 'DHL PAKET Austria',
+            self::CODE_PAKET_CONNECT       => 'DHL PAKET Connect',
             self::CODE_PAKET_INTERNATIONAL => 'DHL PAKET International',
 
             self::CODE_APAC_PPS => 'GM Packet Plus Standard',
@@ -415,8 +461,9 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     private function getProcedure($code)
     {
         $procedures = [
-            self::CODE_PAKET_NATIONAL      => self::PROCEDURE_PAKET_NATIONAL,
-            self::CODE_WELTPAKET           => self::PROCEDURE_WELTPAKET,
+            self::CODE_NATIONAL            => self::PROCEDURE_NATIONAL,
+            self::CODE_CONNECT             => self::PROCEDURE_CONNECT,
+            self::CODE_INTERNATIONAL       => self::PROCEDURE_INTERNATIONAL,
             self::CODE_EUROPAKET           => self::PROCEDURE_EUROPAKET,
             self::CODE_KURIER_TAGGLEICH    => self::PROCEDURE_KURIER_TAGGLEICH,
             self::CODE_KURIER_WUNSCHZEIT   => self::PROCEDURE_KURIER_WUNSCHZEIT,
@@ -442,9 +489,9 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     private function getProcedureReturn($code)
     {
         $procedures = [
-            self::CODE_PAKET_NATIONAL => self::PROCEDURE_RETURNSHIPMENT_NATIONAL,
-            self::CODE_PAKET_AUSTRIA  => self::PROCEDURE_RETURNSHIPMENT_AUSTRIA,
-            self::CODE_PAKET_CONNECT  => self::PROCEDURE_RETURNSHIPMENT_CONNECT,
+            self::CODE_NATIONAL => self::PROCEDURE_RETURNSHIPMENT_NATIONAL,
+            self::CODE_PAKET_AUSTRIA => self::PROCEDURE_RETURNSHIPMENT_AUSTRIA,
+            self::CODE_PAKET_CONNECT => self::PROCEDURE_RETURNSHIPMENT_CONNECT,
         ];
 
         if (!isset($procedures[$code])) {

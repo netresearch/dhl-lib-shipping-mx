@@ -43,6 +43,12 @@ interface ShippingRoutesInterface
 
     const COUNTRY_CODE_GERMANY = 'DE';
     const COUNTRY_CODE_AUSTRIA = 'AT';
+    const COUNTRY_CODE_BELGIUM = 'BE';
+    const COUNTRY_CODE_LUXEMBURG = 'LU';
+    const COUNTRY_CODE_NETHERLANDS = 'NL';
+    const COUNTRY_CODE_POLAND = 'PL';
+    const COUNTRY_CODE_SLOVAKIA = 'SK';
+    const COUNTRY_CODE_CZECH_REPUBLIC = 'CZ';
     const COUNTRY_CODE_USA = 'US';
     const COUNTRY_CODE_CANADA = 'CA';
     const COUNTRY_CODE_CHILE = 'CL';
