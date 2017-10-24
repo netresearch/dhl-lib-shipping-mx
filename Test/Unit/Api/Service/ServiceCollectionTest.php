@@ -66,7 +66,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $codService = new Cod(true, false, false);
         $collection = new ServiceCollection([Cod::CODE => $codService]);
 
-        $productFilter = ProductFilter::create(['code' => ShippingProducts::CODE_PAKET_NATIONAL]);
+        $productFilter = ProductFilter::create(['code' => ShippingProducts::CODE_NATIONAL]);
         $result = $collection->filter($productFilter);
 
         // array copy access
@@ -90,7 +90,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $collection = new ServiceCollection([Cod::CODE => $codService]);
 
         // valid code, not applicable to service
-        $productFilter = ProductFilter::create(['code' => ShippingProducts::CODE_WELTPAKET]);
+        $productFilter = ProductFilter::create(['code' => ShippingProducts::CODE_INTERNATIONAL]);
         $result = $collection->filter($productFilter);
 
         $services = $result->getArrayCopy();

@@ -57,7 +57,7 @@ class ProductFilter implements FilterInterface
      * @var string[]
      */
     private $allowedServices = [
-        ShippingProducts::CODE_PAKET_NATIONAL => [
+        ShippingProducts::CODE_NATIONAL => [
             BulkyGoods::CODE,
             Cod::CODE,
             Insurance::CODE,
@@ -70,7 +70,14 @@ class ProductFilter implements FilterInterface
             PreferredDay::CODE,
             PreferredTime::CODE
         ],
-        ShippingProducts::CODE_WELTPAKET => [
+        ShippingProducts::CODE_CONNECT => [
+            BulkyGoods::CODE,
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
+        ],
+        ShippingProducts::CODE_INTERNATIONAL => [
             BulkyGoods::CODE,
             Insurance::CODE,
             ParcelAnnouncement::CODE,
@@ -99,6 +106,7 @@ class ProductFilter implements FilterInterface
             Insurance::CODE,
             ParcelAnnouncement::CODE,
             PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
         ],
         ShippingProducts::CODE_PAKET_CONNECT => [
             BulkyGoods::CODE,
@@ -106,6 +114,7 @@ class ProductFilter implements FilterInterface
             Insurance::CODE,
             ParcelAnnouncement::CODE,
             PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
         ],
         ShippingProducts::CODE_PAKET_INTERNATIONAL => [
             BulkyGoods::CODE,
