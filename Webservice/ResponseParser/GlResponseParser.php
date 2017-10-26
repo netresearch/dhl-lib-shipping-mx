@@ -80,7 +80,7 @@ class GlResponseParser implements GlResponseParserInterface
                         ResponseStatusInterface::STATUS_SUCCESS,
                         'OK',
                         'OK',
-                        $package->getResponseDetails()->getTrackingNumber(),
+                        $labelInfo->getPackageId(),
                         base64_decode($labelInfo->getLabelData())
                     );
 
