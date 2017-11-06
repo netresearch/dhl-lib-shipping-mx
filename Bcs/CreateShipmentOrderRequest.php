@@ -4,25 +4,24 @@ namespace Dhl\Shipping\Bcs;
 
 class CreateShipmentOrderRequest
 {
-
     /**
-     * @var Version $Version
+     * @var Version
      */
     protected $Version = null;
 
     /**
-     * @var ShipmentOrderType $ShipmentOrder
+     * @var ShipmentOrderType
      */
     protected $ShipmentOrder = null;
 
     /**
-     * @param Version $Version
+     * @param Version           $Version
      * @param ShipmentOrderType $ShipmentOrder
      */
     public function __construct($Version, $ShipmentOrder)
     {
-      $this->Version = $Version;
-      $this->ShipmentOrder = $ShipmentOrder;
+        $this->Version = $Version;
+        $this->ShipmentOrder = $ShipmentOrder;
     }
 
     /**
@@ -30,17 +29,19 @@ class CreateShipmentOrderRequest
      */
     public function getVersion()
     {
-      return $this->Version;
+        return $this->Version;
     }
 
     /**
      * @param Version $Version
+     *
      * @return \Dhl\Shipping\Bcs\CreateShipmentOrderRequest
      */
     public function setVersion($Version)
     {
-      $this->Version = $Version;
-      return $this;
+        $this->Version = $Version;
+
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class CreateShipmentOrderRequest
      */
     public function getShipmentOrder()
     {
-      return $this->ShipmentOrder;
+        return $this->ShipmentOrder;
     }
 
     /**
      * @param ShipmentOrderType $ShipmentOrder
+     *
      * @return \Dhl\Shipping\Bcs\CreateShipmentOrderRequest
      */
     public function setShipmentOrder($ShipmentOrder)
     {
-      $this->ShipmentOrder = $ShipmentOrder;
-      return $this;
-    }
+        $this->ShipmentOrder = $ShipmentOrder;
 
+        return $this;
+    }
 }

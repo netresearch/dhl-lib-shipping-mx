@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,25 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\CustomsDetailsInterface;
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\ExportPositionInterface;
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\ExportTypeInterface;
-
 /**
- * Platform independent shipment order customs details
+ * Platform independent shipment order customs details.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class CustomsDetails implements CustomsDetailsInterface
@@ -87,14 +86,15 @@ class CustomsDetails implements CustomsDetailsInterface
 
     /**
      * CustomsDetails constructor.
-     * @param string $invoiceNumber
-     * @param ExportTypeInterface $exportType
-     * @param string $termsOfTrade
-     * @param string $placeOfCommital
-     * @param string $additionalFee
-     * @param string $permitNumber
-     * @param string $attestationNumber
-     * @param bool $isWithElectronicExportNtfctn
+     *
+     * @param string                    $invoiceNumber
+     * @param ExportTypeInterface       $exportType
+     * @param string                    $termsOfTrade
+     * @param string                    $placeOfCommital
+     * @param string                    $additionalFee
+     * @param string                    $permitNumber
+     * @param string                    $attestationNumber
+     * @param bool                      $isWithElectronicExportNtfctn
      * @param ExportPositionInterface[] $positions
      */
     public function __construct(
@@ -140,7 +140,7 @@ class CustomsDetails implements CustomsDetailsInterface
      * - DDP: Delivery Duty Paid
      * - DXV: Delivery Duty Paid (excl. VAT)
      * - DDU: Delivery Duty Unpaid
-     * - DDX: Delivery Duty Paid (excl. Duties, taxes and VAT)
+     * - DDX: Delivery Duty Paid (excl. Duties, taxes and VAT).
      *
      * @return string
      */

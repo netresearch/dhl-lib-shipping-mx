@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,24 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceInterface;
-
 /**
- * Generic service factory
+ * Generic service factory.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class AbstractServiceFactory
@@ -48,8 +48,9 @@ abstract class AbstractServiceFactory
     const SERVICE_CODE_PRINT_ONLY_IF_CODEABLE = 'printOnlyIfCodeable';
 
     /**
-     * @param string $instanceCode
+     * @param string  $instanceCode
      * @param mixed[] $data
+     *
      * @return ServiceInterface
      */
     abstract public function create($instanceCode, array $data = []);

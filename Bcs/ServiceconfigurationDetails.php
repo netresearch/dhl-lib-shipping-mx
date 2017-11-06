@@ -4,14 +4,13 @@ namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationDetails
 {
-
     /**
-     * @var anonymous127 $active
+     * @var anonymous127
      */
     protected $active = null;
 
     /**
-     * @var anonymous128 $details
+     * @var anonymous128
      */
     protected $details = null;
 
@@ -21,8 +20,8 @@ class ServiceconfigurationDetails
      */
     public function __construct($active, $details)
     {
-      $this->active = $active;
-      $this->details = $details;
+        $this->active = $active;
+        $this->details = $details;
     }
 
     /**
@@ -30,17 +29,19 @@ class ServiceconfigurationDetails
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous127 $active
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationDetails
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class ServiceconfigurationDetails
      */
     public function getDetails()
     {
-      return $this->details;
+        return $this->details;
     }
 
     /**
      * @param anonymous128 $details
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationDetails
      */
     public function setDetails($details)
     {
-      $this->details = $details;
-      return $this;
-    }
+        $this->details = $details;
 
+        return $this;
+    }
 }

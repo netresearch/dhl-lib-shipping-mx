@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -15,15 +15,15 @@
  * newer versions in the future.
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Util
+ *
  * @author    Paul Siedler <paul.siedler@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Util;
-
 
 class ExportType implements ExportTypeInterface
 {
@@ -43,12 +43,13 @@ class ExportType implements ExportTypeInterface
         ) {
             $types = [
                 self::TYPE_COMMERCIAL_SAMPLE => 'Commercial Sample',
-                self::TYPE_DOCUMENT => 'Document',
-                self::TYPE_OTHER => 'Other',
-                self::TYPE_PRESENT => 'Present',
-                self::TYPE_RETURN_OF_GOODS => 'Return of Goods'
+                self::TYPE_DOCUMENT          => 'Document',
+                self::TYPE_OTHER             => 'Other',
+                self::TYPE_PRESENT           => 'Present',
+                self::TYPE_RETURN_OF_GOODS   => 'Return of Goods',
             ];
         }
+
         return $types;
     }
 }

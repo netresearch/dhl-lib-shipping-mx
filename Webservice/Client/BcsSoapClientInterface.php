@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\Client;
 
 /**
- * Business Customer Shipping API SOAP client adapter
+ * Business Customer Shipping API SOAP client adapter.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 interface BcsSoapClientInterface extends HttpClientInterface
@@ -41,6 +44,7 @@ interface BcsSoapClientInterface extends HttpClientInterface
      *         webservice.
      *
      * @param \Dhl\Shipping\Bcs\Version $part1
+     *
      * @return \Dhl\Shipping\Bcs\GetVersionResponse
      */
     public function getVersion(\Dhl\Shipping\Bcs\Version $part1);
@@ -49,6 +53,7 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * Creates shipments.
      *
      * @param \Dhl\Shipping\Bcs\CreateShipmentOrderRequest $part1
+     *
      * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function createShipmentOrder(\Dhl\Shipping\Bcs\CreateShipmentOrderRequest $part1);
@@ -57,6 +62,7 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * Deletes the requested shipments.
      *
      * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest $part1
+     *
      * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse
      */
     public function deleteShipmentOrder(\Dhl\Shipping\Bcs\DeleteShipmentOrderRequest $part1);

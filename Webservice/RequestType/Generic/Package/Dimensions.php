@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,24 +17,26 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\Generic\Package;
 
-use \Dhl\Shipping\Webservice\RequestType\Generic\Package\DimensionsInterface;
-use \Dhl\Shipping\Webservice\UnitConverterInterface;
+use Dhl\Shipping\Webservice\UnitConverterInterface;
 
 /**
- * Platform independent package dimensions
+ * Platform independent package dimensions.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
@@ -70,9 +72,9 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
      */
     public function __construct(UnitConverterInterface $unitConverter, $length, $width, $height, $unitOfMeasurement)
     {
-        $this->length            = $length;
-        $this->width             = $width;
-        $this->height            = $height;
+        $this->length = $length;
+        $this->width = $width;
+        $this->height = $height;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         parent::__construct($unitConverter);
@@ -86,6 +88,7 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
     public function getLength($unitOfMeasurement)
     {
         $length = $this->unitConverter->convertDimension($this->length, $this->unitOfMeasurement, $unitOfMeasurement);
+
         return $length;
     }
 
@@ -97,6 +100,7 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
     public function getWidth($unitOfMeasurement)
     {
         $width = $this->unitConverter->convertDimension($this->width, $this->unitOfMeasurement, $unitOfMeasurement);
+
         return $width;
     }
 
@@ -108,6 +112,7 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
     public function getHeight($unitOfMeasurement)
     {
         $height = $this->unitConverter->convertDimension($this->height, $this->unitOfMeasurement, $unitOfMeasurement);
+
         return $height;
     }
 

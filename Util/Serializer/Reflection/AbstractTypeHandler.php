@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,25 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Util\Serializer
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Util\Serializer\Reflection;
 
-use \Dhl\Shipping\Util\Serializer\Reflection\PropertyHandlerInterface;
-use \Dhl\Shipping\Util\Serializer\Reflection\ReflectionInterface;
-use \Dhl\Shipping\Util\Serializer\Reflection\TypeHandlerInterface;
-
 /**
- * Type Handler
+ * Type Handler.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Util\Serializer
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class AbstractTypeHandler implements TypeHandlerInterface
@@ -54,8 +53,9 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
      * Obtain a property type.
      *
      * @param PropertyHandlerInterface $propertyHandler
-     * @param \stdClass $type
-     * @param string $property
+     * @param \stdClass                $type
+     * @param string                   $property
+     *
      * @return string
      */
     public function getPropertyType(PropertyHandlerInterface $propertyHandler, $type, $property)
@@ -73,8 +73,9 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
      * Obtain a property meta type.
      *
      * @param PropertyHandlerInterface $propertyHandler
-     * @param \stdClass $type
-     * @param string $property
+     * @param \stdClass                $type
+     * @param string                   $property
+     *
      * @return string
      */
     public function getPropertyMetaType(PropertyHandlerInterface $propertyHandler, $type, $property)
@@ -96,7 +97,7 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
             self::TYPE_STRING,
             self::TYPE_BOOLEAN,
             self::TYPE_SHORT_INTEGER,
-            self::TYPE_SHORT_BOOLEAN
+            self::TYPE_SHORT_BOOLEAN,
         ];
 
         // array type

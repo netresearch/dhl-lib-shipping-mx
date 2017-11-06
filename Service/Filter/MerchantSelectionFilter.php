@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,29 +17,33 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Filter;
 
-use \Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Service\ServiceInterface;
 
 /**
- * MerchantSelection filter
+ * MerchantSelection filter.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class MerchantSelectionFilter implements FilterInterface
 {
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -54,6 +58,7 @@ class MerchantSelectionFilter implements FilterInterface
     {
         return function (ServiceInterface $service) {
             $filter = new static();
+
             return $filter->isAllowed($service);
         };
     }

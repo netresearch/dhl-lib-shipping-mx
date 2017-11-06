@@ -4,24 +4,23 @@ namespace Dhl\Shipping\Bcs;
 
 class ShipmentItemType
 {
-
     /**
-     * @var weightInKG $weightInKG
+     * @var weightInKG
      */
     protected $weightInKG = null;
 
     /**
-     * @var lengthInCM $lengthInCM
+     * @var lengthInCM
      */
     protected $lengthInCM = null;
 
     /**
-     * @var widthInCM $widthInCM
+     * @var widthInCM
      */
     protected $widthInCM = null;
 
     /**
-     * @var heightInCM $heightInCM
+     * @var heightInCM
      */
     protected $heightInCM = null;
 
@@ -30,7 +29,7 @@ class ShipmentItemType
      */
     public function __construct($weightInKG)
     {
-      $this->weightInKG = $weightInKG;
+        $this->weightInKG = $weightInKG;
     }
 
     /**
@@ -38,17 +37,19 @@ class ShipmentItemType
      */
     public function getWeightInKG()
     {
-      return $this->weightInKG;
+        return $this->weightInKG;
     }
 
     /**
      * @param weightInKG $weightInKG
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentItemType
      */
     public function setWeightInKG($weightInKG)
     {
-      $this->weightInKG = $weightInKG;
-      return $this;
+        $this->weightInKG = $weightInKG;
+
+        return $this;
     }
 
     /**
@@ -56,17 +57,19 @@ class ShipmentItemType
      */
     public function getLengthInCM()
     {
-      return $this->lengthInCM;
+        return $this->lengthInCM;
     }
 
     /**
      * @param lengthInCM $lengthInCM
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentItemType
      */
     public function setLengthInCM($lengthInCM)
     {
-      $this->lengthInCM = $lengthInCM;
-      return $this;
+        $this->lengthInCM = $lengthInCM;
+
+        return $this;
     }
 
     /**
@@ -74,17 +77,19 @@ class ShipmentItemType
      */
     public function getWidthInCM()
     {
-      return $this->widthInCM;
+        return $this->widthInCM;
     }
 
     /**
      * @param widthInCM $widthInCM
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentItemType
      */
     public function setWidthInCM($widthInCM)
     {
-      $this->widthInCM = $widthInCM;
-      return $this;
+        $this->widthInCM = $widthInCM;
+
+        return $this;
     }
 
     /**
@@ -92,17 +97,18 @@ class ShipmentItemType
      */
     public function getHeightInCM()
     {
-      return $this->heightInCM;
+        return $this->heightInCM;
     }
 
     /**
      * @param heightInCM $heightInCM
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentItemType
      */
     public function setHeightInCM($heightInCM)
     {
-      $this->heightInCM = $heightInCM;
-      return $this;
-    }
+        $this->heightInCM = $heightInCM;
 
+        return $this;
+    }
 }

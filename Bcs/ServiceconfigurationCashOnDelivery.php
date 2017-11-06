@@ -4,19 +4,18 @@ namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationCashOnDelivery
 {
-
     /**
-     * @var anonymous154 $active
+     * @var anonymous154
      */
     protected $active = null;
 
     /**
-     * @var anonymous155 $addFee
+     * @var anonymous155
      */
     protected $addFee = null;
 
     /**
-     * @var anonymous156 $codAmount
+     * @var anonymous156
      */
     protected $codAmount = null;
 
@@ -27,9 +26,9 @@ class ServiceconfigurationCashOnDelivery
      */
     public function __construct($active, $addFee, $codAmount)
     {
-      $this->active = $active;
-      $this->addFee = $addFee;
-      $this->codAmount = $codAmount;
+        $this->active = $active;
+        $this->addFee = $addFee;
+        $this->codAmount = $codAmount;
     }
 
     /**
@@ -37,17 +36,19 @@ class ServiceconfigurationCashOnDelivery
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous154 $active
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationCashOnDelivery
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+
+        return $this;
     }
 
     /**
@@ -55,17 +56,19 @@ class ServiceconfigurationCashOnDelivery
      */
     public function getAddFee()
     {
-      return $this->addFee;
+        return $this->addFee;
     }
 
     /**
      * @param anonymous155 $addFee
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationCashOnDelivery
      */
     public function setAddFee($addFee)
     {
-      $this->addFee = $addFee;
-      return $this;
+        $this->addFee = $addFee;
+
+        return $this;
     }
 
     /**
@@ -73,17 +76,18 @@ class ServiceconfigurationCashOnDelivery
      */
     public function getCodAmount()
     {
-      return $this->codAmount;
+        return $this->codAmount;
     }
 
     /**
      * @param anonymous156 $codAmount
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationCashOnDelivery
      */
     public function setCodAmount($codAmount)
     {
-      $this->codAmount = $codAmount;
-      return $this;
-    }
+        $this->codAmount = $codAmount;
 
+        return $this;
+    }
 }

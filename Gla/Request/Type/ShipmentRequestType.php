@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Gla\Request\Type;
 
 /**
- * ShipmentRequestType
+ * ShipmentRequestType.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ShipmentRequestType implements \JsonSerializable
@@ -68,10 +70,10 @@ class ShipmentRequestType implements \JsonSerializable
     /**
      * ShipmentRequestType constructor.
      *
-     * @param string $pickupAccount
-     * @param string $distributionCenter
+     * @param string                                              $pickupAccount
+     * @param string                                              $distributionCenter
      * @param \Dhl\Shipping\Gla\Request\Type\PackageRequestType[] $packages
-     * @param string $consignmentNumber
+     * @param string                                              $consignmentNumber
      */
     public function __construct(
         $pickupAccount,
@@ -120,7 +122,7 @@ class ShipmentRequestType implements \JsonSerializable
     /**
      * @return mixed[]
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

@@ -4,25 +4,24 @@ namespace Dhl\Shipping\Bcs;
 
 class DeleteShipmentOrderRequest
 {
-
     /**
-     * @var Version $Version
+     * @var Version
      */
     protected $Version = null;
 
     /**
-     * @var shipmentNumber $shipmentNumber
+     * @var shipmentNumber
      */
     protected $shipmentNumber = null;
 
     /**
-     * @param Version $Version
+     * @param Version        $Version
      * @param shipmentNumber $shipmentNumber
      */
     public function __construct($Version, $shipmentNumber)
     {
-      $this->Version = $Version;
-      $this->shipmentNumber = $shipmentNumber;
+        $this->Version = $Version;
+        $this->shipmentNumber = $shipmentNumber;
     }
 
     /**
@@ -30,17 +29,19 @@ class DeleteShipmentOrderRequest
      */
     public function getVersion()
     {
-      return $this->Version;
+        return $this->Version;
     }
 
     /**
      * @param Version $Version
+     *
      * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest
      */
     public function setVersion($Version)
     {
-      $this->Version = $Version;
-      return $this;
+        $this->Version = $Version;
+
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class DeleteShipmentOrderRequest
      */
     public function getShipmentNumber()
     {
-      return $this->shipmentNumber;
+        return $this->shipmentNumber;
     }
 
     /**
      * @param shipmentNumber $shipmentNumber
+     *
      * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest
      */
     public function setShipmentNumber($shipmentNumber)
     {
-      $this->shipmentNumber = $shipmentNumber;
-      return $this;
-    }
+        $this->shipmentNumber = $shipmentNumber;
 
+        return $this;
+    }
 }

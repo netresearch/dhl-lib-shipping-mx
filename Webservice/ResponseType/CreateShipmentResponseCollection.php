@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,27 +17,29 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ResponseType;
 
-use \Dhl\Shipping\Webservice\ResponseType\CreateShipmentResponseInterface;
-use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Webservice\Exception\ApiAdapterException;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatus;
+use Dhl\Shipping\Webservice\Exception\ApiAdapterException;
+use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatus;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
 
 /**
- * CreateShipmentResponseCollection
+ * CreateShipmentResponseCollection.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class CreateShipmentResponseCollection extends \ArrayIterator implements CreateShipmentResponseInterface
@@ -53,7 +55,8 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param LabelInterface[] $labels
-     * @param string[] $invalidOrders
+     * @param string[]         $invalidOrders
+     *
      * @return string[]
      */
     private static function getStatusMessages(array $labels, array $invalidOrders = [])
@@ -88,16 +91,17 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
      * - Some labels created: partially created
      *
      * @param LabelInterface[] $labels
-     * @param string[] $invalidOrders
+     * @param string[]         $invalidOrders
+     *
      * @return ResponseStatus
      */
     private static function getResponseStatus(array $labels, array $invalidOrders = [])
     {
         $createdLabels = array_filter($labels, function (LabelInterface $label) {
-            return ($label->getStatus()->getCode() === ResponseStatusInterface::STATUS_SUCCESS);
+            return $label->getStatus()->getCode() === ResponseStatusInterface::STATUS_SUCCESS;
         });
         $rejectedLabels = array_filter($labels, function (LabelInterface $label) {
-            return ($label->getStatus()->getCode() === ResponseStatusInterface::STATUS_FAILURE);
+            return $label->getStatus()->getCode() === ResponseStatusInterface::STATUS_FAILURE;
         });
 
         if (empty($rejectedLabels) && empty($invalidOrders)) {
@@ -135,11 +139,13 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param ResponseStatusInterface $status
+     *
      * @return $this
      */
     public function setStatus(ResponseStatusInterface $status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -153,6 +159,7 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param string $sequenceNumber
+     *
      * @return LabelInterface
      */
     public function getCreatedItem($sequenceNumber)
@@ -162,7 +169,8 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param LabelInterface[] $labels
-     * @param string[] $invalidRequests
+     * @param string[]         $invalidRequests
+     *
      * @return CreateShipmentResponseCollection
      */
     public static function fromResponse(array $labels, array $invalidRequests)
@@ -177,7 +185,8 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param ApiAdapterException $exception
-     * @param string[] $invalidRequests
+     * @param string[]            $invalidRequests
+     *
      * @return CreateShipmentResponseCollection
      */
     public static function fromError(ApiAdapterException $exception, array $invalidRequests)
@@ -186,9 +195,9 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
         $messages = self::getStatusMessages([], $invalidRequests);
         if ($exception->getPrevious()) {
-            $messages[]= $exception->getPrevious()->getMessage();
+            $messages[] = $exception->getPrevious()->getMessage();
         } else {
-            $messages[]= $exception->getMessage();
+            $messages[] = $exception->getMessage();
         }
 
         $responseStatus = new ResponseStatus(

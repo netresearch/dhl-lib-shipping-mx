@@ -4,47 +4,46 @@ namespace Dhl\Shipping\Bcs;
 
 class ShipmentDetailsType
 {
-
     /**
-     * @var string $product
+     * @var string
      */
     protected $product = null;
 
     /**
-     * @var accountNumber $accountNumber
+     * @var accountNumber
      */
     protected $accountNumber = null;
 
     /**
-     * @var customerReference $customerReference
+     * @var customerReference
      */
     protected $customerReference = null;
 
     /**
-     * @var shipmentDate $shipmentDate
+     * @var shipmentDate
      */
     protected $shipmentDate = null;
 
     /**
-     * @var returnShipmentAccountNumber $returnShipmentAccountNumber
+     * @var returnShipmentAccountNumber
      */
     protected $returnShipmentAccountNumber = null;
 
     /**
-     * @var returnShipmentReference $returnShipmentReference
+     * @var returnShipmentReference
      */
     protected $returnShipmentReference = null;
 
     /**
-     * @param string $product
+     * @param string        $product
      * @param accountNumber $accountNumber
-     * @param shipmentDate $shipmentDate
+     * @param shipmentDate  $shipmentDate
      */
     public function __construct($product, $accountNumber, $shipmentDate)
     {
-      $this->product = $product;
-      $this->accountNumber = $accountNumber;
-      $this->shipmentDate = $shipmentDate;
+        $this->product = $product;
+        $this->accountNumber = $accountNumber;
+        $this->shipmentDate = $shipmentDate;
     }
 
     /**
@@ -52,17 +51,19 @@ class ShipmentDetailsType
      */
     public function getProduct()
     {
-      return $this->product;
+        return $this->product;
     }
 
     /**
      * @param string $product
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentDetailsType
      */
     public function setProduct($product)
     {
-      $this->product = $product;
-      return $this;
+        $this->product = $product;
+
+        return $this;
     }
 
     /**
@@ -70,17 +71,19 @@ class ShipmentDetailsType
      */
     public function getAccountNumber()
     {
-      return $this->accountNumber;
+        return $this->accountNumber;
     }
 
     /**
      * @param accountNumber $accountNumber
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentDetailsType
      */
     public function setAccountNumber($accountNumber)
     {
-      $this->accountNumber = $accountNumber;
-      return $this;
+        $this->accountNumber = $accountNumber;
+
+        return $this;
     }
 
     /**
@@ -88,17 +91,19 @@ class ShipmentDetailsType
      */
     public function getCustomerReference()
     {
-      return $this->customerReference;
+        return $this->customerReference;
     }
 
     /**
      * @param customerReference $customerReference
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentDetailsType
      */
     public function setCustomerReference($customerReference)
     {
-      $this->customerReference = $customerReference;
-      return $this;
+        $this->customerReference = $customerReference;
+
+        return $this;
     }
 
     /**
@@ -106,17 +111,19 @@ class ShipmentDetailsType
      */
     public function getShipmentDate()
     {
-      return $this->shipmentDate;
+        return $this->shipmentDate;
     }
 
     /**
      * @param shipmentDate $shipmentDate
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentDetailsType
      */
     public function setShipmentDate($shipmentDate)
     {
-      $this->shipmentDate = $shipmentDate;
-      return $this;
+        $this->shipmentDate = $shipmentDate;
+
+        return $this;
     }
 
     /**
@@ -124,17 +131,19 @@ class ShipmentDetailsType
      */
     public function getReturnShipmentAccountNumber()
     {
-      return $this->returnShipmentAccountNumber;
+        return $this->returnShipmentAccountNumber;
     }
 
     /**
      * @param returnShipmentAccountNumber $returnShipmentAccountNumber
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentDetailsType
      */
     public function setReturnShipmentAccountNumber($returnShipmentAccountNumber)
     {
-      $this->returnShipmentAccountNumber = $returnShipmentAccountNumber;
-      return $this;
+        $this->returnShipmentAccountNumber = $returnShipmentAccountNumber;
+
+        return $this;
     }
 
     /**
@@ -142,17 +151,18 @@ class ShipmentDetailsType
      */
     public function getReturnShipmentReference()
     {
-      return $this->returnShipmentReference;
+        return $this->returnShipmentReference;
     }
 
     /**
      * @param returnShipmentReference $returnShipmentReference
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentDetailsType
      */
     public function setReturnShipmentReference($returnShipmentReference)
     {
-      $this->returnShipmentReference = $returnShipmentReference;
-      return $this;
-    }
+        $this->returnShipmentReference = $returnShipmentReference;
 
+        return $this;
+    }
 }

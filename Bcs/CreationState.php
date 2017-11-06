@@ -4,25 +4,24 @@ namespace Dhl\Shipping\Bcs;
 
 class CreationState
 {
-
     /**
-     * @var SequenceNumber $sequenceNumber
+     * @var SequenceNumber
      */
     protected $sequenceNumber = null;
 
     /**
-     * @var LabelData $LabelData
+     * @var LabelData
      */
     protected $LabelData = null;
 
     /**
      * @param SequenceNumber $sequenceNumber
-     * @param LabelData $LabelData
+     * @param LabelData      $LabelData
      */
     public function __construct($sequenceNumber, $LabelData)
     {
-      $this->sequenceNumber = $sequenceNumber;
-      $this->LabelData = $LabelData;
+        $this->sequenceNumber = $sequenceNumber;
+        $this->LabelData = $LabelData;
     }
 
     /**
@@ -30,17 +29,19 @@ class CreationState
      */
     public function getSequenceNumber()
     {
-      return $this->sequenceNumber;
+        return $this->sequenceNumber;
     }
 
     /**
      * @param SequenceNumber $sequenceNumber
+     *
      * @return \Dhl\Shipping\Bcs\CreationState
      */
     public function setSequenceNumber($sequenceNumber)
     {
-      $this->sequenceNumber = $sequenceNumber;
-      return $this;
+        $this->sequenceNumber = $sequenceNumber;
+
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class CreationState
      */
     public function getLabelData()
     {
-      return $this->LabelData;
+        return $this->LabelData;
     }
 
     /**
      * @param LabelData $LabelData
+     *
      * @return \Dhl\Shipping\Bcs\CreationState
      */
     public function setLabelData($LabelData)
     {
-      $this->LabelData = $LabelData;
-      return $this;
-    }
+        $this->LabelData = $LabelData;
 
+        return $this;
+    }
 }

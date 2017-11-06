@@ -4,32 +4,31 @@ namespace Dhl\Shipping\Bcs;
 
 class Version
 {
-
     /**
-     * @var majorRelease $majorRelease
+     * @var majorRelease
      */
     protected $majorRelease = null;
 
     /**
-     * @var minorRelease $minorRelease
+     * @var minorRelease
      */
     protected $minorRelease = null;
 
     /**
-     * @var build $build
+     * @var build
      */
     protected $build = null;
 
     /**
      * @param majorRelease $majorRelease
      * @param minorRelease $minorRelease
-     * @param build $build
+     * @param build        $build
      */
     public function __construct($majorRelease, $minorRelease, $build)
     {
-      $this->majorRelease = $majorRelease;
-      $this->minorRelease = $minorRelease;
-      $this->build = $build;
+        $this->majorRelease = $majorRelease;
+        $this->minorRelease = $minorRelease;
+        $this->build = $build;
     }
 
     /**
@@ -37,17 +36,19 @@ class Version
      */
     public function getMajorRelease()
     {
-      return $this->majorRelease;
+        return $this->majorRelease;
     }
 
     /**
      * @param majorRelease $majorRelease
+     *
      * @return \Dhl\Shipping\Bcs\Version
      */
     public function setMajorRelease($majorRelease)
     {
-      $this->majorRelease = $majorRelease;
-      return $this;
+        $this->majorRelease = $majorRelease;
+
+        return $this;
     }
 
     /**
@@ -55,17 +56,19 @@ class Version
      */
     public function getMinorRelease()
     {
-      return $this->minorRelease;
+        return $this->minorRelease;
     }
 
     /**
      * @param minorRelease $minorRelease
+     *
      * @return \Dhl\Shipping\Bcs\Version
      */
     public function setMinorRelease($minorRelease)
     {
-      $this->minorRelease = $minorRelease;
-      return $this;
+        $this->minorRelease = $minorRelease;
+
+        return $this;
     }
 
     /**
@@ -73,17 +76,18 @@ class Version
      */
     public function getBuild()
     {
-      return $this->build;
+        return $this->build;
     }
 
     /**
      * @param build $build
+     *
      * @return \Dhl\Shipping\Bcs\Version
      */
     public function setBuild($build)
     {
-      $this->build = $build;
-      return $this;
-    }
+        $this->build = $build;
 
+        return $this;
+    }
 }

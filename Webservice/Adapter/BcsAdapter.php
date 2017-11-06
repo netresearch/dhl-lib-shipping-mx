@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,33 +17,35 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use Dhl\Shipping\Bcs as BcsApi;
 use Dhl\Shipping\Webservice\Client\BcsSoapClientInterface;
-use \Dhl\Shipping\Webservice\RequestMapper;
-use \Dhl\Shipping\Webservice\ResponseParser;
-use \Dhl\Shipping\Webservice\RequestType;
-use \Dhl\Shipping\Webservice\ResponseType;
-use \Dhl\Shipping\Webservice\Adapter\BcsAdapterInterface;
-use \Dhl\Shipping\Bcs as BcsApi;
 use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
 use Dhl\Shipping\Webservice\Exception\ApiOperationException;
 use Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
+use Dhl\Shipping\Webservice\RequestMapper;
+use Dhl\Shipping\Webservice\RequestType;
+use Dhl\Shipping\Webservice\ResponseParser;
+use Dhl\Shipping\Webservice\ResponseType;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
 
 /**
- * Business Customer Shipping API Adapter
+ * Business Customer Shipping API Adapter.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
@@ -69,9 +71,10 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * BcsAdapter constructor.
+     *
      * @param ResponseParser\BcsResponseParserInterface $responseParser
-     * @param RequestMapper\BcsDataMapperInterface $dataMapper
-     * @param BcsSoapClientInterface $soapClient
+     * @param RequestMapper\BcsDataMapperInterface      $dataMapper
+     * @param BcsSoapClientInterface                    $soapClient
      */
     public function __construct(
         ResponseParser\BcsResponseParserInterface $responseParser,
@@ -85,6 +88,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     *
      * @return bool
      */
     protected function canCreateLabel(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
@@ -100,6 +104,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
      * For now, let the request fail if it does not exist.
      *
      * @param string $shipmentNumber
+     *
      * @return bool
      */
     protected function canCancelLabel($shipmentNumber)
@@ -109,9 +114,11 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
-     * @return ResponseType\CreateShipment\LabelInterface[]
+     *
      * @throws ApiOperationException
      * @throws ApiCommunicationException
+     *
+     * @return ResponseType\CreateShipment\LabelInterface[]
      */
     protected function createShipmentOrders(array $shipmentOrders)
     {
@@ -140,6 +147,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestType\GetVersionRequestInterface $versionRequest
+     *
      * @return ResponseType\GetVersionResponseInterface
      */
     public function getVersion(RequestType\GetVersionRequestInterface $versionRequest)
@@ -152,13 +160,16 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
         $soapResponse = $this->soapClient->getVersion($requestType);
 
         $response = $this->responseParser->parseGetVersionResponse($soapResponse);
+
         return $response;
     }
 
     /**
      * @param string[] $shipmentNumbers
-     * @return ItemStatusInterface[]
+     *
      * @throws ApiOperationException
+     *
+     * @return ItemStatusInterface[]
      */
     protected function deleteShipmentOrders(array $shipmentNumbers)
     {

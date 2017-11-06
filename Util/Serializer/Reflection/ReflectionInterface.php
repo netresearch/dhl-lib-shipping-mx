@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Util\Serializer
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Util\Serializer\Reflection;
 
 /**
  * Wrapper for Reflection API access.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Util\Serializer
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 interface ReflectionInterface
@@ -40,7 +43,8 @@ interface ReflectionInterface
      * Obtain the data type of a class property.
      *
      * @param \stdClass $type
-     * @param string $property
+     * @param string    $property
+     *
      * @return string
      */
     public function getPropertyType($type, $property);
@@ -49,7 +53,8 @@ interface ReflectionInterface
      * Obtain the return type of a class property getter.
      *
      * @param \stdClass $type
-     * @param string $getter
+     * @param string    $getter
+     *
      * @return string
      */
     public function getReturnValueType($type, $getter);

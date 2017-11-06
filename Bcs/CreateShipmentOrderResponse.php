@@ -4,32 +4,31 @@ namespace Dhl\Shipping\Bcs;
 
 class CreateShipmentOrderResponse
 {
-
     /**
-     * @var Version $Version
+     * @var Version
      */
     protected $Version = null;
 
     /**
-     * @var Statusinformation $Status
+     * @var Statusinformation
      */
     protected $Status = null;
 
     /**
-     * @var CreationState $CreationState
+     * @var CreationState
      */
     protected $CreationState = null;
 
     /**
-     * @param Version $Version
+     * @param Version           $Version
      * @param Statusinformation $Status
-     * @param CreationState $CreationState
+     * @param CreationState     $CreationState
      */
     public function __construct($Version, $Status, $CreationState)
     {
-      $this->Version = $Version;
-      $this->Status = $Status;
-      $this->CreationState = $CreationState;
+        $this->Version = $Version;
+        $this->Status = $Status;
+        $this->CreationState = $CreationState;
     }
 
     /**
@@ -37,17 +36,19 @@ class CreateShipmentOrderResponse
      */
     public function getVersion()
     {
-      return $this->Version;
+        return $this->Version;
     }
 
     /**
      * @param Version $Version
+     *
      * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function setVersion($Version)
     {
-      $this->Version = $Version;
-      return $this;
+        $this->Version = $Version;
+
+        return $this;
     }
 
     /**
@@ -55,17 +56,19 @@ class CreateShipmentOrderResponse
      */
     public function getStatus()
     {
-      return $this->Status;
+        return $this->Status;
     }
 
     /**
      * @param Statusinformation $Status
+     *
      * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function setStatus($Status)
     {
-      $this->Status = $Status;
-      return $this;
+        $this->Status = $Status;
+
+        return $this;
     }
 
     /**
@@ -73,17 +76,18 @@ class CreateShipmentOrderResponse
      */
     public function getCreationState()
     {
-      return $this->CreationState;
+        return $this->CreationState;
     }
 
     /**
      * @param CreationState $CreationState
+     *
      * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
      */
     public function setCreationState($CreationState)
     {
-      $this->CreationState = $CreationState;
-      return $this;
-    }
+        $this->CreationState = $CreationState;
 
+        return $this;
+    }
 }

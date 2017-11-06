@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ShippingInfo;
 
-
 /**
- * ArrayableInfo
+ * ArrayableInfo.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
@@ -64,7 +66,7 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
     private static function underscore($propertyName)
     {
         // separate
-        $propertyName = preg_replace('/(.)([A-Z])/', "$1_$2", $propertyName);
+        $propertyName = preg_replace('/(.)([A-Z])/', '$1_$2', $propertyName);
         // convert to lower case
         $propertyName = strtolower($propertyName);
 
@@ -94,7 +96,7 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
 
         $result = array_map($getter, $properties);
         if ($underscoreKeys) {
-            $keys   = array_map($keysMapper, array_keys($properties));
+            $keys = array_map($keysMapper, array_keys($properties));
             $result = array_combine($keys, array_values($result));
         }
 
@@ -116,9 +118,9 @@ abstract class ArrayableInfo extends AbstractInfo implements ArrayableInterface
                     $params = [$value, $camelizeKeys];
                     call_user_func_array([$this->{$key}, $method], $params);
                 } elseif ($this->{$key} instanceof UnserializableInterface && is_object($value)) {
-                    $className    = get_class($this->{$key});
-                    $method       = 'fromObject';
-                    $params       = [$value];
+                    $className = get_class($this->{$key});
+                    $method = 'fromObject';
+                    $params = [$value];
                     $this->{$key} = call_user_func_array([$className, $method], $params);
                 } else {
                     $this->{$key} = $value;

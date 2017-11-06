@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,27 +17,29 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Shipping\Webservice\ResponseType;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Webservice\ResponseParser\BcsResponseParserInterface;
-use \Dhl\Shipping\Bcs\CreationState;
-use \Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
+use Dhl\Shipping\Bcs\CreationState;
+use Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
+use Dhl\Shipping\Webservice\ResponseType;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
 
 /**
- * Geschäftskunden API response parser
+ * Geschäftskunden API response parser.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  *
  * @SuppressWarnings(MEQP2.Classes.ObjectInstantiation)
@@ -51,6 +53,7 @@ class BcsResponseParser implements BcsResponseParserInterface
 
     /**
      * BcsResponseParser constructor.
+     *
      * @param LabelFactory $labelFactory
      */
     public function __construct(LabelFactory $labelFactory)
@@ -60,6 +63,7 @@ class BcsResponseParser implements BcsResponseParserInterface
 
     /**
      * @param string $bcsCode
+     *
      * @return int
      */
     private function getStatusCode($bcsCode)
@@ -72,11 +76,13 @@ class BcsResponseParser implements BcsResponseParserInterface
     }
 
     /**
-     * Convert BCS SOAP response to list of generic LabelInterface
+     * Convert BCS SOAP response to list of generic LabelInterface.
      *
      * @param \Dhl\Shipping\Bcs\CreateShipmentOrderResponse $response
-     * @return ResponseType\CreateShipment\LabelInterface[]
+     *
      * @throws \Exception
+     *
+     * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function parseCreateShipmentResponse($response)
     {
@@ -102,16 +108,17 @@ class BcsResponseParser implements BcsResponseParserInterface
                 $creationState->getLabelData()->getCodLabelData()
             );
 
-            $labels[(string)$creationState->getSequenceNumber()] = $label;
+            $labels[(string) $creationState->getSequenceNumber()] = $label;
         }
 
         return $labels;
     }
 
     /**
-     * Convert BCS SOAP response to generic GetVersionResponse
+     * Convert BCS SOAP response to generic GetVersionResponse.
      *
      * @param \Dhl\Shipping\Bcs\GetVersionResponse $response
+     *
      * @return ResponseType\GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response)
@@ -120,9 +127,10 @@ class BcsResponseParser implements BcsResponseParserInterface
     }
 
     /**
-     * Convert BCS SOAP response to generic DeleteShipmentResponse
+     * Convert BCS SOAP response to generic DeleteShipmentResponse.
      *
      * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse $response
+     *
      * @return ResponseType\DeleteShipmentResponseInterface[]
      */
     public function parseDeleteShipmentResponse($response)

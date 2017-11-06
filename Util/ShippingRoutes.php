@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Util;
 
 /**
- * ShippingRoutes
+ * ShippingRoutes.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ShippingRoutes implements ShippingRoutesInterface
@@ -109,9 +111,10 @@ class ShippingRoutes implements ShippingRoutesInterface
     }
 
     /**
-     * @param string $originCountryId
-     * @param string $destCountryId
+     * @param string   $originCountryId
+     * @param string   $destCountryId
      * @param string[] $euCountries
+     *
      * @return bool
      */
     public function canProcessRoute($originCountryId, $destCountryId, array $euCountries)
@@ -158,13 +161,14 @@ class ShippingRoutes implements ShippingRoutesInterface
             $isExcluded = true;
         }
 
-        return ($isIncluded && !$isExcluded);
+        return $isIncluded && !$isExcluded;
     }
 
     /**
-     * @param string $originCountryId
-     * @param string $destCountryId
+     * @param string   $originCountryId
+     * @param string   $destCountryId
      * @param string[] $euCountries
+     *
      * @return bool
      */
     public function isCrossBorderRoute($originCountryId, $destCountryId, array $euCountries)
@@ -177,6 +181,6 @@ class ShippingRoutes implements ShippingRoutesInterface
             return !in_array($destCountryId, $euCountries);
         }
 
-        return ($originCountryId !== $destCountryId);
+        return $originCountryId !== $destCountryId;
     }
 }

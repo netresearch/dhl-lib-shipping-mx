@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -15,15 +15,15 @@
  * newer versions in the future.
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Util
+ *
  * @author    Paul Siedler <paul.siedler@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Util;
-
 
 interface ExportTypeInterface
 {
@@ -36,9 +36,10 @@ interface ExportTypeInterface
     /**
      * Find all shipping products that apply to the given shipping route.
      *
-     * @param string $originCountryId
-     * @param string $destCountryId
+     * @param string   $originCountryId
+     * @param string   $destCountryId
      * @param string[] $euCountries
+     *
      * @return string[]
      */
     public function getApplicableTypes($originCountryId, $destCountryId, array $euCountries);

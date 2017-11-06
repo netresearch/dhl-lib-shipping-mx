@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,38 +17,41 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Filter;
 
-use \Dhl\Shipping\Service\BulkyGoods;
-use \Dhl\Shipping\Service\Cod;
-use \Dhl\Shipping\Service\Insurance;
-use \Dhl\Shipping\Service\ParcelAnnouncement;
-use \Dhl\Shipping\Service\PreferredDay;
-use \Dhl\Shipping\Service\PreferredLocation;
-use \Dhl\Shipping\Service\PreferredNeighbour;
-use \Dhl\Shipping\Service\PreferredTime;
-use \Dhl\Shipping\Service\PrintOnlyIfCodeable;
-use \Dhl\Shipping\Service\ReturnShipment;
-use \Dhl\Shipping\Service\ServiceInterface;
-use \Dhl\Shipping\Service\VisualCheckOfAge;
-use \Dhl\Shipping\Util\ShippingProducts;
+use Dhl\Shipping\Service\BulkyGoods;
+use Dhl\Shipping\Service\Cod;
+use Dhl\Shipping\Service\Insurance;
+use Dhl\Shipping\Service\ParcelAnnouncement;
+use Dhl\Shipping\Service\PreferredDay;
+use Dhl\Shipping\Service\PreferredLocation;
+use Dhl\Shipping\Service\PreferredNeighbour;
+use Dhl\Shipping\Service\PreferredTime;
+use Dhl\Shipping\Service\PrintOnlyIfCodeable;
+use Dhl\Shipping\Service\ReturnShipment;
+use Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Service\VisualCheckOfAge;
+use Dhl\Shipping\Util\ShippingProducts;
 
 /**
- * Product filter
+ * Product filter.
  *
  *
  * @todo Create new solution taking into account global label api
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ProductFilter implements FilterInterface
@@ -68,7 +71,7 @@ class ProductFilter implements FilterInterface
             ReturnShipment::CODE,
             VisualCheckOfAge::CODE,
             PreferredDay::CODE,
-            PreferredTime::CODE
+            PreferredTime::CODE,
         ],
         ShippingProducts::CODE_CONNECT => [
             BulkyGoods::CODE,
@@ -131,6 +134,7 @@ class ProductFilter implements FilterInterface
 
     /**
      * ProductFilter constructor.
+     *
      * @param $productCode
      */
     private function __construct($productCode)
@@ -140,6 +144,7 @@ class ProductFilter implements FilterInterface
 
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -149,12 +154,14 @@ class ProductFilter implements FilterInterface
 
     /**
      * @param string $productCode
+     *
      * @return \Closure
      */
     public static function create($productCode)
     {
         return function (ServiceInterface $service) use ($productCode) {
             $filter = new static($productCode);
+
             return $filter->isAllowed($service);
         };
     }

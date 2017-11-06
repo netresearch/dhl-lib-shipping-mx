@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Gla\Request\Type;
 
 /**
- * ConsigneeAddressRequestType
+ * ConsigneeAddressRequestType.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ConsigneeAddressRequestType implements \JsonSerializable
@@ -130,6 +132,7 @@ class ConsigneeAddressRequestType implements \JsonSerializable
 
     /**
      * ConsigneeAddressRequestType constructor.
+     *
      * @param string $address1
      * @param string $city
      * @param string $country
@@ -281,12 +284,13 @@ class ConsigneeAddressRequestType implements \JsonSerializable
     /**
      * @return string[]
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         $properties = get_object_vars($this);
         $properties = array_filter($properties, function ($value) {
             return !empty($value);
         });
+
         return $properties;
     }
 }

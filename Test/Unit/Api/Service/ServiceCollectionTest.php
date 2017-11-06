@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,12 +17,14 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Bcs\Test\Unit
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service;
 
 use Dhl\Shipping\Service\Filter\CustomerSelectionFilter;
@@ -32,12 +34,13 @@ use Dhl\Shipping\Service\Filter\ProductFilter;
 use Dhl\Shipping\Util\ShippingProducts;
 
 /**
- * ServiceCollectionTest
+ * ServiceCollectionTest.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Bcs\Test\Unit
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
@@ -122,7 +125,7 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $codService = new Cod(true, false, false);
         $preferredDayService = new PreferredDay(false, true, true);
         $collection = new ServiceCollection([
-            COD::CODE => $codService,
+            COD::CODE          => $codService,
             PreferredDay::CODE => $preferredDayService,
         ]);
 
@@ -146,8 +149,8 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $preferredDayService = new PreferredDay(false, true, true);
         $printOnlyIfCodeableService = new PrintOnlyIfCodeable(true, false, false);
         $collection = new ServiceCollection([
-            COD::CODE => $codService,
-            PreferredDay::CODE => $preferredDayService,
+            COD::CODE                 => $codService,
+            PreferredDay::CODE        => $preferredDayService,
             PrintOnlyIfCodeable::CODE => $printOnlyIfCodeableService,
         ]);
 
@@ -172,8 +175,8 @@ class ServiceCollectionTest extends \PHPUnit_Framework_TestCase
         $preferredDayService = new PreferredDay(false, true, true);
         $printOnlyIfCodeableService = new PrintOnlyIfCodeable(true, false, false);
         $collection = new ServiceCollection([
-            COD::CODE => $codService,
-            PreferredDay::CODE => $preferredDayService,
+            COD::CODE                 => $codService,
+            PreferredDay::CODE        => $preferredDayService,
             PrintOnlyIfCodeable::CODE => $printOnlyIfCodeableService,
         ]);
 

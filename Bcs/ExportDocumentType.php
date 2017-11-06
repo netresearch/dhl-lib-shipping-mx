@@ -4,67 +4,66 @@ namespace Dhl\Shipping\Bcs;
 
 class ExportDocumentType
 {
-
     /**
-     * @var invoiceNumber $invoiceNumber
+     * @var invoiceNumber
      */
     protected $invoiceNumber = null;
 
     /**
-     * @var exportType $exportType
+     * @var exportType
      */
     protected $exportType = null;
 
     /**
-     * @var exportTypeDescription $exportTypeDescription
+     * @var exportTypeDescription
      */
     protected $exportTypeDescription = null;
 
     /**
-     * @var termsOfTrade $termsOfTrade
+     * @var termsOfTrade
      */
     protected $termsOfTrade = null;
 
     /**
-     * @var placeOfCommital $placeOfCommital
+     * @var placeOfCommital
      */
     protected $placeOfCommital = null;
 
     /**
-     * @var additionalFee $additionalFee
+     * @var additionalFee
      */
     protected $additionalFee = null;
 
     /**
-     * @var permitNumber $permitNumber
+     * @var permitNumber
      */
     protected $permitNumber = null;
 
     /**
-     * @var attestationNumber $attestationNumber
+     * @var attestationNumber
      */
     protected $attestationNumber = null;
 
     /**
-     * @var Serviceconfiguration $WithElectronicExportNtfctn
+     * @var Serviceconfiguration
      */
     protected $WithElectronicExportNtfctn = null;
 
     /**
-     * @var ExportDocPosition[] $ExportDocPosition
+     * @var ExportDocPosition[]
      */
     protected $ExportDocPosition = null;
 
     /**
      * @param string $exportType
      * @param string $placeOfCommital
-     * @param float $additionalFee
+     * @param float  $additionalFee
      */
     public function __construct($exportType, $placeOfCommital, $additionalFee)
     {
-      $this->exportType = $exportType;
-      $this->placeOfCommital = $placeOfCommital;
-      $this->additionalFee = $additionalFee;
+        $this->exportType = $exportType;
+        $this->placeOfCommital = $placeOfCommital;
+        $this->additionalFee = $additionalFee;
     }
 
     /**
@@ -72,17 +71,19 @@ class ExportDocumentType
      */
     public function getInvoiceNumber()
     {
-      return $this->invoiceNumber;
+        return $this->invoiceNumber;
     }
 
     /**
      * @param string $invoiceNumber
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setInvoiceNumber($invoiceNumber)
     {
-      $this->invoiceNumber = $invoiceNumber;
-      return $this;
+        $this->invoiceNumber = $invoiceNumber;
+
+        return $this;
     }
 
     /**
@@ -90,17 +91,19 @@ class ExportDocumentType
      */
     public function getExportType()
     {
-      return $this->exportType;
+        return $this->exportType;
     }
 
     /**
      * @param string $exportType
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportType($exportType)
     {
-      $this->exportType = $exportType;
-      return $this;
+        $this->exportType = $exportType;
+
+        return $this;
     }
 
     /**
@@ -108,17 +111,19 @@ class ExportDocumentType
      */
     public function getExportTypeDescription()
     {
-      return $this->exportTypeDescription;
+        return $this->exportTypeDescription;
     }
 
     /**
      * @param string $exportTypeDescription
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportTypeDescription($exportTypeDescription)
     {
-      $this->exportTypeDescription = $exportTypeDescription;
-      return $this;
+        $this->exportTypeDescription = $exportTypeDescription;
+
+        return $this;
     }
 
     /**
@@ -126,17 +131,19 @@ class ExportDocumentType
      */
     public function getTermsOfTrade()
     {
-      return $this->termsOfTrade;
+        return $this->termsOfTrade;
     }
 
     /**
      * @param string $termsOfTrade
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setTermsOfTrade($termsOfTrade)
     {
-      $this->termsOfTrade = $termsOfTrade;
-      return $this;
+        $this->termsOfTrade = $termsOfTrade;
+
+        return $this;
     }
 
     /**
@@ -144,17 +151,19 @@ class ExportDocumentType
      */
     public function getPlaceOfCommital()
     {
-      return $this->placeOfCommital;
+        return $this->placeOfCommital;
     }
 
     /**
      * @param string $placeOfCommital
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setPlaceOfCommital($placeOfCommital)
     {
-      $this->placeOfCommital = $placeOfCommital;
-      return $this;
+        $this->placeOfCommital = $placeOfCommital;
+
+        return $this;
     }
 
     /**
@@ -162,17 +171,19 @@ class ExportDocumentType
      */
     public function getAdditionalFee()
     {
-      return $this->additionalFee;
+        return $this->additionalFee;
     }
 
     /**
      * @param float $additionalFee
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setAdditionalFee($additionalFee)
     {
-      $this->additionalFee = $additionalFee;
-      return $this;
+        $this->additionalFee = $additionalFee;
+
+        return $this;
     }
 
     /**
@@ -180,17 +191,19 @@ class ExportDocumentType
      */
     public function getPermitNumber()
     {
-      return $this->permitNumber;
+        return $this->permitNumber;
     }
 
     /**
      * @param string $permitNumber
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setPermitNumber($permitNumber)
     {
-      $this->permitNumber = $permitNumber;
-      return $this;
+        $this->permitNumber = $permitNumber;
+
+        return $this;
     }
 
     /**
@@ -198,17 +211,19 @@ class ExportDocumentType
      */
     public function getAttestationNumber()
     {
-      return $this->attestationNumber;
+        return $this->attestationNumber;
     }
 
     /**
      * @param string $attestationNumber
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setAttestationNumber($attestationNumber)
     {
-      $this->attestationNumber = $attestationNumber;
-      return $this;
+        $this->attestationNumber = $attestationNumber;
+
+        return $this;
     }
 
     /**
@@ -216,17 +231,19 @@ class ExportDocumentType
      */
     public function getWithElectronicExportNtfctn()
     {
-      return $this->WithElectronicExportNtfctn;
+        return $this->WithElectronicExportNtfctn;
     }
 
     /**
      * @param Serviceconfiguration $WithElectronicExportNtfctn
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setWithElectronicExportNtfctn($WithElectronicExportNtfctn)
     {
-      $this->WithElectronicExportNtfctn = $WithElectronicExportNtfctn;
-      return $this;
+        $this->WithElectronicExportNtfctn = $WithElectronicExportNtfctn;
+
+        return $this;
     }
 
     /**
@@ -234,17 +251,18 @@ class ExportDocumentType
      */
     public function getExportDocPosition()
     {
-      return $this->ExportDocPosition;
+        return $this->ExportDocPosition;
     }
 
     /**
      * @param ExportDocPosition[] $ExportDocPosition
+     *
      * @return \Dhl\Shipping\Bcs\ExportDocumentType
      */
     public function setExportDocPosition(array $ExportDocPosition = null)
     {
-      $this->ExportDocPosition = $ExportDocPosition;
-      return $this;
-    }
+        $this->ExportDocPosition = $ExportDocPosition;
 
+        return $this;
+    }
 }

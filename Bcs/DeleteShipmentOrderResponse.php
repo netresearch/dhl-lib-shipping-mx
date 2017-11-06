@@ -4,32 +4,31 @@ namespace Dhl\Shipping\Bcs;
 
 class DeleteShipmentOrderResponse
 {
-
     /**
-     * @var Version $Version
+     * @var Version
      */
     protected $Version = null;
 
     /**
-     * @var Statusinformation $Status
+     * @var Statusinformation
      */
     protected $Status = null;
 
     /**
-     * @var DeletionState $DeletionState
+     * @var DeletionState
      */
     protected $DeletionState = null;
 
     /**
-     * @param Version $Version
+     * @param Version           $Version
      * @param Statusinformation $Status
-     * @param DeletionState $DeletionState
+     * @param DeletionState     $DeletionState
      */
     public function __construct($Version, $Status, $DeletionState)
     {
-      $this->Version = $Version;
-      $this->Status = $Status;
-      $this->DeletionState = $DeletionState;
+        $this->Version = $Version;
+        $this->Status = $Status;
+        $this->DeletionState = $DeletionState;
     }
 
     /**
@@ -37,17 +36,19 @@ class DeleteShipmentOrderResponse
      */
     public function getVersion()
     {
-      return $this->Version;
+        return $this->Version;
     }
 
     /**
      * @param Version $Version
+     *
      * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse
      */
     public function setVersion($Version)
     {
-      $this->Version = $Version;
-      return $this;
+        $this->Version = $Version;
+
+        return $this;
     }
 
     /**
@@ -55,17 +56,19 @@ class DeleteShipmentOrderResponse
      */
     public function getStatus()
     {
-      return $this->Status;
+        return $this->Status;
     }
 
     /**
      * @param Statusinformation $Status
+     *
      * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse
      */
     public function setStatus($Status)
     {
-      $this->Status = $Status;
-      return $this;
+        $this->Status = $Status;
+
+        return $this;
     }
 
     /**
@@ -73,17 +76,18 @@ class DeleteShipmentOrderResponse
      */
     public function getDeletionState()
     {
-      return $this->DeletionState;
+        return $this->DeletionState;
     }
 
     /**
      * @param DeletionState $DeletionState
+     *
      * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse
      */
     public function setDeletionState($DeletionState)
     {
-      $this->DeletionState = $DeletionState;
-      return $this;
-    }
+        $this->DeletionState = $DeletionState;
 
+        return $this;
+    }
 }

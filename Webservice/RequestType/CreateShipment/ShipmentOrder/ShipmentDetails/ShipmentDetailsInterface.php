@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,10 +17,11 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
@@ -30,9 +31,10 @@ namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Shipm
  * General configuration settings for creating a shipment order.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 interface ShipmentDetailsInterface
@@ -54,7 +56,7 @@ interface ShipmentDetailsInterface
      * Obtain the product to be booked for the current shipment order, e.g.
      * - DHL Paket
      * - DHL Paket International
-     * - DHL GM Business Priority
+     * - DHL GM Business Priority.
      *
      * @return string
      */
@@ -89,7 +91,7 @@ interface ShipmentDetailsInterface
     public function getDistributionCenter();
 
     /**
-     * Obtain merchants DHL customer prefix
+     * Obtain merchants DHL customer prefix.
      *
      * @return string
      */
@@ -117,7 +119,7 @@ interface ShipmentDetailsInterface
     public function getReturnShipmentReference();
 
     /**
-     * Obtain the date of shipment order creation, usually current date Y-m-d
+     * Obtain the date of shipment order creation, usually current date Y-m-d.
      *
      * @return string
      */
@@ -129,10 +131,9 @@ interface ShipmentDetailsInterface
     public function getBankData();
 
     /**
-     * Obtain optional shipment comment
+     * Obtain optional shipment comment.
      *
      * @return string
-     *
      */
     public function getShipmentComment();
 }

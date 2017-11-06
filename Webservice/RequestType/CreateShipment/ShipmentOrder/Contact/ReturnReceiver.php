@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
-
 /**
- * Platform independent shipment order return receiver details
+ * Platform independent shipment order return receiver details.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ReturnReceiver implements ReturnReceiverInterface
@@ -74,12 +76,13 @@ class ReturnReceiver implements ReturnReceiverInterface
 
     /**
      * ReturnReceiver constructor.
-     * @param string $companyName
-     * @param string $name
-     * @param string $nameAddition
-     * @param string $contactPerson
-     * @param string $phone
-     * @param string $email
+     *
+     * @param string           $companyName
+     * @param string           $name
+     * @param string           $nameAddition
+     * @param string           $contactPerson
+     * @param string           $phone
+     * @param string           $email
      * @param AddressInterface $address
      */
     public function __construct(

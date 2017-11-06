@@ -2,11 +2,12 @@
 
 namespace Dhl\Shipping\Util;
 
-use \DateTime;
+use DateTime;
 
 /**
  * @author   MArcus at Localhosrt
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     https://gist.github.com/marcus-at-localhorst/409f94440cf59e695eac
  */
 class Holidays
@@ -14,10 +15,10 @@ class Holidays
     public static function getEaster()
     {
         $easter = new \DateTime('now');
-        $year   = $easter->format('Y');
+        $year = $easter->format('Y');
         $easter->setDate($year, 3, 21);
         $easter->setTime(0, 0, 0);
-        $easter->modify('+' . easter_days($year) . 'days');
+        $easter->modify('+'.easter_days($year).'days');
 
         return $easter;
     }
@@ -25,25 +26,25 @@ class Holidays
     public static function holidays()
     {
         // removed all non static holidays
-        return array(
-            "neujahr"                   => new DateTime('jan 1st'),
-            "karfreitag"                => self::getEaster()->modify('-2 days'),
-            "ostermontag"               => self::getEaster()->modify('+1 day'),
-            "tag_der_arbeit"            => new DateTime('may 1st'),
-            "christi_himmelfahrt"       => self::getEaster()->modify('+39 days'),
-            "pfingstmontag"             => self::getEaster()->modify('+50 days'),
-            "tag_der_deutschen_einheit" => new DateTime('oct 3'),
-            "weihnachtstag1"            => new DateTime('dec 25th'),
-            "weihnachtstag2"            => new DateTime('dec 26th'),
-        );
+        return [
+            'neujahr'                   => new DateTime('jan 1st'),
+            'karfreitag'                => self::getEaster()->modify('-2 days'),
+            'ostermontag'               => self::getEaster()->modify('+1 day'),
+            'tag_der_arbeit'            => new DateTime('may 1st'),
+            'christi_himmelfahrt'       => self::getEaster()->modify('+39 days'),
+            'pfingstmontag'             => self::getEaster()->modify('+50 days'),
+            'tag_der_deutschen_einheit' => new DateTime('oct 3'),
+            'weihnachtstag1'            => new DateTime('dec 25th'),
+            'weihnachtstag2'            => new DateTime('dec 26th'),
+        ];
     }
 
     /**
-     * Check if this is a holiday
+     * Check if this is a holiday.
      *
-     * @param  string|DateTime object $date accepts valid date/time string or valid date object
+     * @param string|DateTime object $date accepts valid date/time string or valid date object
      *
-     * @return boolean
+     * @return bool
      */
     public static function isHoliday($date = 'now')
     {

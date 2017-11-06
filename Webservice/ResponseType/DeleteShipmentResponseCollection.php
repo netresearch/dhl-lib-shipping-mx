@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,27 +17,29 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ResponseType;
 
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
-use \Dhl\Shipping\Webservice\ResponseType\DeleteShipmentResponseInterface;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Webservice\Exception\ApiAdapterException;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatus;
+use Dhl\Shipping\Webservice\Exception\ApiAdapterException;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatus;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
 
 /**
- * DeleteShipmentResponseCollection
+ * DeleteShipmentResponseCollection.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteShipmentResponseInterface
@@ -59,15 +61,16 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
      * - Some labels cancelled: partially deleted
      *
      * @param ItemStatusInterface[] $items
+     *
      * @return ResponseStatus
      */
     private static function getResponseStatus(array $items)
     {
         $deletedItems = array_filter($items, function (ItemStatusInterface $item) {
-            return ($item->getCode() === ResponseStatusInterface::STATUS_SUCCESS);
+            return $item->getCode() === ResponseStatusInterface::STATUS_SUCCESS;
         });
         $rejectedItems = array_filter($items, function (ItemStatusInterface $item) {
-            return ($item->getCode() === ResponseStatusInterface::STATUS_FAILURE);
+            return $item->getCode() === ResponseStatusInterface::STATUS_FAILURE;
         });
 
         if (empty($rejectedItems)) {
@@ -97,6 +100,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ItemStatusInterface[] $items
+     *
      * @return string[]
      */
     private static function getStatusMessages(array $items)
@@ -125,11 +129,13 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ResponseStatusInterface $status
+     *
      * @return $this
      */
     public function setStatus(ResponseStatusInterface $status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -145,6 +151,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param string $shipmentNumber
+     *
      * @return ItemStatusInterface
      */
     public function getDeletedItem($shipmentNumber)
@@ -154,6 +161,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ItemStatusInterface[] $items
+     *
      * @return DeleteShipmentResponseCollection
      */
     public static function fromResponse(array $items)
@@ -168,6 +176,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ApiAdapterException $exception
+     *
      * @return DeleteShipmentResponseCollection
      */
     public static function fromError(ApiAdapterException $exception)
@@ -176,9 +185,9 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
         $messages = [];
         if ($exception->getPrevious()) {
-            $messages[]= $exception->getPrevious()->getMessage();
+            $messages[] = $exception->getPrevious()->getMessage();
         } else {
-            $messages[]= $exception->getMessage();
+            $messages[] = $exception->getMessage();
         }
 
         $responseStatus = new ResponseStatus(

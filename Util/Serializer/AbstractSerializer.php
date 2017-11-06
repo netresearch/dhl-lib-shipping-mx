@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,25 +17,27 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Util\Serializer
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Util\Serializer;
 
-use Dhl\Shipping\Util\Serializer\SerializerInterface;
 use Dhl\Shipping\Util\Serializer\Reflection\PropertyHandlerInterface;
 use Dhl\Shipping\Util\Serializer\Reflection\TypeHandlerInterface;
 
 /**
- * Data Serializer
+ * Data Serializer.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Util\Serializer
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class AbstractSerializer implements SerializerInterface
@@ -52,8 +54,9 @@ abstract class AbstractSerializer implements SerializerInterface
 
     /**
      * AbstractSerializer constructor.
+     *
      * @param PropertyHandlerInterface $propertyHandler
-     * @param TypeHandlerInterface $typeHandler
+     * @param TypeHandlerInterface     $typeHandler
      */
     public function __construct(
         PropertyHandlerInterface $propertyHandler,
@@ -67,7 +70,8 @@ abstract class AbstractSerializer implements SerializerInterface
      * Copy the properties to an object of the given type.
      *
      * @param mixed[] $properties Associated array of property keys and values.
-     * @param string $type The type of the target object.
+     * @param string  $type       The type of the target object.
+     *
      * @return \stdClass The target object with all properties set.
      */
     public function parseProperties(array $properties, $type)
@@ -89,7 +93,7 @@ abstract class AbstractSerializer implements SerializerInterface
 
                 $types = [];
                 foreach ($value as $item) {
-                    $types[]= $this->parseProperties($item, $subType);
+                    $types[] = $this->parseProperties($item, $subType);
                 }
 
                 $value = $types;

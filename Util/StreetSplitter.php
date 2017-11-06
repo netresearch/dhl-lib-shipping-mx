@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,31 +17,33 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Util;
 
-use \Dhl\Shipping\Util\StreetSplitterInterface;
-
 /**
- * Utility for splitting single address line into name, number, supplement
+ * Utility for splitting single address line into name, number, supplement.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class StreetSplitter implements StreetSplitterInterface
 {
     /**
-     * split street into street name, number and additional street information
+     * split street into street name, number and additional street information.
      *
      * @param string $street
+     *
      * @return string[]
      */
     public function splitStreet($street)
@@ -63,7 +65,7 @@ class StreetSplitter implements StreetSplitterInterface
 
                 if (isset($matches[self::OPTION_A_ADDITION_1]) && isset($matches[self::OPTION_A_ADDITION_2])) {
                     $result['supplement'] =
-                        trim($matches[self::OPTION_A_ADDITION_1] . ' ' . $matches[self::OPTION_A_ADDITION_2]);
+                        trim($matches[self::OPTION_A_ADDITION_1].' '.$matches[self::OPTION_A_ADDITION_2]);
                 }
 
                 // Pattern B
@@ -76,7 +78,7 @@ class StreetSplitter implements StreetSplitterInterface
 
                 if (isset($matches[self::OPTION_B_ADDITION_1]) && isset($matches[self::OPTION_B_ADDITION_2])) {
                     $result['supplement'] =
-                        trim($matches[self::OPTION_B_ADDITION_1] . ' ' . $matches[self::OPTION_B_ADDITION_2]);
+                        trim($matches[self::OPTION_B_ADDITION_1].' '.$matches[self::OPTION_B_ADDITION_2]);
                 }
             }
         }
@@ -87,13 +89,13 @@ class StreetSplitter implements StreetSplitterInterface
     /**
      * Regex to analyze addresses and split them into the groups Street Name, House Number and Additional Information
      * Pattern A is addition number street addition
-     * Pattern B is addition street number addition
+     * Pattern B is addition street number addition.
      *
      * @return string
      */
     private function getRegex()
     {
-        return "/\\A\\s*
+        return '/\\A\\s*
 (?:
   #########################################################################
   # Option A: [<Addition to address 1>] <House number> <Street name>      #
@@ -183,6 +185,6 @@ class StreetSplitter implements StreetSplitterInterface
   )?
   # Addition to address 2
 )
-\\s*\\Z/x";
+\\s*\\Z/x';
     }
 }

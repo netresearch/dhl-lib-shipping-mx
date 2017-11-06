@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Gla\Request\Type;
 
 /**
- * ReturnAddressRequestType
+ * ReturnAddressRequestType.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ReturnAddressRequestType implements \JsonSerializable
@@ -52,7 +54,7 @@ class ReturnAddressRequestType implements \JsonSerializable
     private $city;
 
     /**
-     * Two-character ISO return address country code. Required. 2 chars
+     * Two-character ISO return address country code. Required. 2 chars.
      *
      * @var string
      */
@@ -102,6 +104,7 @@ class ReturnAddressRequestType implements \JsonSerializable
 
     /**
      * ReturnAddressRequestType constructor.
+     *
      * @param string $address1
      * @param string $city
      * @param string $country
@@ -209,12 +212,13 @@ class ReturnAddressRequestType implements \JsonSerializable
     /**
      * @return string[]
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         $properties = get_object_vars($this);
         $properties = array_filter($properties, function ($value) {
             return !empty($value);
         });
+
         return $properties;
     }
 }
