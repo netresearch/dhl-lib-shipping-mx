@@ -4,14 +4,13 @@ namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationShipmentHandling
 {
-
     /**
-     * @var anonymous158 $active
+     * @var anonymous158
      */
     protected $active = null;
 
     /**
-     * @var anonymous159 $type
+     * @var anonymous159
      */
     protected $type = null;
 
@@ -21,8 +20,8 @@ class ServiceconfigurationShipmentHandling
      */
     public function __construct($active, $type)
     {
-      $this->active = $active;
-      $this->type = $type;
+        $this->active = $active;
+        $this->type = $type;
     }
 
     /**
@@ -30,17 +29,19 @@ class ServiceconfigurationShipmentHandling
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous158 $active
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationShipmentHandling
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class ServiceconfigurationShipmentHandling
      */
     public function getType()
     {
-      return $this->type;
+        return $this->type;
     }
 
     /**
      * @param anonymous159 $type
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationShipmentHandling
      */
     public function setType($type)
     {
-      $this->type = $type;
-      return $this;
-    }
+        $this->type = $type;
 
+        return $this;
+    }
 }

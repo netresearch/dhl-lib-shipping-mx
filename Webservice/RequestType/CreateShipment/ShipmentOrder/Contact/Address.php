@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,24 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\AddressInterface;
-
 /**
- * Platform independent shipment order contact address details
+ * Platform independent shipment order contact address details.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Address implements AddressInterface
@@ -88,14 +88,14 @@ class Address implements AddressInterface
      * Address constructor.
      *
      * @param string[] $street
-     * @param string $streetName
-     * @param string $streetNumber
-     * @param string $addressAddition
-     * @param string $postalCode
-     * @param string $city
-     * @param string $state
-     * @param string $countryCode
-     * @param string $dispatchingInformation
+     * @param string   $streetName
+     * @param string   $streetNumber
+     * @param string   $addressAddition
+     * @param string   $postalCode
+     * @param string   $city
+     * @param string   $state
+     * @param string   $countryCode
+     * @param string   $dispatchingInformation
      */
     public function __construct(
         array $street,
@@ -108,14 +108,14 @@ class Address implements AddressInterface
         $countryCode,
         $dispatchingInformation
     ) {
-        $this->street                 = $street;
-        $this->streetName             = $streetName;
-        $this->streetNumber           = $streetNumber;
-        $this->addressAddition        = $addressAddition;
-        $this->postalCode             = $postalCode;
-        $this->city                   = $city;
-        $this->state                  = $state;
-        $this->countryCode            = $countryCode;
+        $this->street = $street;
+        $this->streetName = $streetName;
+        $this->streetNumber = $streetNumber;
+        $this->addressAddition = $addressAddition;
+        $this->postalCode = $postalCode;
+        $this->city = $city;
+        $this->state = $state;
+        $this->countryCode = $countryCode;
         $this->dispatchingInformation = $dispatchingInformation;
     }
 
@@ -128,9 +128,10 @@ class Address implements AddressInterface
     }
 
     /**
-     * Street (name part)
+     * Street (name part).
      *
      * @see getStreet()
+     *
      * @return string
      */
     public function getStreetName()
@@ -139,9 +140,10 @@ class Address implements AddressInterface
     }
 
     /**
-     * Street (number part)
+     * Street (number part).
      *
      * @see getStreet()
+     *
      * @return string
      */
     public function getStreetNumber()
@@ -150,9 +152,10 @@ class Address implements AddressInterface
     }
 
     /**
-     * Street (additional information)
+     * Street (additional information).
      *
      * @see getStreet()
+     *
      * @return string
      */
     public function getAddressAddition()

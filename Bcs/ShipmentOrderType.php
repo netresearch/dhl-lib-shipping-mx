@@ -4,35 +4,34 @@ namespace Dhl\Shipping\Bcs;
 
 class ShipmentOrderType
 {
-
     /**
-     * @var SequenceNumber $sequenceNumber
+     * @var SequenceNumber
      */
     protected $sequenceNumber = null;
 
     /**
-     * @var Shipment $Shipment
+     * @var Shipment
      */
     protected $Shipment = null;
 
     /**
-     * @var Serviceconfiguration $PrintOnlyIfCodeable
+     * @var Serviceconfiguration
      */
     protected $PrintOnlyIfCodeable = null;
 
     /**
-     * @var labelResponseType $labelResponseType
+     * @var labelResponseType
      */
     protected $labelResponseType = null;
 
     /**
      * @param SequenceNumber $sequenceNumber
-     * @param Shipment $Shipment
+     * @param Shipment       $Shipment
      */
     public function __construct($sequenceNumber, $Shipment)
     {
-      $this->sequenceNumber = $sequenceNumber;
-      $this->Shipment = $Shipment;
+        $this->sequenceNumber = $sequenceNumber;
+        $this->Shipment = $Shipment;
     }
 
     /**
@@ -40,17 +39,19 @@ class ShipmentOrderType
      */
     public function getSequenceNumber()
     {
-      return $this->sequenceNumber;
+        return $this->sequenceNumber;
     }
 
     /**
      * @param SequenceNumber $sequenceNumber
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setSequenceNumber($sequenceNumber)
     {
-      $this->sequenceNumber = $sequenceNumber;
-      return $this;
+        $this->sequenceNumber = $sequenceNumber;
+
+        return $this;
     }
 
     /**
@@ -58,17 +59,19 @@ class ShipmentOrderType
      */
     public function getShipment()
     {
-      return $this->Shipment;
+        return $this->Shipment;
     }
 
     /**
      * @param Shipment $Shipment
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setShipment($Shipment)
     {
-      $this->Shipment = $Shipment;
-      return $this;
+        $this->Shipment = $Shipment;
+
+        return $this;
     }
 
     /**
@@ -76,17 +79,19 @@ class ShipmentOrderType
      */
     public function getPrintOnlyIfCodeable()
     {
-      return $this->PrintOnlyIfCodeable;
+        return $this->PrintOnlyIfCodeable;
     }
 
     /**
      * @param Serviceconfiguration $PrintOnlyIfCodeable
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setPrintOnlyIfCodeable($PrintOnlyIfCodeable)
     {
-      $this->PrintOnlyIfCodeable = $PrintOnlyIfCodeable;
-      return $this;
+        $this->PrintOnlyIfCodeable = $PrintOnlyIfCodeable;
+
+        return $this;
     }
 
     /**
@@ -94,17 +99,18 @@ class ShipmentOrderType
      */
     public function getLabelResponseType()
     {
-      return $this->labelResponseType;
+        return $this->labelResponseType;
     }
 
     /**
      * @param labelResponseType $labelResponseType
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentOrderType
      */
     public function setLabelResponseType($labelResponseType)
     {
-      $this->labelResponseType = $labelResponseType;
-      return $this;
-    }
+        $this->labelResponseType = $labelResponseType;
 
+        return $this;
+    }
 }

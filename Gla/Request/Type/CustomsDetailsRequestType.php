@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Gla\Request\Type;
 
 /**
- * CustomsDetailsRequestType
+ * CustomsDetailsRequestType.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class CustomsDetailsRequestType implements \JsonSerializable
@@ -95,13 +97,14 @@ class CustomsDetailsRequestType implements \JsonSerializable
 
     /**
      * CustomsDetailsRequestType constructor.
+     *
      * @param string $itemDescription
      * @param string $descriptionExport
      * @param string $descriptionImport
      * @param string $countryOfOrigin
      * @param string $hsCode
-     * @param int $packagedQuantity
-     * @param float $itemValue
+     * @param int    $packagedQuantity
+     * @param float  $itemValue
      * @param string $skuNumber
      */
     public function __construct(
@@ -191,12 +194,13 @@ class CustomsDetailsRequestType implements \JsonSerializable
     /**
      * @return string[]
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         $properties = get_object_vars($this);
         $properties = array_filter($properties, function ($value) {
             return !empty($value);
         });
+
         return $properties;
     }
 }

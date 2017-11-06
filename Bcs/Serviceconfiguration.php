@@ -4,9 +4,8 @@ namespace Dhl\Shipping\Bcs;
 
 class Serviceconfiguration
 {
-
     /**
-     * @var anonymous125 $active
+     * @var anonymous125
      */
     protected $active = null;
 
@@ -15,7 +14,7 @@ class Serviceconfiguration
      */
     public function __construct($active)
     {
-      $this->active = $active;
+        $this->active = $active;
     }
 
     /**
@@ -23,17 +22,18 @@ class Serviceconfiguration
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous125 $active
+     *
      * @return \Dhl\Shipping\Bcs\Serviceconfiguration
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
-    }
+        $this->active = $active;
 
+        return $this;
+    }
 }

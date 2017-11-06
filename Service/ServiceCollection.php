@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,27 +17,31 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service;
 
 /**
- * ServiceCollection
+ * ServiceCollection.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ServiceCollection extends \ArrayIterator
 {
     /**
      * @param ServiceInterface[] $services
+     *
      * @return static
      */
     public static function fromArray($services)
@@ -47,26 +51,31 @@ class ServiceCollection extends \ArrayIterator
         }, $services);
 
         $services = array_combine($codes, $services);
+
         return new static($services);
     }
 
     /**
      * @param callable $callback
+     *
      * @return static
      */
     public function filter(callable $callback)
     {
         $filteredServices = array_filter($this->getArrayCopy(), $callback);
+
         return static::fromArray($filteredServices);
     }
 
     /**
      * @param callable $callback
+     *
      * @return mixed[]
      */
     public function map(callable $callback)
     {
         $mappedServices = array_map($callback, $this->getArrayCopy());
+
         return $mappedServices;
     }
 

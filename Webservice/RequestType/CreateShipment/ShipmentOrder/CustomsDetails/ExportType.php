@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,23 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\ExportTypeInterface;
-
 /**
- * Platform independent shipment order customs details: export type
+ * Platform independent shipment order customs details: export type.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ExportType implements ExportTypeInterface
@@ -50,6 +51,7 @@ class ExportType implements ExportTypeInterface
 
     /**
      * ExportType constructor.
+     *
      * @param string $type
      * @param string $description
      */

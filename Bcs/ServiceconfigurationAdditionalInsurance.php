@@ -4,14 +4,13 @@ namespace Dhl\Shipping\Bcs;
 
 class ServiceconfigurationAdditionalInsurance
 {
-
     /**
-     * @var anonymous151 $active
+     * @var anonymous151
      */
     protected $active = null;
 
     /**
-     * @var anonymous152 $insuranceAmount
+     * @var anonymous152
      */
     protected $insuranceAmount = null;
 
@@ -21,8 +20,8 @@ class ServiceconfigurationAdditionalInsurance
      */
     public function __construct($active, $insuranceAmount)
     {
-      $this->active = $active;
-      $this->insuranceAmount = $insuranceAmount;
+        $this->active = $active;
+        $this->insuranceAmount = $insuranceAmount;
     }
 
     /**
@@ -30,17 +29,19 @@ class ServiceconfigurationAdditionalInsurance
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous151 $active
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationAdditionalInsurance
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class ServiceconfigurationAdditionalInsurance
      */
     public function getInsuranceAmount()
     {
-      return $this->insuranceAmount;
+        return $this->insuranceAmount;
     }
 
     /**
      * @param anonymous152 $insuranceAmount
+     *
      * @return \Dhl\Shipping\Bcs\ServiceconfigurationAdditionalInsurance
      */
     public function setInsuranceAmount($insuranceAmount)
     {
-      $this->insuranceAmount = $insuranceAmount;
-      return $this;
-    }
+        $this->insuranceAmount = $insuranceAmount;
 
+        return $this;
+    }
 }

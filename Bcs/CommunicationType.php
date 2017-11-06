@@ -4,26 +4,23 @@ namespace Dhl\Shipping\Bcs;
 
 class CommunicationType
 {
-
     /**
-     * @var phone $phone
+     * @var phone
      */
     protected $phone = null;
 
     /**
-     * @var email $email
+     * @var email
      */
     protected $email = null;
 
     /**
-     * @var contactPerson $contactPerson
+     * @var contactPerson
      */
     protected $contactPerson = null;
 
-
     public function __construct()
     {
-
     }
 
     /**
@@ -31,17 +28,19 @@ class CommunicationType
      */
     public function getPhone()
     {
-      return $this->phone;
+        return $this->phone;
     }
 
     /**
      * @param phone $phone
+     *
      * @return \Dhl\Shipping\Bcs\CommunicationType
      */
     public function setPhone($phone)
     {
-      $this->phone = $phone;
-      return $this;
+        $this->phone = $phone;
+
+        return $this;
     }
 
     /**
@@ -49,17 +48,19 @@ class CommunicationType
      */
     public function getEmail()
     {
-      return $this->email;
+        return $this->email;
     }
 
     /**
      * @param email $email
+     *
      * @return \Dhl\Shipping\Bcs\CommunicationType
      */
     public function setEmail($email)
     {
-      $this->email = $email;
-      return $this;
+        $this->email = $email;
+
+        return $this;
     }
 
     /**
@@ -67,17 +68,18 @@ class CommunicationType
      */
     public function getContactPerson()
     {
-      return $this->contactPerson;
+        return $this->contactPerson;
     }
 
     /**
      * @param contactPerson $contactPerson
+     *
      * @return \Dhl\Shipping\Bcs\CommunicationType
      */
     public function setContactPerson($contactPerson)
     {
-      $this->contactPerson = $contactPerson;
-      return $this;
-    }
+        $this->contactPerson = $contactPerson;
 
+        return $this;
+    }
 }

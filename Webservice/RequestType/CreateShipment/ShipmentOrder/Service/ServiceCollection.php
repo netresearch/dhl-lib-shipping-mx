@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service;
 
 /**
- * Generic service factory
+ * Generic service factory.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ServiceCollection extends \ArrayIterator implements ServiceCollectionInterface
@@ -43,10 +45,11 @@ class ServiceCollection extends \ArrayIterator implements ServiceCollectionInter
     private $serviceFactory;
 
     /**
-     * Construct an ArrayIterator
+     * Construct an ArrayIterator.
+     *
      * @param AbstractServiceFactory $serviceFactory
-     * @param array $labels The array or object to be iterated on.
-     * @param int $flags Flags to control the behaviour of the ArrayObject object.
+     * @param array                  $labels         The array or object to be iterated on.
+     * @param int                    $flags          Flags to control the behaviour of the ArrayObject object.
      */
     public function __construct(AbstractServiceFactory $serviceFactory, array $labels = [], $flags = 0)
     {
@@ -56,8 +59,9 @@ class ServiceCollection extends \ArrayIterator implements ServiceCollectionInter
     }
 
     /**
-     * @param string $serviceCode
+     * @param string           $serviceCode
      * @param ServiceInterface $service
+     *
      * @return $this
      */
     private function setService($serviceCode, ServiceInterface $service)
@@ -68,8 +72,9 @@ class ServiceCollection extends \ArrayIterator implements ServiceCollectionInter
     }
 
     /**
-     * @param string $serviceCode
+     * @param string  $serviceCode
      * @param mixed[] $data
+     *
      * @return $this
      */
     public function addService($serviceCode, array $data = [])
@@ -82,12 +87,13 @@ class ServiceCollection extends \ArrayIterator implements ServiceCollectionInter
 
     /**
      * @param $serviceCode
+     *
      * @return ServiceInterface|null
      */
     public function getService($serviceCode)
     {
         if (!$this->offsetExists($serviceCode)) {
-            return null;
+            return;
         }
 
         return $this->offsetGet($serviceCode);

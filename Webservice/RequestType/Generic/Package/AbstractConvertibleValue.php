@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,23 +17,26 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\Generic\Package;
 
-use \Dhl\Shipping\Webservice\UnitConverterInterface;
+use Dhl\Shipping\Webservice\UnitConverterInterface;
 
 /**
- * Platform independent convertible value
+ * Platform independent convertible value.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class AbstractConvertibleValue
@@ -45,6 +48,7 @@ abstract class AbstractConvertibleValue
 
     /**
      * AbstractConvertibleValue constructor.
+     *
      * @param UnitConverterInterface $unitConverter
      */
     public function __construct(UnitConverterInterface $unitConverter)

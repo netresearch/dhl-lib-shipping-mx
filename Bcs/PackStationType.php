@@ -4,44 +4,43 @@ namespace Dhl\Shipping\Bcs;
 
 class PackStationType
 {
-
     /**
-     * @var postNumber $postNumber
+     * @var postNumber
      */
     protected $postNumber = null;
 
     /**
-     * @var packstationNumber $packstationNumber
+     * @var packstationNumber
      */
     protected $packstationNumber = null;
 
     /**
-     * @var ZipType $zip
+     * @var ZipType
      */
     protected $zip = null;
 
     /**
-     * @var city $city
+     * @var city
      */
     protected $city = null;
 
     /**
-     * @var CountryType $Origin
+     * @var CountryType
      */
     protected $Origin = null;
 
     /**
      * @param packstationNumber $packstationNumber
-     * @param ZipType $zip
-     * @param city $city
-     * @param CountryType $Origin
+     * @param ZipType           $zip
+     * @param city              $city
+     * @param CountryType       $Origin
      */
     public function __construct($packstationNumber, $zip, $city, $Origin)
     {
-      $this->packstationNumber = $packstationNumber;
-      $this->zip = $zip;
-      $this->city = $city;
-      $this->Origin = $Origin;
+        $this->packstationNumber = $packstationNumber;
+        $this->zip = $zip;
+        $this->city = $city;
+        $this->Origin = $Origin;
     }
 
     /**
@@ -49,17 +48,19 @@ class PackStationType
      */
     public function getPostNumber()
     {
-      return $this->postNumber;
+        return $this->postNumber;
     }
 
     /**
      * @param postNumber $postNumber
+     *
      * @return \Dhl\Shipping\Bcs\PackStationType
      */
     public function setPostNumber($postNumber)
     {
-      $this->postNumber = $postNumber;
-      return $this;
+        $this->postNumber = $postNumber;
+
+        return $this;
     }
 
     /**
@@ -67,17 +68,19 @@ class PackStationType
      */
     public function getPackstationNumber()
     {
-      return $this->packstationNumber;
+        return $this->packstationNumber;
     }
 
     /**
      * @param packstationNumber $packstationNumber
+     *
      * @return \Dhl\Shipping\Bcs\PackStationType
      */
     public function setPackstationNumber($packstationNumber)
     {
-      $this->packstationNumber = $packstationNumber;
-      return $this;
+        $this->packstationNumber = $packstationNumber;
+
+        return $this;
     }
 
     /**
@@ -85,17 +88,19 @@ class PackStationType
      */
     public function getZip()
     {
-      return $this->zip;
+        return $this->zip;
     }
 
     /**
      * @param ZipType $zip
+     *
      * @return \Dhl\Shipping\Bcs\PackStationType
      */
     public function setZip($zip)
     {
-      $this->zip = $zip;
-      return $this;
+        $this->zip = $zip;
+
+        return $this;
     }
 
     /**
@@ -103,17 +108,19 @@ class PackStationType
      */
     public function getCity()
     {
-      return $this->city;
+        return $this->city;
     }
 
     /**
      * @param city $city
+     *
      * @return \Dhl\Shipping\Bcs\PackStationType
      */
     public function setCity($city)
     {
-      $this->city = $city;
-      return $this;
+        $this->city = $city;
+
+        return $this;
     }
 
     /**
@@ -121,17 +128,18 @@ class PackStationType
      */
     public function getOrigin()
     {
-      return $this->Origin;
+        return $this->Origin;
     }
 
     /**
      * @param CountryType $Origin
+     *
      * @return \Dhl\Shipping\Bcs\PackStationType
      */
     public function setOrigin($Origin)
     {
-      $this->Origin = $Origin;
-      return $this;
-    }
+        $this->Origin = $Origin;
 
+        return $this;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails;
 
 /**
- * Export position details as required for export documents
+ * Export position details as required for export documents.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 interface ExportPositionInterface
@@ -54,7 +57,7 @@ interface ExportPositionInterface
     public function getItemDescription();
 
     /**
-     * Obtain the commercial value of the commodity (per each)
+     * Obtain the commercial value of the commodity (per each).
      *
      * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface
      */
@@ -69,6 +72,7 @@ interface ExportPositionInterface
 
     /**
      * Obtain ISO-2-Alpha country code for the item's origin manufacturer country.
+     *
      * @return string
      */
     public function getCountryOfOrigin();

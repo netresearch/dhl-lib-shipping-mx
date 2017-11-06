@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,12 +17,14 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Filter;
 
 use Dhl\Shipping\Service\ParcelAnnouncement;
@@ -30,15 +32,16 @@ use Dhl\Shipping\Service\PreferredDay;
 use Dhl\Shipping\Service\PreferredLocation;
 use Dhl\Shipping\Service\PreferredNeighbour;
 use Dhl\Shipping\Service\PreferredTime;
-use \Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Service\ServiceInterface;
 
 /**
- * CustomerSelection filter
+ * CustomerSelection filter.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class CustomerSelectionFilter implements FilterInterface
@@ -61,6 +64,7 @@ class CustomerSelectionFilter implements FilterInterface
 
     /**
      * CustomerSelectionFilter constructor.
+     *
      * @param bool $isCustomerSelection
      */
     private function __construct($isCustomerSelection)
@@ -70,6 +74,7 @@ class CustomerSelectionFilter implements FilterInterface
 
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -83,12 +88,14 @@ class CustomerSelectionFilter implements FilterInterface
 
     /**
      * @param bool $isCustomerSelection
+     *
      * @return \Closure
      */
     public static function create($isCustomerSelection = false)
     {
         return function (ServiceInterface $service) use ($isCustomerSelection) {
             $filter = new static($isCustomerSelection);
+
             return $filter->isAllowed($service);
         };
     }

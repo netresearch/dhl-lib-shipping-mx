@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,26 +17,28 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
-use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
-use \Dhl\Shipping\Webservice\Adapter\AdapterInterface;
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
+use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
 
 /**
- * Shipping API Adapter
+ * Shipping API Adapter.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class AbstractAdapter implements AdapterInterface
@@ -48,40 +50,47 @@ abstract class AbstractAdapter implements AdapterInterface
 
     /**
      * @param ShipmentOrderInterface $shipmentOrder
+     *
      * @return bool
      */
     abstract protected function canCreateLabel(ShipmentOrderInterface $shipmentOrder);
 
     /**
      * @param string $shipmentNumber
+     *
      * @return bool
      */
     abstract protected function canCancelLabel($shipmentNumber);
 
     /**
      * @param ShipmentOrderInterface[] $shipmentOrders
+     *
      * @return LabelInterface[]
      */
     abstract protected function createShipmentOrders(array $shipmentOrders);
 
     /**
      * @param string[] $shipmentNumbers
+     *
      * @return ItemStatusInterface[]
      */
     abstract protected function deleteShipmentOrders(array $shipmentNumbers);
 
     /**
      * @param AdapterInterface $adapter
+     *
      * @return $this
      */
     public function setSuccessor(AdapterInterface $adapter)
     {
         $this->successor = $adapter;
+
         return $this;
     }
 
     /**
      * @param ShipmentOrderInterface[] $shipmentOrders
+     *
      * @return LabelInterface[]
      */
     public function createLabels(array $shipmentOrders)
@@ -112,6 +121,7 @@ abstract class AbstractAdapter implements AdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
+     *
      * @return ItemStatusInterface[]
      */
     public function cancelLabels(array $shipmentNumbers)

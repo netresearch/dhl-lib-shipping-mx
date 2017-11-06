@@ -4,131 +4,128 @@ namespace Dhl\Shipping\Bcs;
 
 class ShipmentService
 {
-
     /**
-     * @var ServiceconfigurationDateOfDelivery $DayOfDelivery
+     * @var ServiceconfigurationDateOfDelivery
      */
     protected $DayOfDelivery = null;
 
     /**
-     * @var ServiceconfigurationDeliveryTimeframe $DeliveryTimeframe
+     * @var ServiceconfigurationDeliveryTimeframe
      */
     protected $DeliveryTimeframe = null;
 
     /**
-     * @var ServiceconfigurationDeliveryTimeframe $PreferredTime
+     * @var ServiceconfigurationDeliveryTimeframe
      */
     protected $PreferredTime = null;
 
     /**
-     * @var ServiceconfigurationISR $IndividualSenderRequirement
+     * @var ServiceconfigurationISR
      */
     protected $IndividualSenderRequirement = null;
 
     /**
-     * @var Serviceconfiguration $PackagingReturn
+     * @var Serviceconfiguration
      */
     protected $PackagingReturn = null;
 
     /**
-     * @var Serviceconfiguration $ReturnImmediately
+     * @var Serviceconfiguration
      */
     protected $ReturnImmediately = null;
 
     /**
-     * @var Serviceconfiguration $NoticeOfNonDeliverability
+     * @var Serviceconfiguration
      */
     protected $NoticeOfNonDeliverability = null;
 
     /**
-     * @var ServiceconfigurationShipmentHandling $ShipmentHandling
+     * @var ServiceconfigurationShipmentHandling
      */
     protected $ShipmentHandling = null;
 
     /**
-     * @var ServiceconfigurationEndorsement $Endorsement
+     * @var ServiceconfigurationEndorsement
      */
     protected $Endorsement = null;
 
     /**
-     * @var ServiceconfigurationVisualAgeCheck $VisualCheckOfAge
+     * @var ServiceconfigurationVisualAgeCheck
      */
     protected $VisualCheckOfAge = null;
 
     /**
-     * @var ServiceconfigurationDetails $PreferredLocation
+     * @var ServiceconfigurationDetails
      */
     protected $PreferredLocation = null;
 
     /**
-     * @var ServiceconfigurationDetails $PreferredNeighbour
+     * @var ServiceconfigurationDetails
      */
     protected $PreferredNeighbour = null;
 
     /**
-     * @var ServiceconfigurationDetails $PreferredDay
+     * @var ServiceconfigurationDetails
      */
     protected $PreferredDay = null;
 
     /**
-     * @var Serviceconfiguration $GoGreen
+     * @var Serviceconfiguration
      */
     protected $GoGreen = null;
 
     /**
-     * @var Serviceconfiguration $Perishables
+     * @var Serviceconfiguration
      */
     protected $Perishables = null;
 
     /**
-     * @var Serviceconfiguration $Personally
+     * @var Serviceconfiguration
      */
     protected $Personally = null;
 
     /**
-     * @var Serviceconfiguration $NoNeighbourDelivery
+     * @var Serviceconfiguration
      */
     protected $NoNeighbourDelivery = null;
 
     /**
-     * @var Serviceconfiguration $NamedPersonOnly
+     * @var Serviceconfiguration
      */
     protected $NamedPersonOnly = null;
 
     /**
-     * @var Serviceconfiguration $ReturnReceipt
+     * @var Serviceconfiguration
      */
     protected $ReturnReceipt = null;
 
     /**
-     * @var Serviceconfiguration $Premium
+     * @var Serviceconfiguration
      */
     protected $Premium = null;
 
     /**
-     * @var ServiceconfigurationCashOnDelivery $CashOnDelivery
+     * @var ServiceconfigurationCashOnDelivery
      */
     protected $CashOnDelivery = null;
 
     /**
-     * @var ServiceconfigurationAdditionalInsurance $AdditionalInsurance
+     * @var ServiceconfigurationAdditionalInsurance
      */
     protected $AdditionalInsurance = null;
 
     /**
-     * @var Serviceconfiguration $BulkyGoods
+     * @var Serviceconfiguration
      */
     protected $BulkyGoods = null;
 
     /**
-     * @var ServiceconfigurationIC $IdentCheck
+     * @var ServiceconfigurationIC
      */
     protected $IdentCheck = null;
 
-
     public function __construct()
     {
-
     }
 
     /**
@@ -136,17 +133,19 @@ class ShipmentService
      */
     public function getDayOfDelivery()
     {
-      return $this->DayOfDelivery;
+        return $this->DayOfDelivery;
     }
 
     /**
      * @param ServiceconfigurationDateOfDelivery $DayOfDelivery
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setDayOfDelivery($DayOfDelivery)
     {
-      $this->DayOfDelivery = $DayOfDelivery;
-      return $this;
+        $this->DayOfDelivery = $DayOfDelivery;
+
+        return $this;
     }
 
     /**
@@ -154,17 +153,19 @@ class ShipmentService
      */
     public function getDeliveryTimeframe()
     {
-      return $this->DeliveryTimeframe;
+        return $this->DeliveryTimeframe;
     }
 
     /**
      * @param ServiceconfigurationDeliveryTimeframe $DeliveryTimeframe
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setDeliveryTimeframe($DeliveryTimeframe)
     {
-      $this->DeliveryTimeframe = $DeliveryTimeframe;
-      return $this;
+        $this->DeliveryTimeframe = $DeliveryTimeframe;
+
+        return $this;
     }
 
     /**
@@ -172,17 +173,19 @@ class ShipmentService
      */
     public function getPreferredTime()
     {
-      return $this->PreferredTime;
+        return $this->PreferredTime;
     }
 
     /**
      * @param ServiceconfigurationDeliveryTimeframe $PreferredTime
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPreferredTime($PreferredTime)
     {
-      $this->PreferredTime = $PreferredTime;
-      return $this;
+        $this->PreferredTime = $PreferredTime;
+
+        return $this;
     }
 
     /**
@@ -190,17 +193,19 @@ class ShipmentService
      */
     public function getIndividualSenderRequirement()
     {
-      return $this->IndividualSenderRequirement;
+        return $this->IndividualSenderRequirement;
     }
 
     /**
      * @param ServiceconfigurationISR $IndividualSenderRequirement
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setIndividualSenderRequirement($IndividualSenderRequirement)
     {
-      $this->IndividualSenderRequirement = $IndividualSenderRequirement;
-      return $this;
+        $this->IndividualSenderRequirement = $IndividualSenderRequirement;
+
+        return $this;
     }
 
     /**
@@ -208,17 +213,19 @@ class ShipmentService
      */
     public function getPackagingReturn()
     {
-      return $this->PackagingReturn;
+        return $this->PackagingReturn;
     }
 
     /**
      * @param Serviceconfiguration $PackagingReturn
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPackagingReturn($PackagingReturn)
     {
-      $this->PackagingReturn = $PackagingReturn;
-      return $this;
+        $this->PackagingReturn = $PackagingReturn;
+
+        return $this;
     }
 
     /**
@@ -226,17 +233,19 @@ class ShipmentService
      */
     public function getReturnImmediately()
     {
-      return $this->ReturnImmediately;
+        return $this->ReturnImmediately;
     }
 
     /**
      * @param Serviceconfiguration $ReturnImmediately
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setReturnImmediately($ReturnImmediately)
     {
-      $this->ReturnImmediately = $ReturnImmediately;
-      return $this;
+        $this->ReturnImmediately = $ReturnImmediately;
+
+        return $this;
     }
 
     /**
@@ -244,17 +253,19 @@ class ShipmentService
      */
     public function getNoticeOfNonDeliverability()
     {
-      return $this->NoticeOfNonDeliverability;
+        return $this->NoticeOfNonDeliverability;
     }
 
     /**
      * @param Serviceconfiguration $NoticeOfNonDeliverability
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setNoticeOfNonDeliverability($NoticeOfNonDeliverability)
     {
-      $this->NoticeOfNonDeliverability = $NoticeOfNonDeliverability;
-      return $this;
+        $this->NoticeOfNonDeliverability = $NoticeOfNonDeliverability;
+
+        return $this;
     }
 
     /**
@@ -262,17 +273,19 @@ class ShipmentService
      */
     public function getShipmentHandling()
     {
-      return $this->ShipmentHandling;
+        return $this->ShipmentHandling;
     }
 
     /**
      * @param ServiceconfigurationShipmentHandling $ShipmentHandling
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setShipmentHandling($ShipmentHandling)
     {
-      $this->ShipmentHandling = $ShipmentHandling;
-      return $this;
+        $this->ShipmentHandling = $ShipmentHandling;
+
+        return $this;
     }
 
     /**
@@ -280,17 +293,19 @@ class ShipmentService
      */
     public function getEndorsement()
     {
-      return $this->Endorsement;
+        return $this->Endorsement;
     }
 
     /**
      * @param ServiceconfigurationEndorsement $Endorsement
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setEndorsement($Endorsement)
     {
-      $this->Endorsement = $Endorsement;
-      return $this;
+        $this->Endorsement = $Endorsement;
+
+        return $this;
     }
 
     /**
@@ -298,17 +313,19 @@ class ShipmentService
      */
     public function getVisualCheckOfAge()
     {
-      return $this->VisualCheckOfAge;
+        return $this->VisualCheckOfAge;
     }
 
     /**
      * @param ServiceconfigurationVisualAgeCheck $VisualCheckOfAge
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setVisualCheckOfAge($VisualCheckOfAge)
     {
-      $this->VisualCheckOfAge = $VisualCheckOfAge;
-      return $this;
+        $this->VisualCheckOfAge = $VisualCheckOfAge;
+
+        return $this;
     }
 
     /**
@@ -316,17 +333,19 @@ class ShipmentService
      */
     public function getPreferredLocation()
     {
-      return $this->PreferredLocation;
+        return $this->PreferredLocation;
     }
 
     /**
      * @param ServiceconfigurationDetails $PreferredLocation
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPreferredLocation($PreferredLocation)
     {
-      $this->PreferredLocation = $PreferredLocation;
-      return $this;
+        $this->PreferredLocation = $PreferredLocation;
+
+        return $this;
     }
 
     /**
@@ -334,17 +353,19 @@ class ShipmentService
      */
     public function getPreferredNeighbour()
     {
-      return $this->PreferredNeighbour;
+        return $this->PreferredNeighbour;
     }
 
     /**
      * @param ServiceconfigurationDetails $PreferredNeighbour
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPreferredNeighbour($PreferredNeighbour)
     {
-      $this->PreferredNeighbour = $PreferredNeighbour;
-      return $this;
+        $this->PreferredNeighbour = $PreferredNeighbour;
+
+        return $this;
     }
 
     /**
@@ -352,17 +373,19 @@ class ShipmentService
      */
     public function getPreferredDay()
     {
-      return $this->PreferredDay;
+        return $this->PreferredDay;
     }
 
     /**
      * @param ServiceconfigurationDetails $PreferredDay
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPreferredDay($PreferredDay)
     {
-      $this->PreferredDay = $PreferredDay;
-      return $this;
+        $this->PreferredDay = $PreferredDay;
+
+        return $this;
     }
 
     /**
@@ -370,17 +393,19 @@ class ShipmentService
      */
     public function getGoGreen()
     {
-      return $this->GoGreen;
+        return $this->GoGreen;
     }
 
     /**
      * @param Serviceconfiguration $GoGreen
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setGoGreen($GoGreen)
     {
-      $this->GoGreen = $GoGreen;
-      return $this;
+        $this->GoGreen = $GoGreen;
+
+        return $this;
     }
 
     /**
@@ -388,17 +413,19 @@ class ShipmentService
      */
     public function getPerishables()
     {
-      return $this->Perishables;
+        return $this->Perishables;
     }
 
     /**
      * @param Serviceconfiguration $Perishables
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPerishables($Perishables)
     {
-      $this->Perishables = $Perishables;
-      return $this;
+        $this->Perishables = $Perishables;
+
+        return $this;
     }
 
     /**
@@ -406,17 +433,19 @@ class ShipmentService
      */
     public function getPersonally()
     {
-      return $this->Personally;
+        return $this->Personally;
     }
 
     /**
      * @param Serviceconfiguration $Personally
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPersonally($Personally)
     {
-      $this->Personally = $Personally;
-      return $this;
+        $this->Personally = $Personally;
+
+        return $this;
     }
 
     /**
@@ -424,17 +453,19 @@ class ShipmentService
      */
     public function getNoNeighbourDelivery()
     {
-      return $this->NoNeighbourDelivery;
+        return $this->NoNeighbourDelivery;
     }
 
     /**
      * @param Serviceconfiguration $NoNeighbourDelivery
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setNoNeighbourDelivery($NoNeighbourDelivery)
     {
-      $this->NoNeighbourDelivery = $NoNeighbourDelivery;
-      return $this;
+        $this->NoNeighbourDelivery = $NoNeighbourDelivery;
+
+        return $this;
     }
 
     /**
@@ -442,17 +473,19 @@ class ShipmentService
      */
     public function getNamedPersonOnly()
     {
-      return $this->NamedPersonOnly;
+        return $this->NamedPersonOnly;
     }
 
     /**
      * @param Serviceconfiguration $NamedPersonOnly
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setNamedPersonOnly($NamedPersonOnly)
     {
-      $this->NamedPersonOnly = $NamedPersonOnly;
-      return $this;
+        $this->NamedPersonOnly = $NamedPersonOnly;
+
+        return $this;
     }
 
     /**
@@ -460,17 +493,19 @@ class ShipmentService
      */
     public function getReturnReceipt()
     {
-      return $this->ReturnReceipt;
+        return $this->ReturnReceipt;
     }
 
     /**
      * @param Serviceconfiguration $ReturnReceipt
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setReturnReceipt($ReturnReceipt)
     {
-      $this->ReturnReceipt = $ReturnReceipt;
-      return $this;
+        $this->ReturnReceipt = $ReturnReceipt;
+
+        return $this;
     }
 
     /**
@@ -478,17 +513,19 @@ class ShipmentService
      */
     public function getPremium()
     {
-      return $this->Premium;
+        return $this->Premium;
     }
 
     /**
      * @param Serviceconfiguration $Premium
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setPremium($Premium)
     {
-      $this->Premium = $Premium;
-      return $this;
+        $this->Premium = $Premium;
+
+        return $this;
     }
 
     /**
@@ -496,17 +533,19 @@ class ShipmentService
      */
     public function getCashOnDelivery()
     {
-      return $this->CashOnDelivery;
+        return $this->CashOnDelivery;
     }
 
     /**
      * @param ServiceconfigurationCashOnDelivery $CashOnDelivery
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setCashOnDelivery($CashOnDelivery)
     {
-      $this->CashOnDelivery = $CashOnDelivery;
-      return $this;
+        $this->CashOnDelivery = $CashOnDelivery;
+
+        return $this;
     }
 
     /**
@@ -514,17 +553,19 @@ class ShipmentService
      */
     public function getAdditionalInsurance()
     {
-      return $this->AdditionalInsurance;
+        return $this->AdditionalInsurance;
     }
 
     /**
      * @param ServiceconfigurationAdditionalInsurance $AdditionalInsurance
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setAdditionalInsurance($AdditionalInsurance)
     {
-      $this->AdditionalInsurance = $AdditionalInsurance;
-      return $this;
+        $this->AdditionalInsurance = $AdditionalInsurance;
+
+        return $this;
     }
 
     /**
@@ -532,17 +573,19 @@ class ShipmentService
      */
     public function getBulkyGoods()
     {
-      return $this->BulkyGoods;
+        return $this->BulkyGoods;
     }
 
     /**
      * @param Serviceconfiguration $BulkyGoods
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setBulkyGoods($BulkyGoods)
     {
-      $this->BulkyGoods = $BulkyGoods;
-      return $this;
+        $this->BulkyGoods = $BulkyGoods;
+
+        return $this;
     }
 
     /**
@@ -550,17 +593,18 @@ class ShipmentService
      */
     public function getIdentCheck()
     {
-      return $this->IdentCheck;
+        return $this->IdentCheck;
     }
 
     /**
      * @param ServiceconfigurationIC $IdentCheck
+     *
      * @return \Dhl\Shipping\Bcs\ShipmentService
      */
     public function setIdentCheck($IdentCheck)
     {
-      $this->IdentCheck = $IdentCheck;
-      return $this;
-    }
+        $this->IdentCheck = $IdentCheck;
 
+        return $this;
+    }
 }

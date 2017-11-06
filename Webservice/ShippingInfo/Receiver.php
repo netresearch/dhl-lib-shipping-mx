@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ShippingInfo;
 
 /**
- * Receiver
+ * Receiver.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Receiver extends ArrayableInfo
@@ -93,7 +96,7 @@ class Receiver extends ArrayableInfo
     /**
      * Receiver constructor.
      *
-     * @param Receiver\ParcelShop $parcelShop
+     * @param Receiver\ParcelShop  $parcelShop
      * @param Receiver\Packstation $packstation
      * @param Receiver\Postfiliale $postfiliale
      */
@@ -104,7 +107,7 @@ class Receiver extends ArrayableInfo
     ) {
         $this->packstation = $packstation;
         $this->postfiliale = $postfiliale;
-        $this->parcelShop  = $parcelShop;
+        $this->parcelShop = $parcelShop;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service;
 
 /**
- * ServiceFactory
+ * ServiceFactory.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ServiceFactory
@@ -39,6 +42,7 @@ class ServiceFactory
     /**
      * @param string $code
      * @param string $value
+     *
      * @return ServiceInterface|null
      */
     public static function get($code, $value)
@@ -67,7 +71,7 @@ class ServiceFactory
             case VisualCheckOfAge::CODE:
                 return new VisualCheckOfAge($value);
             default:
-                return null;
+                return;
         }
     }
 }

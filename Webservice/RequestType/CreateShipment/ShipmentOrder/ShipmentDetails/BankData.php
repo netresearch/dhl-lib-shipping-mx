@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,23 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails\BankDataInterface;
-
 /**
- * Platform independent shipment order details: bank data
+ * Platform independent shipment order details: bank data.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class BankData implements BankDataInterface
@@ -70,12 +71,13 @@ class BankData implements BankDataInterface
 
     /**
      * BankData constructor.
-     * @param string $accountOwner
-     * @param string $bankName
-     * @param string $iban
-     * @param string $bic
+     *
+     * @param string    $accountOwner
+     * @param string    $bankName
+     * @param string    $iban
+     * @param string    $bic
      * @param \string[] $notes
-     * @param string $accountReference
+     * @param string    $accountReference
      */
     public function __construct($accountOwner, $bankName, $iban, $bic, array $notes, $accountReference)
     {

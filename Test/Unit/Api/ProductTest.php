@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Bcs\Test\Unit
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping;
 
 /**
- * ProductTest
+ * ProductTest.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Bcs\Test\Unit
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ProductTest extends \PHPUnit_Framework_TestCase
@@ -80,7 +83,7 @@ class ProductTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($allProcedures);
 
         $validProcedures = array_filter($allProcedures, function ($procedure) {
-            return ($procedure !== '');
+            return $procedure !== '';
         });
         $this->assertInternalType('array', $validProcedures);
         $this->assertNotEmpty($validProcedures);

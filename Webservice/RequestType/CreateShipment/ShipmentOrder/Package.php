@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,75 +17,78 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
-use \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
-use \Dhl\Shipping\Webservice\RequestType\Generic\Package\DimensionsInterface;
-use \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\PackageItemInterface;
+use Dhl\Shipping\Webservice\RequestType\Generic\Package\DimensionsInterface;
+use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
+use Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 
 /**
- * Platform independent shipment order package
+ * Platform independent shipment order package.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Package implements PackageInterface
 {
     /**
-     * Package identifier
+     * Package identifier.
      *
      * @var int
      */
     private $packageId;
 
     /**
-     * Package weight
+     * Package weight.
      *
      * @var WeightInterface
      */
     private $weight;
 
     /**
-     * Package dimensions
+     * Package dimensions.
      *
      * @var DimensionsInterface
      */
     private $dimensions;
 
     /**
-     * Customs value
+     * Customs value.
      *
      * @var MonetaryValueInterface
      */
     private $declaredValue;
 
     /**
-     * Additional custom fees to be payed
+     * Additional custom fees to be payed.
      *
      * @var string
      */
     private $additionalFee;
 
     /**
-     * OTHER, PRESENT, COMMERCIAL_SAMPLE, DOCUMENT, RETURN_OF_GOODS
+     * OTHER, PRESENT, COMMERCIAL_SAMPLE, DOCUMENT, RETURN_OF_GOODS.
      *
      * @var string
      */
     private $exportType;
 
     /**
-     * Additional information for export type OTHER
+     * Additional information for export type OTHER.
+     *
      * @see exportType
      *
      * @var string
@@ -93,49 +96,49 @@ class Package implements PackageInterface
     private $exportTypeDescription;
 
     /**
-     * Incoterms code
+     * Incoterms code.
      *
      * @var string
      */
     private $termsOfTrade;
 
     /**
-     * Committal location
+     * Committal location.
      *
      * @var string
      */
     private $placeOfCommittal;
 
     /**
-     * Customs permit number
+     * Customs permit number.
      *
      * @var string
      */
     private $permitNumber;
 
     /**
-     * Customs attestation number
+     * Customs attestation number.
      *
      * @var string
      */
     private $attestationNumber;
 
     /**
-     * Select electronic export notification (EEI)
+     * Select electronic export notification (EEI).
      *
      * @var bool
      */
     private $exportNotification;
 
     /**
-     * Dangerous goods category
+     * Dangerous goods category.
      *
      * @var string
      */
     private $dgCategory;
 
     /**
-     * Package items
+     * Package items.
      *
      * @var PackageItemInterface[]
      */
@@ -143,19 +146,20 @@ class Package implements PackageInterface
 
     /**
      * Package constructor.
-     * @param int $packageId
-     * @param WeightInterface $weight
-     * @param DimensionsInterface $dimensions
+     *
+     * @param int                    $packageId
+     * @param WeightInterface        $weight
+     * @param DimensionsInterface    $dimensions
      * @param MonetaryValueInterface $declaredValue
      * @param MonetaryValueInterface $additionalFee
-     * @param string $exportType
-     * @param string $exportTypeDescription
-     * @param string $termsOfTrade
-     * @param string $placeOfCommittal
-     * @param string $permitNumber
-     * @param string $attestationNumber
-     * @param bool $exportNotification
-     * @param string $dgCategory
+     * @param string                 $exportType
+     * @param string                 $exportTypeDescription
+     * @param string                 $termsOfTrade
+     * @param string                 $placeOfCommittal
+     * @param string                 $permitNumber
+     * @param string                 $attestationNumber
+     * @param bool                   $exportNotification
+     * @param string                 $dgCategory
      * @param PackageItemInterface[] $items
      */
     public function __construct(

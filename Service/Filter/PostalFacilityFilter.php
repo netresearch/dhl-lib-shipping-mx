@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,12 +17,14 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Filter;
 
 use Dhl\Shipping\Service\Cod;
@@ -30,15 +32,16 @@ use Dhl\Shipping\Service\Insurance;
 use Dhl\Shipping\Service\ParcelAnnouncement;
 use Dhl\Shipping\Service\PrintOnlyIfCodeable;
 use Dhl\Shipping\Service\ReturnShipment;
-use \Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Service\ServiceInterface;
 
 /**
- * PostalFacility filter
+ * PostalFacility filter.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class PostalFacilityFilter implements FilterInterface
@@ -61,6 +64,7 @@ class PostalFacilityFilter implements FilterInterface
 
     /**
      * PostalFacilityFilter constructor.
+     *
      * @param bool $isPostalFacility
      */
     private function __construct($isPostalFacility)
@@ -70,6 +74,7 @@ class PostalFacilityFilter implements FilterInterface
 
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -83,12 +88,14 @@ class PostalFacilityFilter implements FilterInterface
 
     /**
      * @param bool $isPostalFacility
+     *
      * @return \Closure
      */
     public static function create($isPostalFacility = false)
     {
         return function (ServiceInterface $service) use ($isPostalFacility) {
             $filter = new static($isPostalFacility);
+
             return $filter->isAllowed($service);
         };
     }

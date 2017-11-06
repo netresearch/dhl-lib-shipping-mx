@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,10 +17,11 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
@@ -31,9 +32,10 @@ namespace Dhl\Shipping\Webservice\Exception;
  * cannot be parsed from any response.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class GlCommunicationException extends \Exception
@@ -43,21 +45,25 @@ class GlCommunicationException extends \Exception
 
     /**
      * @param string $message
+     *
      * @return static
      */
     public static function setup($message)
     {
         $message = sprintf('%s %s', self::SETUP_EXCEPTION_MESSAGE, $message);
+
         return new static($message);
     }
 
     /**
      * @param string $message
+     *
      * @return static
      */
     public static function runtime($message)
     {
         $message = sprintf('%s %s', self::RUNTIME_EXCEPTION_MESSAGE, $message);
+
         return new static($message);
-   }
+    }
 }

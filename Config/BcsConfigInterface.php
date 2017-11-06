@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Config;
 
 /**
- * BcsConfigInterface
+ * BcsConfigInterface.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 interface BcsConfigInterface
@@ -81,6 +84,7 @@ interface BcsConfigInterface
      * Obtain API endpoint.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getApiEndpoint($store = null);
@@ -89,6 +93,7 @@ interface BcsConfigInterface
      * Obtain auth credentials: username.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAuthUsername($store = null);
@@ -97,6 +102,7 @@ interface BcsConfigInterface
      * Obtain auth credentials: password.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAuthPassword($store = null);
@@ -105,6 +111,7 @@ interface BcsConfigInterface
      * Obtain DHL Business Customer Shipping contract data: username.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAccountUser($store = null);
@@ -113,6 +120,7 @@ interface BcsConfigInterface
      * Obtain DHL Business Customer Shipping contract data: signature.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAccountSignature($store = null);
@@ -121,6 +129,7 @@ interface BcsConfigInterface
      * Obtain DHL Business Customer Shipping contract data: ekp.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAccountEkp($store = null);
@@ -129,6 +138,7 @@ interface BcsConfigInterface
      * Obtain DHL Business Customer Shipping contract data: participation numbers.
      *
      * @param mixed $store
+     *
      * @return string[]
      */
     public function getAccountParticipations($store = null);
@@ -145,68 +155,77 @@ interface BcsConfigInterface
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getBankDataAccountOwner($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getBankDataBankName($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getBankDataIban($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getBankDataBic($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string[]
      */
     public function getBankDataNote($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getBankDataAccountReference($store = null);
 
     /**
-     * Obtain name of shipper (first name part)
+     * Obtain name of shipper (first name part).
      *
      * @deprecated Shipment request uses name of currently logged in admin
      * @see \Magento\Shipping\Model\Shipping\Labels::requestToShipment()
      * @see \Magento\User\Model\User::getName()
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperName($store = null);
 
     /**
-     * Obtain shipper company name (second name part)
+     * Obtain shipper company name (second name part).
      *
      * @deprecated Shipment request uses config general/store_information/name
      * @see \Magento\Shipping\Model\Shipping\Labels::requestToShipment()
      * @see \Magento\Store\Model\Information::XML_PATH_STORE_INFO_NAME
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperCompany($store = null);
 
     /**
-     * Obtain shipper company name (third name part)
+     * Obtain shipper company name (third name part).
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperCompanyAddition($store = null);
@@ -217,6 +236,7 @@ interface BcsConfigInterface
      * @see \Magento\Store\Model\Information::XML_PATH_STORE_INFO_PHONE
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperPhone($store = null);
@@ -227,6 +247,7 @@ interface BcsConfigInterface
      * @see \Magento\User\Model\User::getEmail()
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperEmail($store = null);
@@ -237,6 +258,7 @@ interface BcsConfigInterface
      * @see \Magento\Sales\Model\Order\Shipment::XML_PATH_STORE_ADDRESS1
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperStreet($store = null);
@@ -247,6 +269,7 @@ interface BcsConfigInterface
      * @see \Magento\Sales\Model\Order\Shipment::XML_PATH_STORE_ADDRESS1
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperStreetNumber($store = null);
@@ -257,6 +280,7 @@ interface BcsConfigInterface
      * @see \Magento\Sales\Model\Order\Shipment::XML_PATH_STORE_ZIP
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperPostalCode($store = null);
@@ -267,6 +291,7 @@ interface BcsConfigInterface
      * @see \Magento\Sales\Model\Order\Shipment::XML_PATH_STORE_CITY
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperCity($store = null);
@@ -277,6 +302,7 @@ interface BcsConfigInterface
      * @see \Magento\Sales\Model\Order\Shipment::XML_PATH_STORE_REGION_ID
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperRegion($store = null);
@@ -287,12 +313,14 @@ interface BcsConfigInterface
      * @see \Magento\Sales\Model\Order\Shipment::XML_PATH_STORE_COUNTRY_ID
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getShipperCountryISOCode($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getDispatchingInformation($store = null);

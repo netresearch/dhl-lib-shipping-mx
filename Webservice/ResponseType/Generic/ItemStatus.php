@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,23 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ResponseType\Generic;
 
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
-
 /**
- * ItemStatus
+ * ItemStatus.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ItemStatus extends ResponseStatus implements ItemStatusInterface
@@ -45,8 +46,9 @@ class ItemStatus extends ResponseStatus implements ItemStatusInterface
 
     /**
      * ItemStatus constructor.
+     *
      * @param string $identifier
-     * @param int $code
+     * @param int    $code
      * @param string $text
      * @param string $message
      */

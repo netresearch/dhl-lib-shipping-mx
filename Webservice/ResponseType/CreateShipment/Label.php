@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,24 +17,26 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\ResponseType\CreateShipment;
 
-use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
 
 /**
- * Label
+ * Label.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Label implements LabelInterface
@@ -76,13 +78,14 @@ class Label implements LabelInterface
 
     /**
      * Label constructor.
+     *
      * @param ItemStatusInterface $status
-     * @param string $sequenceNumber
-     * @param string $trackingNumber
-     * @param string $label
-     * @param string $returnLabel
-     * @param string $exportLabel
-     * @param string $codLabel
+     * @param string              $sequenceNumber
+     * @param string              $trackingNumber
+     * @param string              $label
+     * @param string              $returnLabel
+     * @param string              $exportLabel
+     * @param string              $codLabel
      */
     public function __construct(
         ItemStatusInterface $status,
@@ -164,7 +167,7 @@ class Label implements LabelInterface
             $this->label,
             $this->exportLabel,
             $this->returnLabel,
-            $this->codLabel
+            $this->codLabel,
         ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,23 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Util\Serializer
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Util\Serializer;
 
-use \Dhl\Shipping\Util\Serializer\SerializerInterface;
-
 /**
- * REST API JSON Serializer
+ * REST API JSON Serializer.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Util\Serializer
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Json extends AbstractSerializer implements SerializerInterface
@@ -41,11 +42,13 @@ class Json extends AbstractSerializer implements SerializerInterface
     /**
      * @param string $data The data to be parsed
      * @param string $type The type (interface) to map the data to
+     *
      * @return mixed The object with populated properties
      */
     public function deserialize($data, $type)
     {
         $properties = json_decode($data, true);
+
         return $this->parseProperties($properties, $type);
     }
 }

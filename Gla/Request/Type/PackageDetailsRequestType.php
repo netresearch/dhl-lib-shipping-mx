@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,28 +17,31 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Gla\Request\Type;
 
 /**
- * PackageDetailsRequestType
+ * PackageDetailsRequestType.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class PackageDetailsRequestType implements \JsonSerializable
 {
     /**
      * Three-letter ISO Currency code. Required. 3 chars.
+     *
      * @var string
      */
     private $currency;
@@ -58,7 +61,7 @@ class PackageDetailsRequestType implements \JsonSerializable
     private $packageId;
 
     /**
-     * Total shipment content weight. Whole numbers only. Required
+     * Total shipment content weight. Whole numbers only. Required.
      *
      * @var int
      */
@@ -66,6 +69,7 @@ class PackageDetailsRequestType implements \JsonSerializable
 
     /**
      * The unit of measure for the weight. Required. 1-2 chars.
+     *
      * @var string
      */
     private $weightUom;
@@ -79,12 +83,14 @@ class PackageDetailsRequestType implements \JsonSerializable
 
     /**
      * Secondary billing data aggregation property, also referred to as Batch. Optional. 1-30 chars.
+     *
      * @var string
      */
     private $billingRef2;
 
     /**
      * Amount to collect upon delivery of goods. Optional.
+     *
      * @var float
      */
     private $codAmount;
@@ -98,12 +104,14 @@ class PackageDetailsRequestType implements \JsonSerializable
 
     /**
      * For future-use. Optional. 1-60 chars.
+     *
      * @var string
      */
     private $deliveryConfirmationNo;
 
     /**
      * Dangerous goods category. Optional. 2 chars.
+     *
      * @var string
      */
     private $dgCategory;
@@ -191,28 +199,29 @@ class PackageDetailsRequestType implements \JsonSerializable
 
     /**
      * PackageDetailsRequestType constructor.
+     *
      * @param string $currency
      * @param string $orderedProduct
      * @param string $packageId
-     * @param int $weight
+     * @param int    $weight
      * @param string $weightUom
      * @param string $billingRef1
      * @param string $billingRef2
-     * @param float $codAmount
-     * @param float $declaredValue
+     * @param float  $codAmount
+     * @param float  $declaredValue
      * @param string $deliveryConfirmationNo
      * @param string $dgCategory
      * @param string $dimensionUom
-     * @param int $height
-     * @param int $length
-     * @param int $width
+     * @param int    $height
+     * @param int    $length
+     * @param int    $width
      * @param string $dutiesPaid
-     * @param float $insuredValue
-     * @param int $mailtype
+     * @param float  $insuredValue
+     * @param int    $mailtype
      * @param string $packageDesc
      * @param string $packageRefName
      * @param string $service
-     * @param int $serviceEndorsement
+     * @param int    $serviceEndorsement
      */
     public function __construct(
         $currency,
@@ -441,12 +450,13 @@ class PackageDetailsRequestType implements \JsonSerializable
     /**
      * @return string[]
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         $properties = get_object_vars($this);
         $properties = array_filter($properties, function ($value) {
             return !empty($value);
         });
+
         return $properties;
     }
 }

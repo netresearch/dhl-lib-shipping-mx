@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,36 +17,37 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
 namespace Dhl\Shipping\Webservice\Adapter;
 
-use \Dhl\Shipping\Util\Serializer\SerializerInterface;
-use \Dhl\Shipping\Webservice\Adapter\GlAdapterInterface;
-use \Dhl\Shipping\Webservice\Client\GlRestClientInterface;
-use \Dhl\Shipping\Webservice\RequestMapper;
-use \Dhl\Shipping\Webservice\ResponseParser;
-use \Dhl\Shipping\Webservice\RequestType;
-use \Dhl\Shipping\Webservice\ResponseType;
-use \Dhl\Shipping\Gla\Request\LabelRequest;
-use \Dhl\Shipping\Gla\Response\LabelResponse;
-use \Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
-use \Dhl\Shipping\Webservice\Exception\ApiOperationException;
-use \Dhl\Shipping\Webservice\Exception\GlCommunicationException;
-use \Dhl\Shipping\Webservice\Exception\GlOperationException;
+use Dhl\Shipping\Gla\Request\LabelRequest;
+use Dhl\Shipping\Gla\Response\LabelResponse;
+use Dhl\Shipping\Util\Serializer\SerializerInterface;
+use Dhl\Shipping\Webservice\Client\GlRestClientInterface;
+use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
+use Dhl\Shipping\Webservice\Exception\ApiOperationException;
+use Dhl\Shipping\Webservice\Exception\GlCommunicationException;
+use Dhl\Shipping\Webservice\Exception\GlOperationException;
+use Dhl\Shipping\Webservice\RequestMapper;
+use Dhl\Shipping\Webservice\RequestType;
+use Dhl\Shipping\Webservice\ResponseParser;
+use Dhl\Shipping\Webservice\ResponseType;
 
 /**
- * Global Label API Adapter
+ * Global Label API Adapter.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class GlAdapter extends AbstractAdapter implements GlAdapterInterface
@@ -74,10 +75,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     /**
      * GlAdapter constructor.
      *
-     * @param ResponseParser\GlResponseParserInterface      $responseParser
-     * @param RequestMapper\GlDataMapperInterface           $requestMapper
-     * @param GlRestClientInterface                         $restClient
-     * @param SerializerInterface                           $serializer
+     * @param ResponseParser\GlResponseParserInterface $responseParser
+     * @param RequestMapper\GlDataMapperInterface      $requestMapper
+     * @param GlRestClientInterface                    $restClient
+     * @param SerializerInterface                      $serializer
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
@@ -85,10 +86,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
         GlRestClientInterface $restClient,
         SerializerInterface $serializer
     ) {
-        $this->responseParser      = $responseParser;
-        $this->requestMapper       = $requestMapper;
-        $this->restClient          = $restClient;
-        $this->serializer          = $serializer;
+        $this->responseParser = $responseParser;
+        $this->requestMapper = $requestMapper;
+        $this->restClient = $restClient;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -108,6 +109,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      * Global Label API cannot cancel labels.
      *
      * @param string $shipmentNumber
+     *
      * @return bool
      */
     protected function canCancelLabel($shipmentNumber)
@@ -118,9 +120,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      *
-     * @return ResponseType\CreateShipment\LabelInterface[]
      * @throws ApiOperationException
      * @throws ApiCommunicationException
+     *
+     * @return ResponseType\CreateShipment\LabelInterface[]
      */
     public function createShipmentOrders(array $shipmentOrders)
     {
@@ -133,7 +136,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
         );
 
         $labelRequest = new LabelRequest($shipmentOrders);
-        $payload      = json_encode($labelRequest);
+        $payload = json_encode($labelRequest);
 
         try {
             // (2) http client sends payload to API, passes through response
@@ -153,8 +156,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
-     * @return ResponseType\Generic\ItemStatusInterface[]
+     *
      * @throws ApiOperationException
+     *
+     * @return ResponseType\Generic\ItemStatusInterface[]
      */
     protected function deleteShipmentOrders(array $shipmentNumbers)
     {

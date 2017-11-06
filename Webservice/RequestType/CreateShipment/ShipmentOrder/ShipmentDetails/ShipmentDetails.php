@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,22 +17,25 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails;
 
 /**
- * Platform independent shipment order details
+ * Platform independent shipment order details.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @author   Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class ShipmentDetails implements ShipmentDetailsInterface
@@ -180,7 +183,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * Obtain the product to be booked for the current shipment order, e.g.
      * - DHL Paket
      * - DHL Paket International
-     * - DHL GM Business Priority
+     * - DHL GM Business Priority.
      *
      * @return string
      */
@@ -230,7 +233,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * Obtain merchants DHL customer prefix
+     * Obtain merchants DHL customer prefix.
      *
      * @return string
      */
@@ -268,7 +271,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * Obtain the date of shipment order creation, usually current date Y-m-d
+     * Obtain the date of shipment order creation, usually current date Y-m-d.
      *
      * @return string
      */
@@ -286,7 +289,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * Obtain optional shipment comment
+     * Obtain optional shipment comment.
      *
      * @return string
      */

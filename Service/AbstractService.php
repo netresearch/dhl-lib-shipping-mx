@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,21 +17,24 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service;
 
 /**
- * AbstractService
+ * AbstractService.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ *
  * @author   Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 abstract class AbstractService implements ServiceInterface
@@ -45,6 +48,7 @@ abstract class AbstractService implements ServiceInterface
 
     /**
      * AbstractService constructor.
+     *
      * @param $value
      */
     public function __construct($value)

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,10 +17,11 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Webservice
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
 
@@ -29,12 +30,13 @@ namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Servi
 use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 
 /**
- * Additional service: Cash On Delivery
+ * Additional service: Cash On Delivery.
  *
  * @category Dhl
- * @package  Dhl\Shipping\Webservice
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 class Cod implements ServiceInterface
@@ -51,8 +53,9 @@ class Cod implements ServiceInterface
 
     /**
      * Cod constructor.
+     *
      * @param MonetaryValueInterface $codAmount
-     * @param bool $addFee
+     * @param bool                   $addFee
      */
     public function __construct(MonetaryValueInterface $codAmount, $addFee)
     {

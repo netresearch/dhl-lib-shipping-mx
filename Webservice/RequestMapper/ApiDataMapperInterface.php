@@ -1,6 +1,6 @@
 <?php
 /**
- * Dhl Shipping
+ * Dhl Shipping.
  *
  * NOTICE OF LICENSE
  *
@@ -17,23 +17,26 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ *
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Webservice\RequestMapper;
 
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 
 /**
- * ApiDataMapperInterface
+ * ApiDataMapperInterface.
  *
  * @category Dhl
- * @package  Dhl\Shipping
+ *
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ *
  * @link     http://www.netresearch.de/
  */
 interface ApiDataMapperInterface
@@ -42,6 +45,7 @@ interface ApiDataMapperInterface
      * Create api specific request object from framework standardized object.
      *
      * @param ShipmentOrderInterface $shipmentOrder
+     *
      * @return object The "BCS shipment order" or "GL API shipment" entity
      */
     public function mapShipmentOrder(ShipmentOrderInterface $shipmentOrder);
