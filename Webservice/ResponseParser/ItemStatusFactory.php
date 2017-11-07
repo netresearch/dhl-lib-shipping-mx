@@ -18,33 +18,48 @@
  *
  * @category  Dhl
  * @package   Dhl\Shipping
- * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author    Max Melzer <max.melzer@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
+use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatus;
+
 /**
- * BcsResponseParserInterface
+ * Geschäftskunden API response parser
  *
  * @category Dhl
  * @package  Dhl\Shipping
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
+ *
+ * @SuppressWarnings(MEQP2.Classes.ObjectInstantiation)
  */
-interface BcsResponseParserInterface extends ResponseParserInterface
+class ItemStatusFactory
 {
     /**
-     * @param \Dhl\Shipping\Bcs\GetVersionResponse $response
-     * @return \Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface
+     * @param string $identifier
+     * @param int $statusCode
+     * @param string $statusText
+     * @param string $statusMessage
+     * @return ItemStatus
      */
-    public function parseGetVersionResponse($response);
+    public function create(
+        $identifier,
+        $statusCode,
+        $statusText,
+        $statusMessage
+    ) {
+        $item = new ItemStatus(
+            $identifier,
+            $statusCode,
+            $statusText,
+            $statusMessage
+        );
 
-    /**
-     * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse $response
-     * @return \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface[]
-     */
-    public function parseDeleteShipmentResponse($response);
+        return $item;
+    }
 }

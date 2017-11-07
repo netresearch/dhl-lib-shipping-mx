@@ -25,13 +25,13 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
+use Dhl\Shipping\Webservice\Exception\DeleteShipmentStatusException;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
 use Dhl\Shipping\Webservice\Client\BcsSoapClientInterface;
 use \Dhl\Shipping\Webservice\RequestMapper;
 use \Dhl\Shipping\Webservice\ResponseParser;
 use \Dhl\Shipping\Webservice\RequestType;
 use \Dhl\Shipping\Webservice\ResponseType;
-use \Dhl\Shipping\Webservice\Adapter\BcsAdapterInterface;
 use \Dhl\Shipping\Bcs as BcsApi;
 use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
 use Dhl\Shipping\Webservice\Exception\ApiOperationException;
@@ -157,11 +157,25 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
-     * @return ItemStatusInterface[]
+     * @return ResponseType\Generic\ItemStatusInterface[]
+     * @throws ApiCommunicationException
      * @throws ApiOperationException
      */
     protected function deleteShipmentOrders(array $shipmentNumbers)
     {
-        throw new ApiOperationException('Not yet implemented.');
+        $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
+
+        $deleteRequest = new BcsApi\DeleteShipmentOrderRequest($version, $shipmentNumbers);
+
+        try {
+            $soapResponse = $this->soapClient->deleteShipmentOrder($deleteRequest);
+            $response = $this->responseParser->parseDeleteShipmentResponse($soapResponse);
+        } catch (DeleteShipmentStatusException $e) {
+            throw new ApiOperationException('API operation failed', 0, $e);
+        } catch (\SoapFault $e) {
+            throw new ApiCommunicationException('API communication failed', 0, $e);
+        }
+
+        return $response;
     }
 }

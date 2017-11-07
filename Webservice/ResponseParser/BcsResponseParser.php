@@ -25,11 +25,15 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Shipping\Webservice\ResponseType;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Webservice\ResponseParser\BcsResponseParserInterface;
 use \Dhl\Shipping\Bcs\CreationState;
+use \Dhl\Shipping\Bcs\DeletionState;
 use \Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
+use \Dhl\Shipping\Webservice\Exception\DeleteShipmentStatusException;
+use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
+use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
+use \Dhl\Shipping\Webservice\ResponseType\DeleteShipmentResponseCollection;
+use \Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface;
 
 /**
  * Geschäftskunden API response parser
@@ -50,12 +54,22 @@ class BcsResponseParser implements BcsResponseParserInterface
     private $labelFactory;
 
     /**
-     * BcsResponseParser constructor.
-     * @param LabelFactory $labelFactory
+     * @var ItemStatusFactory
      */
-    public function __construct(LabelFactory $labelFactory)
-    {
+    private $itemStatusFactory;
+
+    /**
+     * BcsResponseParser constructor.
+     *
+     * @param LabelFactory $labelFactory
+     * @param ItemStatusFactory $itemStatusFactory
+     */
+    public function __construct(
+        LabelFactory $labelFactory,
+        ItemStatusFactory $itemStatusFactory
+    ) {
         $this->labelFactory = $labelFactory;
+        $this->itemStatusFactory = $itemStatusFactory;
     }
 
     /**
@@ -75,7 +89,7 @@ class BcsResponseParser implements BcsResponseParserInterface
      * Convert BCS SOAP response to list of generic LabelInterface
      *
      * @param \Dhl\Shipping\Bcs\CreateShipmentOrderResponse $response
-     * @return ResponseType\CreateShipment\LabelInterface[]
+     * @return LabelInterface[]
      * @throws \Exception
      */
     public function parseCreateShipmentResponse($response)
@@ -112,7 +126,7 @@ class BcsResponseParser implements BcsResponseParserInterface
      * Convert BCS SOAP response to generic GetVersionResponse
      *
      * @param \Dhl\Shipping\Bcs\GetVersionResponse $response
-     * @return ResponseType\GetVersionResponseInterface
+     * @return GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response)
     {
@@ -120,13 +134,32 @@ class BcsResponseParser implements BcsResponseParserInterface
     }
 
     /**
-     * Convert BCS SOAP response to generic DeleteShipmentResponse
+     * Convert BCS SOAP response to list of generic ItemStatus objects
      *
      * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse $response
-     * @return ResponseType\DeleteShipmentResponseInterface[]
+     * @return ItemStatusInterface[]
+     * @throws DeleteShipmentStatusException
      */
     public function parseDeleteShipmentResponse($response)
     {
-        // TODO(nr): Implement parseDeleteShipmentResponse() method.
+        $items = [];
+        $responseStatus = $this->getStatusCode($response->getStatus()->getStatusCode());
+
+        if ($responseStatus !== ResponseStatusInterface::STATUS_SUCCESS) {
+            throw DeleteShipmentStatusException::create($response);
+        }
+
+        /** @var DeletionState $deletionState */
+        foreach ($response->getDeletionState() as $deletionState) {
+            /** @var DeleteShipmentResponseCollection $item */
+            $item = $this->itemStatusFactory->create(
+                $deletionState->getShipmentNumber(),
+                $deletionState->getStatus()->getStatusCode(),
+                $deletionState->getStatus()->getStatusText(),
+                $deletionState->getStatus()->getStatusMessage()
+            );
+            $items[$deletionState->getShipmentNumber()] = $item;
+        }
+        return $items;
     }
 }
