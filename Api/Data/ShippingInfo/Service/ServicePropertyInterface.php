@@ -17,36 +17,35 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ * @package   Dhl\Shipping\Api\Data
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Service;
+namespace Dhl\Shipping\Api\Data\ShippingInfo\Service;
 
 /**
- * ServiceInterface
+ * ServicePropertyInterface
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ * @package  Dhl\Shipping\Api\Data
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ServiceInterface
+interface ServicePropertyInterface
 {
-    /**
-     * Obtain service code.
-     *
-     * @return string
-     */
-    public function getCode();
+    const KEY = 'key';
+    const VALUE = 'value';
 
     /**
-     * Obtain selected service value.
-     *
      * @return string
+     */
+    public function getKey();
+
+    /**
+     * @return mixed
      */
     public function getValue();
 }
