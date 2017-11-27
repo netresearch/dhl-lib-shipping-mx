@@ -17,36 +17,59 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ * @package   Dhl\Shipping\Api\Data
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Service;
+namespace Dhl\Shipping\Api\Data\ShippingInfo\Receiver;
 
 /**
- * ServiceInterface
+ * ContactInterface
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ * @package  Dhl\Shipping\Api\Data
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ServiceInterface
+interface ContactInterface
 {
-    /**
-     * Obtain service code.
-     *
-     * @return string
-     */
-    public function getCode();
+    const NAME = 'name';
+    const COMPANY = 'company';
+    const NAME_ADDITION = 'nameAddition';
+    const PHONE = 'phone';
+    const EMAIL = 'email';
+    const CONTACT_PERSON = 'contactPerson';
 
     /**
-     * Obtain selected service value.
-     *
      * @return string
      */
-    public function getValue();
+    public function getName();
+
+    /**
+     * @return string
+     */
+    public function getCompany();
+
+    /**
+     * @return string
+     */
+    public function getNameAddition();
+
+    /**
+     * @return string
+     */
+    public function getPhone();
+
+    /**
+     * @return string
+     */
+    public function getEmail();
+
+    /**
+     * @return string
+     */
+    public function getContactPerson();
 }

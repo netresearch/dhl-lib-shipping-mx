@@ -17,36 +17,62 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ * @package   Dhl\Shipping\Api\Data
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Service;
+namespace Dhl\Shipping\Api\Data\ShippingInfo\Receiver;
 
 /**
- * ServiceInterface
+ * ParcelShopInterface
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ * @package  Dhl\Shipping\Api\Data
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ServiceInterface
+interface ParcelShopInterface
 {
     /**
-     * Obtain service code.
-     *
      * @return string
      */
-    public function getCode();
+    public function getParcelShopNumber();
 
     /**
-     * Obtain selected service value.
-     *
      * @return string
      */
-    public function getValue();
+    public function getStreetName();
+
+    /**
+     * @return string
+     */
+    public function getStreetNumber();
+
+    /**
+     * @return string
+     */
+    public function getZip();
+
+    /**
+     * @return string
+     */
+    public function getCity();
+
+    /**
+     * @return string
+     */
+    public function getCountry();
+
+    /**
+     * @return string
+     */
+    public function getCountryISOCode();
+
+    /**
+     * @return string
+     */
+    public function getState();
 }

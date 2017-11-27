@@ -17,36 +17,61 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping
+ * @package   Dhl\Shipping\Model
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Service;
+namespace Dhl\Shipping\Model\ShippingInfo\Service;
+
+use \Dhl\Shipping\Api\Data\ShippingInfo\Service\ServicePropertyInterface;
 
 /**
- * ServiceInterface
+ * Service
  *
  * @category Dhl
- * @package  Dhl\Shipping\Service
+ * @package  Dhl\Shipping\Model
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ServiceInterface
+class ServiceProperty implements ServicePropertyInterface
 {
     /**
-     * Obtain service code.
-     *
-     * @return string
+     * @var string
      */
-    public function getCode();
+    private $key;
 
     /**
-     * Obtain selected service value.
-     *
+     * @var mixed
+     */
+    private $value;
+
+    /**
+     * ServiceProperty constructor.
+     * @param string $key
+     * @param mixed $value
+     */
+    public function __construct($key, $value)
+    {
+        $this->key = $key;
+        $this->value = $value;
+    }
+
+    /**
      * @return string
      */
-    public function getValue();
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
 }
