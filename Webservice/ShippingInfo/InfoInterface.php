@@ -31,6 +31,8 @@ use Dhl\Shipping\Webservice\ShippingInfo\Services;
 /**
  * InfoInterface
  *
+ * @deprecated
+ *
  * @category Dhl
  * @package  Dhl\Shipping
  * @author   Benjamin Heuer <benjamin.heuer@netresearch.de>

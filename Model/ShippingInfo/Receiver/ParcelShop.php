@@ -120,22 +120,6 @@ class ParcelShop implements ParcelShopInterface, \JsonSerializable
     /**
      * @return string
      */
-    public function getStreetName()
-    {
-        return $this->streetName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStreetNumber()
-    {
-        return $this->streetNumber;
-    }
-
-    /**
-     * @return string
-     */
     public function getZip()
     {
         return $this->zip;
@@ -152,17 +136,33 @@ class ParcelShop implements ParcelShopInterface, \JsonSerializable
     /**
      * @return string
      */
-    public function getCountry()
+    public function getCountryISOCode()
     {
-        return $this->country;
+        return $this->countryISOCode;
     }
 
     /**
      * @return string
      */
-    public function getCountryISOCode()
+    public function getStreetName()
     {
-        return $this->countryISOCode;
+        return $this->streetName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     /**
