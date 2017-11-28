@@ -28,6 +28,8 @@ namespace Dhl\Shipping\Webservice\ShippingInfo;
 /**
  * Info
  *
+ * @deprecated
+ *
  * @category Dhl
  * @package  Dhl\Shipping\Info
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
