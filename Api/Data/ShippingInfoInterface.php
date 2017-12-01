@@ -39,8 +39,14 @@ use Dhl\Shipping\Api\Data\ShippingInfo\ServiceInterface;
  */
 interface ShippingInfoInterface
 {
+    const SCHEMA_VERSION = 'schemaVersion';
     const RECEIVER = 'receiver';
     const SERVICES = 'services';
+
+    /**
+     * @return string
+     */
+    public function getSchemaVersion();
 
     /**
      * @return ReceiverInterface
