@@ -41,6 +41,11 @@ use Dhl\Shipping\Api\Data\ShippingInfoInterface;
 class ShippingInfo implements ShippingInfoInterface, \JsonSerializable
 {
     /**
+     * @var string
+     */
+    private $schemaVersion;
+
+    /**
      * @var ReceiverInterface
      */
     private $receiver;
@@ -52,13 +57,23 @@ class ShippingInfo implements ShippingInfoInterface, \JsonSerializable
 
     /**
      * ShippingInfo constructor.
+     * @param string $schemaVersion
      * @param ReceiverInterface $receiver
      * @param ServiceInterface[] $services
      */
-    public function __construct(ReceiverInterface $receiver, array $services = [])
+    public function __construct($schemaVersion, ReceiverInterface $receiver, array $services = [])
     {
+        $this->schemaVersion = $schemaVersion;
         $this->receiver = $receiver;
         $this->services = $services;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSchemaVersion()
+    {
+        return $this->schemaVersion;
     }
 
     /**
