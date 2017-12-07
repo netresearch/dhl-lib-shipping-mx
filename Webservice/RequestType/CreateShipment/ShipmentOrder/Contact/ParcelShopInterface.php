@@ -17,37 +17,62 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Info
+ * @package   Dhl\Shipping\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Webservice\ShippingInfo;
-
+namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
 /**
- * UnserializableInterface
+ * ParcelShopInterface
  *
  * @category Dhl
- * @package  Dhl\Shipping\Info
+ * @package  Dhl\Shipping\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface UnserializableInterface
+interface ParcelShopInterface
 {
     /**
-     * @param $json
-     *
-     * @return AbstractInfo|null
+     * @return string
      */
-    public static function fromJson($json);
+    public function getParcelShopNumber();
 
     /**
-     * @param \stdClass $object
-     *
-     * @return AbstractInfo|null
+     * @return string
      */
-    public static function fromObject(\stdClass $object);
+    public function getZip();
+
+    /**
+     * @return string
+     */
+    public function getCity();
+
+    /**
+     * @return string
+     */
+    public function getCountryCode();
+
+    /**
+     * @return string
+     */
+    public function getStreetName();
+
+    /**
+     * @return string
+     */
+    public function getStreetNumber();
+
+    /**
+     * @return string
+     */
+    public function getCountry();
+
+    /**
+     * @return string
+     */
+    public function getState();
 }

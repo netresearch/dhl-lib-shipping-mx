@@ -40,4 +40,19 @@ interface ReceiverInterface extends ContactInterface
      * @return IdCardInterface
      */
     public function getId();
+
+    /**
+     * @return PackstationInterface
+     */
+    public function getPackstation();
+
+    /**
+     * @return PostfilialeInterface
+     */
+    public function getPostfiliale();
+
+    /**
+     * @return ParcelShopInterface
+     */
+    public function getParcelShop();
 }

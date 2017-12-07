@@ -23,12 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Webservice\ShippingInfo\Receiver;
-
-use Dhl\Shipping\Webservice\ShippingInfo\ArrayableInfo;
+namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
 /**
- * PostalFacility
+ * PackstationInterface
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
@@ -36,24 +34,40 @@ use Dhl\Shipping\Webservice\ShippingInfo\ArrayableInfo;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-abstract class PostalFacility extends ArrayableInfo
+interface PackstationInterface
 {
-    const TYPE_PACKSTATION = 'packStation';
-    const TYPE_PAKETSHOP   = 'parcelShop';
-    const TYPE_POSTFILIALE = 'postOffice';
+    /**
+     * @return string
+     */
+    public function getPackstationNumber();
 
-    /** @var string */
-    public $zip;
+    /**
+     * @return string
+     */
+    public function getZip();
 
-    /** @var string */
-    public $city;
+    /**
+     * @return string
+     */
+    public function getCity();
 
-    /** @var string */
-    public $country;
+    /**
+     * @return string
+     */
+    public function getCountryCode();
 
-    /** @var string */
-    public $countryISOCode;
+    /**
+     * @return string
+     */
+    public function getPostNumber();
 
-    /** @var string */
-    public $state;
+    /**
+     * @return string
+     */
+    public function getCountry();
+
+    /**
+     * @return string
+     */
+    public function getState();
 }

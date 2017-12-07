@@ -25,10 +25,6 @@
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\AddressInterface;
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\IdCardInterface;
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\ReceiverInterface;
-
 /**
  * Platform independent shipment order receiver details
  *
@@ -95,15 +91,33 @@ class Receiver implements ReceiverInterface
     private $identity;
 
     /**
+     * @var PackstationInterface
+     */
+    private $packstation;
+
+    /**
+     * @var PostfilialeInterface
+     */
+    private $postfiliale;
+
+    /**
+     * @var ParcelShopInterface
+     */
+    private $parcelShop;
+
+    /**
      * Receiver constructor.
-     * @param string $companyName
-     * @param string $name
-     * @param string $nameAddition
-     * @param string $contactPerson
-     * @param string $phone
-     * @param string $email
+     * @param $companyName
+     * @param $name
+     * @param $nameAddition
+     * @param $contactPerson
+     * @param $phone
+     * @param $email
      * @param AddressInterface $address
      * @param IdCardInterface $identity
+     * @param PackstationInterface|null $packstation
+     * @param PostfilialeInterface|null $postfiliale
+     * @param ParcelShopInterface|null $parcelShop
      */
     public function __construct(
         $companyName,
@@ -113,7 +127,10 @@ class Receiver implements ReceiverInterface
         $phone,
         $email,
         AddressInterface $address,
-        IdCardInterface $identity
+        IdCardInterface $identity,
+        PackstationInterface $packstation = null,
+        PostfilialeInterface $postfiliale = null,
+        ParcelShopInterface $parcelShop = null
     ) {
         $this->companyName = $companyName;
         $this->name = $name;
@@ -123,6 +140,9 @@ class Receiver implements ReceiverInterface
         $this->email = $email;
         $this->address = $address;
         $this->identity = $identity;
+        $this->packstation = $packstation;
+        $this->postfiliale = $postfiliale;
+        $this->parcelShop = $parcelShop;
     }
 
     /**
@@ -174,7 +194,7 @@ class Receiver implements ReceiverInterface
     }
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\AddressInterface
+     * @return AddressInterface
      */
     public function getAddress()
     {
@@ -182,10 +202,34 @@ class Receiver implements ReceiverInterface
     }
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\IdCardInterface
+     * @return IdCardInterface
      */
     public function getId()
     {
         return $this->identity;
+    }
+
+    /**
+     * @return PackstationInterface
+     */
+    public function getPackstation()
+    {
+        return $this->packstation;
+    }
+
+    /**
+     * @return PostfilialeInterface
+     */
+    public function getPostfiliale()
+    {
+        return $this->postfiliale;
+    }
+
+    /**
+     * @return ParcelShopInterface
+     */
+    public function getParcelShop()
+    {
+        return $this->parcelShop;
     }
 }
