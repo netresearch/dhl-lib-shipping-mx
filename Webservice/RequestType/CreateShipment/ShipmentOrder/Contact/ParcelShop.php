@@ -17,36 +17,29 @@
  * PHP version 7
  *
  * @category  Dhl
- * @package   Dhl\Shipping\Model
+ * @package   Dhl\Shipping\Webservice
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2017 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Model\ShippingInfo\Receiver;
-
-use \Dhl\Shipping\Api\Data\ShippingInfo\Receiver\PostfilialeInterface;
+namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
 /**
- * Postfiliale
+ * Platform independent shipment order receiver parcel shop details
  *
  * @category Dhl
- * @package  Dhl\Shipping\Model
+ * @package  Dhl\Shipping\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Postfiliale implements PostfilialeInterface, \JsonSerializable
+class ParcelShop implements ParcelShopInterface
 {
     /**
      * @var string
      */
-    private $postfilialNumber;
-
-    /**
-     * @var string
-     */
-    private $postNumber;
+    private $parcelShopNumber;
 
     /**
      * @var string
@@ -61,7 +54,17 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
     /**
      * @var string
      */
-    private $countryISOCode;
+    private $countryCode;
+
+    /**
+     * @var string
+     */
+    private $streetName;
+
+    /**
+     * @var string
+     */
+    private $streetNumber;
 
     /**
      * @var string
@@ -74,29 +77,32 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
     private $state;
 
     /**
-     * Postfiliale constructor.
-     * @param string $postfilialNumber
-     * @param string $postNumber
+     * ParcelShop constructor.
+     * @param string $parcelShopNumber
      * @param string $zip
      * @param string $city
+     * @param string $countryCode
+     * @param string $streetName
+     * @param string $streetNumber
      * @param string $country
-     * @param string $countryISOCode
      * @param string $state
      */
     public function __construct(
-        $postfilialNumber,
-        $postNumber,
+        $parcelShopNumber,
         $zip,
         $city,
-        $countryISOCode,
+        $countryCode,
+        $streetName = '',
+        $streetNumber = '',
         $country = '',
         $state = ''
     ) {
-        $this->postfilialNumber = $postfilialNumber;
-        $this->postNumber = $postNumber;
+        $this->parcelShopNumber = $parcelShopNumber;
         $this->zip = $zip;
         $this->city = $city;
-        $this->countryISOCode = $countryISOCode;
+        $this->countryCode = $countryCode;
+        $this->streetName = $streetName;
+        $this->streetNumber = $streetNumber;
         $this->country = $country;
         $this->state = $state;
     }
@@ -104,17 +110,9 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
     /**
      * @return string
      */
-    public function getPostfilialNumber()
+    public function getParcelShopNumber()
     {
-        return $this->postfilialNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPostNumber()
-    {
-        return $this->postNumber;
+        return $this->parcelShopNumber;
     }
 
     /**
@@ -130,15 +128,31 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
      */
     public function getCity()
     {
-        return $this->zip;
+        return $this->city;
     }
 
     /**
      * @return string
      */
-    public function getCountryISOCode()
+    public function getCountryCode()
     {
-        return $this->countryISOCode;
+        return $this->countryCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreetName()
+    {
+        return $this->streetName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
     }
 
     /**
@@ -155,13 +169,5 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
     public function getState()
     {
         return $this->state;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function jsonSerialize()
-    {
-        return get_object_vars($this);
     }
 }

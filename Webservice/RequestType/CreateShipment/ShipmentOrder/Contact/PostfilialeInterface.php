@@ -23,10 +23,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Webservice\ShippingInfo;
+namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
 /**
- * Services
+ * PostfilialeInterface
  *
  * @category Dhl
  * @package  Dhl\Shipping\Webservice
@@ -34,38 +34,40 @@ namespace Dhl\Shipping\Webservice\ShippingInfo;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Services extends ArrayableInfo
+interface PostfilialeInterface
 {
-    /** @var bool|string false or date */
-    public $preferredDay;
+    /**
+     * @return string
+     */
+    public function getPostfilialNumber();
 
-    /** @var bool|string false or time */
-    public $preferredTime;
+    /**
+     * @return string
+     */
+    public function getPostNumber();
 
-    /** @var bool|string false or location */
-    public $preferredLocation;
+    /**
+     * @return string
+     */
+    public function getZip();
 
-    /** @var bool|string false or neighbour address */
-    public $preferredNeighbour;
+    /**
+     * @return string
+     */
+    public function getCity();
 
-    /** @var bool false or true */
-    public $parcelAnnouncement;
+    /**
+     * @return string
+     */
+    public function getCountryCode();
 
-    /** @var bool|string false or A16 or A18 */
-    public $visualCheckOfAge;
+    /**
+     * @return string
+     */
+    public function getCountry();
 
-    /** @var bool false or true */
-    public $returnShipment;
-
-    /** @var bool|float false or amount */
-    public $insurance;
-
-    /** @var bool false or true */
-    public $bulkyGoods;
-
-    /** @var bool|float false or amount */
-    public $cod;
-
-    /** @var bool false or true */
-    public $printOnlyIfCodeable;
+    /**
+     * @return string
+     */
+    public function getState();
 }
