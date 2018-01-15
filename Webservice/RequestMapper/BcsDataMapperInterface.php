@@ -16,23 +16,21 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\RequestMapper;
 
-use \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
-use \Dhl\Shipping\Webservice\RequestType\DeleteShipmentRequestInterface;
-use \Dhl\Shipping\Webservice\RequestType\GetVersionRequestInterface;
+use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
+use Dhl\Shipping\Webservice\RequestType\DeleteShipmentRequestInterface;
+use Dhl\Shipping\Webservice\RequestType\GetVersionRequestInterface;
 
 /**
  * BcsDataMapperInterface
  *
- * @category Dhl
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -44,7 +42,7 @@ interface BcsDataMapperInterface extends ApiDataMapperInterface
      * Create api specific request object from framework standardized object.
      *
      * @param GetVersionRequestInterface $request
-     * @return \Dhl\Shipping\Bcs\Version
+     * @return \Dhl\Shipping\Webservice\Schema\Bcs\Version
      */
     public function mapVersion(GetVersionRequestInterface $request);
 

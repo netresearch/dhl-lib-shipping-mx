@@ -16,24 +16,22 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Max Melzer <max.melzer@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\Exception;
 
-use \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse;
-use \Dhl\Shipping\Bcs\DeletionState;
+use Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderResponse;
+use Dhl\Shipping\Webservice\Schema\Bcs\DeletionState;
 
 /**
  * Webservice could not delete shipment. Server side error, e.g.
  * - invalid id
  * - shipment already deleted
  *
- * @category Dhl
  * @package  Dhl\Shipping
  * @author   Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)

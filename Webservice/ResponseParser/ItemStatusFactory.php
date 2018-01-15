@@ -16,21 +16,19 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Max Melzer <max.melzer@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatus;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatus;
 
 /**
  * Geschäftskunden API response parser
  *
- * @category Dhl
  * @package  Dhl\Shipping
  * @author   Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)

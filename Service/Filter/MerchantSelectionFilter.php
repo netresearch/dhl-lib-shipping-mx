@@ -16,21 +16,19 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Service\Filter;
 
-use \Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Api\Data\ServiceInterface;
 
 /**
- * MerchantSelection filter
+ * Check if the service is available for merchants to select and enabled via config.
  *
- * @category Dhl
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -44,7 +42,7 @@ class MerchantSelectionFilter implements FilterInterface
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return true;
+        return $service->isEnabled();
     }
 
     /**

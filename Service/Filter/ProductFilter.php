@@ -16,28 +16,27 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Service\Filter;
 
-use \Dhl\Shipping\Service\BulkyGoods;
-use \Dhl\Shipping\Service\Cod;
-use \Dhl\Shipping\Service\Insurance;
-use \Dhl\Shipping\Service\ParcelAnnouncement;
-use \Dhl\Shipping\Service\PreferredDay;
-use \Dhl\Shipping\Service\PreferredLocation;
-use \Dhl\Shipping\Service\PreferredNeighbour;
-use \Dhl\Shipping\Service\PreferredTime;
-use \Dhl\Shipping\Service\PrintOnlyIfCodeable;
-use \Dhl\Shipping\Service\ReturnShipment;
-use \Dhl\Shipping\Service\ServiceInterface;
-use \Dhl\Shipping\Service\VisualCheckOfAge;
-use \Dhl\Shipping\Util\ShippingProducts;
+use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Service\Bcs\BulkyGoods;
+use Dhl\Shipping\Service\Bcs\Cod;
+use Dhl\Shipping\Service\Bcs\Insurance;
+use Dhl\Shipping\Service\Bcs\ParcelAnnouncement;
+use Dhl\Shipping\Service\Bcs\PreferredDay;
+use Dhl\Shipping\Service\Bcs\PreferredLocation;
+use Dhl\Shipping\Service\Bcs\PreferredNeighbour;
+use Dhl\Shipping\Service\Bcs\PreferredTime;
+use Dhl\Shipping\Service\Bcs\PrintOnlyIfCodeable;
+use Dhl\Shipping\Service\Bcs\ReturnShipment;
+use Dhl\Shipping\Service\Bcs\VisualCheckOfAge;
+use Dhl\Shipping\Util\ShippingProducts;
 
 /**
  * Product filter
@@ -45,7 +44,6 @@ use \Dhl\Shipping\Util\ShippingProducts;
  *
  * @todo Create new solution taking into account global label api
  *
- * @category Dhl
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)

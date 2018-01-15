@@ -16,29 +16,27 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
-use \Dhl\Shipping\Bcs\CreationState;
-use \Dhl\Shipping\Bcs\DeletionState;
-use \Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
-use \Dhl\Shipping\Webservice\Exception\DeleteShipmentStatusException;
-use \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
-use \Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Webservice\ResponseType\DeleteShipmentResponseCollection;
-use \Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface;
+use Dhl\Shipping\Webservice\Schema\Bcs\CreationState;
+use Dhl\Shipping\Webservice\Schema\Bcs\DeletionState;
+use Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
+use Dhl\Shipping\Webservice\Exception\DeleteShipmentStatusException;
+use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
+use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
+use Dhl\Shipping\Webservice\ResponseType\DeleteShipmentResponseCollection;
+use Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface;
 
 /**
  * Geschäftskunden API response parser
  *
- * @category Dhl
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -88,7 +86,7 @@ class BcsResponseParser implements BcsResponseParserInterface
     /**
      * Convert BCS SOAP response to list of generic LabelInterface
      *
-     * @param \Dhl\Shipping\Bcs\CreateShipmentOrderResponse $response
+     * @param \Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderResponse $response
      * @return LabelInterface[]
      * @throws \Exception
      */
@@ -125,7 +123,7 @@ class BcsResponseParser implements BcsResponseParserInterface
     /**
      * Convert BCS SOAP response to generic GetVersionResponse
      *
-     * @param \Dhl\Shipping\Bcs\GetVersionResponse $response
+     * @param \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse $response
      * @return GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response)
@@ -136,7 +134,7 @@ class BcsResponseParser implements BcsResponseParserInterface
     /**
      * Convert BCS SOAP response to list of generic ItemStatus objects
      *
-     * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse $response
+     * @param \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderResponse $response
      * @return ItemStatusInterface[]
      * @throws DeleteShipmentStatusException
      */

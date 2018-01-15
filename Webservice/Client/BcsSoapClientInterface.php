@@ -16,10 +16,9 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
@@ -28,7 +27,6 @@ namespace Dhl\Shipping\Webservice\Client;
 /**
  * Business Customer Shipping API SOAP client adapter
  *
- * @category Dhl
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -40,24 +38,24 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * Returns the actual version of the implementation of the whole ISService
      *         webservice.
      *
-     * @param \Dhl\Shipping\Bcs\Version $part1
-     * @return \Dhl\Shipping\Bcs\GetVersionResponse
+     * @param \Dhl\Shipping\Webservice\Schema\Bcs\Version $part1
+     * @return \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse
      */
-    public function getVersion(\Dhl\Shipping\Bcs\Version $part1);
+    public function getVersion(\Dhl\Shipping\Webservice\Schema\Bcs\Version $part1);
 
     /**
      * Creates shipments.
      *
-     * @param \Dhl\Shipping\Bcs\CreateShipmentOrderRequest $part1
-     * @return \Dhl\Shipping\Bcs\CreateShipmentOrderResponse
+     * @param \Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderRequest $part1
+     * @return \Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderResponse
      */
-    public function createShipmentOrder(\Dhl\Shipping\Bcs\CreateShipmentOrderRequest $part1);
+    public function createShipmentOrder(\Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderRequest $part1);
 
     /**
      * Deletes the requested shipments.
      *
-     * @param \Dhl\Shipping\Bcs\DeleteShipmentOrderRequest $part1
-     * @return \Dhl\Shipping\Bcs\DeleteShipmentOrderResponse
+     * @param \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderRequest $part1
+     * @return \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderResponse
      */
-    public function deleteShipmentOrder(\Dhl\Shipping\Bcs\DeleteShipmentOrderRequest $part1);
+    public function deleteShipmentOrder(\Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderRequest $part1);
 }

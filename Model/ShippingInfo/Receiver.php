@@ -16,26 +16,24 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping\Model
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Model\ShippingInfo;
 
-use \Dhl\Shipping\Api\Data\ShippingInfo\ReceiverInterface;
-use \Dhl\Shipping\Api\Data\ShippingInfo\Receiver\ContactInterface;
-use \Dhl\Shipping\Api\Data\ShippingInfo\Receiver\AddressInterface;
-use \Dhl\Shipping\Api\Data\ShippingInfo\Receiver\PackstationInterface;
-use \Dhl\Shipping\Api\Data\ShippingInfo\Receiver\ParcelShopInterface;
-use \Dhl\Shipping\Api\Data\ShippingInfo\Receiver\PostfilialeInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\ReceiverInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\Receiver\ContactInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\Receiver\AddressInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\Receiver\PackstationInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\Receiver\ParcelShopInterface;
+use Dhl\Shipping\Api\Data\ShippingInfo\Receiver\PostfilialeInterface;
 
 /**
  * Receiver
  *
- * @category Dhl
  * @package  Dhl\Shipping\Model
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)

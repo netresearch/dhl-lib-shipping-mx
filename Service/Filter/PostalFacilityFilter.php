@@ -16,26 +16,24 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Service\Filter;
 
-use Dhl\Shipping\Service\Cod;
-use Dhl\Shipping\Service\Insurance;
-use Dhl\Shipping\Service\ParcelAnnouncement;
-use Dhl\Shipping\Service\PrintOnlyIfCodeable;
-use Dhl\Shipping\Service\ReturnShipment;
-use \Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Service\Bcs\Cod;
+use Dhl\Shipping\Service\Bcs\Insurance;
+use Dhl\Shipping\Service\Bcs\ParcelAnnouncement;
+use Dhl\Shipping\Service\Bcs\PrintOnlyIfCodeable;
+use Dhl\Shipping\Service\Bcs\ReturnShipment;
 
 /**
- * PostalFacility filter
+ * Check if the service can be selected with postal facility deliveries
  *
- * @category Dhl
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -43,11 +41,6 @@ use \Dhl\Shipping\Service\ServiceInterface;
  */
 class PostalFacilityFilter implements FilterInterface
 {
-    /**
-     * @var bool
-     */
-    private $isPostalFacility;
-
     /**
      * @var string[]
      */
@@ -60,35 +53,21 @@ class PostalFacilityFilter implements FilterInterface
     ];
 
     /**
-     * PostalFacilityFilter constructor.
-     * @param bool $isPostalFacility
-     */
-    private function __construct($isPostalFacility)
-    {
-        $this->isPostalFacility = $isPostalFacility;
-    }
-
-    /**
      * @param ServiceInterface $service
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        if (!$this->isPostalFacility) {
-            return true;
-        }
-
         return in_array($service->getCode(), $this->postalFacilityServices);
     }
 
     /**
-     * @param bool $isPostalFacility
      * @return \Closure
      */
-    public static function create($isPostalFacility = false)
+    public static function create()
     {
-        return function (ServiceInterface $service) use ($isPostalFacility) {
-            $filter = new static($isPostalFacility);
+        return function (ServiceInterface $service) {
+            $filter = new static();
             return $filter->isAllowed($service);
         };
     }

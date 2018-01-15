@@ -16,10 +16,9 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
@@ -30,12 +29,11 @@ use Dhl\Shipping\Service\PreferredDay;
 use Dhl\Shipping\Service\PreferredLocation;
 use Dhl\Shipping\Service\PreferredNeighbour;
 use Dhl\Shipping\Service\PreferredTime;
-use \Dhl\Shipping\Service\ServiceInterface;
+use Dhl\Shipping\Api\Data\ServiceInterface;
 
 /**
- * CustomerSelection filter
+ * Check if the service is available for customers to select and enabled via config.
  *
- * @category Dhl
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -55,40 +53,21 @@ class CustomerSelectionFilter implements FilterInterface
     ];
 
     /**
-     * @var bool
-     */
-    private $isCustomerSelection;
-
-    /**
-     * CustomerSelectionFilter constructor.
-     * @param bool $isCustomerSelection
-     */
-    private function __construct($isCustomerSelection)
-    {
-        $this->isCustomerSelection = $isCustomerSelection;
-    }
-
-    /**
      * @param ServiceInterface $service
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        if (!$this->isCustomerSelection) {
-            return true;
-        }
-
-        return in_array($service->getCode(), $this->customerServices);
+        return in_array($service->getCode(), $this->customerServices) && $service->isEnabled();
     }
 
     /**
-     * @param bool $isCustomerSelection
      * @return \Closure
      */
-    public static function create($isCustomerSelection = false)
+    public static function create()
     {
-        return function (ServiceInterface $service) use ($isCustomerSelection) {
-            $filter = new static($isCustomerSelection);
+        return function (ServiceInterface $service) {
+            $filter = new static();
             return $filter->isAllowed($service);
         };
     }

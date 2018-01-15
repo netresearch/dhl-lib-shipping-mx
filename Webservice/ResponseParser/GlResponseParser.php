@@ -16,10 +16,9 @@
  *
  * PHP version 7
  *
- * @category  Dhl
  * @package   Dhl\Shipping
  * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
- * @copyright 2017 Netresearch GmbH & Co. KG
+ * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
@@ -27,12 +26,11 @@
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
 use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use \Dhl\Shipping\Webservice\ResponseParser\GlResponseParserInterface;
+use Dhl\Shipping\Webservice\ResponseParser\GlResponseParserInterface;
 
 /**
  * Global Label API response parser
  *
- * @category Dhl
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -58,7 +56,7 @@ class GlResponseParser implements GlResponseParserInterface
     /**
      * Convert GLA JSON response to generic CreateShipmentResponse
      *
-     * @param \Dhl\Shipping\Gla\Response\LabelResponse $response
+     * @param \Dhl\Shipping\Webservice\Schema\Gla\Response\LabelResponse $response
      *
      * @return \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface[]
      * @throws \Exception
