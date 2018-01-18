@@ -22,17 +22,17 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Util;
+namespace Dhl\Shipping\Util\ShippingRoutes;
 
 /**
- * ShippingRoutesInterface
+ * RoutesInterface
  *
  * @package  Dhl\Shipping
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ShippingRoutesInterface
+interface RoutesInterface
 {
     const REGION_EU = 'EURO';
     const REGION_AMERICA = 'AMER';
@@ -63,11 +63,11 @@ interface ShippingRoutesInterface
 
     /**
      * @param $originCountryId
-     * @param $destCountryId
+     * @param $destinationCountryId
      * @param array $euCountries
      * @return mixed
      */
-    public function canProcessRoute($originCountryId, $destCountryId, array $euCountries);
+    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries);
 
     /**
      * @param $originCountryId

@@ -23,7 +23,7 @@
  * @link      http://www.netresearch.de/
  */
 
-namespace Dhl\Shipping\Util;
+namespace Dhl\Shipping\Util\ShippingRoutes;
 
 /**
  * ShippingRoutes
@@ -33,8 +33,22 @@ namespace Dhl\Shipping\Util;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class ShippingRoutes implements ShippingRoutesInterface
+class Routes implements RoutesInterface
 {
+    /**
+     * @var RouteValidatorInterface
+     */
+    private $routeValidator;
+
+    /**
+     * Routes constructor.
+     * @param RouteValidatorInterface $routeValidator
+     */
+    public function __construct(RouteValidatorInterface $routeValidator)
+    {
+        $this->routeValidator = $routeValidator;
+    }
+
     /**
      * Obtain all supported origin-destination routes.
      *
@@ -108,55 +122,20 @@ class ShippingRoutes implements ShippingRoutesInterface
 
     /**
      * @param string $originCountryId
-     * @param string $destCountryId
+     * @param string $destinationCountryId
      * @param string[] $euCountries
      * @return bool
      */
-    public function canProcessRoute($originCountryId, $destCountryId, array $euCountries)
+    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries)
     {
-        $routes = $this->getRoutes();
-        if (!isset($routes[$originCountryId])) {
-            // no routes found for origin country, cannot ship with DHL at all
-            return false;
-        }
+        $canProcess = $this->routeValidator->isRouteSupported(
+            $originCountryId,
+            $destinationCountryId,
+            $euCountries,
+            $this->getRoutes()
+        );
 
-        // routes for origin country
-        $rules = $routes[$originCountryId];
-
-        // check inclusion of current destination country
-        $isIncluded = false;
-        $includedCountries = $rules['included'];
-        if (in_array(self::REGION_INTERNATIONAL, $includedCountries)) {
-            // shipping everywhere
-            $isIncluded = true;
-        } elseif (in_array(self::REGION_EU, $includedCountries) && in_array($destCountryId, $euCountries)) {
-            // shipping to EU, destination is EU
-            $isIncluded = true;
-        } elseif (in_array($destCountryId, $includedCountries)) {
-            // shipping to destination country explicitly
-            $isIncluded = true;
-        }
-
-        if (!$isIncluded) {
-            // destination is not within the supported areas, cannot ship with DHL
-            return false;
-        }
-
-        // check exclusion of current destination country
-        $isExcluded = false;
-        $excludedCountries = $rules['excluded'];
-        if (in_array(self::REGION_INTERNATIONAL, $excludedCountries)) {
-            // shipping nowhere
-            $isExcluded = true;
-        } elseif (in_array(self::REGION_EU, $excludedCountries) && in_array($destCountryId, $euCountries)) {
-            // not shipping to EU, destination is EU
-            $isExcluded = true;
-        } elseif (in_array($destCountryId, $excludedCountries)) {
-            // not shipping to destination country explicitly
-            $isExcluded = true;
-        }
-
-        return ($isIncluded && !$isExcluded);
+        return $canProcess;
     }
 
     /**

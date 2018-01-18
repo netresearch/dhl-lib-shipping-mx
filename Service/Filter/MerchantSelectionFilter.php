@@ -42,7 +42,7 @@ class MerchantSelectionFilter implements FilterInterface
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return $service->isEnabled();
+        return $service->isMerchantService() && $service->isEnabled();
     }
 
     /**

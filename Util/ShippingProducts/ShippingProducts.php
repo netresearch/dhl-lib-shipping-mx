@@ -22,7 +22,9 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Util;
+namespace Dhl\Shipping\Util\ShippingProducts;
+
+use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
 /**
  * ShippingProducts
@@ -43,50 +45,50 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     {
         return [
             'DE' => [
-                ShippingRoutes::COUNTRY_CODE_GERMANY => [
+                RoutesInterface::COUNTRY_CODE_GERMANY => [
                     self::CODE_NATIONAL,
                 ],
-                ShippingRoutes::REGION_EU => [
+                RoutesInterface::REGION_EU => [
                     self::CODE_INTERNATIONAL,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_INTERNATIONAL,
                 ],
             ],
             'AT' => [
-                ShippingRoutes::COUNTRY_CODE_AUSTRIA => [
+                RoutesInterface::COUNTRY_CODE_AUSTRIA => [
                     self::CODE_PAKET_AUSTRIA,
                 ],
-                ShippingRoutes::COUNTRY_CODE_GERMANY => [
+                RoutesInterface::COUNTRY_CODE_GERMANY => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::COUNTRY_CODE_BELGIUM => [
+                RoutesInterface::COUNTRY_CODE_BELGIUM => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::COUNTRY_CODE_LUXEMBURG => [
+                RoutesInterface::COUNTRY_CODE_LUXEMBURG => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::COUNTRY_CODE_NETHERLANDS => [
+                RoutesInterface::COUNTRY_CODE_NETHERLANDS => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::COUNTRY_CODE_POLAND => [
+                RoutesInterface::COUNTRY_CODE_POLAND => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::COUNTRY_CODE_SLOVAKIA => [
+                RoutesInterface::COUNTRY_CODE_SLOVAKIA => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::COUNTRY_CODE_CZECH_REPUBLIC => [
+                RoutesInterface::COUNTRY_CODE_CZECH_REPUBLIC => [
                     self::CODE_PAKET_CONNECT
                 ],
-                ShippingRoutes::REGION_EU => [
+                RoutesInterface::REGION_EU => [
                     self::CODE_PAKET_INTERNATIONAL,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_PAKET_INTERNATIONAL,
                 ],
             ],
             'US' => [
-                ShippingRoutes::COUNTRY_CODE_USA => [
+                RoutesInterface::COUNTRY_CODE_USA => [
                     self::CODE_AMER_76,
                     self::CODE_AMER_77,
                     self::CODE_AMER_36,
@@ -95,35 +97,35 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_AMER_82,
                     self::CODE_AMER_631,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_AMER_PKY,
                     self::CODE_AMER_PLY,
                     self::CODE_PLT,
                 ],
             ],
             'CL' => [
-                ShippingRoutes::COUNTRY_CODE_CHILE => [
+                RoutesInterface::COUNTRY_CODE_CHILE => [
                     self::CODE_APAC_PDO,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     // not applicable atm
                 ],
             ],
             'CA' => [
-                ShippingRoutes::COUNTRY_CODE_CANADA => [
+                RoutesInterface::COUNTRY_CODE_CANADA => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_AMER_PKY,
                     self::CODE_AMER_PLY,
                     self::CODE_PLT,
                 ],
             ],
             'SG' => [
-                ShippingRoutes::COUNTRY_CODE_SINGAPORE => [
+                RoutesInterface::COUNTRY_CODE_SINGAPORE => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -135,10 +137,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'HK' => [
-                ShippingRoutes::COUNTRY_CODE_HONGKONG => [
+                RoutesInterface::COUNTRY_CODE_HONGKONG => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -150,10 +152,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'TH' => [
-                ShippingRoutes::COUNTRY_CODE_THAILAND => [
+                RoutesInterface::COUNTRY_CODE_THAILAND => [
                     self::CODE_APAC_PDO,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -166,10 +168,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'JP' => [
-                ShippingRoutes::COUNTRY_CODE_JAPAN => [
+                RoutesInterface::COUNTRY_CODE_JAPAN => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -181,10 +183,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'CN' => [
-                ShippingRoutes::COUNTRY_CODE_CHINA => [
+                RoutesInterface::COUNTRY_CODE_CHINA => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -196,10 +198,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'IN' => [
-                ShippingRoutes::COUNTRY_CODE_INDIA => [
+                RoutesInterface::COUNTRY_CODE_INDIA => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -211,10 +213,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'MY' => [
-                ShippingRoutes::COUNTRY_CODE_MALAYSIA => [
+                RoutesInterface::COUNTRY_CODE_MALAYSIA => [
                     self::CODE_APAC_PDO,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -226,7 +228,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'VN' => [
-                ShippingRoutes::COUNTRY_CODE_VIETNAM => [
+                RoutesInterface::COUNTRY_CODE_VIETNAM => [
                     self::CODE_APAC_PDO,
                     self::CODE_APAC_PDE,
                 ],
@@ -235,10 +237,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'AU' => [
-                ShippingRoutes::COUNTRY_CODE_AUSTRALIA => [
+                RoutesInterface::COUNTRY_CODE_AUSTRALIA => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -250,10 +252,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ],
             ],
             'NZ' => [
-                ShippingRoutes::COUNTRY_CODE_NEW_ZEALAND => [
+                RoutesInterface::COUNTRY_CODE_NEW_ZEALAND => [
                     // not applicable atm
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     self::CODE_APAC_PPS,
                     self::CODE_APAC_PPM,
                     self::CODE_APAC_PKD,
@@ -382,22 +384,22 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             return $applicableCodes[$destCountryId];
         }
 
-        if (in_array($destCountryId, $euCountries) && isset($applicableCodes[ShippingRoutes::REGION_EU])) {
+        if (in_array($destCountryId, $euCountries) && isset($applicableCodes[RoutesInterface::REGION_EU])) {
             // match by region EU
-            return $applicableCodes[ShippingRoutes::REGION_EU];
+            return $applicableCodes[RoutesInterface::REGION_EU];
         }
 
-        if (isset($applicableCodes[ShippingRoutes::REGION_INTERNATIONAL])) {
+        if (isset($applicableCodes[RoutesInterface::REGION_INTERNATIONAL])) {
             // match by region ROW
-            return $applicableCodes[ShippingRoutes::REGION_INTERNATIONAL];
+            return $applicableCodes[RoutesInterface::REGION_INTERNATIONAL];
         }
 
         return [];
     }
 
     /**
-     * @param $originCountryId
-     * @return array
+     * @param string $originCountryId
+     * @return string[]
      */
     public function getApplicableProcedures($originCountryId)
     {
@@ -496,7 +498,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     }
 
     /**
-     * @param $originCountryId
+     * @param string $originCountryId
      * @return string
      */
     public function getAvailableShippingRoutes($originCountryId)

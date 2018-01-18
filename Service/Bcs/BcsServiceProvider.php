@@ -57,11 +57,20 @@ class BcsServiceProvider implements ServiceProviderInterface
     }
 
     /**
+     * Return a list of services based on given route, initialized with given presets.
+     *
+     * @param string $originCountryId Shipper ISO 2 Country Code
+     * @param string $destinationCountryId Receiver ISO 2 Country Code
+     * @param string[] $euCountries List of EU Country Codes
      * @param ConfigInterface[] $servicePresets
      * @return ServiceInterface[]
      */
-    public function getServices(array $servicePresets = [])
-    {
+    public function getServices(
+        $originCountryId,
+        $destinationCountryId,
+        array $euCountries,
+        array $servicePresets = []
+    ) {
         $bulkyGoodsConfig = isset($servicePresets[BulkyGoods::CODE]) ? $servicePresets[BulkyGoods::CODE] : null;
         $bulkyGoodsService = $this->getBulkyGoodsService($bulkyGoodsConfig);
 

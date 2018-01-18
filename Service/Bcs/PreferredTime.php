@@ -26,6 +26,8 @@ namespace Dhl\Shipping\Service\Bcs;
 
 use Dhl\Shipping\Api\Data\Service\ConfigInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
+use Dhl\Shipping\Util\ShippingRoutes\RouteValidatorInterface;
 
 /**
  * DHL Business Customer Shipping Preferred Time Service
@@ -42,16 +44,42 @@ class PreferredTime implements ServiceInterface
     const PROPERTY_TIME = 'time';
 
     /**
+     * @var bool
+     */
+    private $postalFacilitySupport = false;
+
+    /**
+     * Service can be booked on these routes.
+     *
+     * @var string[][]
+     */
+    private $routes = [
+        'DE' => [
+            'included' => [RoutesInterface::COUNTRY_CODE_GERMANY],
+            'excluded' => [],
+        ],
+    ];
+
+    /**
+     * @var RouteValidatorInterface
+     */
+    private $routeValidator;
+
+    /**
      * @var ConfigInterface
      */
     private $serviceConfig;
 
     /**
-     * Cod constructor.
+     * PreferredTime constructor.
+     * @param RouteValidatorInterface $routeValidator
      * @param ConfigInterface $serviceConfig
      */
-    public function __construct(ConfigInterface $serviceConfig)
-    {
+    public function __construct(
+        RouteValidatorInterface $routeValidator,
+        ConfigInterface $serviceConfig
+    ) {
+        $this->routeValidator = $routeValidator;
         $this->serviceConfig = $serviceConfig;
     }
 
@@ -122,5 +150,35 @@ class PreferredTime implements ServiceInterface
     public function getOptions()
     {
         return $this->serviceConfig->getOptions();
+    }
+
+    /**
+     * Check if the service can be booked with postal facility deliveries.
+     *
+     * @return bool
+     */
+    public function isAvailableAtPostalFacility()
+    {
+        return $this->postalFacilitySupport;
+    }
+
+    /**
+     * Check if the service can be booked with the given route.
+     *
+     * @param string $originCountryId
+     * @param string $destinationCountryId
+     * @param string[] $euCountries
+     * @return bool
+     */
+    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries)
+    {
+        $canProcess = $this->routeValidator->isRouteSupported(
+            $originCountryId,
+            $destinationCountryId,
+            $euCountries,
+            $this->routes
+        );
+
+        return $canProcess;
     }
 }

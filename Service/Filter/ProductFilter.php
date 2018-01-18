@@ -36,13 +36,14 @@ use Dhl\Shipping\Service\Bcs\PreferredTime;
 use Dhl\Shipping\Service\Bcs\PrintOnlyIfCodeable;
 use Dhl\Shipping\Service\Bcs\ReturnShipment;
 use Dhl\Shipping\Service\Bcs\VisualCheckOfAge;
-use Dhl\Shipping\Util\ShippingProducts;
+use Dhl\Shipping\Util\ShippingProducts\ShippingProducts;
 
 /**
  * Product filter
  *
- *
  * @todo Create new solution taking into account global label api
+ * @deprecated
+ * @see \Dhl\Shipping\Api\Data\ServiceInterface::canProcessRoute
  *
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
@@ -147,6 +148,7 @@ class ProductFilter implements FilterInterface
 
     /**
      * @param string $productCode
+     * @deprecated
      * @return \Closure
      */
     public static function create($productCode)

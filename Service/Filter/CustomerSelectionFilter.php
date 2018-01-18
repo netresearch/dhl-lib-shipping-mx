@@ -24,11 +24,6 @@
  */
 namespace Dhl\Shipping\Service\Filter;
 
-use Dhl\Shipping\Service\ParcelAnnouncement;
-use Dhl\Shipping\Service\PreferredDay;
-use Dhl\Shipping\Service\PreferredLocation;
-use Dhl\Shipping\Service\PreferredNeighbour;
-use Dhl\Shipping\Service\PreferredTime;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 
 /**
@@ -42,23 +37,12 @@ use Dhl\Shipping\Api\Data\ServiceInterface;
 class CustomerSelectionFilter implements FilterInterface
 {
     /**
-     * @var string[]
-     */
-    private $customerServices = [
-        PreferredDay::CODE,
-        PreferredTime::CODE,
-        PreferredLocation::CODE,
-        PreferredNeighbour::CODE,
-        ParcelAnnouncement::CODE,
-    ];
-
-    /**
      * @param ServiceInterface $service
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return in_array($service->getCode(), $this->customerServices) && $service->isEnabled();
+        return $service->isCustomerService() && $service->isEnabled();
     }
 
     /**

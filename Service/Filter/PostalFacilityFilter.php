@@ -25,11 +25,6 @@
 namespace Dhl\Shipping\Service\Filter;
 
 use Dhl\Shipping\Api\Data\ServiceInterface;
-use Dhl\Shipping\Service\Bcs\Cod;
-use Dhl\Shipping\Service\Bcs\Insurance;
-use Dhl\Shipping\Service\Bcs\ParcelAnnouncement;
-use Dhl\Shipping\Service\Bcs\PrintOnlyIfCodeable;
-use Dhl\Shipping\Service\Bcs\ReturnShipment;
 
 /**
  * Check if the service can be selected with postal facility deliveries
@@ -42,23 +37,12 @@ use Dhl\Shipping\Service\Bcs\ReturnShipment;
 class PostalFacilityFilter implements FilterInterface
 {
     /**
-     * @var string[]
-     */
-    private $postalFacilityServices = [
-        Cod::CODE, // up to 1500 euro
-        Insurance::CODE,
-        ParcelAnnouncement::CODE,
-        PrintOnlyIfCodeable::CODE,
-        ReturnShipment::CODE,
-    ];
-
-    /**
      * @param ServiceInterface $service
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return in_array($service->getCode(), $this->postalFacilityServices);
+        return (bool)$service->isAvailableAtPostalFacility();
     }
 
     /**

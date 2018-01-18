@@ -80,12 +80,31 @@ interface ServiceInterface
     /**
      * Check if service was selected by customer or merchant.
      *
-     * @return string
+     * @return bool
      */
     public function isSelected();
 
     /**
+     * Obtain a pre-defined set of allowed values.
+     *
      * @return string[]
      */
     public function getOptions();
+
+    /**
+     * Check if the service can be booked with postal facility deliveries.
+     *
+     * @return bool
+     */
+    public function isAvailableAtPostalFacility();
+
+    /**
+     * Check if the service can be booked with the given route.
+     *
+     * @param string $originCountryId
+     * @param string $destinationCountryId
+     * @param string[] $euCountries
+     * @return bool
+     */
+    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries);
 }

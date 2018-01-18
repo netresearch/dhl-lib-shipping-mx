@@ -16,53 +16,37 @@
  *
  * PHP version 7
  *
- * @package   Dhl\Shipping
- * @author    Sebastian Ertner <sebastian.ertner@netresearch.de>
+ * @package   Dhl\Shipping\Util
+ * @author    Christoph Aßmann <christoph.assmann@netresearch.de>
  * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Service;
+namespace Dhl\Shipping\Util\ShippingRoutes;
 
 /**
- * AbstractService
+ * RouteValidatorInterface
  *
- * @package  Dhl\Shipping\Service
- * @author   Sebastian Ertner <sebastian.ertner@netresearch.de>
+ * @package  Dhl\Shipping\Util
+ * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-abstract class AbstractService implements ServiceInterface
+interface RouteValidatorInterface
 {
-    const CODE = '';
-
     /**
-     * @var string
+     * Check if given origin-destination route matches allowed routes.
+     *
+     * @param $originCountryId
+     * @param $destinationCountryId
+     * @param string[] $euCountries
+     * @param string[][] $supportedRoutes
+     * @return mixed
      */
-    private $value;
-
-    /**
-     * AbstractService constructor.
-     * @param $value
-     */
-    public function __construct($value)
-    {
-        $this->value = $value;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return static::CODE;
-    }
-
-    /**
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+    public function isRouteSupported(
+        $originCountryId,
+        $destinationCountryId,
+        array $euCountries,
+        array $supportedRoutes
+    );
 }
