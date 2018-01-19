@@ -24,7 +24,7 @@
  */
 namespace Dhl\Shipping\Service\Bcs;
 
-use Dhl\Shipping\Api\Data\Service\ConfigInterface;
+use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 use Dhl\Shipping\Util\ShippingRoutes\RouteValidatorInterface;
@@ -72,18 +72,18 @@ class Cod implements ServiceInterface
     private $routeValidator;
 
     /**
-     * @var ConfigInterface
+     * @var ServiceSettingsInterface
      */
     private $serviceConfig;
 
     /**
      * Cod constructor.
      * @param RouteValidatorInterface $routeValidator
-     * @param ConfigInterface $serviceConfig
+     * @param ServiceSettingsInterface $serviceConfig
      */
     public function __construct(
         RouteValidatorInterface $routeValidator,
-        ConfigInterface $serviceConfig
+        ServiceSettingsInterface $serviceConfig
     ) {
         $this->routeValidator = $routeValidator;
         $this->serviceConfig = $serviceConfig;

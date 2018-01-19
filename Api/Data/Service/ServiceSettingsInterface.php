@@ -25,18 +25,19 @@
 namespace Dhl\Shipping\Api\Data\Service;
 
 /**
- * ConfigInterface
+ * ServiceSettingsInterface
  *
  * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-interface ConfigInterface
+interface ServiceSettingsInterface
 {
-    const IS_CUSTOMER_SERVICE = 'is_customer_service';
-    const IS_MERCHANT_SERVICE = 'is_merchant_service';
-    const IS_SELECTED = 'is_selected';
+    const IS_ENABLED = 'isEnabled';
+    const IS_CUSTOMER_SERVICE = 'isCustomerService';
+    const IS_MERCHANT_SERVICE = 'isMerchantService';
+    const IS_SELECTED = 'isSelected';
     const PROPERTIES = 'properties';
     const OPTIONS = 'options';
 
@@ -73,7 +74,7 @@ interface ConfigInterface
      * - Insurance: amount
      * - Cash On Delivery: amount, add fee flag
      *
-     * @return string[]
+     * @return mixed[]
      */
     public function getProperties();
 

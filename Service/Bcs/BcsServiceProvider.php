@@ -24,7 +24,7 @@
  */
 namespace Dhl\Shipping\Service\Bcs;
 
-use Dhl\Shipping\Api\Data\Service\ConfigInterface;
+use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Api\ServiceProviderInterface;
 
@@ -39,19 +39,19 @@ use Dhl\Shipping\Api\ServiceProviderInterface;
 class BcsServiceProvider implements ServiceProviderInterface
 {
     /**
-     * @param ConfigInterface|null $config
+     * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|BulkyGoods
      */
-    private function getBulkyGoodsService(ConfigInterface $config = null)
+    private function getBulkyGoodsService(ServiceSettingsInterface $config = null)
     {
         return new BulkyGoods($config);
     }
 
     /**
-     * @param ConfigInterface|null $config
+     * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|Cod
      */
-    private function getCodService(ConfigInterface $config = null)
+    private function getCodService(ServiceSettingsInterface $config = null)
     {
         return new Cod($config);
     }
@@ -62,7 +62,7 @@ class BcsServiceProvider implements ServiceProviderInterface
      * @param string $originCountryId Shipper ISO 2 Country Code
      * @param string $destinationCountryId Receiver ISO 2 Country Code
      * @param string[] $euCountries List of EU Country Codes
-     * @param ConfigInterface[] $servicePresets
+     * @param ServiceSettingsInterface[] $servicePresets
      * @return ServiceInterface[]
      */
     public function getServices(

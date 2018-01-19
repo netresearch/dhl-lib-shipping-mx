@@ -24,8 +24,10 @@
  */
 namespace Dhl\Shipping\Service\Gla;
 
-use Dhl\Shipping\Api\Data\Service\ConfigInterface;
+use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
+use Dhl\Shipping\Util\ShippingRoutes\RouteValidatorInterface;
 
 /**
  * DHL Global Shipping Insurance Service
@@ -43,16 +45,47 @@ class Insurance implements ServiceInterface
     const PROPERTY_CURRENCY_CODE = 'currency_code';
 
     /**
-     * @var ConfigInterface
+     * @var bool
+     */
+    private $postalFacilitySupport = false;
+
+    /**
+     * Service can be booked on these routes.
+     *
+     * @todo(nr): fix routes
+     * @var string[][]
+     */
+    private $routes = [
+        'MY' => [
+            'included' => [RoutesInterface::REGION_INTERNATIONAL],
+            'excluded' => [],
+        ],
+        'TH' => [
+            'included' => [RoutesInterface::REGION_INTERNATIONAL],
+            'excluded' => [],
+        ]
+    ];
+
+    /**
+     * @var RouteValidatorInterface
+     */
+    private $routeValidator;
+
+    /**
+     * @var ServiceSettingsInterface
      */
     private $serviceConfig;
 
     /**
-     * Cod constructor.
-     * @param ConfigInterface $serviceConfig
+     * Insurance constructor.
+     * @param RouteValidatorInterface $routeValidator
+     * @param ServiceSettingsInterface $serviceConfig
      */
-    public function __construct(ConfigInterface $serviceConfig)
-    {
+    public function __construct(
+        RouteValidatorInterface $routeValidator,
+        ServiceSettingsInterface $serviceConfig
+    ) {
+        $this->routeValidator = $routeValidator;
         $this->serviceConfig = $serviceConfig;
     }
 
@@ -137,5 +170,35 @@ class Insurance implements ServiceInterface
     public function getOptions()
     {
         return [];
+    }
+
+    /**
+     * Check if the service can be booked with postal facility deliveries.
+     *
+     * @return bool
+     */
+    public function isAvailableAtPostalFacility()
+    {
+        return $this->postalFacilitySupport;
+    }
+
+    /**
+     * Check if the service can be booked with the given route.
+     *
+     * @param string $originCountryId
+     * @param string $destinationCountryId
+     * @param string[] $euCountries
+     * @return bool
+     */
+    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries)
+    {
+        $canProcess = $this->routeValidator->isRouteSupported(
+            $originCountryId,
+            $destinationCountryId,
+            $euCountries,
+            $this->routes
+        );
+
+        return $canProcess;
     }
 }

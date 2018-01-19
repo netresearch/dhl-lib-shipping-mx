@@ -24,7 +24,7 @@
  */
 namespace Dhl\Shipping\Api;
 
-use Dhl\Shipping\Api\Data\Service\ConfigInterface;
+use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 
 /**
@@ -43,7 +43,7 @@ interface ServiceProviderInterface
      * @param string $originCountryId Shipper ISO 2 Country Code
      * @param string $destinationCountryId Receiver ISO 2 Country Code
      * @param string[] $euCountries List of EU Country Codes
-     * @param ConfigInterface[] $servicePresets
+     * @param ServiceSettingsInterface[] $servicePresets
      * @return ServiceInterface[]
      */
     public function getServices(
