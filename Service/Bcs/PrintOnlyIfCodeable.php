@@ -27,7 +27,6 @@ namespace Dhl\Shipping\Service\Bcs;
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
-use Dhl\Shipping\Util\ShippingRoutes\RouteValidatorInterface;
 
 /**
  * DHL Business Customer Shipping Print Only If Codeable Service
@@ -63,25 +62,16 @@ class PrintOnlyIfCodeable implements ServiceInterface
     ];
 
     /**
-     * @var RouteValidatorInterface
-     */
-    private $routeValidator;
-
-    /**
      * @var ServiceSettingsInterface
      */
     private $serviceConfig;
 
     /**
      * PrintOnlyIfCodeable constructor.
-     * @param RouteValidatorInterface $routeValidator
      * @param ServiceSettingsInterface $serviceConfig
      */
-    public function __construct(
-        RouteValidatorInterface $routeValidator,
-        ServiceSettingsInterface $serviceConfig
-    ) {
-        $this->routeValidator = $routeValidator;
+    public function __construct(ServiceSettingsInterface $serviceConfig)
+    {
         $this->serviceConfig = $serviceConfig;
     }
 
@@ -91,6 +81,16 @@ class PrintOnlyIfCodeable implements ServiceInterface
     public function getCode()
     {
         return self::CODE;
+    }
+
+    /**
+     * Obtain service name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->serviceConfig->getName();
     }
 
     /**
@@ -152,22 +152,12 @@ class PrintOnlyIfCodeable implements ServiceInterface
     }
 
     /**
-     * Check if the service can be booked with the given route.
+     * Obtain routes the service can be booked with.
      *
-     * @param string $originCountryId
-     * @param string $destinationCountryId
-     * @param string[] $euCountries
-     * @return bool
+     * @return string[][]
      */
-    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries)
+    public function getRoutes()
     {
-        $canProcess = $this->routeValidator->isRouteSupported(
-            $originCountryId,
-            $destinationCountryId,
-            $euCountries,
-            $this->routes
-        );
-
-        return $canProcess;
+        return $this->routes;
     }
 }

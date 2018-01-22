@@ -57,29 +57,140 @@ class BcsServiceProvider implements ServiceProviderInterface
     }
 
     /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|Insurance
+     */
+    private function getInsuranceService(ServiceSettingsInterface $config = null)
+    {
+        return new Insurance($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|ParcelAnnouncement
+     */
+    private function getParcelAnnouncementService(ServiceSettingsInterface $config = null)
+    {
+        return new ParcelAnnouncement($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|PreferredDay
+     */
+    private function getPreferredDayService(ServiceSettingsInterface $config = null)
+    {
+        return new PreferredDay($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|PreferredLocation
+     */
+    private function getPreferredLocationService(ServiceSettingsInterface $config = null)
+    {
+        return new PreferredLocation($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|PreferredNeighbour
+     */
+    private function getPreferredNeighbourService(ServiceSettingsInterface $config = null)
+    {
+        return new PreferredNeighbour($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|PreferredTime
+     */
+    private function getPreferredTimeService(ServiceSettingsInterface $config = null)
+    {
+        return new PreferredTime($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|PrintOnlyIfCodeable
+     */
+    private function getPrintOnlyIfCodeableService(ServiceSettingsInterface $config = null)
+    {
+        return new PrintOnlyIfCodeable($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|ReturnShipment
+     */
+    private function getReturnShipmentService(ServiceSettingsInterface $config = null)
+    {
+        return new ReturnShipment($config);
+    }
+
+    /**
+     * @param ServiceSettingsInterface|null $config
+     * @return ServiceInterface|VisualCheckOfAge
+     */
+    private function getVisualCheckOfAgeService(ServiceSettingsInterface $config = null)
+    {
+        return new VisualCheckOfAge($config);
+    }
+
+    /**
      * Return a list of services based on given route, initialized with given presets.
      *
-     * @param string $originCountryId Shipper ISO 2 Country Code
-     * @param string $destinationCountryId Receiver ISO 2 Country Code
-     * @param string[] $euCountries List of EU Country Codes
      * @param ServiceSettingsInterface[] $servicePresets
      * @return ServiceInterface[]
      */
     public function getServices(
-        $originCountryId,
-        $destinationCountryId,
-        array $euCountries,
         array $servicePresets = []
     ) {
-        $bulkyGoodsConfig = isset($servicePresets[BulkyGoods::CODE]) ? $servicePresets[BulkyGoods::CODE] : null;
-        $bulkyGoodsService = $this->getBulkyGoodsService($bulkyGoodsConfig);
+        $serviceSettings = isset($servicePresets[BulkyGoods::CODE]) ? $servicePresets[BulkyGoods::CODE] : null;
+        $bulkyGoodsService = $this->getBulkyGoodsService($serviceSettings);
 
-        $codConfig = isset($servicePresets[Cod::CODE]) ? $servicePresets[Cod::CODE] : null;
-        $codService = $this->getCodService($codConfig);
+        $serviceSettings = isset($servicePresets[Cod::CODE]) ? $servicePresets[Cod::CODE] : null;
+        $codService = $this->getCodService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[Insurance::CODE]) ? $servicePresets[Insurance::CODE] : null;
+        $insuranceService = $this->getInsuranceService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[ParcelAnnouncement::CODE]) ? $servicePresets[ParcelAnnouncement::CODE] : null;
+        $parcelAnnouncementService = $this->getParcelAnnouncementService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[PreferredDay::CODE]) ? $servicePresets[PreferredDay::CODE] : null;
+        $preferredDayService = $this->getPreferredDayService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[PreferredLocation::CODE]) ? $servicePresets[PreferredLocation::CODE] : null;
+        $preferredLocationService = $this->getPreferredLocationService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[PreferredNeighbour::CODE]) ? $servicePresets[PreferredNeighbour::CODE] : null;
+        $preferredNeighbourService = $this->getPreferredNeighbourService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[PreferredTime::CODE]) ? $servicePresets[PreferredTime::CODE] : null;
+        $preferredTimeService = $this->getPreferredTimeService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[PrintOnlyIfCodeable::CODE]) ? $servicePresets[PrintOnlyIfCodeable::CODE] : null;
+        $printOnlyIfCodeableService = $this->getPrintOnlyIfCodeableService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[ReturnShipment::CODE]) ? $servicePresets[ReturnShipment::CODE] : null;
+        $returnShipmentService = $this->getReturnShipmentService($serviceSettings);
+
+        $serviceSettings = isset($servicePresets[VisualCheckOfAge::CODE]) ? $servicePresets[VisualCheckOfAge::CODE] : null;
+        $visualCheckOfAgeService = $this->getVisualCheckOfAgeService($serviceSettings);
 
         return [
             $bulkyGoodsService,
             $codService,
+            $insuranceService,
+            $parcelAnnouncementService,
+            $preferredDayService,
+            $preferredLocationService,
+            $preferredNeighbourService,
+            $preferredTimeService,
+            $printOnlyIfCodeableService,
+            $returnShipmentService,
+            $visualCheckOfAgeService,
         ];
     }
 }

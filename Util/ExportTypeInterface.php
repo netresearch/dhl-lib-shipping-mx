@@ -23,7 +23,14 @@
 
 namespace Dhl\Shipping\Util;
 
-
+/**
+ * ExportTypeInterface
+ *
+ * @package  Dhl\Shipping\Util
+ * @author   Paul Siedler <paul.siedler@netresearch.de>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.netresearch.de/
+ */
 interface ExportTypeInterface
 {
     const TYPE_OTHER = 'OTHER';
@@ -33,12 +40,9 @@ interface ExportTypeInterface
     const TYPE_RETURN_OF_GOODS = 'RETURN_OF_GOODS';
 
     /**
-     * Find all shipping products that apply to the given shipping route.
+     * Obtain all content types for export declaration.
      *
-     * @param string $originCountryId
-     * @param string $destCountryId
-     * @param string[] $euCountries
      * @return string[]
      */
-    public function getApplicableTypes($originCountryId, $destCountryId, array $euCountries);
+    public function getContentTypes();
 }

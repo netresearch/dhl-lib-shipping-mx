@@ -23,31 +23,31 @@
 
 namespace Dhl\Shipping\Util;
 
-
+/**
+ * ExportType
+ *
+ * @package  Dhl\Shipping\Util
+ * @author   Paul Siedler <paul.siedler@netresearch.de>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     http://www.netresearch.de/
+ */
 class ExportType implements ExportTypeInterface
 {
-    public function getApplicableTypes(
-        $originCountryId,
-        $destCountryId,
-        array $euCountries
-    ) {
-        $types = [];
-        if (($originCountryId === ShippingRoutes::COUNTRY_CODE_GERMANY
-                || $originCountryId === ShippingRoutes::COUNTRY_CODE_AUSTRIA
-            )
-            && !in_array(
-                $destCountryId,
-                $euCountries
-            )
-        ) {
-            $types = [
-                self::TYPE_COMMERCIAL_SAMPLE => 'Commercial Sample',
-                self::TYPE_DOCUMENT => 'Document',
-                self::TYPE_OTHER => 'Other',
-                self::TYPE_PRESENT => 'Present',
-                self::TYPE_RETURN_OF_GOODS => 'Return of Goods'
-            ];
-        }
+    /**
+     * Obtain all content types for export declaration.
+     *
+     * @return string[]
+     */
+    public function getContentTypes()
+    {
+        $types = [
+            self::TYPE_COMMERCIAL_SAMPLE => 'Commercial Sample',
+            self::TYPE_DOCUMENT => 'Document',
+            self::TYPE_OTHER => 'Other',
+            self::TYPE_PRESENT => 'Present',
+            self::TYPE_RETURN_OF_GOODS => 'Return of Goods'
+        ];
+
         return $types;
     }
 }

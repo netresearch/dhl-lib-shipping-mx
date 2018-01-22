@@ -34,12 +34,20 @@ namespace Dhl\Shipping\Api\Data\Service;
  */
 interface ServiceSettingsInterface
 {
+    const NAME = 'name';
     const IS_ENABLED = 'isEnabled';
     const IS_CUSTOMER_SERVICE = 'isCustomerService';
     const IS_MERCHANT_SERVICE = 'isMerchantService';
     const IS_SELECTED = 'isSelected';
     const PROPERTIES = 'properties';
     const OPTIONS = 'options';
+
+    /**
+     * Get service display name.
+     *
+     * @return string
+     */
+    public function getName();
 
     /**
      * Check if service is enabled for display.

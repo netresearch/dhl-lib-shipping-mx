@@ -50,6 +50,13 @@ interface ServiceInterface
     public function getCode();
 
     /**
+     * Obtain service name.
+     *
+     * @return string
+     */
+    public function getName();
+
+    /**
      * Get the display type of the current service.
      *
      * @return string
@@ -99,12 +106,9 @@ interface ServiceInterface
     public function isAvailableAtPostalFacility();
 
     /**
-     * Check if the service can be booked with the given route.
+     * Obtain routes the service can be booked with.
      *
-     * @param string $originCountryId
-     * @param string $destinationCountryId
-     * @param string[] $euCountries
-     * @return bool
+     * @return string[][]
      */
-    public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries);
+    public function getRoutes();
 }

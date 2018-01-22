@@ -37,6 +37,11 @@ use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 class ServiceSettings implements ServiceSettingsInterface
 {
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
      * @var bool
      */
     private $isEnabled;
@@ -68,6 +73,7 @@ class ServiceSettings implements ServiceSettingsInterface
 
     /**
      * ServiceSettings constructor.
+     * @param string $name
      * @param bool $isEnabled
      * @param bool $isCustomerService
      * @param bool $isMerchantService
@@ -76,6 +82,7 @@ class ServiceSettings implements ServiceSettingsInterface
      * @param \string[] $options
      */
     public function __construct(
+        $name,
         $isEnabled,
         $isCustomerService,
         $isMerchantService,
@@ -83,12 +90,23 @@ class ServiceSettings implements ServiceSettingsInterface
         array $properties = [],
         array $options = []
     ) {
+        $this->name = $name;
         $this->isEnabled = $isEnabled;
         $this->isCustomerService = $isCustomerService;
         $this->isMerchantService = $isMerchantService;
         $this->isSelected = $isSelected;
         $this->properties = $properties;
         $this->options = $options;
+    }
+
+    /**
+     * Get service display name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
