@@ -333,15 +333,15 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             self::CODE_APAC_PDO => 'DHL Parcel Domestic',
             self::CODE_APAC_PDE => 'DHL Parcel Domestic Expedited',
 
-            //self::CODE_AMER_PKD => 'DHL GlobalMail Packet Standard', // DUPLICATE PRODUCT CODE!
-            self::CODE_AMER_PKY => 'DHL GlobalMail Packet Priority',
-            self::CODE_AMER_PKT => 'DHL GlobalMail Packet Plus',
+            self::CODE_AMER_PKY => 'DHL Packet International',
+            self::CODE_AMER_PKD => 'DHL Packet International',
             self::CODE_AMER_29  => 'DHL GlobalMail Packet Plus',
             self::CODE_AMER_PLY => 'DHL Parcel International Standard',
+            self::CODE_AMER_PKT => 'DHL Parcel International Standard',
             self::CODE_AMER_54  => 'DHL Parcel International Standard',
             self::CODE_AMER_PID => 'DHL Parcel International Direct Standard',
             self::CODE_AMER_22  => 'DHL Parcel International Direct Standard',
-            //self::CODE_AMER_PLT => 'DHL Parcel International Direct', // DUPLICATE PRODUCT CODE!
+            self::CODE_AMER_PLT => 'DHL Parcel International Direct',
             self::CODE_AMER_60  => 'DHL Parcel International Direct',
             self::CODE_AMER_PLX => 'DHL Parcel International Expedited',
 
