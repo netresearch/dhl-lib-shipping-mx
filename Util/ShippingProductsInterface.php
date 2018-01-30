@@ -44,6 +44,13 @@ interface ShippingProductsInterface
     public function getAllCodes();
 
     /**
+     * Obtain a list of supported shipping origin country codes
+     *
+     * @return string[]
+     */
+    public function getAllCountries();
+
+    /**
      * Find all shipping products that apply to the given shipping route.
      *
      * @param string $originCountryId

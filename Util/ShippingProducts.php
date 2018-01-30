@@ -381,6 +381,18 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
     }
 
     /**
+     * Obtain a list of supported shipping origin country codes
+     *
+     * @return string[]
+     */
+    public function getAllCountries()
+    {
+        $countries = array_keys($this->getCodes());
+
+        return $countries;
+    }
+
+    /**
      * @param string $originCountryId
      * @param string|null $destCountryId
      * @param string[] $euCountries
