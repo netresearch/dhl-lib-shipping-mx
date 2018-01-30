@@ -382,16 +382,25 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
 
     /**
      * @param string $originCountryId
-     * @param string $destCountryId
+     * @param string|null $destCountryId
      * @param string[] $euCountries
      * @return string[]
      */
-    public function getApplicableCodes($originCountryId, $destCountryId, array $euCountries)
+    public function getApplicableCodes($originCountryId, $destCountryId = null, array $euCountries = [])
     {
+        $applicableCodes = [];
         $codes = $this->getCodes();
         if (!isset($codes[$originCountryId])) {
             // no codes found for origin country, cannot ship with DHL at all
-            return [];
+            return $applicableCodes;
+        }
+
+        if ($destCountryId === null) {
+            // return all codes for the origin country
+            foreach (array_values($codes[$originCountryId]) as $code) {
+                $applicableCodes = array_merge($applicableCodes, $code);
+            }
+            return array_unique($applicableCodes);
         }
 
         $applicableCodes = $codes[$originCountryId];
@@ -411,6 +420,22 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
         }
 
         return [];
+    }
+
+    /**
+     * @param $originCountryId
+     * @return array
+     */
+    public function getApplicableProcedures($originCountryId)
+    {
+        $procedures = [];
+
+        $products = $this->getApplicableCodes($originCountryId);
+        foreach ($products as $code) {
+            $procedures[] = $this->getProcedure($code);
+        }
+
+        return array_unique($procedures);
     }
 
     /**
