@@ -136,6 +136,14 @@ class BulkyGoods implements ServiceInterface
     }
 
     /**
+     * @return bool
+     */
+    public function getSelectedValue()
+    {
+        return $this->isSelected();
+    }
+
+    /**
      * @return array
      */
     public function getOptions()

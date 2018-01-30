@@ -35,11 +35,11 @@ namespace Dhl\Shipping\Api\Data;
 interface ServiceInterface
 {
     const INPUT_TYPE_CHECKBOX = 'checkbox';
-    const INPUT_TYPE_RADIO = 'radio';
-    const INPUT_TYPE_TEXT = 'text';
-    const INPUT_TYPE_NUMBER = 'number';
-    const INPUT_TYPE_SELECT = 'select';
     const INPUT_TYPE_DATE = 'date';
+    const INPUT_TYPE_NUMBER = 'number';
+    const INPUT_TYPE_RADIO = 'radio';
+    const INPUT_TYPE_SELECT = 'select';
+    const INPUT_TYPE_TEXT = 'text';
     const INPUT_TYPE_TIME = 'time';
 
     /**
@@ -90,6 +90,14 @@ interface ServiceInterface
      * @return bool
      */
     public function isSelected();
+
+    /**
+     * Obtain the value of a selected service.
+     * May be boolean true or a date or a monetary value, whatever the service offers.
+     *
+     * @return mixed
+     */
+    public function getSelectedValue();
 
     /**
      * Obtain a pre-defined set of allowed values.

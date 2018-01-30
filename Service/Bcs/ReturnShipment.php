@@ -152,7 +152,15 @@ class ReturnShipment implements ServiceInterface
     }
 
     /**
-     * @return array
+     * @return bool
+     */
+    public function getSelectedValue()
+    {
+        return $this->isSelected();
+    }
+
+    /**
+     * @return mixed[]
      */
     public function getOptions()
     {

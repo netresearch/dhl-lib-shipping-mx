@@ -134,6 +134,14 @@ class VisualCheckOfAge implements ServiceInterface
     /**
      * @return string
      */
+    public function getSelectedValue()
+    {
+        return $this->getAge();
+    }
+
+    /**
+     * @return string
+     */
     public function getAge()
     {
         $properties = $this->serviceConfig->getProperties();

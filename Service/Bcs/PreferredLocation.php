@@ -134,6 +134,14 @@ class PreferredLocation implements ServiceInterface
     /**
      * @return string
      */
+    public function getSelectedValue()
+    {
+        return $this->getDetails();
+    }
+
+    /**
+     * @return string
+     */
     public function getDetails()
     {
         $properties = $this->serviceConfig->getProperties();

@@ -134,6 +134,14 @@ class PreferredDay implements ServiceInterface
     /**
      * @return string
      */
+    public function getSelectedValue()
+    {
+        return $this->getDate();
+    }
+
+    /**
+     * @return string
+     */
     public function getDate()
     {
         $properties = $this->serviceConfig->getProperties();

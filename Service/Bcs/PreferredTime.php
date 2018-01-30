@@ -134,6 +134,14 @@ class PreferredTime implements ServiceInterface
     /**
      * @return string
      */
+    public function getSelectedValue()
+    {
+        return $this->getTime();
+    }
+
+    /**
+     * @return string
+     */
     public function getTime()
     {
         $properties = $this->serviceConfig->getProperties();

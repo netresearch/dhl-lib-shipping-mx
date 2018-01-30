@@ -140,6 +140,17 @@ class Cod implements ServiceInterface
     }
 
     /**
+     * @return mixed[]
+     */
+    public function getSelectedValue()
+    {
+        return [
+            self::PROPERTY_AMOUNT => $this->getAmount(),
+            self::PROPERTY_CURRENCY_CODE => $this->getCurrencyCode(),
+        ];
+    }
+
+    /**
      * @return float
      */
     public function getAmount()
