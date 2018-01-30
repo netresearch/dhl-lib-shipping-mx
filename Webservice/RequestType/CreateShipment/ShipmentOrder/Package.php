@@ -135,6 +135,13 @@ class Package implements PackageInterface
     private $dgCategory;
 
     /**
+     * Package export description
+     *
+     * @var string
+     */
+    private $packageDesc;
+
+    /**
      * Package items
      *
      * @var PackageItemInterface[]
@@ -143,7 +150,8 @@ class Package implements PackageInterface
 
     /**
      * Package constructor.
-     * @param int $packageId
+     *
+     * @param $packageId
      * @param WeightInterface $weight
      * @param DimensionsInterface $dimensions
      * @param MonetaryValueInterface $declaredValue
@@ -156,7 +164,8 @@ class Package implements PackageInterface
      * @param string $attestationNumber
      * @param bool $exportNotification
      * @param string $dgCategory
-     * @param PackageItemInterface[] $items
+     * @param string $packageDesc
+     * @param array $items
      */
     public function __construct(
         $packageId,
@@ -172,6 +181,7 @@ class Package implements PackageInterface
         $attestationNumber = '',
         $exportNotification = false,
         $dgCategory = '',
+        $packageDesc = '',
         $items = []
     ) {
         $this->packageId = $packageId;
@@ -187,6 +197,7 @@ class Package implements PackageInterface
         $this->attestationNumber = $attestationNumber;
         $this->exportNotification = $exportNotification;
         $this->dgCategory = $dgCategory;
+        $this->packageDesc = $packageDesc;
         $this->items = $items;
     }
 
@@ -297,6 +308,14 @@ class Package implements PackageInterface
     public function getDangerousGoodsCategory()
     {
         return $this->dgCategory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPackageDescription()
+    {
+        return $this->packageDesc;
     }
 
     /**

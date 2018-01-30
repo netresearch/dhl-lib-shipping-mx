@@ -39,7 +39,6 @@ use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package\Pac
  */
 interface PackageInterface
 {
-
     /**
      * Customer Confirmation Number, usually composed of increment id and package sequence number
      *
@@ -106,6 +105,11 @@ interface PackageInterface
      * @return string
      */
     public function getDangerousGoodsCategory();
+
+    /**
+     * @return string
+     */
+    public function getPackageDescription();
 
     /**
      * @return PackageItemInterface[]
