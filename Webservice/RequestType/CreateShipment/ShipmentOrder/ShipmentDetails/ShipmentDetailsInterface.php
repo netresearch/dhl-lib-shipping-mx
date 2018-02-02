@@ -127,12 +127,4 @@ interface ShipmentDetailsInterface
      * @return BankDataInterface
      */
     public function getBankData();
-
-    /**
-     * Obtain optional shipment comment
-     *
-     * @return string
-     *
-     */
-    public function getShipmentComment();
 }

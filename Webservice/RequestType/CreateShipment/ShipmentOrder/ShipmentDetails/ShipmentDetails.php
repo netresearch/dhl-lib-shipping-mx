@@ -103,11 +103,6 @@ class ShipmentDetails implements ShipmentDetailsInterface
     private $consignmentNumber;
 
     /**
-     * @var string
-     */
-    private $shipmentComment;
-
-    /**
      * ShipmentDetails constructor.
      *
      * @param $isPrintOnlyIfCodeable
@@ -123,7 +118,6 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param $returnShipmentReference
      * @param $shipmentDate
      * @param BankDataInterface $bankData
-     * @param $shipmentComment
      */
     public function __construct(
         $isPrintOnlyIfCodeable,
@@ -138,8 +132,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $reference,
         $returnShipmentReference,
         $shipmentDate,
-        BankDataInterface $bankData,
-        $shipmentComment
+        BankDataInterface $bankData
     ) {
         $this->isPrintOnlyIfCodeable = $isPrintOnlyIfCodeable;
         $this->isPartialShipment = $isPartialShipment;
@@ -154,7 +147,6 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->returnShipmentReference = $returnShipmentReference;
         $this->shipmentDate = $shipmentDate;
         $this->bankData = $bankData;
-        $this->shipmentComment = $shipmentComment;
     }
 
     /**
@@ -283,15 +275,5 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public function getBankData()
     {
         return $this->bankData;
-    }
-
-    /**
-     * Obtain optional shipment comment
-     *
-     * @return string
-     */
-    public function getShipmentComment()
-    {
-        return $this->shipmentComment;
     }
 }

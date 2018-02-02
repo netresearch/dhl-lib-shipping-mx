@@ -139,7 +139,7 @@ class Package implements PackageInterface
      *
      * @var string
      */
-    private $packageDesc;
+    private $exportDescription;
 
     /**
      * Package items
@@ -164,7 +164,7 @@ class Package implements PackageInterface
      * @param string $attestationNumber
      * @param bool $exportNotification
      * @param string $dgCategory
-     * @param string $packageDesc
+     * @param string $exportDescription
      * @param array $items
      */
     public function __construct(
@@ -181,7 +181,7 @@ class Package implements PackageInterface
         $attestationNumber = '',
         $exportNotification = false,
         $dgCategory = '',
-        $packageDesc = '',
+        $exportDescription = '',
         $items = []
     ) {
         $this->packageId = $packageId;
@@ -197,7 +197,7 @@ class Package implements PackageInterface
         $this->attestationNumber = $attestationNumber;
         $this->exportNotification = $exportNotification;
         $this->dgCategory = $dgCategory;
-        $this->packageDesc = $packageDesc;
+        $this->exportDescription = $exportDescription;
         $this->items = $items;
     }
 
@@ -313,9 +313,9 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getPackageDescription()
+    public function getExportDescription()
     {
-        return $this->packageDesc;
+        return $this->exportDescription;
     }
 
     /**
