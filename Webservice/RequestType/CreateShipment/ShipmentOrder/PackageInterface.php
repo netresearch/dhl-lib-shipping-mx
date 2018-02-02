@@ -109,7 +109,7 @@ interface PackageInterface
     /**
      * @return string
      */
-    public function getPackageDescription();
+    public function getExportDescription();
 
     /**
      * @return PackageItemInterface[]
