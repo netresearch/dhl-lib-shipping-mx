@@ -335,7 +335,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
 
             self::CODE_AMER_PKY => 'DHL Packet International',
             self::CODE_AMER_PKD => 'DHL Packet International',
-            self::CODE_AMER_29  => 'DHL GlobalMail Packet Plus',
+            self::CODE_AMER_29  => 'DHL Packet International',
             self::CODE_AMER_PLY => 'DHL Parcel International Standard',
             self::CODE_AMER_PKT => 'DHL Parcel International Standard',
             self::CODE_AMER_54  => 'DHL Parcel International Standard',
