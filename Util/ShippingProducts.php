@@ -49,25 +49,32 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_NATIONAL,
                 ],
                 ShippingRoutes::COUNTRY_CODE_AUSTRIA => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::COUNTRY_CODE_BELGIUM => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::COUNTRY_CODE_LUXEMBURG => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::COUNTRY_CODE_NETHERLANDS => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::COUNTRY_CODE_POLAND => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::COUNTRY_CODE_SLOVAKIA => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::COUNTRY_CODE_CZECH_REPUBLIC => [
-                    self::CODE_CONNECT,
+                    self::CODE_INTERNATIONAL,
+                    //self::CODE_CONNECT,
                 ],
                 ShippingRoutes::REGION_EU => [
                     self::CODE_INTERNATIONAL,
