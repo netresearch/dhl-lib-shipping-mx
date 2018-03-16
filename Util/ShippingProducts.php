@@ -122,8 +122,6 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_AMER_PKY,
                     self::CODE_AMER_PLY,
                     self::CODE_AMER_PLT,
-                    #self::CODE_AMER_PID,
-                    #self::CODE_AMER_PLX,
                 ],
             ],
             'CL' => [
@@ -142,8 +140,6 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_AMER_PKY,
                     self::CODE_AMER_PLY,
                     self::CODE_AMER_PLT,
-                    #self::CODE_AMER_PID,
-                    #self::CODE_AMER_PLX,
                 ],
             ],
             'SG' => [
