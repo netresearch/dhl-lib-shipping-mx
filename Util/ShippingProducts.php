@@ -121,7 +121,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ShippingRoutes::REGION_INTERNATIONAL => [
                     self::CODE_AMER_PKY,
                     self::CODE_AMER_PLY,
-                    self::CODE_AMER_PLT,
+                    self::CODE_PLT,
                 ],
             ],
             'CL' => [
@@ -139,7 +139,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ShippingRoutes::REGION_INTERNATIONAL => [
                     self::CODE_AMER_PKY,
                     self::CODE_AMER_PLY,
-                    self::CODE_AMER_PLT,
+                    self::CODE_PLT,
                 ],
             ],
             'SG' => [
@@ -152,7 +152,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -167,7 +167,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -182,7 +182,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
 
@@ -198,7 +198,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -213,7 +213,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -228,7 +228,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -243,7 +243,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -259,7 +259,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -274,7 +274,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -289,7 +289,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PKD,
                     self::CODE_APAC_PKG,
                     self::CODE_APAC_PKM,
-                    self::CODE_APAC_PLT,
+                    self::CODE_PLT,
                     self::CODE_APAC_PLD,
                     self::CODE_APAC_PLE,
                 ],
@@ -319,9 +319,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             self::CODE_APAC_PPS => 'DHL Packet Plus International Standard',
             self::CODE_APAC_PPM => 'DHL Packet Plus International Priority Manifest',
             self::CODE_APAC_PLD => 'DHL Parcel International Standard',
-            self::CODE_APAC_PLT => 'DHL Parcel International Direct',
             self::CODE_APAC_PLE => 'DHL Parcel International Direct Expedited',
-
             self::CODE_APAC_PDO => 'DHL Parcel Domestic',
             self::CODE_APAC_PDE => 'DHL Parcel Domestic Expedited',
 
@@ -331,7 +329,6 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             self::CODE_AMER_54  => 'DHL Parcel International Standard',
             self::CODE_AMER_PID => 'DHL Parcel International Direct Standard',
             self::CODE_AMER_22  => 'DHL Parcel International Direct Standard',
-            self::CODE_AMER_PLT => 'DHL Parcel International Direct',
             self::CODE_AMER_60  => 'DHL Parcel International Direct',
             self::CODE_AMER_PLX => 'DHL Parcel International Expedited',
 
@@ -342,6 +339,10 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
             self::CODE_AMER_81 => 'DHL SM Parcel Expedited',
             self::CODE_AMER_82 => 'DHL SM Parcel Ground',
             self::CODE_AMER_631 => 'DHL SM Parcel Expedited Max',
+
+            // Used by APAC and AMER
+            self::CODE_PLT     => 'DHL Parcel International Direct',
+
         ];
 
         if (!isset($names[$code])) {
