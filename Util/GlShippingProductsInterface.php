@@ -50,8 +50,6 @@ interface GlShippingProductsInterface extends ShippingProductsInterface
     const CODE_APAC_PPM = 'PPM';
     // Parcel International Standard
     const CODE_APAC_PLD = 'PLD';
-    // Parcel International Direct
-    const CODE_APAC_PLT = 'PLT';
     // Parcel International Direct Expedited
     const CODE_APAC_PLE = 'PLE';
 
@@ -74,8 +72,6 @@ interface GlShippingProductsInterface extends ShippingProductsInterface
     // DHL Parcel International Standard
     const CODE_AMER_PLY = 'PLY';
     const CODE_AMER_54 = '54';
-    // DHL Parcel International Direct
-    const CODE_AMER_PLT = 'PLT';
     const CODE_AMER_60 = '60';
     // DHL Parcel International Direct Standard
     const CODE_AMER_PID = 'PID';
@@ -108,4 +104,9 @@ interface GlShippingProductsInterface extends ShippingProductsInterface
     const CODE_AMER_491 = '491';
     // DHL SM Parcel Return Ground
     const CODE_AMER_532 = '532';
+
+    // MULTIPLE REGIONS
+    // ================
+    // DHL Parcel International Direct
+    const CODE_PLT = 'PLT';
 }
