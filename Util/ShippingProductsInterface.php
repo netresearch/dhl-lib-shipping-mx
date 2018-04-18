@@ -75,4 +75,10 @@ interface ShippingProductsInterface
      * @return string
      */
     public function getProductName($code);
+
+    /**
+     * @param $originCountryId
+     * @return mixed
+     */
+    public function getAvailableShippingRoutes($originCountryId);
 }
