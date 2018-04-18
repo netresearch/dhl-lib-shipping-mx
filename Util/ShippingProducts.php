@@ -48,34 +48,6 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                 ShippingRoutes::COUNTRY_CODE_GERMANY => [
                     self::CODE_NATIONAL,
                 ],
-                ShippingRoutes::COUNTRY_CODE_AUSTRIA => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
-                ShippingRoutes::COUNTRY_CODE_BELGIUM => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
-                ShippingRoutes::COUNTRY_CODE_LUXEMBURG => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
-                ShippingRoutes::COUNTRY_CODE_NETHERLANDS => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
-                ShippingRoutes::COUNTRY_CODE_POLAND => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
-                ShippingRoutes::COUNTRY_CODE_SLOVAKIA => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
-                ShippingRoutes::COUNTRY_CODE_CZECH_REPUBLIC => [
-                    self::CODE_INTERNATIONAL,
-                    //self::CODE_CONNECT,
-                ],
                 ShippingRoutes::REGION_EU => [
                     self::CODE_INTERNATIONAL,
                 ],
@@ -530,5 +502,15 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
         $participation = isset($participations[$procedure]) ? $participations[$procedure] : '';
 
         return $ekp . $procedure . $participation;
+    }
+
+    /**
+     * @param $originCountryId
+     * @return string
+     */
+    public function getAvailableShippingRoutes($originCountryId)
+    {
+        $availableRoutes = $this->getCodes()[$originCountryId];
+        return $availableRoutes;
     }
 }
