@@ -119,4 +119,11 @@ interface ServiceInterface
      * @return string[][]
      */
     public function getRoutes();
+
+    /**
+     * Get Sort Order.
+     *
+     * @return int
+     */
+    public function getSortOrder();
 }

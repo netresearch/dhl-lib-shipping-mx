@@ -41,6 +41,7 @@ interface ServiceSettingsInterface
     const IS_SELECTED = 'isSelected';
     const PROPERTIES = 'properties';
     const OPTIONS = 'options';
+    const SORT_ORDER = 'sortOrder';
 
     /**
      * Get service display name.
@@ -94,4 +95,11 @@ interface ServiceSettingsInterface
      * @return string[]
      */
     public function getOptions();
+
+    /**
+     * Get Sort Order.
+     *
+     * @return int
+     */
+    public function getSortOrder();
 }

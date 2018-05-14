@@ -168,4 +168,14 @@ class ParcelAnnouncement implements ServiceInterface
     {
         return $this->routes;
     }
+
+    /**
+     * Get Sort Order.
+     *
+     * @return int
+     */
+    public function getSortOrder()
+    {
+        return $this->serviceConfig->getSortOrder();
+    }
 }

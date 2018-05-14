@@ -72,12 +72,18 @@ class ServiceSettings implements ServiceSettingsInterface
     private $options;
 
     /**
+     * @var int
+     */
+    private $sortOrder;
+
+    /**
      * ServiceSettings constructor.
      * @param string $name
      * @param bool $isEnabled
      * @param bool $isCustomerService
      * @param bool $isMerchantService
      * @param bool $isSelected
+     * @param int $sortOrder
      * @param \mixed[] $properties
      * @param \string[] $options
      */
@@ -87,6 +93,7 @@ class ServiceSettings implements ServiceSettingsInterface
         $isCustomerService,
         $isMerchantService,
         $isSelected,
+        $sortOrder,
         array $properties = [],
         array $options = []
     ) {
@@ -95,6 +102,7 @@ class ServiceSettings implements ServiceSettingsInterface
         $this->isCustomerService = $isCustomerService;
         $this->isMerchantService = $isMerchantService;
         $this->isSelected = $isSelected;
+        $this->sortOrder = $sortOrder;
         $this->properties = $properties;
         $this->options = $options;
     }
@@ -171,5 +179,15 @@ class ServiceSettings implements ServiceSettingsInterface
     public function getOptions()
     {
         return $this->options;
+    }
+
+    /**
+     * Get Sort Order.
+     *
+     * @return int
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
     }
 }
