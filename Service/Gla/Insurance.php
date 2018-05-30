@@ -212,4 +212,12 @@ class Insurance implements ServiceInterface
     {
         return $this->serviceConfig->getSortOrder();
     }
+
+    /**
+     * @return string[]
+     */
+    public function getValidationRules()
+    {
+        return [];
+    }
 }

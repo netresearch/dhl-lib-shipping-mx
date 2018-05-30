@@ -60,6 +60,14 @@ class PreferredLocation implements ServiceInterface
     ];
 
     /**
+     * @var string[]
+     */
+    private $validationRules = [
+        'minLength' => 1,
+        'maxLength' => 100,
+    ];
+
+    /**
      * @var ServiceSettingsInterface
      */
     private $serviceConfig;
@@ -188,5 +196,13 @@ class PreferredLocation implements ServiceInterface
     public function getSortOrder()
     {
         return $this->serviceConfig->getSortOrder();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getValidationRules()
+    {
+        return $this->validationRules;
     }
 }

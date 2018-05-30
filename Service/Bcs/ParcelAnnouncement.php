@@ -62,6 +62,11 @@ class ParcelAnnouncement implements ServiceInterface
     ];
 
     /**
+     * @var string[]
+     */
+    private $validationRules = [];
+
+    /**
      * @var ServiceSettingsInterface
      */
     private $serviceConfig;
@@ -177,5 +182,13 @@ class ParcelAnnouncement implements ServiceInterface
     public function getSortOrder()
     {
         return $this->serviceConfig->getSortOrder();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getValidationRules()
+    {
+        return $this->validationRules;
     }
 }

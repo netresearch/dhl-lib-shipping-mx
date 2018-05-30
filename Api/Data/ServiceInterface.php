@@ -126,4 +126,12 @@ interface ServiceInterface
      * @return int
      */
     public function getSortOrder();
+
+    /**
+     * Get rules for user input validation. For a list of mapped rules see:
+     * @file view/frontend/web/js/model/service-validation-map.js
+     *
+     * @return string[]
+     */
+    public function getValidationRules();
 }

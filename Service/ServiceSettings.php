@@ -77,6 +77,11 @@ class ServiceSettings implements ServiceSettingsInterface
     private $sortOrder;
 
     /**
+     * @var string[]
+     */
+    private $validationRules;
+
+    /**
      * ServiceSettings constructor.
      * @param string $name
      * @param bool $isEnabled
@@ -84,8 +89,9 @@ class ServiceSettings implements ServiceSettingsInterface
      * @param bool $isMerchantService
      * @param bool $isSelected
      * @param int $sortOrder
-     * @param \mixed[] $properties
-     * @param \string[] $options
+     * @param mixed[] $properties
+     * @param string[] $options
+     * @param string[] $validationRules
      */
     public function __construct(
         $name,
@@ -95,7 +101,8 @@ class ServiceSettings implements ServiceSettingsInterface
         $isSelected,
         $sortOrder,
         array $properties = [],
-        array $options = []
+        array $options = [],
+        array $validationRules = []
     ) {
         $this->name = $name;
         $this->isEnabled = $isEnabled;
@@ -105,6 +112,7 @@ class ServiceSettings implements ServiceSettingsInterface
         $this->sortOrder = $sortOrder;
         $this->properties = $properties;
         $this->options = $options;
+        $this->validationRules = $validationRules;
     }
 
     /**

@@ -62,6 +62,11 @@ class BulkyGoods implements ServiceInterface
     ];
 
     /**
+     * @var string[]
+     */
+    private $validationRules = [];
+
+    /**
      * Initial service settings
      *
      * @var ServiceSettingsInterface
@@ -179,5 +184,13 @@ class BulkyGoods implements ServiceInterface
     public function getSortOrder()
     {
         return $this->serviceConfig->getSortOrder();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getValidationRules()
+    {
+        return $this->validationRules;
     }
 }

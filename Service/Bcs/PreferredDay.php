@@ -60,6 +60,11 @@ class PreferredDay implements ServiceInterface
     ];
 
     /**
+     * @var string[]
+     */
+    private $validationRules = [];
+
+    /**
      * @var ServiceSettingsInterface
      */
     private $serviceConfig;
@@ -188,5 +193,13 @@ class PreferredDay implements ServiceInterface
     public function getSortOrder()
     {
         return $this->serviceConfig->getSortOrder();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getValidationRules()
+    {
+        return $this->validationRules;
     }
 }
