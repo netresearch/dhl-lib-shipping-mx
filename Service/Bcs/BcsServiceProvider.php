@@ -27,6 +27,7 @@ namespace Dhl\Shipping\Service\Bcs;
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Api\ServiceProviderInterface;
+use Dhl\Shipping\Service\ServiceInputBuilder;
 
 /**
  * DHL Business Customer Shipping Services Provider
@@ -39,102 +40,135 @@ use Dhl\Shipping\Api\ServiceProviderInterface;
 class BcsServiceProvider implements ServiceProviderInterface
 {
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|BulkyGoods
      */
-    private function getBulkyGoodsService(ServiceSettingsInterface $config = null)
-    {
-        return new BulkyGoods($config);
+    private function getBulkyGoodsService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new BulkyGoods($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|Cod
      */
-    private function getCodService(ServiceSettingsInterface $config = null)
-    {
-        return new Cod($config);
+    private function getCodService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new Cod($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|Insurance
      */
-    private function getInsuranceService(ServiceSettingsInterface $config = null)
-    {
-        return new Insurance($config);
+    private function getInsuranceService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new Insurance($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|ParcelAnnouncement
      */
-    private function getParcelAnnouncementService(ServiceSettingsInterface $config = null)
-    {
-        return new ParcelAnnouncement($config);
+    private function getParcelAnnouncementService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new ParcelAnnouncement($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|PreferredDay
      */
-    private function getPreferredDayService(ServiceSettingsInterface $config = null)
-    {
-        return new PreferredDay($config);
+    private function getPreferredDayService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new PreferredDay($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|PreferredLocation
      */
-    private function getPreferredLocationService(ServiceSettingsInterface $config = null)
-    {
-        return new PreferredLocation($config);
+    private function getPreferredLocationService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new PreferredLocation($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|PreferredNeighbour
      */
-    private function getPreferredNeighbourService(ServiceSettingsInterface $config = null)
-    {
-        return new PreferredNeighbour($config);
+    private function getPreferredNeighbourService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new PreferredNeighbour($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|PreferredTime
      */
-    private function getPreferredTimeService(ServiceSettingsInterface $config = null)
-    {
-        return new PreferredTime($config);
+    private function getPreferredTimeService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new PreferredTime($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|PrintOnlyIfCodeable
      */
-    private function getPrintOnlyIfCodeableService(ServiceSettingsInterface $config = null)
-    {
-        return new PrintOnlyIfCodeable($config);
+    private function getPrintOnlyIfCodeableService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new PrintOnlyIfCodeable($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|ReturnShipment
      */
-    private function getReturnShipmentService(ServiceSettingsInterface $config = null)
-    {
-        return new ReturnShipment($config);
+    private function getReturnShipmentService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new ReturnShipment($config, $builder);
     }
 
     /**
+     * @param ServiceInputBuilder $builder
      * @param ServiceSettingsInterface|null $config
      * @return ServiceInterface|VisualCheckOfAge
      */
-    private function getVisualCheckOfAgeService(ServiceSettingsInterface $config = null)
-    {
-        return new VisualCheckOfAge($config);
+    private function getVisualCheckOfAgeService(
+        ServiceInputBuilder $builder,
+        ServiceSettingsInterface $config = null
+    ) {
+        return new VisualCheckOfAge($config, $builder);
     }
 
     /**
@@ -146,38 +180,40 @@ class BcsServiceProvider implements ServiceProviderInterface
     public function getServices(
         array $servicePresets = []
     ) {
+        $inputBuilder = new ServiceInputBuilder();
+
         $serviceSettings = isset($servicePresets[BulkyGoods::CODE]) ? $servicePresets[BulkyGoods::CODE] : null;
-        $bulkyGoodsService = $this->getBulkyGoodsService($serviceSettings);
+        $bulkyGoodsService = $this->getBulkyGoodsService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[Cod::CODE]) ? $servicePresets[Cod::CODE] : null;
-        $codService = $this->getCodService($serviceSettings);
+        $codService = $this->getCodService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[Insurance::CODE]) ? $servicePresets[Insurance::CODE] : null;
-        $insuranceService = $this->getInsuranceService($serviceSettings);
+        $insuranceService = $this->getInsuranceService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[ParcelAnnouncement::CODE]) ? $servicePresets[ParcelAnnouncement::CODE] : null;
-        $parcelAnnouncementService = $this->getParcelAnnouncementService($serviceSettings);
+        $parcelAnnouncementService = $this->getParcelAnnouncementService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[PreferredDay::CODE]) ? $servicePresets[PreferredDay::CODE] : null;
-        $preferredDayService = $this->getPreferredDayService($serviceSettings);
+        $preferredDayService = $this->getPreferredDayService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[PreferredLocation::CODE]) ? $servicePresets[PreferredLocation::CODE] : null;
-        $preferredLocationService = $this->getPreferredLocationService($serviceSettings);
+        $preferredLocationService = $this->getPreferredLocationService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[PreferredNeighbour::CODE]) ? $servicePresets[PreferredNeighbour::CODE] : null;
-        $preferredNeighbourService = $this->getPreferredNeighbourService($serviceSettings);
+        $preferredNeighbourService = $this->getPreferredNeighbourService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[PreferredTime::CODE]) ? $servicePresets[PreferredTime::CODE] : null;
-        $preferredTimeService = $this->getPreferredTimeService($serviceSettings);
+        $preferredTimeService = $this->getPreferredTimeService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[PrintOnlyIfCodeable::CODE]) ? $servicePresets[PrintOnlyIfCodeable::CODE] : null;
-        $printOnlyIfCodeableService = $this->getPrintOnlyIfCodeableService($serviceSettings);
+        $printOnlyIfCodeableService = $this->getPrintOnlyIfCodeableService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[ReturnShipment::CODE]) ? $servicePresets[ReturnShipment::CODE] : null;
-        $returnShipmentService = $this->getReturnShipmentService($serviceSettings);
+        $returnShipmentService = $this->getReturnShipmentService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[VisualCheckOfAge::CODE]) ? $servicePresets[VisualCheckOfAge::CODE] : null;
-        $visualCheckOfAgeService = $this->getVisualCheckOfAgeService($serviceSettings);
+        $visualCheckOfAgeService = $this->getVisualCheckOfAgeService($inputBuilder, $serviceSettings);
 
         return [
             $bulkyGoodsService,

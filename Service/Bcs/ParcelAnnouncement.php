@@ -24,8 +24,7 @@
  */
 namespace Dhl\Shipping\Service\Bcs;
 
-use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
-use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
 /**
@@ -36,21 +35,21 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class ParcelAnnouncement implements ServiceInterface
+class ParcelAnnouncement extends AbstractService
 {
     const CODE = 'parcelAnnouncement';
 
     /**
      * @var bool
      */
-    private $postalFacilitySupport = true;
+    protected $postalFacilitySupport = true;
 
     /**
      * Service can be booked on these routes.
      *
      * @var string[][]
      */
-    private $routes = [
+    protected $routes = [
         'DE' => [
             'included' => [RoutesInterface::REGION_INTERNATIONAL],
             'excluded' => [],
@@ -60,135 +59,4 @@ class ParcelAnnouncement implements ServiceInterface
             'excluded' => [],
         ]
     ];
-
-    /**
-     * @var string[]
-     */
-    private $validationRules = [];
-
-    /**
-     * @var ServiceSettingsInterface
-     */
-    private $serviceConfig;
-
-    /**
-     * ParcelAnnouncement constructor.
-     * @param ServiceSettingsInterface $serviceConfig
-     */
-    public function __construct(ServiceSettingsInterface $serviceConfig)
-    {
-        $this->serviceConfig = $serviceConfig;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::CODE;
-    }
-
-    /**
-     * Obtain service name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->serviceConfig->getName();
-    }
-
-    /**
-     * @return string
-     */
-    public function getInputType()
-    {
-        return self::INPUT_TYPE_CHECKBOX;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnabled()
-    {
-        return $this->serviceConfig->isEnabled();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCustomerService()
-    {
-        return $this->serviceConfig->isCustomerService();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isMerchantService()
-    {
-        return $this->serviceConfig->isMerchantService();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSelected()
-    {
-        return $this->serviceConfig->isSelected();
-    }
-
-    /**
-     * @return bool
-     */
-    public function getSelectedValue()
-    {
-        return $this->isSelected();
-    }
-
-    /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return [];
-    }
-
-    /**
-     * Check if the service can be booked with postal facility deliveries.
-     *
-     * @return bool
-     */
-    public function isAvailableAtPostalFacility()
-    {
-        return $this->postalFacilitySupport;
-    }
-
-    /**
-     * Obtain routes the service can be booked with.
-     *
-     * @return string[][]
-     */
-    public function getRoutes()
-    {
-        return $this->routes;
-    }
-
-    /**
-     * Get Sort Order.
-     *
-     * @return int
-     */
-    public function getSortOrder()
-    {
-        return $this->serviceConfig->getSortOrder();
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getValidationRules()
-    {
-        return $this->validationRules;
-    }
 }

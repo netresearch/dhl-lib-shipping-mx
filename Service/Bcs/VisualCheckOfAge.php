@@ -24,8 +24,11 @@
  */
 namespace Dhl\Shipping\Service\Bcs;
 
+use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Service\AbstractService;
+use Dhl\Shipping\Service\ServiceInputBuilder;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
 /**
@@ -36,7 +39,7 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class VisualCheckOfAge implements ServiceInterface
+class VisualCheckOfAge extends AbstractService
 {
     const CODE = 'visualCheckOfAge';
 
@@ -45,14 +48,14 @@ class VisualCheckOfAge implements ServiceInterface
     /**
      * @var bool
      */
-    private $postalFacilitySupport = false;
+    protected $postalFacilitySupport = false;
 
     /**
      * Service can be booked on these routes.
      *
      * @var string[][]
      */
-    private $routes = [
+    protected $routes = [
         'DE' => [
             'included' => [RoutesInterface::COUNTRY_CODE_GERMANY],
             'excluded' => [],
@@ -60,84 +63,21 @@ class VisualCheckOfAge implements ServiceInterface
     ];
 
     /**
-     * @var string[]
+     * @return ServiceInputInterface[]
      */
-    private $validationRules = [];
-
-    /**
-     * @var ServiceSettingsInterface
-     */
-    private $serviceConfig;
-
-    /**
-     * VisualCheckOfAge constructor.
-     * @param ServiceSettingsInterface $serviceConfig
-     */
-    public function __construct(ServiceSettingsInterface $serviceConfig)
+    protected function createInputs()
     {
-        $this->serviceConfig = $serviceConfig;
+        $this->serviceInputBuilder->setCode('location');
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_SELECT);
+        $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
+        $this->serviceInputBuilder->setLabel(__('Preferred Location'));
+
+        return [$this->serviceInputBuilder->create()];
     }
 
     /**
      * @return string
-     */
-    public function getCode()
-    {
-        return self::CODE;
-    }
-
-    /**
-     * Obtain service name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->serviceConfig->getName();
-    }
-
-    /**
-     * @return string
-     */
-    public function getInputType()
-    {
-        return self::INPUT_TYPE_SELECT;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnabled()
-    {
-        return $this->serviceConfig->isEnabled();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCustomerService()
-    {
-        return $this->serviceConfig->isCustomerService();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isMerchantService()
-    {
-        return $this->serviceConfig->isMerchantService();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSelected()
-    {
-        return $this->serviceConfig->isSelected();
-    }
-
-    /**
-     * @return string
+     * @TODO(nr): Update to ServiceInputInterface[] logic
      */
     public function getSelectedValue()
     {
@@ -155,51 +95,5 @@ class VisualCheckOfAge implements ServiceInterface
         }
 
         return '';
-    }
-
-    /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return $this->serviceConfig->getOptions();
-    }
-
-    /**
-     * Check if the service can be booked with postal facility deliveries.
-     *
-     * @return bool
-     */
-    public function isAvailableAtPostalFacility()
-    {
-        return $this->postalFacilitySupport;
-    }
-
-    /**
-     * Obtain routes the service can be booked with.
-     *
-     * @return string[][]
-     */
-    public function getRoutes()
-    {
-        return $this->routes;
-    }
-
-    /**
-     * Get Sort Order.
-     *
-     * @return int
-     */
-    public function getSortOrder()
-    {
-        return $this->serviceConfig->getSortOrder();
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getValidationRules()
-    {
-        return $this->validationRules;
     }
 }

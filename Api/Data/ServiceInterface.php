@@ -24,24 +24,19 @@
  */
 namespace Dhl\Shipping\Api\Data;
 
+use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
+
 /**
  * ServiceInterface
  *
  * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Max Melzer <max.melzer@netresearch.de>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
 interface ServiceInterface
 {
-    const INPUT_TYPE_CHECKBOX = 'checkbox';
-    const INPUT_TYPE_DATE = 'date';
-    const INPUT_TYPE_NUMBER = 'number';
-    const INPUT_TYPE_RADIO = 'radio';
-    const INPUT_TYPE_SELECT = 'select';
-    const INPUT_TYPE_TEXT = 'text';
-    const INPUT_TYPE_TIME = 'time';
-
     /**
      * Obtain service code.
      *
@@ -55,13 +50,6 @@ interface ServiceInterface
      * @return string
      */
     public function getName();
-
-    /**
-     * Get the display type of the current service.
-     *
-     * @return string
-     */
-    public function getInputType();
 
     /**
      * Check if service is enabled for display.
@@ -93,18 +81,18 @@ interface ServiceInterface
 
     /**
      * Obtain the value of a selected service.
-     * May be boolean true or a date or a monetary value, whatever the service offers.
-     *
-     * @return mixed
-     */
-    public function getSelectedValue();
-
-    /**
-     * Obtain a pre-defined set of allowed values.
+     * Will be key-value-array containing all service input codes and values
      *
      * @return string[]
      */
-    public function getOptions();
+    public function getInputValues();
+
+    /**
+     * Obtain a list of inputs for displaying the service and it's values
+     *
+     * @return ServiceInputInterface[]
+     */
+    public function getInputs();
 
     /**
      * Check if the service can be booked with postal facility deliveries.
@@ -121,17 +109,7 @@ interface ServiceInterface
     public function getRoutes();
 
     /**
-     * Get Sort Order.
-     *
      * @return int
      */
     public function getSortOrder();
-
-    /**
-     * Get rules for user input validation. For a list of mapped rules see:
-     * @file view/frontend/web/js/model/service-validation-map.js
-     *
-     * @return string[]
-     */
-    public function getValidationRules();
 }

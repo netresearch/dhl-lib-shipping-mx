@@ -26,6 +26,7 @@ namespace Dhl\Shipping\Service\Gla;
 
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
 /**
@@ -36,7 +37,7 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Cod implements ServiceInterface
+class Cod extends AbstractService
 {
     const CODE = 'cod';
 
@@ -46,7 +47,7 @@ class Cod implements ServiceInterface
     /**
      * @var bool
      */
-    private $postalFacilitySupport = false;
+    protected $postalFacilitySupport = false;
 
     /**
      * Service can be booked on these routes.
@@ -54,7 +55,7 @@ class Cod implements ServiceInterface
      * @todo(nr): fix routes
      * @var string[][]
      */
-    private $routes = [
+    protected $routes = [
         'MY' => [
             'included' => [RoutesInterface::REGION_INTERNATIONAL],
             'excluded' => [],
@@ -64,54 +65,6 @@ class Cod implements ServiceInterface
             'excluded' => [],
         ]
     ];
-
-    /**
-     * @var ServiceSettingsInterface
-     */
-    private $serviceConfig;
-
-    /**
-     * Cod constructor.
-     * @param ServiceSettingsInterface $serviceConfig
-     */
-    public function __construct(ServiceSettingsInterface $serviceConfig)
-    {
-        $this->serviceConfig = $serviceConfig;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::CODE;
-    }
-
-    /**
-     * Obtain service name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->serviceConfig->getName();
-    }
-
-    /**
-     * @return string
-     */
-    public function getInputType()
-    {
-        return self::INPUT_TYPE_NUMBER;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnabled()
-    {
-        return $this->serviceConfig->isEnabled();
-    }
 
     /**
      * @return bool
@@ -130,17 +83,9 @@ class Cod implements ServiceInterface
         // COD is selected implicitly.
         return false;
     }
-
-    /**
-     * @return bool
-     */
-    public function isSelected()
-    {
-        return $this->serviceConfig->isSelected();
-    }
-
     /**
      * @return mixed[]
+     * @TODO(nr): Update to ServiceInputInterface[] logic
      */
     public function getSelectedValue()
     {
@@ -174,51 +119,5 @@ class Cod implements ServiceInterface
         }
 
         return '';
-    }
-
-    /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return [];
-    }
-
-    /**
-     * Check if the service can be booked with postal facility deliveries.
-     *
-     * @return bool
-     */
-    public function isAvailableAtPostalFacility()
-    {
-        return $this->postalFacilitySupport;
-    }
-
-    /**
-     * Obtain routes the service can be booked with.
-     *
-     * @return string[][]
-     */
-    public function getRoutes()
-    {
-        return $this->routes;
-    }
-
-    /**
-     * Get Sort Order.
-     *
-     * @return int
-     */
-    public function getSortOrder()
-    {
-        return $this->serviceConfig->getSortOrder();
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getValidationRules()
-    {
-        return [];
     }
 }

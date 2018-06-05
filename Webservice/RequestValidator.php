@@ -27,7 +27,6 @@ namespace Dhl\Shipping\Webservice;
 
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
-use Dhl\Shipping\Webservice\RequestValidatorInterface;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\AbstractServiceFactory;
 use Dhl\Shipping\Webservice\Exception\CreateShipmentValidationException;
 
