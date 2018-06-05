@@ -75,6 +75,10 @@ class PreferredLocation extends AbstractService
             'maxLength' => 100,
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred Location'));
+        $this->serviceInputBuilder->setTooltip(
+            __('Choose a weather-protected and non-visible place on your property
+            where we can deposit the parcel in your absence.')
+        );
 
         return [$this->serviceInputBuilder->create()];
     }

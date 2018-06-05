@@ -62,6 +62,11 @@ class ServiceInputBuilder
     /**
      * @var string
      */
+    private $tooltip = '';
+
+    /**
+     * @var string
+     */
     private $placeholder = '';
 
     /**
@@ -85,6 +90,7 @@ class ServiceInputBuilder
             $this->label,
             $this->validationRules,
             $this->options,
+            $this->tooltip,
             $this->placeholder,
             $this->sortOrder
         );
@@ -93,6 +99,7 @@ class ServiceInputBuilder
         $this->code = null;
         $this->label = null;
         $this->options = [];
+        $this->tooltip = '';
         $this->placeholder = '';
         $this->sortOrder = 0;
         $this->validationRules = [];
@@ -138,6 +145,14 @@ class ServiceInputBuilder
     public function setOptions(array $options)
     {
         $this->options = $options;
+    }
+
+    /**
+     * @param string $tooltip
+     */
+    public function setTooltip(string $tooltip)
+    {
+        $this->tooltip = $tooltip;
     }
 
     /**

@@ -65,6 +65,11 @@ class ServiceInput implements ServiceInputInterface
     private $placeholder;
 
     /**
+     * @var string
+     */
+    private $tooltip;
+
+    /**
      * @var int
      */
     private $sortOrder;
@@ -80,10 +85,11 @@ class ServiceInput implements ServiceInputInterface
      * @param string $inputType
      * @param string $code
      * @param string $label
+     * @param string[] $validationRules
      * @param string[] $options
+     * @param string $tooltip
      * @param string $placeholder
      * @param int $sortOrder
-     * @param string[] $validationRules
      */
     public function __construct(
         string $inputType,
@@ -91,6 +97,7 @@ class ServiceInput implements ServiceInputInterface
         string $label,
         array $validationRules,
         array $options,
+        string $tooltip,
         string $placeholder,
         int $sortOrder
     ) {
@@ -98,6 +105,7 @@ class ServiceInput implements ServiceInputInterface
         $this->code = $code;
         $this->label = $label;
         $this->options = $options;
+        $this->tooltip = $tooltip;
         $this->placeholder = $placeholder;
         $this->sortOrder = $sortOrder;
         $this->validationRules = $validationRules;
@@ -141,6 +149,14 @@ class ServiceInput implements ServiceInputInterface
     public function getOptions(): array
     {
         return $this->options;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTooltip(): string
+    {
+        return $this->tooltip;
     }
 
     /**

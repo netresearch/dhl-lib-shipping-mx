@@ -77,6 +77,13 @@ interface ServiceInputInterface
     public function getOptions();
 
     /**
+     * Obtain help text to be displayed with input
+     *
+     * @return string
+     */
+    public function getTooltip();
+
+    /**
      * Obtain a placeholder text to be displayed when no value has been entered yet.
      *
      * @return string

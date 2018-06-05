@@ -64,6 +64,7 @@ class ServiceHydrator
             'code' => $input->getCode(),
             'label' => $input->getLabel(),
             'options' => $input->getOptions(),
+            'tooltip' => $input->getTooltip(),
             'placeholder' => $input->getPlaceholder(),
             'sortOrder' => $input->getSortOrder(),
             'validationRules' => $input->getValidationRules(),
