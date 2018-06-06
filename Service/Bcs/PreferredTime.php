@@ -67,7 +67,7 @@ class PreferredTime extends AbstractService
         $this->serviceInputBuilder->setCode('time');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TIME);
         $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
-        $this->serviceInputBuilder->setLabel(__('Preferred Time'));
+        $this->serviceInputBuilder->setLabel(__('Preferred Time: Delivery during your preferred time slot'));
         $this->serviceInputBuilder->setTooltip(
             __('Indicate a preferred time for your parcel delivery by choosing one of the displayed time windows.')
         );

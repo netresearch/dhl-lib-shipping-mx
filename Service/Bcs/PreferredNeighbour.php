@@ -71,9 +71,9 @@ class PreferredNeighbour extends AbstractService
             'minLength' => 1,
             'maxLength' => 100,
         ]);
-        $this->serviceInputBuilder->setLabel(__('Preferred Neighbor'));
+        $this->serviceInputBuilder->setLabel(__('Preferred neighbour: Delivery to a neighbour of your choice'));
         $this->serviceInputBuilder->setTooltip(
-            __('Determine a person in your immediate neighborhood to whom we can hand out your parcel.
+            __('Determine a person in your immediate neighborhood to whom we can hand out your parcel in your absence.
             This person should live in the same building, directly opposite, or next door.')
         );
 

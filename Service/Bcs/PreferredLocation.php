@@ -74,7 +74,7 @@ class PreferredLocation extends AbstractService
             'minLength' => 1,
             'maxLength' => 100,
         ]);
-        $this->serviceInputBuilder->setLabel(__('Preferred Location'));
+        $this->serviceInputBuilder->setLabel(__('Preferred location: Delivery to your preferred drop-off location'));
         $this->serviceInputBuilder->setTooltip(
             __('Choose a weather-protected and non-visible place on your property
             where we can deposit the parcel in your absence.')
