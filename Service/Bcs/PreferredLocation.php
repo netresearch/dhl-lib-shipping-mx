@@ -72,7 +72,8 @@ class PreferredLocation extends AbstractService
         $this->serviceInputBuilder->setPlaceholder('E.g. garage, terrace');
         $this->serviceInputBuilder->setValidationRules([
             'minLength' => 1,
-            'maxLength' => 100,
+            'maxLength' => 80,
+            'validate-no-html-tags' => true,
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred location: Delivery to your preferred drop-off location'));
         $this->serviceInputBuilder->setTooltip(
