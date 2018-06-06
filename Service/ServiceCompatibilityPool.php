@@ -24,6 +24,7 @@
  */
 namespace Dhl\Shipping\Service;
 
+use Dhl\Shipping\Api\Data\ServiceCompatibilityInterface;
 use Dhl\Shipping\Service\Bcs\PreferredLocation;
 use Dhl\Shipping\Service\Bcs\PreferredNeighbour;
 
@@ -61,7 +62,7 @@ class ServiceCompatibilityPool
      *
      * @param string $countryId
      * @param string $storeId
-     * @return string[][]
+     * @return string[]|ServiceCompatibilityInterface
      */
     public function getRules($countryId, $storeId): array
     {
