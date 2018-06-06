@@ -64,20 +64,32 @@ class PreferredNeighbour extends AbstractService
      */
     protected function createInputs()
     {
-        $this->serviceInputBuilder->setCode('details');
+        $result = [];
+
+        $this->serviceInputBuilder->setCode('name');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
-        $this->serviceInputBuilder->setPlaceholder('Name, street and house number');
+        $this->serviceInputBuilder->setPlaceholder('First name, last name of neighbour');
         $this->serviceInputBuilder->setValidationRules([
             'minLength' => 1,
-            'maxLength' => 100,
+            'maxLength' => 50,
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred neighbour: Delivery to a neighbour of your choice'));
         $this->serviceInputBuilder->setTooltip(
             __('Determine a person in your immediate neighborhood to whom we can hand out your parcel in your absence.
             This person should live in the same building, directly opposite, or next door.')
         );
+        $result[] = $this->serviceInputBuilder->create();
 
-        return [$this->serviceInputBuilder->create()];
+        $this->serviceInputBuilder->setCode('address');
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
+        $this->serviceInputBuilder->setPlaceholder('Street, number, postal code, city');
+        $this->serviceInputBuilder->setValidationRules([
+            'minLength' => 1,
+            'maxLength' => 50,
+        ]);
+        $result[] = $this->serviceInputBuilder->create();
+
+        return $result;
     }
 
     /**

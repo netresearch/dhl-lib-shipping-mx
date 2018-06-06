@@ -52,7 +52,7 @@ class ServiceInputBuilder
     /**
      * @var string
      */
-    private $label;
+    private $label = '';
 
     /**
      * @var string[]
@@ -97,7 +97,7 @@ class ServiceInputBuilder
 
         $this->inputType = null;
         $this->code = null;
-        $this->label = null;
+        $this->label = '';
         $this->options = [];
         $this->tooltip = '';
         $this->placeholder = '';
