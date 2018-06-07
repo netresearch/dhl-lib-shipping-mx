@@ -73,6 +73,7 @@ class PreferredNeighbour extends AbstractService
             'minLength' => 1,
             'maxLength' => 40,
             'validate-no-html-tags' => true,
+            'dhl_filter_special_chars' => true,
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred neighbour: Delivery to a neighbour of your choice'));
         $this->serviceInputBuilder->setTooltip(
@@ -88,6 +89,7 @@ class PreferredNeighbour extends AbstractService
             'minLength' => 1,
             'maxLength' => 40,
             'validate-no-html-tags' => true,
+            'dhl_filter_special_chars' => true,
         ]);
         $result[] = $this->serviceInputBuilder->create();
 

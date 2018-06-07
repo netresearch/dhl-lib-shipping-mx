@@ -74,6 +74,8 @@ class PreferredLocation extends AbstractService
             'minLength' => 1,
             'maxLength' => 80,
             'validate-no-html-tags' => true,
+            'dhl_filter_packing_station' => true,
+            'dhl_filter_special_chars' => true,
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred location: Delivery to your preferred drop-off location'));
         $this->serviceInputBuilder->setTooltip(
