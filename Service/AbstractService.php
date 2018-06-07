@@ -27,7 +27,6 @@ namespace Dhl\Shipping\Service;
 use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
-use Dhl\Shipping\Service\ServiceInputBuilder;
 
 /**
  * DHL Abstract service
@@ -87,9 +86,6 @@ abstract class AbstractService implements ServiceInterface
     /**
      * Uses serviceInputBuilder create custom ServiceInput array.
      *
-     * @return ServiceInputInterface[]
-     */
-    /**
      * @return ServiceInputInterface[]
      */
     protected function createInputs()
