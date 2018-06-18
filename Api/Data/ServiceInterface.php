@@ -80,6 +80,14 @@ interface ServiceInterface
     public function isSelected();
 
     /**
+     * Set if service was selected by customer or merchant.
+     *
+     * @param bool $selected
+     * @return mixed
+     */
+    public function setSelected($selected);
+
+    /**
      * Obtain the value of a selected service.
      * Will be key-value-array containing all service input codes and values
      *

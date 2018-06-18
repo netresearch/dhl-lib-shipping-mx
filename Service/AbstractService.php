@@ -71,6 +71,11 @@ abstract class AbstractService implements ServiceInterface
     protected $serviceInputBuilder;
 
     /**
+     * @var bool
+     */
+    protected $selected;
+
+    /**
      * Service constructor.
      *
      * @param ServiceSettingsInterface $serviceConfig
@@ -82,6 +87,7 @@ abstract class AbstractService implements ServiceInterface
     ) {
         $this->serviceConfig = $serviceConfig;
         $this->serviceInputBuilder = $serviceInputBuilder;
+        $this->selected = $this->serviceConfig->isSelected();
     }
 
     /**
@@ -184,7 +190,15 @@ abstract class AbstractService implements ServiceInterface
      */
     public function isSelected(): bool
     {
-        return $this->serviceConfig->isSelected();
+        return $this->selected;
+    }
+
+    /**
+     * @param bool $selected
+     */
+    public function setSelected($selected)
+    {
+        $this->selected = $selected;
     }
 
     /**
