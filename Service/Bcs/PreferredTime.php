@@ -62,7 +62,7 @@ class PreferredTime extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs()
+    protected function createInputs(): array
     {
         $this->serviceInputBuilder->setCode('time');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TIME);

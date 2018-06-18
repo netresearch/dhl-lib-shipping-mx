@@ -27,6 +27,7 @@ namespace Dhl\Shipping\Service;
 use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
+use Zend\InputFilter\InputInterface;
 
 /**
  * DHL Abstract service
@@ -88,7 +89,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return ServiceInputInterface[]
      */
-    protected function createInputs()
+    protected function createInputs(): array
     {
         $this->serviceInputBuilder->setCode('enabled');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_CHECKBOX);
@@ -100,9 +101,9 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
-        return get_class($this)::CODE;
+        return static::CODE;
     }
 
     /**
@@ -110,7 +111,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->serviceConfig->getName();
     }
@@ -118,7 +119,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return ServiceInputInterface[]
      */
-    public function getInputs()
+    public function getInputs(): array
     {
         if ($this->inputs === null) {
             $this->inputs = $this->createInputs();
@@ -129,10 +130,10 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return string[]
      */
-    public function getInputValues()
+    public function getInputValues(): array
     {
         $result = [];
-        foreach ($this->inputs as $input) {
+        foreach ($this->getInputs() as $input) {
             $result[$input->getCode()] = $input->getValue();
         }
 
@@ -140,9 +141,24 @@ abstract class AbstractService implements ServiceInterface
     }
 
     /**
+     * @param string[] $values
+     */
+    public function setInputValues($values)
+    {
+        foreach ($values as $code => $value) {
+            array_map(function (ServiceInputInterface $input) use ($code, $value) {
+                if ($input->getCode() === $code) {
+                    $input->setValue($value);
+                }
+            }, $this->getInputs());
+        }
+    }
+
+
+    /**
      * @return bool
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->serviceConfig->isEnabled();
     }
@@ -150,7 +166,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isCustomerService()
+    public function isCustomerService(): bool
     {
         return $this->serviceConfig->isCustomerService();
     }
@@ -158,7 +174,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isMerchantService()
+    public function isMerchantService(): bool
     {
         return $this->serviceConfig->isMerchantService();
     }
@@ -166,7 +182,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isSelected()
+    public function isSelected(): bool
     {
         return $this->serviceConfig->isSelected();
     }
@@ -176,7 +192,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return bool
      */
-    public function isAvailableAtPostalFacility()
+    public function isAvailableAtPostalFacility(): bool
     {
         return $this->postalFacilitySupport;
     }
@@ -186,7 +202,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return string[][]
      */
-    public function getRoutes()
+    public function getRoutes(): array
     {
         return $this->routes;
     }
@@ -196,7 +212,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return int
      */
-    public function getSortOrder()
+    public function getSortOrder(): int
     {
         return $this->serviceConfig->getSortOrder();
     }

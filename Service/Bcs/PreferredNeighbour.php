@@ -62,7 +62,7 @@ class PreferredNeighbour extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs()
+    protected function createInputs(): array
     {
         $result = [];
 

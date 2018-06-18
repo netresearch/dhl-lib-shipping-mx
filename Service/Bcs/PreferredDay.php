@@ -62,7 +62,7 @@ class PreferredDay extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs()
+    protected function createInputs(): array
     {
         $this->serviceInputBuilder->setCode('date');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_DATE);

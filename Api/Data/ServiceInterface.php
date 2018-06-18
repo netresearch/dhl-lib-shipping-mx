@@ -88,6 +88,13 @@ interface ServiceInterface
     public function getInputValues();
 
     /**
+     * Set input values as key value array. The array key must correspond to an input code.
+     *
+     * @param string[] $values
+     */
+    public function setInputValues($values);
+
+    /**
      * Obtain a list of inputs for displaying the service and it's values
      *
      * @return ServiceInputInterface[]

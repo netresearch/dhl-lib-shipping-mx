@@ -25,10 +25,7 @@
 namespace Dhl\Shipping\Service\Bcs;
 
 use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
-use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
-use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Service\AbstractService;
-use Dhl\Shipping\Service\ServiceInputBuilder;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
 /**
@@ -65,7 +62,7 @@ class VisualCheckOfAge extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs()
+    protected function createInputs(): array
     {
         $this->serviceInputBuilder->setCode('location');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_SELECT);

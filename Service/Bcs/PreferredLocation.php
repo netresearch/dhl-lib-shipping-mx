@@ -25,10 +25,7 @@
 namespace Dhl\Shipping\Service\Bcs;
 
 use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
-use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
-use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Service\AbstractService;
-use Dhl\Shipping\Service\ServiceInputBuilder;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
 /**
@@ -65,7 +62,7 @@ class PreferredLocation extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs()
+    protected function createInputs(): array
     {
         $this->serviceInputBuilder->setCode('details');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
@@ -90,7 +87,7 @@ class PreferredLocation extends AbstractService
      * @return string
      * @TODO(nr): Update to ServiceInputInterface[] logic
      */
-    public function getSelectedValue()
+    public function getSelectedValue(): string
     {
         return $this->getDetails();
     }
@@ -98,7 +95,7 @@ class PreferredLocation extends AbstractService
     /**
      * @return string
      */
-    public function getDetails()
+    public function getDetails(): string
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_DETAILS])) {
