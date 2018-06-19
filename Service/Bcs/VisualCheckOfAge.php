@@ -64,7 +64,7 @@ class VisualCheckOfAge extends AbstractService
      */
     protected function createInputs(): array
     {
-        $this->serviceInputBuilder->setCode('location');
+        $this->serviceInputBuilder->setCode('type');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_SELECT);
         $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
         $this->serviceInputBuilder->setLabel(__('Preferred Location'));
