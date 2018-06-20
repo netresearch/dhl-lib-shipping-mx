@@ -27,7 +27,6 @@ namespace Dhl\Shipping\Service;
 use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
-use Zend\InputFilter\InputInterface;
 
 /**
  * DHL Abstract service
@@ -91,7 +90,9 @@ abstract class AbstractService implements ServiceInterface
     }
 
     /**
-     * Uses serviceInputBuilder create custom ServiceInput array.
+     * Uses serviceInputBuilder to create custom ServiceInput array.
+     *
+     * The default implementation just creates a generic "enabled" checkbox.
      *
      * @return ServiceInputInterface[]
      */
@@ -100,6 +101,9 @@ abstract class AbstractService implements ServiceInterface
         $this->serviceInputBuilder->setCode('enabled');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_CHECKBOX);
         $this->serviceInputBuilder->setLabel(__($this->getName()));
+        if (isset($this->serviceConfig->getProperties()['enabled'])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()['enabled']);
+        }
 
         return [$this->serviceInputBuilder->create()];
     }
@@ -134,34 +138,6 @@ abstract class AbstractService implements ServiceInterface
     }
 
     /**
-     * @return string[]
-     */
-    public function getInputValues(): array
-    {
-        $result = [];
-        foreach ($this->getInputs() as $input) {
-            $result[$input->getCode()] = $input->getValue();
-        }
-
-        return $result;
-    }
-
-    /**
-     * @param string[] $values
-     */
-    public function setInputValues($values)
-    {
-        foreach ($values as $code => $value) {
-            array_map(function (ServiceInputInterface $input) use ($code, $value) {
-                if ($input->getCode() === $code) {
-                    $input->setValue($value);
-                }
-            }, $this->getInputs());
-        }
-    }
-
-
-    /**
      * @return bool
      */
     public function isEnabled(): bool
@@ -191,14 +167,6 @@ abstract class AbstractService implements ServiceInterface
     public function isSelected(): bool
     {
         return $this->selected;
-    }
-
-    /**
-     * @param bool $selected
-     */
-    public function setSelected($selected)
-    {
-        $this->selected = $selected;
     }
 
     /**

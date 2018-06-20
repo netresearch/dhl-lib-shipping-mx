@@ -64,7 +64,7 @@ class PreferredDay extends AbstractService
      */
     protected function createInputs(): array
     {
-        $this->serviceInputBuilder->setCode('date');
+        $this->serviceInputBuilder->setCode(self::PROPERTY_DATE);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_DATE);
         $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
         $this->serviceInputBuilder->setLabel(__('Preferred day: Delivery on your preferred day'));
@@ -72,22 +72,17 @@ class PreferredDay extends AbstractService
             __('Choose one of the displayed days as your preferred day for your parcel delivery.
             Other days are not possible due to delivery processes')
         );
-        return [$this->serviceInputBuilder->create()];
-    }
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_DATE])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_DATE]);
+        }
 
-     /**
-     * @return string
-      * @TODO(nr): Update to ServiceInputInterface[] logic
-     */
-    public function getSelectedValue()
-    {
-        return $this->getDate();
+        return [$this->serviceInputBuilder->create()];
     }
 
     /**
      * @return string
      */
-    public function getDate()
+    public function getDate(): string
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_DATE])) {

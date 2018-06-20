@@ -64,7 +64,7 @@ class PreferredLocation extends AbstractService
      */
     protected function createInputs(): array
     {
-        $this->serviceInputBuilder->setCode('details');
+        $this->serviceInputBuilder->setCode(self::PROPERTY_DETAILS);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
         $this->serviceInputBuilder->setPlaceholder('E.g. garage, terrace');
         $this->serviceInputBuilder->setValidationRules([
@@ -79,6 +79,9 @@ class PreferredLocation extends AbstractService
             __('Choose a weather-protected and non-visible place on your property
             where we can deposit the parcel in your absence.')
         );
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_DETAILS])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_DETAILS]);
+        }
 
         return [$this->serviceInputBuilder->create()];
     }

@@ -64,30 +64,24 @@ class PreferredTime extends AbstractService
      */
     protected function createInputs(): array
     {
-        $this->serviceInputBuilder->setCode('time');
+        $this->serviceInputBuilder->setCode(self::PROPERTY_TIME);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TIME);
         $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
         $this->serviceInputBuilder->setLabel(__('Preferred Time: Delivery during your preferred time slot'));
         $this->serviceInputBuilder->setTooltip(
             __('Indicate a preferred time for your parcel delivery by choosing one of the displayed time windows.')
         );
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_TIME])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_TIME]);
+        }
 
         return [$this->serviceInputBuilder->create()];
     }
 
     /**
      * @return string
-     * @TODO(nr): Update to ServiceInputInterface[] logic
      */
-    public function getSelectedValue()
-    {
-        return $this->getTime();
-    }
-
-    /**
-     * @return string
-     */
-    public function getTime()
+    public function getTime(): string
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_TIME])) {

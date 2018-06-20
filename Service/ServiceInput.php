@@ -85,11 +85,12 @@ class ServiceInput implements ServiceInputInterface
      * @param string $inputType
      * @param string $code
      * @param string $label
-     * @param string[] $validationRules
-     * @param string[] $options
+     * @param array $validationRules
+     * @param array $options
      * @param string $tooltip
      * @param string $placeholder
      * @param int $sortOrder
+     * @param $value
      */
     public function __construct(
         string $inputType,
@@ -99,7 +100,8 @@ class ServiceInput implements ServiceInputInterface
         array $options,
         string $tooltip,
         string $placeholder,
-        int $sortOrder
+        int $sortOrder,
+        $value
     ) {
         $this->inputType = $inputType;
         $this->code = $code;
@@ -109,6 +111,7 @@ class ServiceInput implements ServiceInputInterface
         $this->placeholder = $placeholder;
         $this->sortOrder = $sortOrder;
         $this->validationRules = $validationRules;
+        $this->value = $value;
     }
 
     /**
@@ -181,13 +184,5 @@ class ServiceInput implements ServiceInputInterface
     public function getValidationRules(): array
     {
         return $this->validationRules;
-    }
-
-    /**
-     * @param mixed $value
-     */
-    public function setValue($value)
-    {
-        $this->value = $value;
     }
 }

@@ -42,6 +42,10 @@ class PreferredNeighbour extends AbstractService
 
     const PROPERTY_DETAILS = 'details';
 
+    const PROPERTY_NAME = 'name';
+
+    const PROPERTY_ADDRESS = 'address';
+
     /**
      * @var bool
      */
@@ -66,7 +70,7 @@ class PreferredNeighbour extends AbstractService
     {
         $result = [];
 
-        $this->serviceInputBuilder->setCode('name');
+        $this->serviceInputBuilder->setCode(self::PROPERTY_NAME);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
         $this->serviceInputBuilder->setPlaceholder('First name, last name of neighbour');
         $this->serviceInputBuilder->setValidationRules([
@@ -80,9 +84,12 @@ class PreferredNeighbour extends AbstractService
             __('Determine a person in your immediate neighborhood to whom we can hand out your parcel in your absence.
             This person should live in the same building, directly opposite, or next door.')
         );
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_NAME])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_NAME]);
+        }
         $result[] = $this->serviceInputBuilder->create();
 
-        $this->serviceInputBuilder->setCode('address');
+        $this->serviceInputBuilder->setCode(self::PROPERTY_ADDRESS);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
         $this->serviceInputBuilder->setPlaceholder('Street, number, postal code, city');
         $this->serviceInputBuilder->setValidationRules([
@@ -91,29 +98,30 @@ class PreferredNeighbour extends AbstractService
             'validate-no-html-tags' => true,
             'dhl_filter_special_chars' => true,
         ]);
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_ADDRESS])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_ADDRESS]);
+        }
         $result[] = $this->serviceInputBuilder->create();
 
         return $result;
     }
 
     /**
+     * The details property is a virtual property made up of the name and address properties.
+     *
      * @return string
      */
-    public function getSelectedValue()
+    public function getDetails(): string
     {
-        return $this->getDetails();
-    }
-
-    /**
-     * @return string
-     */
-    public function getDetails()
-    {
+        $details = [];
         $properties = $this->serviceConfig->getProperties();
-        if (isset($properties[self::PROPERTY_DETAILS])) {
-            return $properties[self::PROPERTY_DETAILS];
+        if (isset($properties[self::PROPERTY_NAME])) {
+            $details[] = $properties[self::PROPERTY_NAME];
+        }
+        if (isset($properties[self::PROPERTY_ADDRESS])) {
+            $details[] = $properties[self::PROPERTY_ADDRESS];
         }
 
-        return '';
+        return implode(' ', $details);
     }
 }

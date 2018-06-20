@@ -63,14 +63,6 @@ interface ServiceInputInterface
     public function getValue();
 
     /**
-     * Set the value of a service input
-     * May be boolean true or a date or a monetary value, whatever the service offers.
-     *
-     * @param mixed $value
-     */
-    public function setValue($value);
-
-    /**
      * Obtain the label corresponding to the input
      *
      * @return string

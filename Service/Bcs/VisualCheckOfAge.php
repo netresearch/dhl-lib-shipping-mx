@@ -74,17 +74,8 @@ class VisualCheckOfAge extends AbstractService
 
     /**
      * @return string
-     * @TODO(nr): Update to ServiceInputInterface[] logic
      */
-    public function getSelectedValue()
-    {
-        return $this->getAge();
-    }
-
-    /**
-     * @return string
-     */
-    public function getAge()
+    public function getAge(): string
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AGE])) {

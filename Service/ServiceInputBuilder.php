@@ -47,7 +47,7 @@ class ServiceInputBuilder
     /**
      * @var mixed
      */
-    private $value;
+    private $value = null;
 
     /**
      * @var string
@@ -92,7 +92,8 @@ class ServiceInputBuilder
             $this->options,
             $this->tooltip,
             $this->placeholder,
-            $this->sortOrder
+            $this->sortOrder,
+            $this->value
         );
 
         $this->inputType = null;
@@ -103,6 +104,7 @@ class ServiceInputBuilder
         $this->placeholder = '';
         $this->sortOrder = 0;
         $this->validationRules = [];
+        $this->value = null;
 
         return $result;
     }
