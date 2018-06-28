@@ -95,7 +95,7 @@ class ShippingRoutes implements ShippingRoutesInterface
             ],
             'VN' => [
                 'included' => [self::REGION_INTERNATIONAL],
-                'excluded' => [self::COUNTRY_CODE_VIETNAM],
+                'excluded' => [],
             ],
             'AU' => [
                 'included' => [self::REGION_INTERNATIONAL],
