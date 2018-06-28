@@ -75,7 +75,7 @@ class ShippingRoutes implements ShippingRoutesInterface
             ],
             'TH' => [
                 'included' => [self::REGION_INTERNATIONAL],
-                'excluded' => [self::COUNTRY_CODE_THAILAND],
+                'excluded' => [],
             ],
             'JP' => [
                 'included' => [self::REGION_INTERNATIONAL],
