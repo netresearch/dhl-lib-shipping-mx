@@ -233,14 +233,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PDE,
                 ],
                 ShippingRoutes::REGION_INTERNATIONAL => [
-                    self::CODE_APAC_PPS,
-                    self::CODE_APAC_PPM,
-                    self::CODE_APAC_PKD,
-                    self::CODE_APAC_PKG,
-                    self::CODE_APAC_PKM,
-                    self::CODE_PLT,
-                    self::CODE_APAC_PLD,
-                    self::CODE_APAC_PLE,
+                    // no longer available
                 ],
             ],
             'AU' => [
