@@ -22,8 +22,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Bcs;
 
+use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
@@ -37,7 +39,7 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  */
 class Insurance extends AbstractService
 {
-    const CODE = 'additionalInsurance';
+    const CODE = 'insurance';
 
     const PROPERTY_AMOUNT = 'amount';
     const PROPERTY_CURRENCY_CODE = 'currency_code';
@@ -60,29 +62,38 @@ class Insurance extends AbstractService
         'AT' => [
             'included' => [RoutesInterface::REGION_INTERNATIONAL],
             'excluded' => [],
-        ]
+        ],
     ];
 
     /**
-     * @return mixed[]
-     * @TODO(nr): Update to ServiceInputInterface[] logic
+     * @return ServiceInputInterface[]
      */
-    public function getSelectedValue()
+    protected function createInputs(): array
     {
-        return [
-            self::PROPERTY_AMOUNT => $this->getAmount(),
-            self::PROPERTY_CURRENCY_CODE => $this->getCurrencyCode(),
-        ];
+        $this->serviceInputBuilder->setCode(self::PROPERTY_AMOUNT);
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_NUMBER);
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_AMOUNT])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_AMOUNT]);
+        }
+        $amountInput = $this->serviceInputBuilder->create();
+
+        $this->serviceInputBuilder->setCode(self::PROPERTY_CURRENCY_CODE);
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE]);
+        }
+        $currencyCodeInput = $this->serviceInputBuilder->create();
+        return [$amountInput, $currencyCodeInput];
     }
 
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AMOUNT])) {
-            return (float) $properties[self::PROPERTY_AMOUNT];
+            return (float)$properties[self::PROPERTY_AMOUNT];
         }
 
         return 0;
@@ -91,7 +102,7 @@ class Insurance extends AbstractService
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_CURRENCY_CODE])) {

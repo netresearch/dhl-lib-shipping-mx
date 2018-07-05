@@ -25,10 +25,10 @@
 
 namespace Dhl\Shipping\Webservice;
 
+use Dhl\Shipping\Api\ServicePoolInterface;
+use Dhl\Shipping\Webservice\Exception\CreateShipmentValidationException;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\AbstractServiceFactory;
-use Dhl\Shipping\Webservice\Exception\CreateShipmentValidationException;
 
 /**
  * RequestValidator
@@ -50,8 +50,16 @@ class RequestValidator implements RequestValidatorInterface
      */
     public function validateShipmentOrder(ShipmentOrderInterface $shipmentOrder)
     {
-        $isWithCod = $shipmentOrder->getServices()->getService(AbstractServiceFactory::SERVICE_CODE_COD);
-        $canShipPartially = !$isWithCod;
+        $isWithInsurance = array_key_exists(
+            ServicePoolInterface::SERVICE_INSURANCE_CODE,
+            $shipmentOrder->getServices()
+        );
+        $isWithCod = array_key_exists(
+            ServicePoolInterface::SERVICE_COD_CODE,
+            $shipmentOrder->getServices()
+        );
+        // can't ship partially if either or both, cod or insurance are booked
+        $canShipPartially = !($isWithCod || $isWithInsurance);
         $isPartial = $shipmentOrder->getShipmentDetails()->isPartialShipment();
 
         if ($isPartial && !$canShipPartially) {

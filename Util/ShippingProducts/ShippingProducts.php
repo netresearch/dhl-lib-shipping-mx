@@ -232,7 +232,7 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
                     self::CODE_APAC_PDO,
                     self::CODE_APAC_PDE,
                 ],
-                ShippingRoutes::REGION_INTERNATIONAL => [
+                RoutesInterface::REGION_INTERNATIONAL => [
                     // no longer available
                 ],
             ],

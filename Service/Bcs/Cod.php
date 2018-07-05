@@ -22,8 +22,10 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Bcs;
 
+use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
@@ -37,7 +39,7 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  */
 class Cod extends AbstractService
 {
-    const CODE = 'cod';
+    const CODE = 'bcs_cod';
 
     const PROPERTY_AMOUNT = 'amount';
     const PROPERTY_CURRENCY_CODE = 'currency_code';
@@ -61,29 +63,45 @@ class Cod extends AbstractService
         'AT' => [
             'included' => [RoutesInterface::REGION_EU],
             'excluded' => [],
-        ]
+        ],
     ];
 
     /**
-     * @return mixed[]
-     * @TODO(nr): Update to ServiceInputInterface[] logic
+     * @return ServiceInputInterface[]
      */
-    public function getSelectedValue()
+    protected function createInputs(): array
     {
-        return [
-            self::PROPERTY_AMOUNT => $this->getAmount(),
-            self::PROPERTY_CURRENCY_CODE => $this->getCurrencyCode(),
-        ];
+        $this->serviceInputBuilder->setCode(self::PROPERTY_AMOUNT);
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_NUMBER);
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_AMOUNT])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_AMOUNT]);
+        }
+        $amountInput = $this->serviceInputBuilder->create();
+
+        $this->serviceInputBuilder->setCode(self::PROPERTY_CURRENCY_CODE);
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE]);
+        }
+        $currencyCodeInput = $this->serviceInputBuilder->create();
+
+        $this->serviceInputBuilder->setCode(self::PROPERTY_ADD_FEE);
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_CHECKBOX);
+        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_ADD_FEE])) {
+            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_ADD_FEE]);
+        }
+        $addFeeInput = $this->serviceInputBuilder->create();
+        return [$amountInput, $currencyCodeInput, $addFeeInput];
     }
 
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AMOUNT])) {
-            return (float) $properties[self::PROPERTY_AMOUNT];
+            return (float)$properties[self::PROPERTY_AMOUNT];
         }
 
         return 0;
@@ -92,7 +110,7 @@ class Cod extends AbstractService
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_CURRENCY_CODE])) {
@@ -105,11 +123,11 @@ class Cod extends AbstractService
     /**
      * @return bool
      */
-    public function isAddFee()
+    public function isAddFee(): bool
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_ADD_FEE])) {
-            return (bool) $properties[self::PROPERTY_ADD_FEE];
+            return (bool)$properties[self::PROPERTY_ADD_FEE];
         }
 
         return false;

@@ -61,7 +61,7 @@ interface ShipmentOrderInterface
     public function getReturnReceiver();
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\ServiceCollectionInterface
+     * @return \Dhl\Shipping\Api\ServiceCollectionInterface
      */
     public function getServices();
 

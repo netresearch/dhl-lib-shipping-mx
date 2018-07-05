@@ -22,10 +22,12 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
+
 namespace Dhl\Shipping\Service\Bcs;
 
 use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
+use Dhl\Shipping\Api\ServicePoolInterface;
 use Dhl\Shipping\Api\ServiceProviderInterface;
 use Dhl\Shipping\Service\ServiceInputBuilder;
 
@@ -185,10 +187,10 @@ class BcsServiceProvider implements ServiceProviderInterface
         $serviceSettings = isset($servicePresets[BulkyGoods::CODE]) ? $servicePresets[BulkyGoods::CODE] : null;
         $bulkyGoodsService = $this->getBulkyGoodsService($inputBuilder, $serviceSettings);
 
-        $serviceSettings = isset($servicePresets[Cod::CODE]) ? $servicePresets[Cod::CODE] : null;
+        $serviceSettings = isset($servicePresets[ServicePoolInterface::SERVICE_COD_CODE]) ? $servicePresets[ServicePoolInterface::SERVICE_COD_CODE] : null;
         $codService = $this->getCodService($inputBuilder, $serviceSettings);
 
-        $serviceSettings = isset($servicePresets[Insurance::CODE]) ? $servicePresets[Insurance::CODE] : null;
+        $serviceSettings = isset($servicePresets[ServicePoolInterface::SERVICE_INSURANCE_CODE]) ? $servicePresets[ServicePoolInterface::SERVICE_INSURANCE_CODE] : null;
         $insuranceService = $this->getInsuranceService($inputBuilder, $serviceSettings);
 
         $serviceSettings = isset($servicePresets[ParcelAnnouncement::CODE]) ? $servicePresets[ParcelAnnouncement::CODE] : null;
