@@ -56,36 +56,19 @@ class Insurance extends AbstractService
      * @var string[][]
      */
     protected $routes = [
-        'MY' => [
+        RoutesInterface::COUNTRY_CODE_MALAYSIA => [
             'included' => [RoutesInterface::REGION_INTERNATIONAL],
             'excluded' => [],
         ],
-        'TH' => [
+        RoutesInterface::COUNTRY_CODE_THAILAND => [
+            'included' => [RoutesInterface::REGION_INTERNATIONAL],
+            'excluded' => [],
+        ],
+        RoutesInterface::COUNTRY_CODE_USA => [
             'included' => [RoutesInterface::REGION_INTERNATIONAL],
             'excluded' => [],
         ],
     ];
-
-    /**
-     * @return ServiceInputInterface[]
-     */
-    protected function createInputs(): array
-    {
-        $this->serviceInputBuilder->setCode(self::PROPERTY_AMOUNT);
-        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_NUMBER);
-        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_AMOUNT])) {
-            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_AMOUNT]);
-        }
-        $amountInput = $this->serviceInputBuilder->create();
-
-        $this->serviceInputBuilder->setCode(self::PROPERTY_CURRENCY_CODE);
-        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
-        if (isset($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE])) {
-            $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE]);
-        }
-        $currencyCodeInput = $this->serviceInputBuilder->create();
-        return [$amountInput, $currencyCodeInput];
-    }
 
     /**
      * @return float
@@ -110,6 +93,6 @@ class Insurance extends AbstractService
             return $properties[self::PROPERTY_CURRENCY_CODE];
         }
 
-        return 'EUR';
+        return 'USD';
     }
 }

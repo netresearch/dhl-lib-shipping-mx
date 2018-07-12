@@ -41,32 +41,26 @@ use Dhl\Shipping\Service\ServiceInputBuilder;
  */
 class GlaServiceProvider implements ServiceProviderInterface
 {
+    private static $settingsClassMap = [
+        ServicePoolInterface::SERVICE_COD_CODE => Cod::class,
+        ServicePoolInterface::SERVICE_INSURANCE_CODE => Insurance::class,
+    ];
+
     /**
+     * @param string $serviceCode
      * @param ServiceInputBuilder $builder
-     * @param ServiceSettingsInterface|null $config
-     * @return ServiceInterface|Cod
+     * @param ServiceSettingsInterface $config
+     * @return ServiceInterface
      */
-    private function getCodService(
-        ServiceInputBuilder $builder,
-        ServiceSettingsInterface $config = null
-    ) {
-        return new Cod($config, $builder);
+    private function createServiceClass($serviceCode, ServiceInputBuilder $builder, ServiceSettingsInterface $config)
+    {
+        $className = self::$settingsClassMap[$serviceCode];
+
+        return new $className($config, $builder);
     }
 
     /**
-     * @param ServiceInputBuilder $builder
-     * @param ServiceSettingsInterface|null $config
-     * @return ServiceInterface|Insurance
-     */
-    private function getInsuranceService(
-        ServiceInputBuilder $builder,
-        ServiceSettingsInterface $config = null
-    ) {
-        return new Insurance($config, $builder);
-    }
-
-    /**
-     * Return a list of services based on given route, initialized with given presets.
+     * Return a list of services based on given configurations, initialized with given presets.
      *
      * @param ServiceSettingsInterface[] $servicePresets
      * @return ServiceInterface[]
@@ -75,17 +69,14 @@ class GlaServiceProvider implements ServiceProviderInterface
         array $servicePresets = []
     ) {
         $inputBuilder = new ServiceInputBuilder();
+        $services = [];
 
-        $serviceSettings = isset($servicePresets[ServicePoolInterface::SERVICE_COD_CODE]) ? $servicePresets[ServicePoolInterface::SERVICE_COD_CODE] : null;
-        $codService = $this->getCodService($inputBuilder, $serviceSettings);
+        foreach ($servicePresets as $serviceCode => $servicePreset) {
+            if (array_key_exists($serviceCode, self::$settingsClassMap)) {
+                $services[] = $this->createServiceClass($serviceCode, $inputBuilder, $servicePreset);
+            }
+        }
 
-        $serviceSettings = isset($servicePresets[ServicePoolInterface::SERVICE_INSURANCE_CODE]) ? $servicePresets[ServicePoolInterface::SERVICE_INSURANCE_CODE] : null;
-        $insuranceService = $this->getInsuranceService($inputBuilder, $serviceSettings);
-
-
-        return [
-            $codService,
-            $insuranceService,
-        ];
+        return $services;
     }
 }

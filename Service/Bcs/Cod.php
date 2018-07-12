@@ -61,7 +61,7 @@ class Cod extends AbstractService
             'excluded' => [],
         ],
         'AT' => [
-            'included' => [RoutesInterface::REGION_EU],
+            'included' => [RoutesInterface::COUNTRY_CODE_AUSTRIA],
             'excluded' => [],
         ],
     ];
