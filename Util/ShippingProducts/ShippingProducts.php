@@ -499,11 +499,14 @@ class ShippingProducts implements BcsShippingProductsInterface, GlShippingProduc
 
     /**
      * @param string $originCountryId
-     * @return string
+     * @return string[]
      */
     public function getAvailableShippingRoutes($originCountryId)
     {
-        $availableRoutes = $this->getCodes()[$originCountryId];
-        return $availableRoutes;
+        $codes = $this->getCodes();
+        if (array_key_exists($originCountryId, $codes)) {
+            return $codes[$originCountryId];
+        }
+        return [];
     }
 }
