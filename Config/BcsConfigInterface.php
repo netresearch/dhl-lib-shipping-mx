@@ -63,6 +63,9 @@ interface BcsConfigInterface
     const CONFIG_XML_PATH_SHIPPER_CONTACT_COMPANYADDITION = 'carriers/dhlshipping/bcs_shipper_contact_company_addition';
     const CONFIG_XML_PATH_SHIPPER_CONTACT_DISPATCHINFO = 'carriers/dhlshipping/bcs_shipper_contact_dispatchinfo';
 
+    const CONFIG_XML_PATH_PARCELMANAGEMENT_ENPOINT = 'carriers/dhlshipping/parcelmanagement_endpoint';
+    const CONFIG_XML_PATH_PARCELMANAGEMENT_SANDBOX_ENDPOINT = 'carriers/dhlshipping/parcelmanagement_sandbox_endpoint';
+
     /**
      * @deprecated since 0.6.0
      * @see BcsConfigInterface::CONFIG_XML_PATH_ACCOUNT_PARTICIPATIONS
