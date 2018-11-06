@@ -70,6 +70,7 @@ class ServiceHydrator
             'validationRules' => $input->getValidationRules(),
             'inputType' => $input->getInputType(),
             'value' => $input->getValue(),
+            'infoText' => $input->getInfoText()
         ];
     }
 }

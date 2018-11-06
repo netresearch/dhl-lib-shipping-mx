@@ -80,6 +80,11 @@ class ServiceInputBuilder
     private $validationRules = [];
 
     /**
+     * @var string
+     */
+    private $infoText;
+
+    /**
      * @return ServiceInputInterface
      */
     public function create()
@@ -93,7 +98,8 @@ class ServiceInputBuilder
             $this->tooltip,
             $this->placeholder,
             $this->sortOrder,
-            $this->value
+            $this->value,
+            $this->infoText
         );
 
         $this->inputType = null;
@@ -105,6 +111,7 @@ class ServiceInputBuilder
         $this->sortOrder = 0;
         $this->validationRules = [];
         $this->value = null;
+        $this->infoText = '';
 
         return $result;
     }
@@ -179,5 +186,13 @@ class ServiceInputBuilder
     public function setValidationRules(array $validationRules)
     {
         $this->validationRules = $validationRules;
+    }
+
+    /**
+     * @param string $infoText
+     */
+    public function setInfoText(string $infoText): void
+    {
+        $this->infoText = $infoText;
     }
 }

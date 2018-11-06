@@ -77,6 +77,11 @@ class ServiceSettings implements ServiceSettingsInterface
     private $sortOrder;
 
     /**
+     * @var strings
+     */
+    private $infoText;
+
+    /**
      * ServiceSettings constructor.
      * @param string $name
      * @param bool $isEnabled
@@ -97,7 +102,8 @@ class ServiceSettings implements ServiceSettingsInterface
         $sortOrder,
         array $properties = [],
         array $options = [],
-        array $validationRules = []
+        array $validationRules = [],
+        $infoText = ''
     ) {
         $this->name = $name;
         $this->isEnabled = $isEnabled;
@@ -107,6 +113,7 @@ class ServiceSettings implements ServiceSettingsInterface
         $this->sortOrder = $sortOrder;
         $this->properties = $properties;
         $this->options = $options;
+        $this->infoText = $infoText;
     }
 
     /**
@@ -191,5 +198,15 @@ class ServiceSettings implements ServiceSettingsInterface
     public function getSortOrder(): int
     {
         return $this->sortOrder;
+    }
+
+    /**
+     * Getinfo text eg. text with fee hint.
+     *
+     * @return string
+     */
+    public function getInfoText()
+    {
+        return $this->infoText;
     }
 }

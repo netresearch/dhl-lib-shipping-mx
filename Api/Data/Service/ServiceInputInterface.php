@@ -105,4 +105,9 @@ interface ServiceInputInterface
      * @return string[]
      */
     public function getValidationRules();
+
+    /**
+     * @return string
+     */
+    public function getInfoText();
 }

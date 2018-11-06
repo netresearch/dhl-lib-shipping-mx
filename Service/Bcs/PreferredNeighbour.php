@@ -73,6 +73,7 @@ class PreferredNeighbour extends AbstractService
         $this->serviceInputBuilder->setCode(self::PROPERTY_NAME);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
         $this->serviceInputBuilder->setPlaceholder('First name, last name of neighbour');
+        $this->serviceInputBuilder->setInfoText(__($this->serviceConfig->getInfoText()));
         $this->serviceInputBuilder->setValidationRules([
             'minLength' => 1,
             'maxLength' => 40,

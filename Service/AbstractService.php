@@ -101,6 +101,7 @@ abstract class AbstractService implements ServiceInterface
         $this->serviceInputBuilder->setCode('enabled');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_CHECKBOX);
         $this->serviceInputBuilder->setLabel(__($this->getName()));
+        $this->serviceInputBuilder->setInfoText(__($this->serviceConfig->getInfoText()));
         if (isset($this->serviceConfig->getProperties()['enabled'])) {
             $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()['enabled']);
         }

@@ -80,6 +80,11 @@ class ServiceInput implements ServiceInputInterface
     private $validationRules;
 
     /**
+     * @var string
+     */
+    private $infoText;
+
+    /**
      * ServiceInput constructor.
      *
      * @param string $inputType
@@ -101,7 +106,8 @@ class ServiceInput implements ServiceInputInterface
         string $tooltip,
         string $placeholder,
         int $sortOrder,
-        $value
+        $value,
+        string $infoText
     ) {
         $this->inputType = $inputType;
         $this->code = $code;
@@ -112,6 +118,7 @@ class ServiceInput implements ServiceInputInterface
         $this->sortOrder = $sortOrder;
         $this->validationRules = $validationRules;
         $this->value = $value;
+        $this->infoText = $infoText;
     }
 
     /**
@@ -184,5 +191,13 @@ class ServiceInput implements ServiceInputInterface
     public function getValidationRules(): array
     {
         return $this->validationRules;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfoText(): string
+    {
+        return $this->infoText;
     }
 }

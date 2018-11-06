@@ -42,6 +42,7 @@ interface ServiceSettingsInterface
     const PROPERTIES = 'properties';
     const OPTIONS = 'options';
     const SORT_ORDER = 'sortOrder';
+    const INFO_TEXT  = 'infoText';
 
     /**
      * Get service display name.
@@ -102,4 +103,11 @@ interface ServiceSettingsInterface
      * @return int
      */
     public function getSortOrder();
+
+    /**
+     * Getinfo text eg. text with fee hint.
+     *
+     * @return string
+     */
+    public function getInfoText();
 }
