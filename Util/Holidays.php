@@ -11,6 +11,9 @@ use \DateTime;
  */
 class Holidays
 {
+    /**
+     * @return \DateTime
+     */
     public static function getEaster()
     {
         $easter = new \DateTime('now');
@@ -22,6 +25,9 @@ class Holidays
         return $easter;
     }
 
+    /**
+     * @return array
+     */
     public static function holidays()
     {
         // removed all non static holidays

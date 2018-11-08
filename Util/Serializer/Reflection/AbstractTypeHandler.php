@@ -43,6 +43,11 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
      */
     private $reflect;
 
+    /**
+     * AbstractTypeHandler constructor.
+     *
+     * @param \Dhl\Shipping\Util\Serializer\Reflection\ReflectionInterface $reflect
+     */
     public function __construct(ReflectionInterface $reflect)
     {
         $this->reflect = $reflect;

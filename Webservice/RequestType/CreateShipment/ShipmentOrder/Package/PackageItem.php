@@ -133,56 +133,89 @@ class PackageItem implements PackageItemInterface
         $this->sku = $sku;
     }
 
+    /**
+     * @return string
+     */
     public function getQty()
     {
         return $this->qty;
     }
 
+    /**
+     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface|string
+     */
     public function getCustomsValue()
     {
         return $this->customsValue;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface
+     */
     public function getPrice()
     {
         return $this->price;
     }
 
+    /**
+     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface
+     */
     public function getWeight()
     {
         return $this->weight;
     }
 
+    /**
+     * @return string
+     */
     public function getProductId()
     {
         return $this->productId;
     }
 
+    /**
+     * @return string
+     */
     public function getOrderItemId()
     {
         return $this->orderItemId;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomsItemDescription()
     {
         return $this->customsItemDescription;
     }
 
+    /**
+     * @return string
+     */
     public function getItemOriginCountry()
     {
         return $this->itemOriginCountry;
     }
 
+    /**
+     * @return string
+     */
     public function getTariffNumber()
     {
         return $this->tariffNumber;
     }
 
+    /**
+     * @return string
+     */
     public function getSku()
     {
         return $this->sku;

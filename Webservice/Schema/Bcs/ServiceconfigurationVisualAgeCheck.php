@@ -2,6 +2,9 @@
 
 namespace Dhl\Shipping\Webservice\Schema\Bcs;
 
+/**
+ * Class ServiceconfigurationVisualAgeCheck
+ */
 class ServiceconfigurationVisualAgeCheck
 {
 

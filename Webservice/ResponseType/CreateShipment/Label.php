@@ -157,6 +157,9 @@ class Label implements LabelInterface
         return $this->codLabel;
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getAllLabels()
     {
         return array_filter([
