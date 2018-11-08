@@ -62,7 +62,7 @@ class VisualCheckOfAge extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_AGE);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_SELECT);
@@ -75,7 +75,7 @@ class VisualCheckOfAge extends AbstractService
     /**
      * @return string
      */
-    public function getAge(): string
+    public function getAge()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AGE])) {

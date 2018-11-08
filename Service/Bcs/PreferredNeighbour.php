@@ -66,7 +66,7 @@ class PreferredNeighbour extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $result = [];
 
@@ -112,7 +112,7 @@ class PreferredNeighbour extends AbstractService
      *
      * @return string
      */
-    public function getDetails(): string
+    public function getDetails()
     {
         $details = [];
         $properties = $this->serviceConfig->getProperties();

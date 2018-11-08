@@ -68,7 +68,7 @@ class Insurance extends AbstractService
     /**
      * @return float
      */
-    public function getAmount(): float
+    public function getAmount()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AMOUNT])) {
@@ -81,7 +81,7 @@ class Insurance extends AbstractService
     /**
      * @return string
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_CURRENCY_CODE])) {

@@ -96,7 +96,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $this->serviceInputBuilder->setCode('enabled');
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_CHECKBOX);
@@ -112,7 +112,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return string
      */
-    public function getCode(): string
+    public function getCode()
     {
         return static::CODE;
     }
@@ -122,7 +122,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->serviceConfig->getName();
     }
@@ -130,7 +130,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return ServiceInputInterface[]
      */
-    public function getInputs(): array
+    public function getInputs()
     {
         if ($this->inputs === null) {
             $this->inputs = $this->createInputs();
@@ -141,7 +141,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isEnabled(): bool
+    public function isEnabled()
     {
         return $this->serviceConfig->isEnabled();
     }
@@ -149,7 +149,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isCustomerService(): bool
+    public function isCustomerService()
     {
         return $this->serviceConfig->isCustomerService();
     }
@@ -157,7 +157,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isMerchantService(): bool
+    public function isMerchantService()
     {
         return $this->serviceConfig->isMerchantService();
     }
@@ -165,7 +165,7 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
-    public function isSelected(): bool
+    public function isSelected()
     {
         return $this->selected;
     }
@@ -175,7 +175,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return bool
      */
-    public function isAvailableAtPostalFacility(): bool
+    public function isAvailableAtPostalFacility()
     {
         return $this->postalFacilitySupport;
     }
@@ -185,7 +185,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return string[][]
      */
-    public function getRoutes(): array
+    public function getRoutes()
     {
         return $this->routes;
     }
@@ -195,7 +195,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder()
     {
         return $this->serviceConfig->getSortOrder();
     }

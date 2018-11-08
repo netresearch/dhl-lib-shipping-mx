@@ -62,7 +62,7 @@ class PreferredDay extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_DATE);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_DATE);
@@ -83,7 +83,7 @@ class PreferredDay extends AbstractService
     /**
      * @return string
      */
-    public function getDate(): string
+    public function getDate()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_DATE])) {

@@ -67,7 +67,7 @@ class ServiceCollection extends \ArrayIterator
      * @param callable $callback
      * @return mixed[]
      */
-    public function map(callable $callback): array
+    public function map(callable $callback)
     {
         $mappedServices = array_map($callback, $this->getArrayCopy());
         return $mappedServices;
@@ -76,7 +76,7 @@ class ServiceCollection extends \ArrayIterator
     /**
      * @return string[]
      */
-    public function getConfiguration(): array
+    public function getConfiguration()
     {
         $valuesMapper = function (ServiceInterface $service) {
             return $service->getValue();

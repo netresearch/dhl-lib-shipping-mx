@@ -62,7 +62,7 @@ class PreferredLocation extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_DETAILS);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
@@ -91,7 +91,7 @@ class PreferredLocation extends AbstractService
      * @return string
      * @TODO(nr): Update to ServiceInputInterface[] logic
      */
-    public function getSelectedValue(): string
+    public function getSelectedValue()
     {
         return $this->getDetails();
     }
@@ -99,7 +99,7 @@ class PreferredLocation extends AbstractService
     /**
      * @return string
      */
-    public function getDetails(): string
+    public function getDetails()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_DETAILS])) {

@@ -62,7 +62,7 @@ class PreferredTime extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_TIME);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TIME);
@@ -82,7 +82,7 @@ class PreferredTime extends AbstractService
     /**
      * @return string
      */
-    public function getTime(): string
+    public function getTime()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_TIME])) {

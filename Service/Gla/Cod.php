@@ -69,7 +69,7 @@ class Cod extends AbstractService
     /**
      * @return ServiceInputInterface[]
      */
-    protected function createInputs(): array
+    protected function createInputs()
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_AMOUNT);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_NUMBER);
@@ -84,14 +84,14 @@ class Cod extends AbstractService
             $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_CURRENCY_CODE]);
         }
         $currencyCodeInput = $this->serviceInputBuilder->create();
-        
+
         return [$amountInput, $currencyCodeInput];
     }
 
     /**
      * @return float
      */
-    public function getAmount(): float
+    public function getAmount()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AMOUNT])) {
@@ -104,7 +104,7 @@ class Cod extends AbstractService
     /**
      * @return string
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_CURRENCY_CODE])) {
@@ -117,7 +117,7 @@ class Cod extends AbstractService
     /**
      * @return bool
      */
-    public function isAddFee(): bool
+    public function isAddFee()
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_ADD_FEE])) {

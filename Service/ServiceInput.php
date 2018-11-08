@@ -124,7 +124,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string
      */
-    public function getInputType(): string
+    public function getInputType()
     {
         return $this->inputType;
     }
@@ -132,7 +132,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string
      */
-    public function getCode(): string
+    public function getCode()
     {
         return $this->code;
     }
@@ -148,7 +148,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string
      */
-    public function getLabel(): string
+    public function getLabel()
     {
         return $this->label;
     }
@@ -156,7 +156,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string[]
      */
-    public function getOptions(): array
+    public function getOptions()
     {
         return $this->options;
     }
@@ -164,7 +164,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string
      */
-    public function getTooltip(): string
+    public function getTooltip()
     {
         return $this->tooltip;
     }
@@ -172,7 +172,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string
      */
-    public function getPlaceholder(): string
+    public function getPlaceholder()
     {
         return $this->placeholder;
     }
@@ -180,7 +180,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder()
     {
         return $this->sortOrder;
     }
@@ -188,7 +188,7 @@ class ServiceInput implements ServiceInputInterface
     /**
      * @return string[]
      */
-    public function getValidationRules(): array
+    public function getValidationRules()
     {
         return $this->validationRules;
     }

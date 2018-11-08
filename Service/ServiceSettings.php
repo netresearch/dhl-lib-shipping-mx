@@ -121,7 +121,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -131,7 +131,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return bool
      */
-    public function isEnabled(): bool
+    public function isEnabled()
     {
         return $this->isEnabled;
     }
@@ -141,7 +141,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return bool
      */
-    public function isCustomerService(): bool
+    public function isCustomerService()
     {
         return $this->isCustomerService;
     }
@@ -151,7 +151,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return bool
      */
-    public function isMerchantService(): bool
+    public function isMerchantService()
     {
         return $this->isMerchantService;
     }
@@ -161,7 +161,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return bool
      */
-    public function isSelected(): bool
+    public function isSelected()
     {
         return $this->isSelected;
     }
@@ -173,7 +173,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return mixed[]
      */
-    public function getProperties(): array
+    public function getProperties()
     {
         return $this->properties;
     }
@@ -185,7 +185,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return string[]
      */
-    public function getOptions(): array
+    public function getOptions()
     {
         return $this->options;
     }
@@ -195,7 +195,7 @@ class ServiceSettings implements ServiceSettingsInterface
      *
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder()
     {
         return $this->sortOrder;
     }

@@ -64,7 +64,7 @@ class ServiceCompatibilityPool
      * @param string $storeId
      * @return string[]|ServiceCompatibilityInterface
      */
-    public function getRules($countryId, $storeId): array
+    public function getRules($countryId, $storeId)
     {
         return $this->rules;
     }
