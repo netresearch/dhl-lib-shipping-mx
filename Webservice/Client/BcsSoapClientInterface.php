@@ -41,6 +41,7 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\Version $part1
      *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse
+     * @throws \SoapFault
      */
     public function getVersion(\Dhl\Shipping\Webservice\Schema\Bcs\Version $part1);
 
@@ -50,6 +51,7 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderRequest $part1
      *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderResponse
+     * @throws \SoapFault
      */
     public function createShipmentOrder(\Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderRequest $part1);
 
@@ -59,6 +61,7 @@ interface BcsSoapClientInterface extends HttpClientInterface
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderRequest $part1
      *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderResponse
+     * @throws \SoapFault
      */
     public function deleteShipmentOrder(\Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderRequest $part1);
 }

@@ -96,16 +96,17 @@ class PackageItem implements PackageItemInterface
     /**
      * PackageItem constructor.
      *
-     * @param                 $qty
-     * @param                 $price
-     * @param                 $name
-     * @param WeightInterface $weight
-     * @param                 $productId
-     * @param                 $orderItemId
-     * @param string          $customsItemDescription
-     * @param string          $tariffNumber
-     * @param string          $itemOriginCountry
-     * @param string          $customsValue
+     * @param                        $qty
+     * @param MonetaryValueInterface $price
+     * @param                        $name
+     * @param WeightInterface        $weight
+     * @param                        $productId
+     * @param                        $orderItemId
+     * @param MonetaryValueInterface $customsValue
+     * @param string                 $customsItemDescription
+     * @param string                 $tariffNumber
+     * @param string                 $itemOriginCountry
+     * @param string                 $sku
      */
     public function __construct(
         $qty,
@@ -142,7 +143,7 @@ class PackageItem implements PackageItemInterface
     }
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface|string
+     * @return MonetaryValueInterface|string
      */
     public function getCustomsValue()
     {
@@ -158,7 +159,7 @@ class PackageItem implements PackageItemInterface
     }
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface
+     * @return MonetaryValueInterface
      */
     public function getPrice()
     {
@@ -166,7 +167,7 @@ class PackageItem implements PackageItemInterface
     }
 
     /**
-     * @return \Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface
+     * @return WeightInterface
      */
     public function getWeight()
     {

@@ -25,6 +25,11 @@
 
 namespace Dhl\Shipping\Webservice\Client;
 
+use Dhl\Shipping\Webservice\Exception\GlAuthorizationException;
+use Dhl\Shipping\Webservice\Exception\GlCommunicationException;
+use Dhl\Shipping\Webservice\Exception\GlOperationException;
+use Zend\Http\Response;
+
 /**
  * Global Label API REST client
  *
@@ -39,6 +44,8 @@ interface GlRestClientInterface extends HttpClientInterface
      * Requests new tokens.
      *
      * @return string
+     * @throws GlCommunicationException
+     * @throws GlAuthorizationException
      */
     public function authenticate();
 
@@ -47,7 +54,9 @@ interface GlRestClientInterface extends HttpClientInterface
      *
      * @param string $rawRequest
      *
-     * @return \Zend\Http\Response
+     * @return Response
+     * @throws GlOperationException
+     * @throws GlCommunicationException
      */
     public function generateLabels($rawRequest);
 }

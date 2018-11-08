@@ -24,6 +24,8 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
+use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
+use Dhl\Shipping\Webservice\Exception\ApiOperationException;
 use Dhl\Shipping\Webservice\RequestType;
 use Dhl\Shipping\Webservice\ResponseType;
 
@@ -41,6 +43,8 @@ interface AdapterInterface
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
      *
      * @return ResponseType\CreateShipment\LabelInterface[]
+     * @throws ApiCommunicationException
+     * @throws ApiOperationException
      */
     public function createLabels(array $shipmentOrders);
 
@@ -48,6 +52,8 @@ interface AdapterInterface
      * @param string[] $shipmentNumbers
      *
      * @return ResponseType\Generic\ItemStatusInterface[]
+     * @throws ApiCommunicationException
+     * @throws ApiOperationException
      */
     public function cancelLabels(array $shipmentNumbers);
 }

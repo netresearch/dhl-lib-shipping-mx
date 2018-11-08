@@ -77,7 +77,7 @@ class ServiceCollection extends \ArrayIterator
     }
 
     /**
-     * @return string[]
+     * @return mixed[]
      */
     public function getConfiguration()
     {

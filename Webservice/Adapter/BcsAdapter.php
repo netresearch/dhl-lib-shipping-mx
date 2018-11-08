@@ -143,6 +143,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
      * @param RequestType\GetVersionRequestInterface $versionRequest
      *
      * @return ResponseType\GetVersionResponseInterface
+     * @throws \SoapFault
      */
     public function getVersion(RequestType\GetVersionRequestInterface $versionRequest)
     {

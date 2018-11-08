@@ -153,7 +153,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     /**
      * @param string[] $shipmentNumbers
      *
-     * @return ResponseType\Generic\ItemStatusInterface[]
+     * @return void
      * @throws ApiOperationException
      */
     protected function deleteShipmentOrders(array $shipmentNumbers)

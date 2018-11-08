@@ -24,6 +24,8 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
+use Dhl\Shipping\Webservice\Exception\DeleteShipmentStatusException;
+
 /**
  * BcsResponseParserInterface
  *
@@ -45,6 +47,7 @@ interface BcsResponseParserInterface extends ResponseParserInterface
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderResponse $response
      *
      * @return \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface[]
+     * @throws DeleteShipmentStatusException
      */
     public function parseDeleteShipmentResponse($response);
 }

@@ -24,6 +24,8 @@
  */
 namespace Dhl\Shipping\Webservice\Adapter;
 
+use Dhl\Shipping\Webservice\Exception\ApiCommunicationException;
+use Dhl\Shipping\Webservice\Exception\ApiOperationException;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
@@ -62,6 +64,8 @@ abstract class AbstractAdapter implements AdapterInterface
      * @param ShipmentOrderInterface[] $shipmentOrders
      *
      * @return LabelInterface[]
+     * @throws ApiOperationException
+     * @throws ApiCommunicationException
      */
     abstract protected function createShipmentOrders(array $shipmentOrders);
 
@@ -69,6 +73,8 @@ abstract class AbstractAdapter implements AdapterInterface
      * @param string[] $shipmentNumbers
      *
      * @return ItemStatusInterface[]
+     * @throws ApiCommunicationException
+     * @throws ApiOperationException
      */
     abstract protected function deleteShipmentOrders(array $shipmentNumbers);
 
@@ -87,6 +93,8 @@ abstract class AbstractAdapter implements AdapterInterface
      * @param ShipmentOrderInterface[] $shipmentOrders
      *
      * @return LabelInterface[]
+     * @throws ApiCommunicationException
+     * @throws ApiOperationException
      */
     public function createLabels(array $shipmentOrders)
     {
@@ -118,6 +126,8 @@ abstract class AbstractAdapter implements AdapterInterface
      * @param string[] $shipmentNumbers
      *
      * @return ItemStatusInterface[]
+     * @throws ApiCommunicationException
+     * @throws ApiOperationException
      */
     public function cancelLabels(array $shipmentNumbers)
     {

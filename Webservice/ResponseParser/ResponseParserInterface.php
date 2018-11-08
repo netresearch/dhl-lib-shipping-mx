@@ -24,6 +24,8 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
+use Dhl\Shipping\Webservice\Exception\CreateShipmentStatusException;
+
 /**
  * ResponseParserInterface
  *
@@ -38,6 +40,7 @@ interface ResponseParserInterface
      * @param object $response
      *
      * @return \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface[]
+     * @throws CreateShipmentStatusException
      */
     public function parseCreateShipmentResponse($response);
 }

@@ -90,7 +90,7 @@ class BcsResponseParser implements BcsResponseParserInterface
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\CreateShipmentOrderResponse $response
      *
      * @return LabelInterface[]
-     * @throws \Exception
+     * @throws CreateShipmentStatusException
      */
     public function parseCreateShipmentResponse($response)
     {
@@ -127,7 +127,7 @@ class BcsResponseParser implements BcsResponseParserInterface
      *
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse $response
      *
-     * @return GetVersionResponseInterface
+     * @return void
      */
     public function parseGetVersionResponse($response)
     {
