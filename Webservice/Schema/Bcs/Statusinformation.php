@@ -21,15 +21,15 @@ class Statusinformation
     protected $statusMessage = null;
 
     /**
-     * @param int $statusCode
-     * @param string $statusText
+     * @param int      $statusCode
+     * @param string   $statusText
      * @param string[] $statusMessage
      */
     public function __construct($statusCode, $statusText, array $statusMessage)
     {
-      $this->statusCode = $statusCode;
-      $this->statusText = $statusText;
-      $this->statusMessage = $statusMessage;
+        $this->statusCode = $statusCode;
+        $this->statusText = $statusText;
+        $this->statusMessage = $statusMessage;
     }
 
     /**
@@ -37,17 +37,18 @@ class Statusinformation
      */
     public function getStatusCode()
     {
-      return $this->statusCode;
+        return $this->statusCode;
     }
 
     /**
      * @param int $statusCode
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Statusinformation
      */
     public function setStatusCode($statusCode)
     {
-      $this->statusCode = $statusCode;
-      return $this;
+        $this->statusCode = $statusCode;
+        return $this;
     }
 
     /**
@@ -55,17 +56,18 @@ class Statusinformation
      */
     public function getStatusText()
     {
-      return $this->statusText;
+        return $this->statusText;
     }
 
     /**
      * @param string $statusText
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Statusinformation
      */
     public function setStatusText($statusText)
     {
-      $this->statusText = $statusText;
-      return $this;
+        $this->statusText = $statusText;
+        return $this;
     }
 
     /**
@@ -73,17 +75,18 @@ class Statusinformation
      */
     public function getStatusMessage()
     {
-      return $this->statusMessage;
+        return $this->statusMessage;
     }
 
     /**
      * @param string[] $statusMessage
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Statusinformation
      */
     public function setStatusMessage(array $statusMessage)
     {
-      $this->statusMessage = $statusMessage;
-      return $this;
+        $this->statusMessage = $statusMessage;
+        return $this;
     }
 
 }

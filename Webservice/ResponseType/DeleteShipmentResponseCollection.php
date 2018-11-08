@@ -40,9 +40,9 @@ use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatus;
  */
 class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteShipmentResponseInterface
 {
-    const MSG_STATUS_DELETED = 'Shipping labels were cancelled successfully.';
+    const MSG_STATUS_DELETED           = 'Shipping labels were cancelled successfully.';
     const MSG_STATUS_PARTIALLY_DELETED = 'Some shipping labels could not be cancelled: %s';
-    const MSG_STATUS_NOT_DELETED = 'Shipping labels could not be cancelled: %s';
+    const MSG_STATUS_NOT_DELETED       = 'Shipping labels could not be cancelled: %s';
 
     /**
      * @var ResponseStatusInterface
@@ -57,14 +57,15 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
      * - Some labels cancelled: partially deleted
      *
      * @param ItemStatusInterface[] $items
+     *
      * @return ResponseStatus
      */
     private static function getResponseStatus(array $items)
     {
-        $deletedItems = array_filter($items, function (ItemStatusInterface $item) {
+        $deletedItems = array_filter($items, function(ItemStatusInterface $item) {
             return ($item->getCode() === ResponseStatusInterface::STATUS_SUCCESS);
         });
-        $rejectedItems = array_filter($items, function (ItemStatusInterface $item) {
+        $rejectedItems = array_filter($items, function(ItemStatusInterface $item) {
             return ($item->getCode() === ResponseStatusInterface::STATUS_FAILURE);
         });
 
@@ -95,6 +96,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ItemStatusInterface[] $items
+     *
      * @return string[]
      */
     private static function getStatusMessages(array $items)
@@ -123,6 +125,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ResponseStatusInterface $status
+     *
      * @return $this
      */
     public function setStatus(ResponseStatusInterface $status)
@@ -143,6 +146,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param string $shipmentNumber
+     *
      * @return ItemStatusInterface
      */
     public function getDeletedItem($shipmentNumber)
@@ -152,6 +156,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ItemStatusInterface[] $items
+     *
      * @return DeleteShipmentResponseCollection
      */
     public static function fromResponse(array $items)
@@ -166,6 +171,7 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
     /**
      * @param ApiAdapterException $exception
+     *
      * @return DeleteShipmentResponseCollection
      */
     public static function fromError(ApiAdapterException $exception)
@@ -174,9 +180,9 @@ class DeleteShipmentResponseCollection extends \ArrayIterator implements DeleteS
 
         $messages = [];
         if ($exception->getPrevious()) {
-            $messages[]= $exception->getPrevious()->getMessage();
+            $messages[] = $exception->getPrevious()->getMessage();
         } else {
-            $messages[]= $exception->getMessage();
+            $messages[] = $exception->getMessage();
         }
 
         $responseStatus = new ResponseStatus(

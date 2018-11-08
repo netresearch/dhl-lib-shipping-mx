@@ -44,7 +44,9 @@ class RequestValidator implements RequestValidatorInterface
      * Validate shipment order before creating labels.
      *
      * @see AdapterInterface::createLabels()
+     *
      * @param ShipmentOrderInterface $shipmentOrder
+     *
      * @return ShipmentOrderInterface
      * @throws CreateShipmentValidationException
      */
@@ -59,16 +61,16 @@ class RequestValidator implements RequestValidatorInterface
             $shipmentOrder->getServices()
         );
         // can't ship partially if either or both, cod or insurance are booked
-        $canShipPartially = !($isWithCod || $isWithInsurance);
+        $canShipPartially = ! ($isWithCod || $isWithInsurance);
         $isPartial = $shipmentOrder->getShipmentDetails()->isPartialShipment();
 
-        if ($isPartial && !$canShipPartially) {
+        if ($isPartial && ! $canShipPartially) {
             throw new CreateShipmentValidationException(self::MSG_PARTIAL_SHIPMENT_NOT_AVAILABLE);
         }
 
         /** @var Package $package */
         $package = current($shipmentOrder->getPackages());
-        if (!$package->getWeight()->getValue(\Zend_Measure_Weight::KILOGRAM)) {
+        if (! $package->getWeight()->getValue(\Zend_Measure_Weight::KILOGRAM)) {
             throw new CreateShipmentValidationException(self::MSG_NO_PRODUCT_WEIGHT);
         }
 

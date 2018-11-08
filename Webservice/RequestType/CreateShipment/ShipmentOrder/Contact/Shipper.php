@@ -88,12 +88,13 @@ class Shipper implements ShipperInterface
 
     /**
      * Shipper constructor.
-     * @param string $companyName
-     * @param string $name
-     * @param string $nameAddition
-     * @param string $contactPerson
-     * @param string $phone
-     * @param string $email
+     *
+     * @param string           $companyName
+     * @param string           $name
+     * @param string           $nameAddition
+     * @param string           $contactPerson
+     * @param string           $phone
+     * @param string           $email
      * @param AddressInterface $address
      */
     public function __construct(

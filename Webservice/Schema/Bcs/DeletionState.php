@@ -16,13 +16,13 @@ class DeletionState
     protected $Status = null;
 
     /**
-     * @param shipmentNumber $shipmentNumber
+     * @param shipmentNumber    $shipmentNumber
      * @param Statusinformation $Status
      */
     public function __construct($shipmentNumber, $Status)
     {
-      $this->shipmentNumber = $shipmentNumber;
-      $this->Status = $Status;
+        $this->shipmentNumber = $shipmentNumber;
+        $this->Status = $Status;
     }
 
     /**
@@ -30,17 +30,18 @@ class DeletionState
      */
     public function getShipmentNumber()
     {
-      return $this->shipmentNumber;
+        return $this->shipmentNumber;
     }
 
     /**
      * @param shipmentNumber $shipmentNumber
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\DeletionState
      */
     public function setShipmentNumber($shipmentNumber)
     {
-      $this->shipmentNumber = $shipmentNumber;
-      return $this;
+        $this->shipmentNumber = $shipmentNumber;
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class DeletionState
      */
     public function getStatus()
     {
-      return $this->Status;
+        return $this->Status;
     }
 
     /**
      * @param Statusinformation $Status
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\DeletionState
      */
     public function setStatus($Status)
     {
-      $this->Status = $Status;
-      return $this;
+        $this->Status = $Status;
+        return $this;
     }
 
 }

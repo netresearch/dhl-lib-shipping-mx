@@ -15,7 +15,7 @@ class Serviceconfiguration
      */
     public function __construct($active)
     {
-      $this->active = $active;
+        $this->active = $active;
     }
 
     /**
@@ -23,17 +23,18 @@ class Serviceconfiguration
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous125 $active
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Serviceconfiguration
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+        return $this;
     }
 
 }

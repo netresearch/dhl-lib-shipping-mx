@@ -34,7 +34,7 @@ namespace Dhl\Shipping\Api\Data\ShippingInfo\Service;
  */
 interface ServicePropertyInterface
 {
-    const KEY = 'key';
+    const KEY   = 'key';
     const VALUE = 'value';
 
     /**

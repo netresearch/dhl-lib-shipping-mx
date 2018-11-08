@@ -38,11 +38,12 @@ class PostalFacilityFilter implements FilterInterface
 {
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return (bool)$service->isAvailableAtPostalFacility();
+        return (bool) $service->isAvailableAtPostalFacility();
     }
 
     /**
@@ -50,7 +51,7 @@ class PostalFacilityFilter implements FilterInterface
      */
     public static function create()
     {
-        return function (ServiceInterface $service) {
+        return function(ServiceInterface $service) {
             $filter = new static();
             return $filter->isAllowed($service);
         };

@@ -59,10 +59,11 @@ class RouteFilter implements FilterInterface
 
     /**
      * RouteFilter constructor.
+     *
      * @param RouteValidatorInterface $routeValidator
-     * @param string $originCountryId Shipper ISO 2 Country Code
-     * @param string $destinationCountryId Receiver ISO 2 Country Code
-     * @param string[] $euCountries List of EU Country Codes
+     * @param string                  $originCountryId      Shipper ISO 2 Country Code
+     * @param string                  $destinationCountryId Receiver ISO 2 Country Code
+     * @param string[]                $euCountries          List of EU Country Codes
      */
     public function __construct(
         RouteValidatorInterface $routeValidator,
@@ -78,6 +79,7 @@ class RouteFilter implements FilterInterface
 
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -94,9 +96,10 @@ class RouteFilter implements FilterInterface
 
     /**
      * @param RouteValidatorInterface $routeValidator
-     * @param string $originCountryId Shipper ISO 2 Country Code
-     * @param string $destinationCountryId Receiver ISO 2 Country Code
-     * @param string[] $euCountries List of EU Country Codes
+     * @param string                  $originCountryId      Shipper ISO 2 Country Code
+     * @param string                  $destinationCountryId Receiver ISO 2 Country Code
+     * @param string[]                $euCountries          List of EU Country Codes
+     *
      * @return \Closure
      */
     public static function create(
@@ -105,7 +108,7 @@ class RouteFilter implements FilterInterface
         $destinationCountryId,
         array $euCountries
     ) {
-        $filterFunc = function (ServiceInterface $service) use (
+        $filterFunc = function(ServiceInterface $service) use (
             $routeValidator,
             $originCountryId,
             $destinationCountryId,

@@ -16,13 +16,13 @@ class ServiceconfigurationIC
     protected $active = null;
 
     /**
-     * @param Ident $Ident
+     * @param Ident        $Ident
      * @param anonymous170 $active
      */
     public function __construct($Ident, $active)
     {
-      $this->Ident = $Ident;
-      $this->active = $active;
+        $this->Ident = $Ident;
+        $this->active = $active;
     }
 
     /**
@@ -30,17 +30,18 @@ class ServiceconfigurationIC
      */
     public function getIdent()
     {
-      return $this->Ident;
+        return $this->Ident;
     }
 
     /**
      * @param Ident $Ident
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ServiceconfigurationIC
      */
     public function setIdent($Ident)
     {
-      $this->Ident = $Ident;
-      return $this;
+        $this->Ident = $Ident;
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class ServiceconfigurationIC
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous170 $active
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ServiceconfigurationIC
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+        return $this;
     }
 
 }

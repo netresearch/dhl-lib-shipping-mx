@@ -44,23 +44,24 @@ class BcsServiceProvider implements ServiceProviderInterface
 {
 
     private static $settingsClassMap = [
-        ServicePoolInterface::SERVICE_COD_CODE => Cod::class,
+        ServicePoolInterface::SERVICE_COD_CODE       => Cod::class,
         ServicePoolInterface::SERVICE_INSURANCE_CODE => Insurance::class,
-        BulkyGoods::CODE => BulkyGoods::class,
-        ParcelAnnouncement::CODE => ParcelAnnouncement::class,
-        PreferredDay::CODE => PreferredDay::class,
-        PreferredLocation::CODE => PreferredLocation::class,
-        PreferredNeighbour::CODE => PreferredNeighbour::class,
-        PreferredTime::CODE => PreferredTime::class,
-        PrintOnlyIfCodeable::CODE => PrintOnlyIfCodeable::class,
-        ReturnShipment::CODE => ReturnShipment::class,
-        VisualCheckOfAge::CODE => VisualCheckOfAge::class,
+        BulkyGoods::CODE                             => BulkyGoods::class,
+        ParcelAnnouncement::CODE                     => ParcelAnnouncement::class,
+        PreferredDay::CODE                           => PreferredDay::class,
+        PreferredLocation::CODE                      => PreferredLocation::class,
+        PreferredNeighbour::CODE                     => PreferredNeighbour::class,
+        PreferredTime::CODE                          => PreferredTime::class,
+        PrintOnlyIfCodeable::CODE                    => PrintOnlyIfCodeable::class,
+        ReturnShipment::CODE                         => ReturnShipment::class,
+        VisualCheckOfAge::CODE                       => VisualCheckOfAge::class,
     ];
 
     /**
-     * @param string $serviceCode
-     * @param ServiceInputBuilder $builder
+     * @param string                   $serviceCode
+     * @param ServiceInputBuilder      $builder
      * @param ServiceSettingsInterface $config
+     *
      * @return ServiceInterface
      */
     private function createServiceClass($serviceCode, ServiceInputBuilder $builder, ServiceSettingsInterface $config)
@@ -74,6 +75,7 @@ class BcsServiceProvider implements ServiceProviderInterface
      * Return a list of services based on given route, initialized with given presets.
      *
      * @param ServiceSettingsInterface[] $servicePresets
+     *
      * @return ServiceInterface[]
      */
     public function getServices(

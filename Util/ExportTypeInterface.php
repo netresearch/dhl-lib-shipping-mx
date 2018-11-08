@@ -33,11 +33,11 @@ namespace Dhl\Shipping\Util;
  */
 interface ExportTypeInterface
 {
-    const TYPE_OTHER = 'OTHER';
-    const TYPE_PRESENT = 'PRESENT';
+    const TYPE_OTHER             = 'OTHER';
+    const TYPE_PRESENT           = 'PRESENT';
     const TYPE_COMMERCIAL_SAMPLE = 'COMMERCIAL_SAMPLE';
-    const TYPE_DOCUMENT = 'DOCUMENT';
-    const TYPE_RETURN_OF_GOODS = 'RETURN_OF_GOODS';
+    const TYPE_DOCUMENT          = 'DOCUMENT';
+    const TYPE_RETURN_OF_GOODS   = 'RETURN_OF_GOODS';
 
     /**
      * Obtain all content types for export declaration.

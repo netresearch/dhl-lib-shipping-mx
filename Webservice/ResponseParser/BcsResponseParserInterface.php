@@ -36,12 +36,14 @@ interface BcsResponseParserInterface extends ResponseParserInterface
 {
     /**
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse $response
+     *
      * @return \Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response);
 
     /**
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\DeleteShipmentOrderResponse $response
+     *
      * @return \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface[]
      */
     public function parseDeleteShipmentResponse($response);

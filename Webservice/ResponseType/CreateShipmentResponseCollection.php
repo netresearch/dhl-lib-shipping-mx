@@ -40,9 +40,9 @@ use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatus;
  */
 class CreateShipmentResponseCollection extends \ArrayIterator implements CreateShipmentResponseInterface
 {
-    const MSG_STATUS_CREATED = 'Shipping labels were created successfully.';
+    const MSG_STATUS_CREATED           = 'Shipping labels were created successfully.';
     const MSG_STATUS_PARTIALLY_CREATED = 'Some shipping labels could not be created: %s';
-    const MSG_STATUS_NOT_CREATED = 'Shipping labels could not be created: %s';
+    const MSG_STATUS_NOT_CREATED       = 'Shipping labels could not be created: %s';
 
     /**
      * @var ResponseStatusInterface
@@ -51,7 +51,8 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param LabelInterface[] $labels
-     * @param string[] $invalidOrders
+     * @param string[]         $invalidOrders
+     *
      * @return string[]
      */
     private static function getStatusMessages(array $labels, array $invalidOrders = [])
@@ -86,15 +87,16 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
      * - Some labels created: partially created
      *
      * @param LabelInterface[] $labels
-     * @param string[] $invalidOrders
+     * @param string[]         $invalidOrders
+     *
      * @return ResponseStatus
      */
     private static function getResponseStatus(array $labels, array $invalidOrders = [])
     {
-        $createdLabels = array_filter($labels, function (LabelInterface $label) {
+        $createdLabels = array_filter($labels, function(LabelInterface $label) {
             return ($label->getStatus()->getCode() === ResponseStatusInterface::STATUS_SUCCESS);
         });
-        $rejectedLabels = array_filter($labels, function (LabelInterface $label) {
+        $rejectedLabels = array_filter($labels, function(LabelInterface $label) {
             return ($label->getStatus()->getCode() === ResponseStatusInterface::STATUS_FAILURE);
         });
 
@@ -133,6 +135,7 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param ResponseStatusInterface $status
+     *
      * @return $this
      */
     public function setStatus(ResponseStatusInterface $status)
@@ -151,6 +154,7 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param string $sequenceNumber
+     *
      * @return LabelInterface
      */
     public function getCreatedItem($sequenceNumber)
@@ -160,7 +164,8 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param LabelInterface[] $labels
-     * @param string[] $invalidRequests
+     * @param string[]         $invalidRequests
+     *
      * @return CreateShipmentResponseCollection
      */
     public static function fromResponse(array $labels, array $invalidRequests)
@@ -175,7 +180,8 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
     /**
      * @param ApiAdapterException $exception
-     * @param string[] $invalidRequests
+     * @param string[]            $invalidRequests
+     *
      * @return CreateShipmentResponseCollection
      */
     public static function fromError(ApiAdapterException $exception, array $invalidRequests)
@@ -184,9 +190,9 @@ class CreateShipmentResponseCollection extends \ArrayIterator implements CreateS
 
         $messages = self::getStatusMessages([], $invalidRequests);
         if ($exception->getPrevious()) {
-            $messages[]= $exception->getPrevious()->getMessage();
+            $messages[] = $exception->getPrevious()->getMessage();
         } else {
-            $messages[]= $exception->getMessage();
+            $messages[] = $exception->getMessage();
         }
 
         $responseStatus = new ResponseStatus(

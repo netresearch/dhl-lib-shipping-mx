@@ -25,7 +25,7 @@ class CountryType
      */
     public function __construct($countryISOCode)
     {
-      $this->countryISOCode = $countryISOCode;
+        $this->countryISOCode = $countryISOCode;
     }
 
     /**
@@ -33,17 +33,18 @@ class CountryType
      */
     public function getCountry()
     {
-      return $this->country;
+        return $this->country;
     }
 
     /**
      * @param country $country
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\CountryType
      */
     public function setCountry($country)
     {
-      $this->country = $country;
-      return $this;
+        $this->country = $country;
+        return $this;
     }
 
     /**
@@ -51,17 +52,18 @@ class CountryType
      */
     public function getCountryISOCode()
     {
-      return $this->countryISOCode;
+        return $this->countryISOCode;
     }
 
     /**
      * @param countryISOType $countryISOCode
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\CountryType
      */
     public function setCountryISOCode($countryISOCode)
     {
-      $this->countryISOCode = $countryISOCode;
-      return $this;
+        $this->countryISOCode = $countryISOCode;
+        return $this;
     }
 
     /**
@@ -69,17 +71,18 @@ class CountryType
      */
     public function getState()
     {
-      return $this->state;
+        return $this->state;
     }
 
     /**
      * @param state $state
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\CountryType
      */
     public function setState($state)
     {
-      $this->state = $state;
-      return $this;
+        $this->state = $state;
+        return $this;
     }
 
 }

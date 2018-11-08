@@ -17,7 +17,7 @@
  * PHP version 7
  *
  * @package   Dhl\Shipping\Model
- * @author   Max Melzer <max.melzer@netresearch.de>
+ * @author    Max Melzer <max.melzer@netresearch.de>
  * @copyright 2018 Netresearch GmbH & Co. KG
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
@@ -37,7 +37,7 @@ use Dhl\Shipping\Service\Bcs\PreferredNeighbour;
  */
 class ServiceCompatibilityPool
 {
-    const KEY_TYPE = 'type';
+    const KEY_TYPE    = 'type';
     const KEY_SUBJECT = 'subject';
 
     const TYPE_EXCLUSIVE = 'exclusive';
@@ -48,12 +48,12 @@ class ServiceCompatibilityPool
      */
     private $rules = [
         [
-            self::KEY_TYPE => self::TYPE_EXCLUSIVE,
+            self::KEY_TYPE    => self::TYPE_EXCLUSIVE,
             self::KEY_SUBJECT => [
                 PreferredLocation::CODE,
-                PreferredNeighbour::CODE
-            ]
-        ]
+                PreferredNeighbour::CODE,
+            ],
+        ],
     ];
 
     /**
@@ -62,6 +62,7 @@ class ServiceCompatibilityPool
      *
      * @param string $countryId
      * @param string $storeId
+     *
      * @return string[]|ServiceCompatibilityInterface
      */
     public function getRules($countryId, $storeId)

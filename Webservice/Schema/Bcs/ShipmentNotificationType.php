@@ -15,7 +15,7 @@ class ShipmentNotificationType
      */
     public function __construct($recipientEmailAddress)
     {
-      $this->recipientEmailAddress = $recipientEmailAddress;
+        $this->recipientEmailAddress = $recipientEmailAddress;
     }
 
     /**
@@ -23,17 +23,18 @@ class ShipmentNotificationType
      */
     public function getRecipientEmailAddress()
     {
-      return $this->recipientEmailAddress;
+        return $this->recipientEmailAddress;
     }
 
     /**
      * @param recipientEmailAddress $recipientEmailAddress
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ShipmentNotificationType
      */
     public function setRecipientEmailAddress($recipientEmailAddress)
     {
-      $this->recipientEmailAddress = $recipientEmailAddress;
-      return $this;
+        $this->recipientEmailAddress = $recipientEmailAddress;
+        return $this;
     }
 
 }

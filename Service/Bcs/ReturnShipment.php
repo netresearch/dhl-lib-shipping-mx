@@ -75,6 +75,6 @@ class ReturnShipment extends AbstractService
                 RoutesInterface::COUNTRY_CODE_CZECH_REPUBLIC,
             ],
             'excluded' => [],
-        ]
+        ],
     ];
 }

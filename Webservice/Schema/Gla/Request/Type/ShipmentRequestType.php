@@ -66,10 +66,10 @@ class ShipmentRequestType implements \JsonSerializable
     /**
      * ShipmentRequestType constructor.
      *
-     * @param string $pickupAccount
-     * @param string $distributionCenter
+     * @param string                                                                $pickupAccount
+     * @param string                                                                $distributionCenter
      * @param \Dhl\Shipping\Webservice\Schema\Gla\Request\Type\PackageRequestType[] $packages
-     * @param string $consignmentNumber
+     * @param string                                                                $consignmentNumber
      */
     public function __construct(
         $pickupAccount,

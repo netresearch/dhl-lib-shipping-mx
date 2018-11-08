@@ -49,8 +49,9 @@ class Cod implements ServiceInterface
 
     /**
      * Cod constructor.
+     *
      * @param MonetaryValueInterface $codAmount
-     * @param bool $addFee
+     * @param bool                   $addFee
      */
     public function __construct(MonetaryValueInterface $codAmount, $addFee)
     {

@@ -36,6 +36,7 @@ interface MonetaryValueInterface
 {
     /**
      * @param string $currencyCode
+     *
      * @return float
      */
     public function getValue($currencyCode);

@@ -72,10 +72,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     /**
      * GlAdapter constructor.
      *
-     * @param ResponseParser\GlResponseParserInterface      $responseParser
-     * @param RequestMapper\GlDataMapperInterface           $requestMapper
-     * @param GlRestClientInterface                         $restClient
-     * @param SerializerInterface                           $serializer
+     * @param ResponseParser\GlResponseParserInterface $responseParser
+     * @param RequestMapper\GlDataMapperInterface      $requestMapper
+     * @param GlRestClientInterface                    $restClient
+     * @param SerializerInterface                      $serializer
      */
     public function __construct(
         ResponseParser\GlResponseParserInterface $responseParser,
@@ -83,10 +83,10 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
         GlRestClientInterface $restClient,
         SerializerInterface $serializer
     ) {
-        $this->responseParser      = $responseParser;
-        $this->requestMapper       = $requestMapper;
-        $this->restClient          = $restClient;
-        $this->serializer          = $serializer;
+        $this->responseParser = $responseParser;
+        $this->requestMapper = $requestMapper;
+        $this->restClient = $restClient;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -106,6 +106,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
      * Global Label API cannot cancel labels.
      *
      * @param string $shipmentNumber
+     *
      * @return bool
      */
     protected function canCancelLabel($shipmentNumber)
@@ -124,14 +125,14 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
     {
         // (1) GlApiDataMapper maps shipment orders to json request body
         $shipmentOrders = array_map(
-            function ($shipmentOrder) {
+            function($shipmentOrder) {
                 return $this->requestMapper->mapShipmentOrder($shipmentOrder);
             },
             $shipmentOrders
         );
 
         $labelRequest = new LabelRequest($shipmentOrders);
-        $payload      = json_encode($labelRequest);
+        $payload = json_encode($labelRequest);
 
         try {
             // (2) http client sends payload to API, passes through response
@@ -151,6 +152,7 @@ class GlAdapter extends AbstractAdapter implements GlAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
+     *
      * @return ResponseType\Generic\ItemStatusInterface[]
      * @throws ApiOperationException
      */

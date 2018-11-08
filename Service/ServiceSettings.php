@@ -83,13 +83,14 @@ class ServiceSettings implements ServiceSettingsInterface
 
     /**
      * ServiceSettings constructor.
-     * @param string $name
-     * @param bool $isEnabled
-     * @param bool $isCustomerService
-     * @param bool $isMerchantService
-     * @param bool $isSelected
-     * @param int $sortOrder
-     * @param mixed[] $properties
+     *
+     * @param string   $name
+     * @param bool     $isEnabled
+     * @param bool     $isCustomerService
+     * @param bool     $isMerchantService
+     * @param bool     $isSelected
+     * @param int      $sortOrder
+     * @param mixed[]  $properties
      * @param string[] $options
      * @param string[] $validationRules
      */

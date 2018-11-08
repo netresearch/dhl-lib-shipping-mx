@@ -84,6 +84,7 @@ class Package implements PackageInterface
 
     /**
      * Additional information for export type OTHER
+     *
      * @see exportType
      *
      * @var string
@@ -149,21 +150,21 @@ class Package implements PackageInterface
     /**
      * Package constructor.
      *
-     * @param $packageId
-     * @param WeightInterface $weight
-     * @param DimensionsInterface $dimensions
+     * @param                        $packageId
+     * @param WeightInterface        $weight
+     * @param DimensionsInterface    $dimensions
      * @param MonetaryValueInterface $declaredValue
      * @param MonetaryValueInterface $additionalFee
-     * @param string $exportType
-     * @param string $exportTypeDescription
-     * @param string $termsOfTrade
-     * @param string $placeOfCommittal
-     * @param string $permitNumber
-     * @param string $attestationNumber
-     * @param bool $exportNotification
-     * @param string $dgCategory
-     * @param string $exportDescription
-     * @param array $items
+     * @param string                 $exportType
+     * @param string                 $exportTypeDescription
+     * @param string                 $termsOfTrade
+     * @param string                 $placeOfCommittal
+     * @param string                 $permitNumber
+     * @param string                 $attestationNumber
+     * @param bool                   $exportNotification
+     * @param string                 $dgCategory
+     * @param string                 $exportDescription
+     * @param array                  $items
      */
     public function __construct(
         $packageId,

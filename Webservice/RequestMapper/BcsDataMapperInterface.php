@@ -42,6 +42,7 @@ interface BcsDataMapperInterface extends ApiDataMapperInterface
      * Create api specific request object from framework standardized object.
      *
      * @param GetVersionRequestInterface $request
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Version
      */
     public function mapVersion(GetVersionRequestInterface $request);
@@ -51,6 +52,7 @@ interface BcsDataMapperInterface extends ApiDataMapperInterface
      * TODO(nr): shipment numbers are a simple type, no need to convert something?
      *
      * @param DeleteShipmentRequestInterface[] $numbers
+     *
      * @return string[]
      */
     public function mapShipmentNumbers(array $numbers);

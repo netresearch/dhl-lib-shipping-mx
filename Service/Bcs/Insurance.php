@@ -41,7 +41,7 @@ class Insurance extends AbstractService
 {
     const CODE = 'insurance';
 
-    const PROPERTY_AMOUNT = 'amount';
+    const PROPERTY_AMOUNT        = 'amount';
     const PROPERTY_CURRENCY_CODE = 'currency_code';
 
     /**
@@ -72,7 +72,7 @@ class Insurance extends AbstractService
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AMOUNT])) {
-            return (float)$properties[self::PROPERTY_AMOUNT];
+            return (float) $properties[self::PROPERTY_AMOUNT];
         }
 
         return 0;

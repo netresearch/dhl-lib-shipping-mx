@@ -37,10 +37,11 @@ class RouteValidator implements RouteValidatorInterface
     /**
      * Check if given origin-destination route matches allowed routes.
      *
-     * @param $originCountryId
-     * @param $destinationCountryId
-     * @param string[] $euCountries
+     * @param            $originCountryId
+     * @param            $destinationCountryId
+     * @param string[]   $euCountries
      * @param string[][] $supportedRoutes
+     *
      * @return bool
      */
     public function isRouteSupported(
@@ -49,7 +50,7 @@ class RouteValidator implements RouteValidatorInterface
         array $euCountries,
         array $supportedRoutes
     ) {
-        if (!isset($supportedRoutes[$originCountryId])) {
+        if (! isset($supportedRoutes[$originCountryId])) {
             // no routes found for origin country, cannot ship with DHL at all
             return false;
         }
@@ -72,7 +73,7 @@ class RouteValidator implements RouteValidatorInterface
             $isIncluded = true;
         }
 
-        if (!$isIncluded) {
+        if (! $isIncluded) {
             // destination is not within the supported areas, cannot ship with DHL
             return false;
         }
@@ -92,6 +93,6 @@ class RouteValidator implements RouteValidatorInterface
             $isExcluded = true;
         }
 
-        return ($isIncluded && !$isExcluded);
+        return ($isIncluded && ! $isExcluded);
     }
 }

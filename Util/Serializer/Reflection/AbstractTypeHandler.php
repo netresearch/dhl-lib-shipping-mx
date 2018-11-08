@@ -52,14 +52,15 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
      * Obtain a property type.
      *
      * @param PropertyHandlerInterface $propertyHandler
-     * @param \stdClass $type
-     * @param string $property
+     * @param \stdClass                $type
+     * @param string                   $property
+     *
      * @return string
      */
     public function getPropertyType(PropertyHandlerInterface $propertyHandler, $type, $property)
     {
         $propertyType = $this->reflect->getPropertyType($type, $property);
-        if (!$propertyType) {
+        if (! $propertyType) {
             $getter = $propertyHandler->getter($property);
             $propertyType = $this->reflect->getReturnValueType($type, $getter);
         }
@@ -71,8 +72,9 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
      * Obtain a property meta type.
      *
      * @param PropertyHandlerInterface $propertyHandler
-     * @param \stdClass $type
-     * @param string $property
+     * @param \stdClass                $type
+     * @param string                   $property
+     *
      * @return string
      */
     public function getPropertyMetaType(PropertyHandlerInterface $propertyHandler, $type, $property)
@@ -80,7 +82,7 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
         $propertyType = $this->getPropertyType($propertyHandler, $type, $property);
 
         // object or scalar
-        if (!preg_match('/([\w\\\\]+)\[\]$/', $propertyType, $matches)) {
+        if (! preg_match('/([\w\\\\]+)\[\]$/', $propertyType, $matches)) {
             if (class_exists($propertyType) || interface_exists($propertyType)) {
                 return self::META_TYPE_OBJECT;
             } else {
@@ -94,7 +96,7 @@ abstract class AbstractTypeHandler implements TypeHandlerInterface
             self::TYPE_STRING,
             self::TYPE_BOOLEAN,
             self::TYPE_SHORT_INTEGER,
-            self::TYPE_SHORT_BOOLEAN
+            self::TYPE_SHORT_BOOLEAN,
         ];
 
         // array type

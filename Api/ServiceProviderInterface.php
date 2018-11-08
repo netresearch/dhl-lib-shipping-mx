@@ -41,6 +41,7 @@ interface ServiceProviderInterface
      * Return a list of services based on given route, initialized with given presets.
      *
      * @param ServiceSettingsInterface[] $servicePresets
+     *
      * @return ServiceInterface[]
      */
     public function getServices(array $servicePresets = []);

@@ -37,15 +37,16 @@ class ServiceHydrator
 {
     /**
      * @param ServiceInterface $service
+     *
      * @return array
      */
     public function extract(ServiceInterface $service)
     {
         return [
-            'code' => $service->getCode(),
-            'name' => $service->getName(),
+            'code'      => $service->getCode(),
+            'name'      => $service->getName(),
             'sortOrder' => $service->getSortOrder(),
-            'inputs' => array_map(
+            'inputs'    => array_map(
                 function ($input) {
                     return $this->extractInput($input);
                 },
@@ -56,21 +57,22 @@ class ServiceHydrator
 
     /**
      * @param ServiceInputInterface $input
+     *
      * @return string[]
      */
     private function extractInput(ServiceInputInterface $input)
     {
         return [
-            'code' => $input->getCode(),
-            'label' => $input->getLabel(),
-            'options' => $input->getOptions(),
-            'tooltip' => $input->getTooltip(),
-            'placeholder' => $input->getPlaceholder(),
-            'sortOrder' => $input->getSortOrder(),
+            'code'            => $input->getCode(),
+            'label'           => $input->getLabel(),
+            'options'         => $input->getOptions(),
+            'tooltip'         => $input->getTooltip(),
+            'placeholder'     => $input->getPlaceholder(),
+            'sortOrder'       => $input->getSortOrder(),
             'validationRules' => $input->getValidationRules(),
-            'inputType' => $input->getInputType(),
-            'value' => $input->getValue(),
-            'infoText' => $input->getInfoText()
+            'inputType'       => $input->getInputType(),
+            'value'           => $input->getValue(),
+            'infoText'        => $input->getInfoText()
         ];
     }
 }

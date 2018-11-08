@@ -128,6 +128,7 @@ class ConsigneeAddressRequestType implements \JsonSerializable
 
     /**
      * ConsigneeAddressRequestType constructor.
+     *
      * @param string $address1
      * @param string $city
      * @param string $country
@@ -282,8 +283,8 @@ class ConsigneeAddressRequestType implements \JsonSerializable
     function jsonSerialize()
     {
         $properties = get_object_vars($this);
-        $properties = array_filter($properties, function ($value) {
-            return !empty($value);
+        $properties = array_filter($properties, function($value) {
+            return ! empty($value);
         });
         return $properties;
     }

@@ -23,6 +23,7 @@
  * @link      http://www.netresearch.de/
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
+
 use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 use Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 

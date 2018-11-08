@@ -41,6 +41,7 @@ class CreateShipmentStatusException extends ApiOperationException
 {
     /**
      * @param CreateShipmentOrderResponse $response
+     *
      * @return static
      */
     public static function create(CreateShipmentOrderResponse $response)
@@ -51,11 +52,11 @@ class CreateShipmentStatusException extends ApiOperationException
             /** @var CreationState $creationState */
             foreach ($response->getCreationState() as $creationState) {
                 $status = $creationState->getLabelData()->getStatus();
-                $messages[]= sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
+                $messages[] = sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
             }
         } else {
             $status = $response->getStatus();
-            $messages[]= sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
+            $messages[] = sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
         }
 
         $message = implode(' ', $messages);

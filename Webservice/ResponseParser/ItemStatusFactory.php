@@ -40,9 +40,10 @@ class ItemStatusFactory
 {
     /**
      * @param string $identifier
-     * @param int $statusCode
+     * @param int    $statusCode
      * @param string $statusText
      * @param string $statusMessage
+     *
      * @return ItemStatus
      */
     public function create(

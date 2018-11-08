@@ -37,6 +37,7 @@ interface SerializerInterface
     /**
      * @param string $data The data to be unserialized
      * @param string $type The type (interface) to map the data to
+     *
      * @return mixed The object with populated properties
      */
     public function deserialize($data, $type);

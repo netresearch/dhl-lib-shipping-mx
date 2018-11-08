@@ -40,6 +40,7 @@ interface FilterInterface
      * Run the filter.
      *
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service);

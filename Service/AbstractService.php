@@ -78,7 +78,7 @@ abstract class AbstractService implements ServiceInterface
      * Service constructor.
      *
      * @param ServiceSettingsInterface $serviceConfig
-     * @param ServiceInputBuilder $serviceInputBuilder
+     * @param ServiceInputBuilder      $serviceInputBuilder
      */
     public function __construct(
         ServiceSettingsInterface $serviceConfig,

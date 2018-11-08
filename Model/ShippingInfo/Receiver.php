@@ -68,11 +68,12 @@ class Receiver implements ReceiverInterface, \JsonSerializable
 
     /**
      * Receiver constructor.
-     * @param ContactInterface $contact
-     * @param AddressInterface $address
+     *
+     * @param ContactInterface     $contact
+     * @param AddressInterface     $address
      * @param PackstationInterface $packstation
      * @param PostfilialeInterface $postfiliale
-     * @param ParcelShopInterface $parcelShop
+     * @param ParcelShopInterface  $parcelShop
      */
     public function __construct(
         ContactInterface $contact,

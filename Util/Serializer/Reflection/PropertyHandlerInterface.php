@@ -38,6 +38,7 @@ interface PropertyHandlerInterface
      * Convert snake case to UpperCamelCase.
      *
      * @param string $key
+     *
      * @return string
      */
     public function camelizeUp($key);
@@ -46,6 +47,7 @@ interface PropertyHandlerInterface
      * Convert snake case to lowerCamelCase.
      *
      * @param string $key
+     *
      * @return string
      */
     public function camelizeLow($key);
@@ -54,18 +56,21 @@ interface PropertyHandlerInterface
      * Convert Capitalized, UpperCamelCase or lowerCamelCase to snake case.
      *
      * @param string $key
+     *
      * @return string
      */
     public function underscore($key);
 
     /**
      * @param string $key
+     *
      * @return string
      */
     public function getter($key);
 
     /**
      * @param string $key
+     *
      * @return string
      */
     public function setter($key);

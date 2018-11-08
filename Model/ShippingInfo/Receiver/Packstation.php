@@ -73,6 +73,7 @@ class Packstation implements PackstationInterface, \JsonSerializable
 
     /**
      * Packstation constructor.
+     *
      * @param string $packstationNumber
      * @param string $zip
      * @param string $city

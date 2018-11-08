@@ -36,12 +36,14 @@ interface AddressInterface
 {
     /**
      * Full street
+     *
      * @return string[]
      */
     public function getStreet();
 
     /**
      * Street (name part)
+     *
      * @see getStreet()
      * @return string
      */
@@ -49,6 +51,7 @@ interface AddressInterface
 
     /**
      * Street (number part)
+     *
      * @see getStreet()
      * @return string
      */
@@ -56,6 +59,7 @@ interface AddressInterface
 
     /**
      * Street (additional information)
+     *
      * @see getStreet()
      * @return string
      */

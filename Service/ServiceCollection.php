@@ -30,22 +30,23 @@ use Dhl\Shipping\Api\Data\ServiceInterface;
  * ServiceCollection
  *
  * @deprecated since 0.9.0
- * @see \Dhl\Shipping\Model\ServiceCollection
+ * @see        \Dhl\Shipping\Model\ServiceCollection
  *
- * @package  Dhl\Shipping\Service
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link     http://www.netresearch.de/
+ * @package    Dhl\Shipping\Service
+ * @author     Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       http://www.netresearch.de/
  */
 class ServiceCollection extends \ArrayIterator
 {
     /**
      * @param ServiceInterface[] $services
+     *
      * @return static
      */
     public static function fromArray($services)
     {
-        $codes = array_map(function (ServiceInterface $service) {
+        $codes = array_map(function(ServiceInterface $service) {
             return $service->getCode();
         }, $services);
 
@@ -55,6 +56,7 @@ class ServiceCollection extends \ArrayIterator
 
     /**
      * @param callable $callback
+     *
      * @return static
      */
     public function filter(callable $callback)
@@ -65,6 +67,7 @@ class ServiceCollection extends \ArrayIterator
 
     /**
      * @param callable $callback
+     *
      * @return mixed[]
      */
     public function map(callable $callback)
@@ -78,7 +81,7 @@ class ServiceCollection extends \ArrayIterator
      */
     public function getConfiguration()
     {
-        $valuesMapper = function (ServiceInterface $service) {
+        $valuesMapper = function(ServiceInterface $service) {
             return $service->getValue();
         };
 

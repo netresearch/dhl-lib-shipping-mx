@@ -45,6 +45,7 @@ interface StreetSplitterInterface
 
     /**
      * @param $street
+     *
      * @return string[]
      */
     public function splitStreet($street);

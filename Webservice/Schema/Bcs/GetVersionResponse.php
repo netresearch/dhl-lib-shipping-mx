@@ -15,7 +15,7 @@ class GetVersionResponse
      */
     public function __construct($Version)
     {
-      $this->Version = $Version;
+        $this->Version = $Version;
     }
 
     /**
@@ -23,17 +23,18 @@ class GetVersionResponse
      */
     public function getVersion()
     {
-      return $this->Version;
+        return $this->Version;
     }
 
     /**
      * @param Version $Version
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse
      */
     public function setVersion($Version)
     {
-      $this->Version = $Version;
-      return $this;
+        $this->Version = $Version;
+        return $this;
     }
 
 }

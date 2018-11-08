@@ -93,13 +93,14 @@ class CustomsDetailsRequestType implements \JsonSerializable
 
     /**
      * CustomsDetailsRequestType constructor.
+     *
      * @param string $itemDescription
      * @param string $descriptionExport
      * @param string $descriptionImport
      * @param string $countryOfOrigin
      * @param string $hsCode
-     * @param int $packagedQuantity
-     * @param float $itemValue
+     * @param int    $packagedQuantity
+     * @param float  $itemValue
      * @param string $skuNumber
      */
     public function __construct(
@@ -192,8 +193,8 @@ class CustomsDetailsRequestType implements \JsonSerializable
     function jsonSerialize()
     {
         $properties = get_object_vars($this);
-        $properties = array_filter($properties, function ($value) {
-            return !empty($value);
+        $properties = array_filter($properties, function($value) {
+            return ! empty($value);
         });
         return $properties;
     }

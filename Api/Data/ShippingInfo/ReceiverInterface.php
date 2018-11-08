@@ -40,8 +40,8 @@ use Dhl\Shipping\Api\Data\ShippingInfo\Receiver\ParcelShopInterface;
  */
 interface ReceiverInterface
 {
-    const CONTACT = 'contact';
-    const ADDRESS = 'address';
+    const CONTACT     = 'contact';
+    const ADDRESS     = 'address';
     const PACKSTATION = 'packstation';
     const POSTFILIALE = 'postfiliale';
     const PARCEL_SHOP = 'parcelShop';

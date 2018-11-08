@@ -85,14 +85,15 @@ class CustomsDetails implements CustomsDetailsInterface
 
     /**
      * CustomsDetails constructor.
-     * @param string $invoiceNumber
-     * @param ExportTypeInterface $exportType
-     * @param string $termsOfTrade
-     * @param string $placeOfCommital
-     * @param string $additionalFee
-     * @param string $permitNumber
-     * @param string $attestationNumber
-     * @param bool $isWithElectronicExportNtfctn
+     *
+     * @param string                    $invoiceNumber
+     * @param ExportTypeInterface       $exportType
+     * @param string                    $termsOfTrade
+     * @param string                    $placeOfCommital
+     * @param string                    $additionalFee
+     * @param string                    $permitNumber
+     * @param string                    $attestationNumber
+     * @param bool                      $isWithElectronicExportNtfctn
      * @param ExportPositionInterface[] $positions
      */
     public function __construct(

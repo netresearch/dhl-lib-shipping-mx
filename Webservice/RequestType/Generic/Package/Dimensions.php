@@ -68,9 +68,9 @@ class Dimensions extends AbstractConvertibleValue implements DimensionsInterface
      */
     public function __construct(UnitConverterInterface $unitConverter, $length, $width, $height, $unitOfMeasurement)
     {
-        $this->length            = $length;
-        $this->width             = $width;
-        $this->height            = $height;
+        $this->length = $length;
+        $this->width = $width;
+        $this->height = $height;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         parent::__construct($unitConverter);

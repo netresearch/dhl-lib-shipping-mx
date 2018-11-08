@@ -42,14 +42,14 @@ class BankType
 
     /**
      * @param accountOwner $accountOwner
-     * @param bankName $bankName
-     * @param iban $iban
+     * @param bankName     $bankName
+     * @param iban         $iban
      */
     public function __construct($accountOwner, $bankName, $iban)
     {
-      $this->accountOwner = $accountOwner;
-      $this->bankName = $bankName;
-      $this->iban = $iban;
+        $this->accountOwner = $accountOwner;
+        $this->bankName = $bankName;
+        $this->iban = $iban;
     }
 
     /**
@@ -57,17 +57,18 @@ class BankType
      */
     public function getAccountOwner()
     {
-      return $this->accountOwner;
+        return $this->accountOwner;
     }
 
     /**
      * @param accountOwner $accountOwner
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setAccountOwner($accountOwner)
     {
-      $this->accountOwner = $accountOwner;
-      return $this;
+        $this->accountOwner = $accountOwner;
+        return $this;
     }
 
     /**
@@ -75,17 +76,18 @@ class BankType
      */
     public function getBankName()
     {
-      return $this->bankName;
+        return $this->bankName;
     }
 
     /**
      * @param bankName $bankName
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setBankName($bankName)
     {
-      $this->bankName = $bankName;
-      return $this;
+        $this->bankName = $bankName;
+        return $this;
     }
 
     /**
@@ -93,17 +95,18 @@ class BankType
      */
     public function getIban()
     {
-      return $this->iban;
+        return $this->iban;
     }
 
     /**
      * @param iban $iban
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setIban($iban)
     {
-      $this->iban = $iban;
-      return $this;
+        $this->iban = $iban;
+        return $this;
     }
 
     /**
@@ -111,17 +114,18 @@ class BankType
      */
     public function getNote1()
     {
-      return $this->note1;
+        return $this->note1;
     }
 
     /**
      * @param note1 $note1
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setNote1($note1)
     {
-      $this->note1 = $note1;
-      return $this;
+        $this->note1 = $note1;
+        return $this;
     }
 
     /**
@@ -129,17 +133,18 @@ class BankType
      */
     public function getNote2()
     {
-      return $this->note2;
+        return $this->note2;
     }
 
     /**
      * @param note2 $note2
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setNote2($note2)
     {
-      $this->note2 = $note2;
-      return $this;
+        $this->note2 = $note2;
+        return $this;
     }
 
     /**
@@ -147,17 +152,18 @@ class BankType
      */
     public function getBic()
     {
-      return $this->bic;
+        return $this->bic;
     }
 
     /**
      * @param bic $bic
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setBic($bic)
     {
-      $this->bic = $bic;
-      return $this;
+        $this->bic = $bic;
+        return $this;
     }
 
     /**
@@ -165,17 +171,18 @@ class BankType
      */
     public function getAccountreference()
     {
-      return $this->accountreference;
+        return $this->accountreference;
     }
 
     /**
      * @param accountreference $accountreference
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\BankType
      */
     public function setAccountreference($accountreference)
     {
-      $this->accountreference = $accountreference;
-      return $this;
+        $this->accountreference = $accountreference;
+        return $this;
     }
 
 }

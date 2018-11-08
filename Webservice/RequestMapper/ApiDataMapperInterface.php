@@ -40,6 +40,7 @@ interface ApiDataMapperInterface
      * Create api specific request object from framework standardized object.
      *
      * @param ShipmentOrderInterface $shipmentOrder
+     *
      * @return object The "BCS shipment order" or "GL API shipment" entity
      */
     public function mapShipmentOrder(ShipmentOrderInterface $shipmentOrder);

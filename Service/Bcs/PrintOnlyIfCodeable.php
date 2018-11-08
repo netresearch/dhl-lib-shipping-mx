@@ -57,6 +57,6 @@ class PrintOnlyIfCodeable extends AbstractService
         'AT' => [
             'included' => [RoutesInterface::REGION_INTERNATIONAL],
             'excluded' => [],
-        ]
+        ],
     ];
 }

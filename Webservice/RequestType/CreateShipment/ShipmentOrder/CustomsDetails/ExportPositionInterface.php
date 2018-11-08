@@ -67,6 +67,7 @@ interface ExportPositionInterface
 
     /**
      * Obtain ISO-2-Alpha country code for the item's origin manufacturer country.
+     *
      * @return string
      */
     public function getCountryOfOrigin();

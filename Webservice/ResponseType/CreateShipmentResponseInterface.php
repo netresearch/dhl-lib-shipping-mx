@@ -46,6 +46,7 @@ interface CreateShipmentResponseInterface
 
     /**
      * @param string $sequenceNumber
+     *
      * @return \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface
      */
     public function getCreatedItem($sequenceNumber);

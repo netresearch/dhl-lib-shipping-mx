@@ -76,6 +76,7 @@ class ParcelShop implements ParcelShopInterface
 
     /**
      * ParcelShop constructor.
+     *
      * @param string $parcelShopNumber
      * @param string $zip
      * @param string $city

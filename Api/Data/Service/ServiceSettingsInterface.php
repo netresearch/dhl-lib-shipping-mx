@@ -34,8 +34,8 @@ namespace Dhl\Shipping\Api\Data\Service;
  */
 interface ServiceSettingsInterface
 {
-    const NAME = 'name';
-    const IS_ENABLED = 'isEnabled';
+    const NAME                = 'name';
+    const IS_ENABLED          = 'isEnabled';
     const IS_CUSTOMER_SERVICE = 'isCustomerService';
     const IS_MERCHANT_SERVICE = 'isMerchantService';
     const IS_SELECTED = 'isSelected';

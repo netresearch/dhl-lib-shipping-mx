@@ -36,6 +36,7 @@ interface ResponseParserInterface
 {
     /**
      * @param object $response
+     *
      * @return \Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface[]
      */
     public function parseCreateShipmentResponse($response);

@@ -40,6 +40,7 @@ class PropertyHandler implements PropertyHandlerInterface
      * Convert snake case to UpperCamelCase.
      *
      * @param string $key
+     *
      * @return string
      */
     public function camelizeUp($key)
@@ -58,6 +59,7 @@ class PropertyHandler implements PropertyHandlerInterface
      * Convert snake case to lowerCamelCase.
      *
      * @param string $key
+     *
      * @return string
      */
     public function camelizeLow($key)
@@ -74,6 +76,7 @@ class PropertyHandler implements PropertyHandlerInterface
      * Convert Capitalized, UpperCamelCase or lowerCamelCase to snake case.
      *
      * @param string $key
+     *
      * @return string
      */
     public function underscore($key)
@@ -90,6 +93,7 @@ class PropertyHandler implements PropertyHandlerInterface
      * Obtain getter method name from snake case property name.
      *
      * @param string $key
+     *
      * @return string
      */
     public function getter($key)
@@ -102,6 +106,7 @@ class PropertyHandler implements PropertyHandlerInterface
      * Obtain setter method name from snake case property name.
      *
      * @param string $key
+     *
      * @return string
      */
     public function setter($key)

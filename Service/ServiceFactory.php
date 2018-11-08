@@ -26,8 +26,9 @@ namespace Dhl\Shipping\Service;
 
 /**
  * ServiceFactory
+ *
  * @deprecated
- * @see \Dhl\Shipping\Api\ServiceProviderInterface::getServices
+ * @see      \Dhl\Shipping\Api\ServiceProviderInterface::getServices
  *
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
@@ -39,6 +40,7 @@ class ServiceFactory
     /**
      * @param string $code
      * @param string $value
+     *
      * @return ServiceInterface|null
      */
     public static function get($code, $value)

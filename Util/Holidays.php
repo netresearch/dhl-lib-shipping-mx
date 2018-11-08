@@ -14,7 +14,7 @@ class Holidays
     public static function getEaster()
     {
         $easter = new \DateTime('now');
-        $year   = $easter->format('Y');
+        $year = $easter->format('Y');
         $easter->setDate($year, 3, 21);
         $easter->setTime(0, 0, 0);
         $easter->modify('+' . easter_days($year) . 'days');
@@ -25,7 +25,7 @@ class Holidays
     public static function holidays()
     {
         // removed all non static holidays
-        return array(
+        return [
             "neujahr"                   => new DateTime('jan 1st'),
             "karfreitag"                => self::getEaster()->modify('-2 days'),
             "ostermontag"               => self::getEaster()->modify('+1 day'),
@@ -35,7 +35,7 @@ class Holidays
             "tag_der_deutschen_einheit" => new DateTime('oct 3'),
             "weihnachtstag1"            => new DateTime('dec 25th'),
             "weihnachtstag2"            => new DateTime('dec 26th'),
-        );
+        ];
     }
 
     /**

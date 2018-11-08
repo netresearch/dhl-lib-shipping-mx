@@ -68,12 +68,13 @@ class BankData implements BankDataInterface
 
     /**
      * BankData constructor.
-     * @param string $accountOwner
-     * @param string $bankName
-     * @param string $iban
-     * @param string $bic
+     *
+     * @param string    $accountOwner
+     * @param string    $bankName
+     * @param string    $iban
+     * @param string    $bic
      * @param \string[] $notes
-     * @param string $accountReference
+     * @param string    $accountReference
      */
     public function __construct($accountOwner, $bankName, $iban, $bic, array $notes, $accountReference)
     {

@@ -36,21 +36,21 @@ class ReceiverTypeType
     protected $Communication = null;
 
     /**
-     * @param name1 $name1
+     * @param name1                     $name1
      * @param ReceiverNativeAddressType $Address
-     * @param PackStationType $Packstation
-     * @param PostfilialeType $Postfiliale
-     * @param ParcelShopType $ParcelShop
-     * @param CommunicationType $Communication
+     * @param PackStationType           $Packstation
+     * @param PostfilialeType           $Postfiliale
+     * @param ParcelShopType            $ParcelShop
+     * @param CommunicationType         $Communication
      */
     public function __construct($name1, $Address, $Packstation, $Postfiliale, $ParcelShop, $Communication)
     {
-      $this->name1 = $name1;
-      $this->Address = $Address;
-      $this->Packstation = $Packstation;
-      $this->Postfiliale = $Postfiliale;
-      $this->ParcelShop = $ParcelShop;
-      $this->Communication = $Communication;
+        $this->name1 = $name1;
+        $this->Address = $Address;
+        $this->Packstation = $Packstation;
+        $this->Postfiliale = $Postfiliale;
+        $this->ParcelShop = $ParcelShop;
+        $this->Communication = $Communication;
     }
 
     /**
@@ -58,17 +58,18 @@ class ReceiverTypeType
      */
     public function getName1()
     {
-      return $this->name1;
+        return $this->name1;
     }
 
     /**
      * @param name1 $name1
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ReceiverTypeType
      */
     public function setName1($name1)
     {
-      $this->name1 = $name1;
-      return $this;
+        $this->name1 = $name1;
+        return $this;
     }
 
     /**
@@ -76,17 +77,18 @@ class ReceiverTypeType
      */
     public function getAddress()
     {
-      return $this->Address;
+        return $this->Address;
     }
 
     /**
      * @param ReceiverNativeAddressType $Address
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ReceiverTypeType
      */
     public function setAddress($Address)
     {
-      $this->Address = $Address;
-      return $this;
+        $this->Address = $Address;
+        return $this;
     }
 
     /**
@@ -94,17 +96,18 @@ class ReceiverTypeType
      */
     public function getPackstation()
     {
-      return $this->Packstation;
+        return $this->Packstation;
     }
 
     /**
      * @param PackStationType $Packstation
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ReceiverTypeType
      */
     public function setPackstation($Packstation)
     {
-      $this->Packstation = $Packstation;
-      return $this;
+        $this->Packstation = $Packstation;
+        return $this;
     }
 
     /**
@@ -112,17 +115,18 @@ class ReceiverTypeType
      */
     public function getPostfiliale()
     {
-      return $this->Postfiliale;
+        return $this->Postfiliale;
     }
 
     /**
      * @param PostfilialeType $Postfiliale
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ReceiverTypeType
      */
     public function setPostfiliale($Postfiliale)
     {
-      $this->Postfiliale = $Postfiliale;
-      return $this;
+        $this->Postfiliale = $Postfiliale;
+        return $this;
     }
 
     /**
@@ -130,17 +134,18 @@ class ReceiverTypeType
      */
     public function getParcelShop()
     {
-      return $this->ParcelShop;
+        return $this->ParcelShop;
     }
 
     /**
      * @param ParcelShopType $ParcelShop
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ReceiverTypeType
      */
     public function setParcelShop($ParcelShop)
     {
-      $this->ParcelShop = $ParcelShop;
-      return $this;
+        $this->ParcelShop = $ParcelShop;
+        return $this;
     }
 
     /**
@@ -148,17 +153,18 @@ class ReceiverTypeType
      */
     public function getCommunication()
     {
-      return $this->Communication;
+        return $this->Communication;
     }
 
     /**
      * @param CommunicationType $Communication
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ReceiverTypeType
      */
     public function setCommunication($Communication)
     {
-      $this->Communication = $Communication;
-      return $this;
+        $this->Communication = $Communication;
+        return $this;
     }
 
 }

@@ -37,17 +37,18 @@ use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Service\Ser
  */
 abstract class AbstractServiceFactory
 {
-    const SERVICE_CODE_COD = 'cod';
-    const SERVICE_CODE_BULKY_GOODS = 'bulkyGoods';
-    const SERVICE_CODE_PARCEL_ANNOUNCEMENT = 'parcelAnnouncement';
-    const SERVICE_CODE_INSURANCE = 'additionalInsurance';
-    const SERVICE_CODE_VISUAL_CHECK_OF_AGE = 'visualCheckOfAge';
-    const SERVICE_CODE_RETURN_SHIPMENT = 'returnShipment';
+    const SERVICE_CODE_COD                    = 'cod';
+    const SERVICE_CODE_BULKY_GOODS            = 'bulkyGoods';
+    const SERVICE_CODE_PARCEL_ANNOUNCEMENT    = 'parcelAnnouncement';
+    const SERVICE_CODE_INSURANCE              = 'additionalInsurance';
+    const SERVICE_CODE_VISUAL_CHECK_OF_AGE    = 'visualCheckOfAge';
+    const SERVICE_CODE_RETURN_SHIPMENT        = 'returnShipment';
     const SERVICE_CODE_PRINT_ONLY_IF_CODEABLE = 'printOnlyIfCodeable';
 
     /**
-     * @param string $instanceCode
+     * @param string  $instanceCode
      * @param mixed[] $data
+     *
      * @return ServiceInterface
      */
     abstract public function create($instanceCode, array $data = []);

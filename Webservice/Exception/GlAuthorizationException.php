@@ -37,6 +37,7 @@ class GlAuthorizationException extends GlOperationException
 {
     /**
      * @param string $responseBody
+     *
      * @return static
      */
     public static function create($responseBody)

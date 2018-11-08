@@ -57,12 +57,12 @@ class LabelData
 
     /**
      * @param Statusinformation $Status
-     * @param shipmentNumber $shipmentNumber
+     * @param shipmentNumber    $shipmentNumber
      */
     public function __construct($Status, $shipmentNumber)
     {
-      $this->Status = $Status;
-      $this->shipmentNumber = $shipmentNumber;
+        $this->Status = $Status;
+        $this->shipmentNumber = $shipmentNumber;
     }
 
     /**
@@ -70,17 +70,18 @@ class LabelData
      */
     public function getStatus()
     {
-      return $this->Status;
+        return $this->Status;
     }
 
     /**
      * @param Statusinformation $Status
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setStatus($Status)
     {
-      $this->Status = $Status;
-      return $this;
+        $this->Status = $Status;
+        return $this;
     }
 
     /**
@@ -88,17 +89,18 @@ class LabelData
      */
     public function getShipmentNumber()
     {
-      return $this->shipmentNumber;
+        return $this->shipmentNumber;
     }
 
     /**
      * @param shipmentNumber $shipmentNumber
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setShipmentNumber($shipmentNumber)
     {
-      $this->shipmentNumber = $shipmentNumber;
-      return $this;
+        $this->shipmentNumber = $shipmentNumber;
+        return $this;
     }
 
     /**
@@ -106,17 +108,18 @@ class LabelData
      */
     public function getLabelUrl()
     {
-      return $this->labelUrl;
+        return $this->labelUrl;
     }
 
     /**
      * @param string $labelUrl
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setLabelUrl($labelUrl)
     {
-      $this->labelUrl = $labelUrl;
-      return $this;
+        $this->labelUrl = $labelUrl;
+        return $this;
     }
 
     /**
@@ -124,17 +127,18 @@ class LabelData
      */
     public function getLabelData()
     {
-      return $this->labelData;
+        return $this->labelData;
     }
 
     /**
      * @param base64Binary $labelData
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setLabelData($labelData)
     {
-      $this->labelData = $labelData;
-      return $this;
+        $this->labelData = $labelData;
+        return $this;
     }
 
     /**
@@ -142,17 +146,18 @@ class LabelData
      */
     public function getReturnLabelUrl()
     {
-      return $this->returnLabelUrl;
+        return $this->returnLabelUrl;
     }
 
     /**
      * @param string $returnLabelUrl
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setReturnLabelUrl($returnLabelUrl)
     {
-      $this->returnLabelUrl = $returnLabelUrl;
-      return $this;
+        $this->returnLabelUrl = $returnLabelUrl;
+        return $this;
     }
 
     /**
@@ -160,17 +165,18 @@ class LabelData
      */
     public function getReturnLabelData()
     {
-      return $this->returnLabelData;
+        return $this->returnLabelData;
     }
 
     /**
      * @param base64Binary $returnLabelData
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setReturnLabelData($returnLabelData)
     {
-      $this->returnLabelData = $returnLabelData;
-      return $this;
+        $this->returnLabelData = $returnLabelData;
+        return $this;
     }
 
     /**
@@ -178,17 +184,18 @@ class LabelData
      */
     public function getExportLabelUrl()
     {
-      return $this->exportLabelUrl;
+        return $this->exportLabelUrl;
     }
 
     /**
      * @param string $exportLabelUrl
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setExportLabelUrl($exportLabelUrl)
     {
-      $this->exportLabelUrl = $exportLabelUrl;
-      return $this;
+        $this->exportLabelUrl = $exportLabelUrl;
+        return $this;
     }
 
     /**
@@ -196,17 +203,18 @@ class LabelData
      */
     public function getExportLabelData()
     {
-      return $this->exportLabelData;
+        return $this->exportLabelData;
     }
 
     /**
      * @param base64Binary $exportLabelData
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setExportLabelData($exportLabelData)
     {
-      $this->exportLabelData = $exportLabelData;
-      return $this;
+        $this->exportLabelData = $exportLabelData;
+        return $this;
     }
 
     /**
@@ -214,17 +222,18 @@ class LabelData
      */
     public function getCodLabelUrl()
     {
-      return $this->codLabelUrl;
+        return $this->codLabelUrl;
     }
 
     /**
      * @param string $codLabelUrl
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setCodLabelUrl($codLabelUrl)
     {
-      $this->codLabelUrl = $codLabelUrl;
-      return $this;
+        $this->codLabelUrl = $codLabelUrl;
+        return $this;
     }
 
     /**
@@ -232,17 +241,18 @@ class LabelData
      */
     public function getCodLabelData()
     {
-      return $this->codLabelData;
+        return $this->codLabelData;
     }
 
     /**
      * @param base64Binary $codLabelData
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\LabelData
      */
     public function setCodLabelData($codLabelData)
     {
-      $this->codLabelData = $codLabelData;
-      return $this;
+        $this->codLabelData = $codLabelData;
+        return $this;
     }
 
 }

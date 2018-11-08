@@ -34,45 +34,47 @@ namespace Dhl\Shipping\Util\ShippingRoutes;
  */
 interface RoutesInterface
 {
-    const REGION_EU = 'EURO';
-    const REGION_AMERICA = 'AMER';
-    const REGION_ASIA_PACIFIC = 'APAC';
+    const REGION_EU            = 'EURO';
+    const REGION_AMERICA       = 'AMER';
+    const REGION_ASIA_PACIFIC  = 'APAC';
     const REGION_INTERNATIONAL = 'INTL';
 
-    const COUNTRY_CODE_GERMANY = 'DE';
-    const COUNTRY_CODE_AUSTRIA = 'AT';
-    const COUNTRY_CODE_BELGIUM = 'BE';
-    const COUNTRY_CODE_LUXEMBURG = 'LU';
-    const COUNTRY_CODE_NETHERLANDS = 'NL';
-    const COUNTRY_CODE_POLAND = 'PL';
-    const COUNTRY_CODE_SLOVAKIA = 'SK';
+    const COUNTRY_CODE_GERMANY        = 'DE';
+    const COUNTRY_CODE_AUSTRIA        = 'AT';
+    const COUNTRY_CODE_BELGIUM        = 'BE';
+    const COUNTRY_CODE_LUXEMBURG      = 'LU';
+    const COUNTRY_CODE_NETHERLANDS    = 'NL';
+    const COUNTRY_CODE_POLAND         = 'PL';
+    const COUNTRY_CODE_SLOVAKIA       = 'SK';
     const COUNTRY_CODE_CZECH_REPUBLIC = 'CZ';
-    const COUNTRY_CODE_USA = 'US';
-    const COUNTRY_CODE_CANADA = 'CA';
-    const COUNTRY_CODE_CHILE = 'CL';
-    const COUNTRY_CODE_SINGAPORE = 'SG';
-    const COUNTRY_CODE_HONGKONG = 'HK';
-    const COUNTRY_CODE_THAILAND = 'TH';
-    const COUNTRY_CODE_JAPAN = 'JP';
-    const COUNTRY_CODE_CHINA = 'CN';
-    const COUNTRY_CODE_INDIA = 'IN';
-    const COUNTRY_CODE_MALAYSIA = 'MY';
-    const COUNTRY_CODE_VIETNAM = 'VN';
-    const COUNTRY_CODE_AUSTRALIA = 'AU';
-    const COUNTRY_CODE_NEW_ZEALAND = 'NZ';
+    const COUNTRY_CODE_USA            = 'US';
+    const COUNTRY_CODE_CANADA         = 'CA';
+    const COUNTRY_CODE_CHILE          = 'CL';
+    const COUNTRY_CODE_SINGAPORE      = 'SG';
+    const COUNTRY_CODE_HONGKONG       = 'HK';
+    const COUNTRY_CODE_THAILAND       = 'TH';
+    const COUNTRY_CODE_JAPAN          = 'JP';
+    const COUNTRY_CODE_CHINA          = 'CN';
+    const COUNTRY_CODE_INDIA          = 'IN';
+    const COUNTRY_CODE_MALAYSIA       = 'MY';
+    const COUNTRY_CODE_VIETNAM        = 'VN';
+    const COUNTRY_CODE_AUSTRALIA      = 'AU';
+    const COUNTRY_CODE_NEW_ZEALAND    = 'NZ';
 
     /**
-     * @param $originCountryId
-     * @param $destinationCountryId
+     * @param       $originCountryId
+     * @param       $destinationCountryId
      * @param array $euCountries
+     *
      * @return mixed
      */
     public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries);
 
     /**
-     * @param $originCountryId
-     * @param $destCountryId
+     * @param       $originCountryId
+     * @param       $destCountryId
      * @param array $euCountries
+     *
      * @return mixed
      */
     public function isCrossBorderRoute($originCountryId, $destCountryId, array $euCountries);

@@ -37,10 +37,11 @@ interface RouteValidatorInterface
     /**
      * Check if given origin-destination route matches allowed routes.
      *
-     * @param $originCountryId
-     * @param $destinationCountryId
-     * @param string[] $euCountries
+     * @param            $originCountryId
+     * @param            $destinationCountryId
+     * @param string[]   $euCountries
      * @param string[][] $supportedRoutes
+     *
      * @return mixed
      */
     public function isRouteSupported(

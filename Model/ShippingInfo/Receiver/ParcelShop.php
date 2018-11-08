@@ -78,6 +78,7 @@ class ParcelShop implements ParcelShopInterface, \JsonSerializable
 
     /**
      * ParcelShop constructor.
+     *
      * @param string $parcelShopNumber
      * @param string $zip
      * @param string $city

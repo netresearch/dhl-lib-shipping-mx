@@ -35,14 +35,14 @@ namespace Dhl\Shipping\Api\Data\ShippingInfo\Receiver;
 interface ParcelShopInterface
 {
     const PARCEL_SHOP_NUMBER = 'parcelShopNumber';
-    const STREET_NAME = 'streetName';
-    const STREET_NUMBER = 'streetNumber';
-    const ZIP = 'zip';
-    const CITY = 'city';
-    const COUNTRY_ISO_CODE = 'countryISOCode';
-    const POST_NUMBER = 'postNumber';
-    const COUNTRY = 'country';
-    const STATE = 'state';
+    const STREET_NAME        = 'streetName';
+    const STREET_NUMBER      = 'streetNumber';
+    const ZIP                = 'zip';
+    const CITY               = 'city';
+    const COUNTRY_ISO_CODE   = 'countryISOCode';
+    const POST_NUMBER        = 'postNumber';
+    const COUNTRY            = 'country';
+    const STATE              = 'state';
 
     /**
      * @return string

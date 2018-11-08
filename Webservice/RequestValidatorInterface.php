@@ -46,7 +46,9 @@ interface RequestValidatorInterface
      * Validate shipment order before creating labels.
      *
      * @see AdapterInterface::createLabels()
+     *
      * @param ShipmentOrderInterface $shipmentOrder
+     *
      * @return ShipmentOrderInterface
      * @throws CreateShipmentValidationException
      */

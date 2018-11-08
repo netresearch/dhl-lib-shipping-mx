@@ -26,17 +26,17 @@ class Ident
     protected $minimumAge = null;
 
     /**
-     * @param surname $surname
-     * @param givenName $givenName
+     * @param surname     $surname
+     * @param givenName   $givenName
      * @param dateOfBirth $dateOfBirth
-     * @param minimumAge $minimumAge
+     * @param minimumAge  $minimumAge
      */
     public function __construct($surname, $givenName, $dateOfBirth, $minimumAge)
     {
-      $this->surname = $surname;
-      $this->givenName = $givenName;
-      $this->dateOfBirth = $dateOfBirth;
-      $this->minimumAge = $minimumAge;
+        $this->surname = $surname;
+        $this->givenName = $givenName;
+        $this->dateOfBirth = $dateOfBirth;
+        $this->minimumAge = $minimumAge;
     }
 
     /**
@@ -44,17 +44,18 @@ class Ident
      */
     public function getSurname()
     {
-      return $this->surname;
+        return $this->surname;
     }
 
     /**
      * @param surname $surname
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Ident
      */
     public function setSurname($surname)
     {
-      $this->surname = $surname;
-      return $this;
+        $this->surname = $surname;
+        return $this;
     }
 
     /**
@@ -62,17 +63,18 @@ class Ident
      */
     public function getGivenName()
     {
-      return $this->givenName;
+        return $this->givenName;
     }
 
     /**
      * @param givenName $givenName
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Ident
      */
     public function setGivenName($givenName)
     {
-      $this->givenName = $givenName;
-      return $this;
+        $this->givenName = $givenName;
+        return $this;
     }
 
     /**
@@ -80,17 +82,18 @@ class Ident
      */
     public function getDateOfBirth()
     {
-      return $this->dateOfBirth;
+        return $this->dateOfBirth;
     }
 
     /**
      * @param dateOfBirth $dateOfBirth
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Ident
      */
     public function setDateOfBirth($dateOfBirth)
     {
-      $this->dateOfBirth = $dateOfBirth;
-      return $this;
+        $this->dateOfBirth = $dateOfBirth;
+        return $this;
     }
 
     /**
@@ -98,17 +101,18 @@ class Ident
      */
     public function getMinimumAge()
     {
-      return $this->minimumAge;
+        return $this->minimumAge;
     }
 
     /**
      * @param minimumAge $minimumAge
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\Ident
      */
     public function setMinimumAge($minimumAge)
     {
-      $this->minimumAge = $minimumAge;
-      return $this;
+        $this->minimumAge = $minimumAge;
+        return $this;
     }
 
 }

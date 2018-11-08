@@ -60,8 +60,8 @@ interface BcsShippingProductsInterface extends ShippingProductsInterface
     /**
      * Get the billing number a.k.a. account number based on selected product.
      *
-     * @param string $productCode
-     * @param string $ekp
+     * @param string   $productCode
+     * @param string   $ekp
      * @param string[] $participations
      *
      * @return string
@@ -71,8 +71,8 @@ interface BcsShippingProductsInterface extends ShippingProductsInterface
     /**
      * Get the billing number a.k.a. account number for shipment returns.
      *
-     * @param string $productCode
-     * @param string $ekp
+     * @param string   $productCode
+     * @param string   $ekp
      * @param string[] $participations
      *
      * @return string

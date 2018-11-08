@@ -38,6 +38,7 @@ interface BcsAdapterInterface extends AdapterInterface
 {
     /**
      * @param \Dhl\Shipping\Webservice\RequestType\GetVersionRequestInterface $request
+     *
      * @return \Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface
      */
     public function getVersion(GetVersionRequestInterface $request);

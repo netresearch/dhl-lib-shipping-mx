@@ -48,6 +48,7 @@ class IdCard implements IdCardInterface
 
     /**
      * IdCard constructor.
+     *
      * @param string $type
      * @param string $number
      */

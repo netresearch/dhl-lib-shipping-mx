@@ -21,8 +21,8 @@ class ServiceconfigurationEndorsement
      */
     public function __construct($active, $type)
     {
-      $this->active = $active;
-      $this->type = $type;
+        $this->active = $active;
+        $this->type = $type;
     }
 
     /**
@@ -30,17 +30,18 @@ class ServiceconfigurationEndorsement
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous133 $active
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ServiceconfigurationEndorsement
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class ServiceconfigurationEndorsement
      */
     public function getType()
     {
-      return $this->type;
+        return $this->type;
     }
 
     /**
      * @param anonymous134 $type
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ServiceconfigurationEndorsement
      */
     public function setType($type)
     {
-      $this->type = $type;
-      return $this;
+        $this->type = $type;
+        return $this;
     }
 
 }

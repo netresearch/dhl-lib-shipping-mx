@@ -41,6 +41,7 @@ class DeleteShipmentStatusException extends ApiOperationException
 {
     /**
      * @param DeleteShipmentOrderResponse $response
+     *
      * @return static
      */
     public static function create(DeleteShipmentOrderResponse $response)
@@ -51,11 +52,11 @@ class DeleteShipmentStatusException extends ApiOperationException
             /** @var DeletionState $deletionState */
             foreach ($response->getDeletionState() as $deletionState) {
                 $status = $deletionState->getStatus();
-                $messages[]= sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
+                $messages[] = sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
             }
         } else {
             $status = $response->getStatus();
-            $messages[]= sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
+            $messages[] = sprintf('%s %s', $status->getStatusText(), implode(' ', $status->getStatusMessage()));
         }
 
         $message = implode(' ', $messages);

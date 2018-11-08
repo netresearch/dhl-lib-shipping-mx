@@ -48,6 +48,7 @@ class ExportType implements ExportTypeInterface
 
     /**
      * ExportType constructor.
+     *
      * @param string $type
      * @param string $description
      */

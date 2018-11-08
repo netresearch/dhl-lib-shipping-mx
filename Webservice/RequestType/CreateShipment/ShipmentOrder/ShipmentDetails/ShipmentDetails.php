@@ -103,18 +103,18 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * ShipmentDetails constructor.
      *
-     * @param $isPrintOnlyIfCodeable
-     * @param $isPartialShipment
-     * @param $product
-     * @param $accountNumber
-     * @param $returnShipmentAccountNumber
-     * @param $pickupAccountNumber
-     * @param $distributionCenter
-     * @param $customerPrefix
-     * @param $consignmentNumber
-     * @param $reference
-     * @param $returnShipmentReference
-     * @param $shipmentDate
+     * @param                   $isPrintOnlyIfCodeable
+     * @param                   $isPartialShipment
+     * @param                   $product
+     * @param                   $accountNumber
+     * @param                   $returnShipmentAccountNumber
+     * @param                   $pickupAccountNumber
+     * @param                   $distributionCenter
+     * @param                   $customerPrefix
+     * @param                   $consignmentNumber
+     * @param                   $reference
+     * @param                   $returnShipmentReference
+     * @param                   $shipmentDate
      * @param BankDataInterface $bankData
      */
     public function __construct(

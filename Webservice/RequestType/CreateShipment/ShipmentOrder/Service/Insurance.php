@@ -30,10 +30,10 @@ use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 /**
  * Additional service: Insurance
  *
- * @package  Dhl\Shipping\Webservice
+ * @package   Dhl\Shipping\Webservice
  * @author    Max Melzer <max.melzer@netresearch.de>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link     http://www.netresearch.de/
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      http://www.netresearch.de/
  */
 class Insurance implements ServiceInterface
 {
@@ -44,6 +44,7 @@ class Insurance implements ServiceInterface
 
     /**
      * Insurance constructor.
+     *
      * @param MonetaryValueInterface $insuranceAmount
      */
     public function __construct(MonetaryValueInterface $insuranceAmount)

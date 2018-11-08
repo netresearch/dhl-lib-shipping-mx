@@ -49,9 +49,10 @@ class MonetaryValue extends AbstractConvertibleValue implements MonetaryValueInt
 
     /**
      * MonetaryValue constructor.
+     *
      * @param UnitConverterInterface $unitConverter
-     * @param int $value
-     * @param string $currencyCode
+     * @param int                    $value
+     * @param string                 $currencyCode
      */
     public function __construct(UnitConverterInterface $unitConverter, $value, $currencyCode)
     {
@@ -63,6 +64,7 @@ class MonetaryValue extends AbstractConvertibleValue implements MonetaryValueInt
 
     /**
      * @param string $currencyCode Three-letter ISO Currency code
+     *
      * @return float
      */
     public function getValue($currencyCode)

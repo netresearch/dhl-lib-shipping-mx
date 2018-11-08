@@ -68,6 +68,7 @@ interface LabelInterface
      * @return string
      */
     public function getCodLabel();
+
     /**
      * @return string[]
      */

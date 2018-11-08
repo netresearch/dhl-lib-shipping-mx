@@ -80,13 +80,14 @@ class ShipmentOrder implements ShipmentOrderInterface
 
     /**
      * ShipmentOrder constructor.
-     * @param $sequenceNumber
-     * @param ShipmentDetailsInterface $shipmentDetails
-     * @param ShipperInterface $shipper
-     * @param ReceiverInterface $receiver
-     * @param ReturnReceiverInterface $returnReceiver
+     *
+     * @param                            $sequenceNumber
+     * @param ShipmentDetailsInterface   $shipmentDetails
+     * @param ShipperInterface           $shipper
+     * @param ReceiverInterface          $receiver
+     * @param ReturnReceiverInterface    $returnReceiver
      * @param ServiceCollectionInterface $services
-     * @param array $packages
+     * @param array                      $packages
      */
     public function __construct(
         $sequenceNumber,

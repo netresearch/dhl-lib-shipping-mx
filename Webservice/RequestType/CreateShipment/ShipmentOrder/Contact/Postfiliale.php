@@ -71,6 +71,7 @@ class Postfiliale implements PostfilialeInterface
 
     /**
      * Postfiliale constructor.
+     *
      * @param string $postfilialNumber
      * @param string $postNumber
      * @param string $zip

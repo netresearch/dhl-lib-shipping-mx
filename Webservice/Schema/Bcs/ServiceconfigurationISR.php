@@ -21,8 +21,8 @@ class ServiceconfigurationISR
      */
     public function __construct($active, $details)
     {
-      $this->active = $active;
-      $this->details = $details;
+        $this->active = $active;
+        $this->details = $details;
     }
 
     /**
@@ -30,17 +30,18 @@ class ServiceconfigurationISR
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
      * @param anonymous136 $active
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ServiceconfigurationISR
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+        return $this;
     }
 
     /**
@@ -48,17 +49,18 @@ class ServiceconfigurationISR
      */
     public function getDetails()
     {
-      return $this->details;
+        return $this->details;
     }
 
     /**
      * @param anonymous137 $details
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\ServiceconfigurationISR
      */
     public function setDetails($details)
     {
-      $this->details = $details;
-      return $this;
+        $this->details = $details;
+        return $this;
     }
 
 }

@@ -65,9 +65,10 @@ class PackageRequestType implements \JsonSerializable
 
     /**
      * PackageRequestType constructor.
+     *
      * @param ConsigneeAddressRequestType $consigneeAddress
-     * @param PackageDetailsRequestType $packageDetails
-     * @param ReturnAddressRequestType $returnAddress
+     * @param PackageDetailsRequestType   $packageDetails
+     * @param ReturnAddressRequestType    $returnAddress
      * @param CustomsDetailsRequestType[] $customsDetails
      */
     public function __construct(
@@ -120,8 +121,8 @@ class PackageRequestType implements \JsonSerializable
     function jsonSerialize()
     {
         $properties = get_object_vars($this);
-        $properties = array_filter($properties, function ($value) {
-            return !empty($value);
+        $properties = array_filter($properties, function($value) {
+            return ! empty($value);
         });
         return $properties;
     }

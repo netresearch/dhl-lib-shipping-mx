@@ -36,18 +36,21 @@ interface DimensionsInterface
 {
     /**
      * @param string $unitOfMeasurement
+     *
      * @return int
      */
     public function getLength($unitOfMeasurement);
 
     /**
      * @param string $unitOfMeasurement
+     *
      * @return int
      */
     public function getWidth($unitOfMeasurement);
 
     /**
      * @param string $unitOfMeasurement
+     *
      * @return int
      */
     public function getHeight($unitOfMeasurement);

@@ -43,8 +43,9 @@ class ItemStatus extends ResponseStatus implements ItemStatusInterface
 
     /**
      * ItemStatus constructor.
+     *
      * @param string $identifier
-     * @param int $code
+     * @param int    $code
      * @param string $text
      * @param string $message
      */

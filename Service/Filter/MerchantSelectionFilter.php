@@ -38,6 +38,7 @@ class MerchantSelectionFilter implements FilterInterface
 {
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -50,7 +51,7 @@ class MerchantSelectionFilter implements FilterInterface
      */
     public static function create()
     {
-        return function (ServiceInterface $service) {
+        return function(ServiceInterface $service) {
             $filter = new static();
             return $filter->isAllowed($service);
         };

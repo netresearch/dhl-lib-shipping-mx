@@ -41,7 +41,7 @@ class LabelFactory
 {
     /**
      * @param string $sequenceNumber
-     * @param int $statusCode
+     * @param int    $statusCode
      * @param string $statusText
      * @param string $statusMessage
      * @param string $trackingNumber
@@ -49,6 +49,7 @@ class LabelFactory
      * @param string $returnLabelData
      * @param string $exportLabelData
      * @param string $codLabelData
+     *
      * @return Label
      */
     public function create(

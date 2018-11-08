@@ -34,14 +34,14 @@ namespace Dhl\Shipping\Api\Data\ShippingInfo\Receiver;
  */
 interface AddressInterface
 {
-    const STREET_NAME = 'streetName';
-    const STREET_NUMBER = 'streetNumber';
-    const ZIP = 'zip';
-    const CITY = 'city';
-    const COUNTRY_ISO_CODE = 'countryISOCode';
-    const COUNTRY = 'country';
-    const STATE = 'state';
-    const ADDRESS_ADDITION = 'addressAddition';
+    const STREET_NAME             = 'streetName';
+    const STREET_NUMBER           = 'streetNumber';
+    const ZIP                     = 'zip';
+    const CITY                    = 'city';
+    const COUNTRY_ISO_CODE        = 'countryISOCode';
+    const COUNTRY                 = 'country';
+    const STATE                   = 'state';
+    const ADDRESS_ADDITION        = 'addressAddition';
     const DISPATCHING_INFORMATION = 'dispatchingInformation';
 
     /**

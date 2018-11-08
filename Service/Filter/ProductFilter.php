@@ -41,9 +41,9 @@ use Dhl\Shipping\Util\ShippingProducts\ShippingProducts;
 /**
  * Product filter
  *
- * @todo Create new solution taking into account global label api
+ * @todo     Create new solution taking into account global label api
  * @deprecated
- * @see \Dhl\Shipping\Api\Data\ServiceInterface::canProcessRoute
+ * @see      \Dhl\Shipping\Api\Data\ServiceInterface::canProcessRoute
  *
  * @package  Dhl\Shipping\Service
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
@@ -56,7 +56,7 @@ class ProductFilter implements FilterInterface
      * @var string[]
      */
     private $allowedServices = [
-        ShippingProducts::CODE_NATIONAL => [
+        ShippingProducts::CODE_NATIONAL            => [
             BulkyGoods::CODE,
             Cod::CODE,
             Insurance::CODE,
@@ -67,39 +67,39 @@ class ProductFilter implements FilterInterface
             ReturnShipment::CODE,
             VisualCheckOfAge::CODE,
             PreferredDay::CODE,
-            PreferredTime::CODE
+            PreferredTime::CODE,
         ],
-        ShippingProducts::CODE_CONNECT => [
+        ShippingProducts::CODE_CONNECT             => [
             BulkyGoods::CODE,
             Insurance::CODE,
             ParcelAnnouncement::CODE,
             PrintOnlyIfCodeable::CODE,
             ReturnShipment::CODE,
         ],
-        ShippingProducts::CODE_INTERNATIONAL => [
+        ShippingProducts::CODE_INTERNATIONAL       => [
             BulkyGoods::CODE,
             Insurance::CODE,
             ParcelAnnouncement::CODE,
             PrintOnlyIfCodeable::CODE,
         ],
-        ShippingProducts::CODE_EUROPAKET => [
+        ShippingProducts::CODE_EUROPAKET           => [
             Insurance::CODE,
             ParcelAnnouncement::CODE,
             PrintOnlyIfCodeable::CODE,
         ],
-        ShippingProducts::CODE_KURIER_TAGGLEICH => [
-            Insurance::CODE,
-            ParcelAnnouncement::CODE,
-            PrintOnlyIfCodeable::CODE,
-            ReturnShipment::CODE,
-        ],
-        ShippingProducts::CODE_KURIER_WUNSCHZEIT => [
+        ShippingProducts::CODE_KURIER_TAGGLEICH    => [
             Insurance::CODE,
             ParcelAnnouncement::CODE,
             PrintOnlyIfCodeable::CODE,
             ReturnShipment::CODE,
         ],
-        ShippingProducts::CODE_PAKET_AUSTRIA => [
+        ShippingProducts::CODE_KURIER_WUNSCHZEIT   => [
+            Insurance::CODE,
+            ParcelAnnouncement::CODE,
+            PrintOnlyIfCodeable::CODE,
+            ReturnShipment::CODE,
+        ],
+        ShippingProducts::CODE_PAKET_AUSTRIA       => [
             BulkyGoods::CODE,
             Cod::CODE,
             Insurance::CODE,
@@ -107,7 +107,7 @@ class ProductFilter implements FilterInterface
             PrintOnlyIfCodeable::CODE,
             ReturnShipment::CODE,
         ],
-        ShippingProducts::CODE_PAKET_CONNECT => [
+        ShippingProducts::CODE_PAKET_CONNECT       => [
             BulkyGoods::CODE,
             Cod::CODE,
             Insurance::CODE,
@@ -130,6 +130,7 @@ class ProductFilter implements FilterInterface
 
     /**
      * ProductFilter constructor.
+     *
      * @param $productCode
      */
     private function __construct($productCode)
@@ -139,6 +140,7 @@ class ProductFilter implements FilterInterface
 
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
@@ -148,12 +150,13 @@ class ProductFilter implements FilterInterface
 
     /**
      * @param string $productCode
+     *
      * @deprecated
      * @return \Closure
      */
     public static function create($productCode)
     {
-        return function (ServiceInterface $service) use ($productCode) {
+        return function(ServiceInterface $service) use ($productCode) {
             $filter = new static($productCode);
             return $filter->isAllowed($service);
         };

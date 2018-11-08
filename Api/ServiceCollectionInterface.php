@@ -16,24 +16,28 @@ interface ServiceCollectionInterface extends \SeekableIterator, \ArrayAccess, \S
 {
     /**
      * @param ServiceInterface[] $services
+     *
      * @return static
      */
     public static function fromArray($services);
 
     /**
      * @param callable $callback
+     *
      * @return static
      */
     public function filter(callable $callback);
 
     /**
      * @param callable $callback
+     *
      * @return mixed[]
      */
     public function map(callable $callback);
 
     /**
      * @param callable $callback
+     *
      * @return static
      */
     public function sort(callable $callback);

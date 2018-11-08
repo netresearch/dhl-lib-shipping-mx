@@ -55,8 +55,9 @@ class ShippingInfo implements ShippingInfoInterface, \JsonSerializable
 
     /**
      * ShippingInfo constructor.
-     * @param string $schemaVersion
-     * @param ReceiverInterface $receiver
+     *
+     * @param string             $schemaVersion
+     * @param ReceiverInterface  $receiver
      * @param ServiceInterface[] $services
      */
     public function __construct($schemaVersion, ReceiverInterface $receiver, array $services = [])

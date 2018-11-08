@@ -73,6 +73,7 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
 
     /**
      * Postfiliale constructor.
+     *
      * @param string $postfilialNumber
      * @param string $postNumber
      * @param string $zip

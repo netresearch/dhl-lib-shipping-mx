@@ -28,10 +28,10 @@ namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Servi
 /**
  * Additional service: Visual check of age
  *
- * @package  Dhl\Shipping\Webservice
+ * @package   Dhl\Shipping\Webservice
  * @author    Max Melzer <max.melzer@netresearch.de>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link     http://www.netresearch.de/
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      http://www.netresearch.de/
  */
 class VisualCheckOfAge implements ServiceInterface
 {
@@ -42,11 +42,12 @@ class VisualCheckOfAge implements ServiceInterface
 
     /**
      * VisualCheckOfAge constructor.
+     *
      * @param string $type
      */
     public function __construct($type)
     {
-        $this->type= $type;
+        $this->type = $type;
     }
 
     /**

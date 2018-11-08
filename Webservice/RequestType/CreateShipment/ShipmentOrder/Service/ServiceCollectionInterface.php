@@ -36,14 +36,16 @@ namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Servi
 interface ServiceCollectionInterface
 {
     /**
-     * @param string $serviceCode
+     * @param string  $serviceCode
      * @param mixed[] $data
+     *
      * @return $this
      */
     public function addService($serviceCode, array $data = []);
 
     /**
      * @param $serviceCode
+     *
      * @return ServiceInterface|null
      */
     public function getService($serviceCode);

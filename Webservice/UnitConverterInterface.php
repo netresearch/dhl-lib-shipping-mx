@@ -37,25 +37,28 @@ interface UnitConverterInterface
     const CONVERSION_PRECISION = 3;
 
     /**
-     * @param float $value
+     * @param float  $value
      * @param string $unitIn
      * @param string $unitOut
+     *
      * @return float
      */
     public function convertDimension($value, $unitIn, $unitOut);
 
     /**
-     * @param float $value
+     * @param float  $value
      * @param string $unitIn
      * @param string $unitOut
+     *
      * @return float
      */
     public function convertMonetaryValue($value, $unitIn, $unitOut);
 
     /**
-     * @param float $value
+     * @param float  $value
      * @param string $unitIn
      * @param string $unitOut
+     *
      * @return float
      */
     public function convertWeight($value, $unitIn, $unitOut);

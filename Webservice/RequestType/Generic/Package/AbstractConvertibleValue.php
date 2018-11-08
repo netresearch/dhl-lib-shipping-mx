@@ -43,6 +43,7 @@ abstract class AbstractConvertibleValue
 
     /**
      * AbstractConvertibleValue constructor.
+     *
      * @param UnitConverterInterface $unitConverter
      */
     public function __construct(UnitConverterInterface $unitConverter)

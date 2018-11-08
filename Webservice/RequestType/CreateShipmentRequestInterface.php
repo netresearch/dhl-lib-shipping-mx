@@ -29,10 +29,10 @@ namespace Dhl\Shipping\Webservice\RequestType;
  *
  * @deprecated No use :)
  *
- * @package  Dhl\Shipping
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link     http://www.netresearch.de/
+ * @package    Dhl\Shipping
+ * @author     Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       http://www.netresearch.de/
  */
 interface CreateShipmentRequestInterface
 {

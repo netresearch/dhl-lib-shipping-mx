@@ -41,9 +41,9 @@ class Cod extends AbstractService
 {
     const CODE = 'bcs_cod';
 
-    const PROPERTY_AMOUNT = 'amount';
+    const PROPERTY_AMOUNT        = 'amount';
     const PROPERTY_CURRENCY_CODE = 'currency_code';
-    const PROPERTY_ADD_FEE = 'add_fee';
+    const PROPERTY_ADD_FEE       = 'add_fee';
 
     /**
      * @var bool
@@ -101,7 +101,7 @@ class Cod extends AbstractService
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_AMOUNT])) {
-            return (float)$properties[self::PROPERTY_AMOUNT];
+            return (float) $properties[self::PROPERTY_AMOUNT];
         }
 
         return 0;
@@ -127,7 +127,7 @@ class Cod extends AbstractService
     {
         $properties = $this->serviceConfig->getProperties();
         if (isset($properties[self::PROPERTY_ADD_FEE])) {
-            return (bool)$properties[self::PROPERTY_ADD_FEE];
+            return (bool) $properties[self::PROPERTY_ADD_FEE];
         }
 
         return false;

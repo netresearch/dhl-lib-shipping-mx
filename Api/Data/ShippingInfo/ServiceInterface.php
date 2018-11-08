@@ -36,8 +36,8 @@ use Dhl\Shipping\Api\Data\ShippingInfo\Service\ServicePropertyInterface;
  */
 interface ServiceInterface
 {
-    const CODE = 'code';
-    const IS_ACTIVE = 'is_active';
+    const CODE       = 'code';
+    const IS_ACTIVE  = 'is_active';
     const PROPERTIES = 'properties';
 
     /**

@@ -105,17 +105,18 @@ class Receiver implements ReceiverInterface
 
     /**
      * Receiver constructor.
-     * @param $companyName
-     * @param $name
-     * @param $nameAddition
-     * @param $contactPerson
-     * @param $phone
-     * @param $email
-     * @param AddressInterface $address
-     * @param IdCardInterface $identity
+     *
+     * @param                           $companyName
+     * @param                           $name
+     * @param                           $nameAddition
+     * @param                           $contactPerson
+     * @param                           $phone
+     * @param                           $email
+     * @param AddressInterface          $address
+     * @param IdCardInterface           $identity
      * @param PackstationInterface|null $packstation
      * @param PostfilialeInterface|null $postfiliale
-     * @param ParcelShopInterface|null $parcelShop
+     * @param ParcelShopInterface|null  $parcelShop
      */
     public function __construct(
         $companyName,

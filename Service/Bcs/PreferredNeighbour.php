@@ -75,9 +75,9 @@ class PreferredNeighbour extends AbstractService
         $this->serviceInputBuilder->setPlaceholder('First name, last name of neighbour');
         $this->serviceInputBuilder->setInfoText(__($this->serviceConfig->getInfoText()));
         $this->serviceInputBuilder->setValidationRules([
-            'minLength' => 1,
-            'maxLength' => 40,
-            'validate-no-html-tags' => true,
+            'minLength'                => 1,
+            'maxLength'                => 40,
+            'validate-no-html-tags'    => true,
             'dhl_filter_special_chars' => true,
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred neighbour: Delivery to a neighbour of your choice'));
@@ -94,9 +94,9 @@ class PreferredNeighbour extends AbstractService
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
         $this->serviceInputBuilder->setPlaceholder('Street, number, postal code, city');
         $this->serviceInputBuilder->setValidationRules([
-            'minLength' => 1,
-            'maxLength' => 40,
-            'validate-no-html-tags' => true,
+            'minLength'                => 1,
+            'maxLength'                => 40,
+            'validate-no-html-tags'    => true,
             'dhl_filter_special_chars' => true,
         ]);
         if (isset($this->serviceConfig->getProperties()[self::PROPERTY_ADDRESS])) {

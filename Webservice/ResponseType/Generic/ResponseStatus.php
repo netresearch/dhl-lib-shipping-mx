@@ -53,7 +53,8 @@ class ResponseStatus implements ResponseStatusInterface
 
     /**
      * ResponseStatus constructor.
-     * @param int $code
+     *
+     * @param int    $code
      * @param string $text
      * @param string $message
      */
@@ -101,6 +102,6 @@ class ResponseStatus implements ResponseStatusInterface
      */
     public function isError()
     {
-        return !$this->isSuccess();
+        return ! $this->isSuccess();
     }
 }

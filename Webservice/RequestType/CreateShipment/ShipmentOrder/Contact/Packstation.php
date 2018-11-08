@@ -71,6 +71,7 @@ class Packstation implements PackstationInterface
 
     /**
      * Packstation constructor.
+     *
      * @param string $packstationNumber
      * @param string $zip
      * @param string $city

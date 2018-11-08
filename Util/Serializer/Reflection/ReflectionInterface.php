@@ -38,7 +38,8 @@ interface ReflectionInterface
      * Obtain the data type of a class property.
      *
      * @param \stdClass $type
-     * @param string $property
+     * @param string    $property
+     *
      * @return string
      */
     public function getPropertyType($type, $property);
@@ -47,7 +48,8 @@ interface ReflectionInterface
      * Obtain the return type of a class property getter.
      *
      * @param \stdClass $type
-     * @param string $getter
+     * @param string    $getter
+     *
      * @return string
      */
     public function getReturnValueType($type, $getter);

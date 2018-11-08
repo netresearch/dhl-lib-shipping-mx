@@ -66,14 +66,14 @@ interface GlShippingProductsInterface extends ShippingProductsInterface
     const CODE_AMER_PKY = 'PKY';
     // DHL GlobalMail Packet Plus
     const CODE_AMER_PKT = 'PKT';
-    const CODE_AMER_29 = '29';
+    const CODE_AMER_29  = '29';
     // DHL Parcel International Standard
     const CODE_AMER_PLY = 'PLY';
-    const CODE_AMER_54 = '54';
-    const CODE_AMER_60 = '60';
+    const CODE_AMER_54  = '54';
+    const CODE_AMER_60  = '60';
     // DHL Parcel International Direct Standard
     const CODE_AMER_PID = 'PID';
-    const CODE_AMER_22 = '22';
+    const CODE_AMER_22  = '22';
     // DHL Parcel International Expedited
     const CODE_AMER_PLX = 'PLX';
 

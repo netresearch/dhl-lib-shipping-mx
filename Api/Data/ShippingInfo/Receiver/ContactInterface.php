@@ -34,11 +34,11 @@ namespace Dhl\Shipping\Api\Data\ShippingInfo\Receiver;
  */
 interface ContactInterface
 {
-    const NAME = 'name';
-    const COMPANY = 'company';
-    const NAME_ADDITION = 'nameAddition';
-    const PHONE = 'phone';
-    const EMAIL = 'email';
+    const NAME           = 'name';
+    const COMPANY        = 'company';
+    const NAME_ADDITION  = 'nameAddition';
+    const PHONE          = 'phone';
+    const EMAIL          = 'email';
     const CONTACT_PERSON = 'contactPerson';
 
     /**

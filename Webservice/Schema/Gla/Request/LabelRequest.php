@@ -42,6 +42,7 @@ class LabelRequest implements \JsonSerializable
 
     /**
      * LabelRequest constructor.
+     *
      * @param Type\ShipmentRequestType[] $shipments
      */
     public function __construct(array $shipments)

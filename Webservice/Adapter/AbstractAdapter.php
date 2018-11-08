@@ -46,30 +46,35 @@ abstract class AbstractAdapter implements AdapterInterface
 
     /**
      * @param ShipmentOrderInterface $shipmentOrder
+     *
      * @return bool
      */
     abstract protected function canCreateLabel(ShipmentOrderInterface $shipmentOrder);
 
     /**
      * @param string $shipmentNumber
+     *
      * @return bool
      */
     abstract protected function canCancelLabel($shipmentNumber);
 
     /**
      * @param ShipmentOrderInterface[] $shipmentOrders
+     *
      * @return LabelInterface[]
      */
     abstract protected function createShipmentOrders(array $shipmentOrders);
 
     /**
      * @param string[] $shipmentNumbers
+     *
      * @return ItemStatusInterface[]
      */
     abstract protected function deleteShipmentOrders(array $shipmentNumbers);
 
     /**
      * @param AdapterInterface $adapter
+     *
      * @return $this
      */
     public function setSuccessor(AdapterInterface $adapter)
@@ -80,6 +85,7 @@ abstract class AbstractAdapter implements AdapterInterface
 
     /**
      * @param ShipmentOrderInterface[] $shipmentOrders
+     *
      * @return LabelInterface[]
      */
     public function createLabels(array $shipmentOrders)
@@ -95,7 +101,7 @@ abstract class AbstractAdapter implements AdapterInterface
             }
         }
 
-        if (!empty($myOrders)) {
+        if (! empty($myOrders)) {
             $labels = $this->createShipmentOrders($myOrders);
         } else {
             $labels = [];
@@ -110,6 +116,7 @@ abstract class AbstractAdapter implements AdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
+     *
      * @return ItemStatusInterface[]
      */
     public function cancelLabels(array $shipmentNumbers)
@@ -125,7 +132,7 @@ abstract class AbstractAdapter implements AdapterInterface
             }
         }
 
-        if (!empty($myNumbers)) {
+        if (! empty($myNumbers)) {
             $items = $this->deleteShipmentOrders($myNumbers);
         } else {
             $items = [];

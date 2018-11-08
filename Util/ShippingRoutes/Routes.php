@@ -42,6 +42,7 @@ class Routes implements RoutesInterface
 
     /**
      * Routes constructor.
+     *
      * @param RouteValidatorInterface $routeValidator
      */
     public function __construct(RouteValidatorInterface $routeValidator)
@@ -121,9 +122,10 @@ class Routes implements RoutesInterface
     }
 
     /**
-     * @param string $originCountryId
-     * @param string $destinationCountryId
+     * @param string   $originCountryId
+     * @param string   $destinationCountryId
      * @param string[] $euCountries
+     *
      * @return bool
      */
     public function canProcessRoute($originCountryId, $destinationCountryId, array $euCountries)
@@ -139,9 +141,10 @@ class Routes implements RoutesInterface
     }
 
     /**
-     * @param string $originCountryId
-     * @param string $destCountryId
+     * @param string   $originCountryId
+     * @param string   $destCountryId
      * @param string[] $euCountries
+     *
      * @return bool
      */
     public function isCrossBorderRoute($originCountryId, $destCountryId, array $euCountries)

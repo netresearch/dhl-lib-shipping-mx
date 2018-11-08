@@ -66,9 +66,10 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * BcsAdapter constructor.
+     *
      * @param ResponseParser\BcsResponseParserInterface $responseParser
-     * @param RequestMapper\BcsDataMapperInterface $dataMapper
-     * @param BcsSoapClientInterface $soapClient
+     * @param RequestMapper\BcsDataMapperInterface      $dataMapper
+     * @param BcsSoapClientInterface                    $soapClient
      */
     public function __construct(
         ResponseParser\BcsResponseParserInterface $responseParser,
@@ -82,6 +83,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder
+     *
      * @return bool
      */
     protected function canCreateLabel(RequestType\CreateShipment\ShipmentOrderInterface $shipmentOrder)
@@ -97,6 +99,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
      * For now, let the request fail if it does not exist.
      *
      * @param string $shipmentNumber
+     *
      * @return bool
      */
     protected function canCancelLabel($shipmentNumber)
@@ -106,6 +109,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestType\CreateShipment\ShipmentOrderInterface[] $shipmentOrders
+     *
      * @return ResponseType\CreateShipment\LabelInterface[]
      * @throws ApiOperationException
      * @throws ApiCommunicationException
@@ -115,7 +119,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
         $version = new BcsApi\Version(self::WEBSERVICE_VERSION_MAJOR, self::WEBSERVICE_VERSION_MINOR, null);
 
         $shipmentOrders = array_map(
-            function ($shipmentOrder) {
+            function($shipmentOrder) {
                 return $this->apiDataMapper->mapShipmentOrder($shipmentOrder);
             },
             $shipmentOrders
@@ -137,6 +141,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param RequestType\GetVersionRequestInterface $versionRequest
+     *
      * @return ResponseType\GetVersionResponseInterface
      */
     public function getVersion(RequestType\GetVersionRequestInterface $versionRequest)
@@ -154,6 +159,7 @@ class BcsAdapter extends AbstractAdapter implements BcsAdapterInterface
 
     /**
      * @param string[] $shipmentNumbers
+     *
      * @return ResponseType\Generic\ItemStatusInterface[]
      * @throws ApiCommunicationException
      * @throws ApiOperationException

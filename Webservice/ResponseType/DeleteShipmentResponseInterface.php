@@ -50,6 +50,7 @@ interface DeleteShipmentResponseInterface
 
     /**
      * @param string $shipmentNumber
+     *
      * @return \Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface
      */
     public function getDeletedItem($shipmentNumber);

@@ -39,6 +39,7 @@ class Json extends AbstractSerializer implements SerializerInterface
     /**
      * @param string $data The data to be parsed
      * @param string $type The type (interface) to map the data to
+     *
      * @return mixed The object with populated properties
      */
     public function deserialize($data, $type)

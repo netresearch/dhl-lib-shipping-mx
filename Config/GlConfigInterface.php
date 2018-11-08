@@ -47,9 +47,9 @@ interface GlConfigInterface
     const CONFIG_XML_PATH_AUTH_TOKEN    = 'carriers/dhlshipping/gl_api_auth_token';
 
     const CONFIG_XML_PATH_SANDBOX_ENDPOINT = 'carriers/dhlshipping/gl_sandbox_api_endpoint';
-    const CONFIG_XML_PATH_LABEL_SIZE      = 'carriers/dhlshipping/gl_label_size';
-    const CONFIG_XML_PATH_PAGE_SIZE       = 'carriers/dhlshipping/gl_page_size';
-    const CONFIG_XML_PATH_PAGE_LAYOUT     = 'carriers/dhlshipping/gl_page_layout';
+    const CONFIG_XML_PATH_LABEL_SIZE       = 'carriers/dhlshipping/gl_label_size';
+    const CONFIG_XML_PATH_PAGE_SIZE        = 'carriers/dhlshipping/gl_page_size';
+    const CONFIG_XML_PATH_PAGE_LAYOUT      = 'carriers/dhlshipping/gl_page_layout';
 
     const LABEL_SIZE_4X6    = '4x6';
     const LABEL_SIZE_4X4    = '4x4';
@@ -61,36 +61,42 @@ interface GlConfigInterface
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getPickupAccountNumber($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getCustomerPrefix($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getDistributionCenter($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getLabelSize($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getPageSize($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return string
      */
     public function getPageLayout($store = null);
@@ -99,6 +105,7 @@ interface GlConfigInterface
      * Obtain API endpoint.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getApiEndpoint($store = null);
@@ -107,6 +114,7 @@ interface GlConfigInterface
      * Obtain auth credentials: username.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAuthUsername($store = null);
@@ -115,19 +123,22 @@ interface GlConfigInterface
      * Obtain auth credentials: password.
      *
      * @param mixed $store
+     *
      * @return string
      */
     public function getAuthPassword($store = null);
 
     /**
      * @param mixed $store
+     *
      * @return mixed
      */
     public function getAuthToken($store = null);
 
     /**
      * @param string $token
-     * @param mixed $store
+     * @param mixed  $store
+     *
      * @return void
      */
     public function saveAuthToken($token, $store = null);
@@ -136,6 +147,7 @@ interface GlConfigInterface
      * Get consignment number config.
      *
      * @param int|null $store
+     *
      * @return string
      */
     public function getConsignmentNumber($store = null);

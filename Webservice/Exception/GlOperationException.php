@@ -38,6 +38,7 @@ class GlOperationException extends \Exception
 {
     /**
      * @param string $responseBody
+     *
      * @return static
      */
     public static function create($responseBody)
@@ -49,7 +50,7 @@ class GlOperationException extends \Exception
                 $parts = [
                     $message,
                     $response['backendError']['system'],
-                    $response['backendError']['message']
+                    $response['backendError']['message'],
                 ];
                 $message = implode(" ", $parts);
             }

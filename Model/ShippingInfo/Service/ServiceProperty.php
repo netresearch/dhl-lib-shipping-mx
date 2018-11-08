@@ -48,8 +48,9 @@ class ServiceProperty implements ServicePropertyInterface
 
     /**
      * ServiceProperty constructor.
+     *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function __construct($key, $value)
     {

@@ -51,9 +51,10 @@ interface ShippingProductsInterface
     /**
      * Find all shipping products that apply to the given shipping route.
      *
-     * @param string $originCountryId
+     * @param string      $originCountryId
      * @param string|null $destCountryId
-     * @param string[] $euCountries
+     * @param string[]    $euCountries
+     *
      * @return string[]
      */
     public function getApplicableCodes($originCountryId, $destCountryId = null, array $euCountries = []);
@@ -62,6 +63,7 @@ interface ShippingProductsInterface
      * Find all shipping procedures that apply to the given shipping origin.
      *
      * @param $originCoutryId
+     *
      * @return string[]
      */
     public function getApplicableProcedures($originCoutryId);
@@ -70,12 +72,14 @@ interface ShippingProductsInterface
      * Obtain human readable name for given product code
      *
      * @param string $code
+     *
      * @return string
      */
     public function getProductName($code);
 
     /**
      * @param $originCountryId
+     *
      * @return mixed
      */
     public function getAvailableShippingRoutes($originCountryId);

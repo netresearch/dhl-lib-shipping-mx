@@ -74,13 +74,14 @@ class Label implements LabelInterface
 
     /**
      * Label constructor.
+     *
      * @param ItemStatusInterface $status
-     * @param string $sequenceNumber
-     * @param string $trackingNumber
-     * @param string $label
-     * @param string $returnLabel
-     * @param string $exportLabel
-     * @param string $codLabel
+     * @param string              $sequenceNumber
+     * @param string              $trackingNumber
+     * @param string              $label
+     * @param string              $returnLabel
+     * @param string              $exportLabel
+     * @param string              $codLabel
      */
     public function __construct(
         ItemStatusInterface $status,
@@ -162,7 +163,7 @@ class Label implements LabelInterface
             $this->label,
             $this->exportLabel,
             $this->returnLabel,
-            $this->codLabel
+            $this->codLabel,
         ]);
     }
 }

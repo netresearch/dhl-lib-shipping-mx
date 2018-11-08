@@ -55,8 +55,9 @@ class Service implements ServiceInterface, \JsonSerializable
 
     /**
      * Service constructor.
-     * @param string $code
-     * @param bool $isActive
+     *
+     * @param string                     $code
+     * @param bool                       $isActive
      * @param ServicePropertyInterface[] $properties
      */
     public function __construct($code, $isActive, array $properties = [])
@@ -101,8 +102,8 @@ class Service implements ServiceInterface, \JsonSerializable
         }
 
         $service = [
-            ServiceInterface::CODE => $this->code,
-            ServiceInterface::IS_ACTIVE => $this->isActive,
+            ServiceInterface::CODE       => $this->code,
+            ServiceInterface::IS_ACTIVE  => $this->isActive,
             ServiceInterface::PROPERTIES => $properties,
         ];
 

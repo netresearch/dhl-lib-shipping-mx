@@ -86,14 +86,14 @@ class Address implements AddressInterface
      * Address constructor.
      *
      * @param string[] $street
-     * @param string $streetName
-     * @param string $streetNumber
-     * @param string $addressAddition
-     * @param string $postalCode
-     * @param string $city
-     * @param string $state
-     * @param string $countryCode
-     * @param string $dispatchingInformation
+     * @param string   $streetName
+     * @param string   $streetNumber
+     * @param string   $addressAddition
+     * @param string   $postalCode
+     * @param string   $city
+     * @param string   $state
+     * @param string   $countryCode
+     * @param string   $dispatchingInformation
      */
     public function __construct(
         array $street,
@@ -106,14 +106,14 @@ class Address implements AddressInterface
         $countryCode,
         $dispatchingInformation
     ) {
-        $this->street                 = $street;
-        $this->streetName             = $streetName;
-        $this->streetNumber           = $streetNumber;
-        $this->addressAddition        = $addressAddition;
-        $this->postalCode             = $postalCode;
-        $this->city                   = $city;
-        $this->state                  = $state;
-        $this->countryCode            = $countryCode;
+        $this->street = $street;
+        $this->streetName = $streetName;
+        $this->streetNumber = $streetNumber;
+        $this->addressAddition = $addressAddition;
+        $this->postalCode = $postalCode;
+        $this->city = $city;
+        $this->state = $state;
+        $this->countryCode = $countryCode;
         $this->dispatchingInformation = $dispatchingInformation;
     }
 

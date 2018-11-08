@@ -68,6 +68,7 @@ class Contact implements ContactInterface, \JsonSerializable
 
     /**
      * Contact constructor.
+     *
      * @param string $name
      * @param string $company
      * @param string $nameAddition

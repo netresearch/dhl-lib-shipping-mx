@@ -35,12 +35,12 @@ namespace Dhl\Shipping\Api\Data\ShippingInfo\Receiver;
 interface PackstationInterface
 {
     const PACKSTATION_NUMBER = 'packstationNumber';
-    const ZIP = 'zip';
-    const CITY = 'city';
-    const COUNTRY_ISO_CODE = 'countryISOCode';
-    const POST_NUMBER = 'postNumber';
-    const COUNTRY = 'country';
-    const STATE = 'state';
+    const ZIP                = 'zip';
+    const CITY               = 'city';
+    const COUNTRY_ISO_CODE   = 'countryISOCode';
+    const POST_NUMBER        = 'postNumber';
+    const COUNTRY            = 'country';
+    const STATE              = 'state';
 
     /**
      * @return string

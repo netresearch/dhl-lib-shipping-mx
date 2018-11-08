@@ -75,13 +75,14 @@ class ExportPosition implements ExportPositionInterface
 
     /**
      * ExportPosition constructor.
-     * @param int $qty
-     * @param string $skuNumber
-     * @param string $itemDescription
+     *
+     * @param int                    $qty
+     * @param string                 $skuNumber
+     * @param string                 $itemDescription
      * @param MonetaryValueInterface $declaredValue
-     * @param WeightInterface $weight
-     * @param string $countryOfOrigin
-     * @param string $hsCode
+     * @param WeightInterface        $weight
+     * @param string                 $countryOfOrigin
+     * @param string                 $hsCode
      */
     public function __construct(
         $qty,
@@ -149,6 +150,7 @@ class ExportPosition implements ExportPositionInterface
 
     /**
      * Obtain ISO-2-Alpha country code for the item's origin manufacturer country.
+     *
      * @return string
      */
     public function getCountryOfOrigin()

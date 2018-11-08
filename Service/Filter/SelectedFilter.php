@@ -38,11 +38,12 @@ class SelectedFilter implements FilterInterface
 {
     /**
      * @param ServiceInterface $service
+     *
      * @return bool
      */
     public function isAllowed(ServiceInterface $service)
     {
-        return (bool)$service->isSelected();
+        return (bool) $service->isSelected();
     }
 
     /**
@@ -50,7 +51,7 @@ class SelectedFilter implements FilterInterface
      */
     public static function create()
     {
-        return function (ServiceInterface $service) {
+        return function(ServiceInterface $service) {
             $filter = new static();
             return $filter->isAllowed($service);
         };

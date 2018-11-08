@@ -27,9 +27,9 @@ class NameType
      */
     public function __construct($name1, $name2, $name3)
     {
-      $this->name1 = $name1;
-      $this->name2 = $name2;
-      $this->name3 = $name3;
+        $this->name1 = $name1;
+        $this->name2 = $name2;
+        $this->name3 = $name3;
     }
 
     /**
@@ -37,17 +37,18 @@ class NameType
      */
     public function getName1()
     {
-      return $this->name1;
+        return $this->name1;
     }
 
     /**
      * @param name1 $name1
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\NameType
      */
     public function setName1($name1)
     {
-      $this->name1 = $name1;
-      return $this;
+        $this->name1 = $name1;
+        return $this;
     }
 
     /**
@@ -55,17 +56,18 @@ class NameType
      */
     public function getName2()
     {
-      return $this->name2;
+        return $this->name2;
     }
 
     /**
      * @param name2 $name2
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\NameType
      */
     public function setName2($name2)
     {
-      $this->name2 = $name2;
-      return $this;
+        $this->name2 = $name2;
+        return $this;
     }
 
     /**
@@ -73,17 +75,18 @@ class NameType
      */
     public function getName3()
     {
-      return $this->name3;
+        return $this->name3;
     }
 
     /**
      * @param name3 $name3
+     *
      * @return \Dhl\Shipping\Webservice\Schema\Bcs\NameType
      */
     public function setName3($name3)
     {
-      $this->name3 = $name3;
-      return $this;
+        $this->name3 = $name3;
+        return $this;
     }
 
 }

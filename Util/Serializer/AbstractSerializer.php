@@ -50,8 +50,9 @@ abstract class AbstractSerializer implements SerializerInterface
 
     /**
      * AbstractSerializer constructor.
+     *
      * @param PropertyHandlerInterface $propertyHandler
-     * @param TypeHandlerInterface $typeHandler
+     * @param TypeHandlerInterface     $typeHandler
      */
     public function __construct(
         PropertyHandlerInterface $propertyHandler,
@@ -65,7 +66,8 @@ abstract class AbstractSerializer implements SerializerInterface
      * Copy the properties to an object of the given type.
      *
      * @param mixed[] $properties Associated array of property keys and values.
-     * @param string $type The type of the target object.
+     * @param string  $type       The type of the target object.
+     *
      * @return \stdClass The target object with all properties set.
      */
     public function parseProperties(array $properties, $type)
@@ -75,7 +77,7 @@ abstract class AbstractSerializer implements SerializerInterface
         // named type
         foreach ($properties as $key => $value) {
             $subType = $this->typeHandler->getPropertyType($this->propertyHandler, $dataObj, $key);
-            if (!$subType) {
+            if (! $subType) {
                 continue;
             }
 
@@ -87,7 +89,7 @@ abstract class AbstractSerializer implements SerializerInterface
 
                 $types = [];
                 foreach ($value as $item) {
-                    $types[]= $this->parseProperties($item, $subType);
+                    $types[] = $this->parseProperties($item, $subType);
                 }
 
                 $value = $types;

@@ -42,10 +42,10 @@ class ExportType implements ExportTypeInterface
     {
         $types = [
             self::TYPE_COMMERCIAL_SAMPLE => 'Commercial Sample',
-            self::TYPE_DOCUMENT => 'Document',
-            self::TYPE_OTHER => 'Other',
-            self::TYPE_PRESENT => 'Present',
-            self::TYPE_RETURN_OF_GOODS => 'Return of Goods'
+            self::TYPE_DOCUMENT          => 'Document',
+            self::TYPE_OTHER             => 'Other',
+            self::TYPE_PRESENT           => 'Present',
+            self::TYPE_RETURN_OF_GOODS   => 'Return of Goods',
         ];
 
         return $types;

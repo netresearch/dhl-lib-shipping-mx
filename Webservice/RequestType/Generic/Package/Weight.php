@@ -49,9 +49,10 @@ class Weight extends AbstractConvertibleValue implements WeightInterface
 
     /**
      * Weight constructor.
+     *
      * @param UnitConverterInterface $unitConverter
-     * @param int $value
-     * @param string $unitOfMeasurement
+     * @param int                    $value
+     * @param string                 $unitOfMeasurement
      */
     public function __construct(UnitConverterInterface $unitConverter, $value, $unitOfMeasurement)
     {
@@ -63,6 +64,7 @@ class Weight extends AbstractConvertibleValue implements WeightInterface
 
     /**
      * @param string $unitOfMeasurement
+     *
      * @return float
      */
     public function getValue($unitOfMeasurement)

@@ -35,12 +35,12 @@ namespace Dhl\Shipping\Api\Data\Service;
 interface ServiceInputInterface
 {
     const INPUT_TYPE_CHECKBOX = 'checkbox';
-    const INPUT_TYPE_DATE = 'date';
-    const INPUT_TYPE_NUMBER = 'number';
-    const INPUT_TYPE_RADIO = 'radio';
-    const INPUT_TYPE_SELECT = 'select';
-    const INPUT_TYPE_TEXT = 'text';
-    const INPUT_TYPE_TIME = 'time';
+    const INPUT_TYPE_DATE     = 'date';
+    const INPUT_TYPE_NUMBER   = 'number';
+    const INPUT_TYPE_RADIO    = 'radio';
+    const INPUT_TYPE_SELECT   = 'select';
+    const INPUT_TYPE_TEXT     = 'text';
+    const INPUT_TYPE_TIME     = 'time';
 
     /**
      * Get the display type of the current service input.

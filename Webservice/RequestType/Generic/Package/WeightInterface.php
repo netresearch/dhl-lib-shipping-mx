@@ -36,6 +36,7 @@ interface WeightInterface
 {
     /**
      * @param string $unitOfMeasurement
+     *
      * @return float
      */
     public function getValue($unitOfMeasurement);

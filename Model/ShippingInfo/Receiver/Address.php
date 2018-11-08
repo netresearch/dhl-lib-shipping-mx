@@ -83,6 +83,7 @@ class Address implements AddressInterface, \JsonSerializable
 
     /**
      * Address constructor.
+     *
      * @param string $streetName
      * @param string $streetNumber
      * @param string $zip
