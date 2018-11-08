@@ -126,7 +126,7 @@ class BcsResponseParser implements BcsResponseParserInterface
      *
      * @param \Dhl\Shipping\Webservice\Schema\Bcs\GetVersionResponse $response
      *
-     * @return void
+     * @return GetVersionResponseInterface
      */
     public function parseGetVersionResponse($response)
     {

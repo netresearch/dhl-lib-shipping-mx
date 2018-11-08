@@ -96,17 +96,16 @@ class PackageItem implements PackageItemInterface
     /**
      * PackageItem constructor.
      *
-     * @param                        $qty
-     * @param MonetaryValueInterface $price
-     * @param                        $name
-     * @param WeightInterface        $weight
-     * @param                        $productId
-     * @param                        $orderItemId
-     * @param MonetaryValueInterface $customsValue
-     * @param string                 $customsItemDescription
-     * @param string                 $tariffNumber
-     * @param string                 $itemOriginCountry
-     * @param string                 $sku
+     * @param                 $qty
+     * @param                 $price
+     * @param                 $name
+     * @param WeightInterface $weight
+     * @param                 $productId
+     * @param                 $orderItemId
+     * @param string          $customsItemDescription
+     * @param string          $tariffNumber
+     * @param string          $itemOriginCountry
+     * @param string          $customsValue
      */
     public function __construct(
         $qty,
