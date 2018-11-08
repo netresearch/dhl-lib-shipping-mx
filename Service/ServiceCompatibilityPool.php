@@ -24,7 +24,6 @@
  */
 namespace Dhl\Shipping\Service;
 
-use Dhl\Shipping\Api\Data\ServiceCompatibilityInterface;
 use Dhl\Shipping\Service\Bcs\PreferredLocation;
 use Dhl\Shipping\Service\Bcs\PreferredNeighbour;
 

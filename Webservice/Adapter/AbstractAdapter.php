@@ -29,7 +29,6 @@ use Dhl\Shipping\Webservice\Exception\ApiOperationException;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
-use Dhl\Shipping\Webservice\Adapter\AdapterInterface;
 
 /**
  * Shipping API Adapter

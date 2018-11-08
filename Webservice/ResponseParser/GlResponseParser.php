@@ -26,7 +26,6 @@
 namespace Dhl\Shipping\Webservice\ResponseParser;
 
 use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-use Dhl\Shipping\Webservice\ResponseParser\GlResponseParserInterface;
 
 /**
  * Global Label API response parser

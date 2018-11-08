@@ -24,7 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\ExportPositionInterface;
 use Dhl\Shipping\Webservice\RequestType\Generic\Package\MonetaryValueInterface;
 use Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 

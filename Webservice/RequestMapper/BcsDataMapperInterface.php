@@ -24,7 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\RequestMapper;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
 use Dhl\Shipping\Webservice\RequestType\DeleteShipmentRequestInterface;
 use Dhl\Shipping\Webservice\RequestType\GetVersionRequestInterface;
 

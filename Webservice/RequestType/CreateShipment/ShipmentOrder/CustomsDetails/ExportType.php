@@ -24,8 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\CustomsDetails\ExportTypeInterface;
-
 /**
  * Platform independent shipment order customs details: export type
  *

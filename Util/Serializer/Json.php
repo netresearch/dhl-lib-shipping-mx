@@ -24,8 +24,6 @@
  */
 namespace Dhl\Shipping\Util\Serializer;
 
-use Dhl\Shipping\Util\Serializer\SerializerInterface;
-
 /**
  * REST API JSON Serializer
  *
@@ -34,7 +32,7 @@ use Dhl\Shipping\Util\Serializer\SerializerInterface;
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     http://www.netresearch.de/
  */
-class Json extends AbstractSerializer implements SerializerInterface
+class Json extends AbstractSerializer
 {
     /**
      * @param string $data The data to be parsed

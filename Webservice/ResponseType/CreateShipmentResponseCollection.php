@@ -24,7 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseType;
 
-use Dhl\Shipping\Webservice\ResponseType\CreateShipmentResponseInterface;
 use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
 use Dhl\Shipping\Webservice\Exception\ApiAdapterException;

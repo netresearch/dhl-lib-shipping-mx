@@ -24,8 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\ShipmentDetails\BankDataInterface;
-
 /**
  * Platform independent shipment order details: bank data
  *

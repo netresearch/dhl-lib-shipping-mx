@@ -26,7 +26,6 @@
 namespace Dhl\Shipping\Webservice\Adapter;
 
 use Dhl\Shipping\Util\Serializer\SerializerInterface;
-use Dhl\Shipping\Webservice\Adapter\GlAdapterInterface;
 use Dhl\Shipping\Webservice\Client\GlRestClientInterface;
 use Dhl\Shipping\Webservice\RequestMapper;
 use Dhl\Shipping\Webservice\ResponseParser;

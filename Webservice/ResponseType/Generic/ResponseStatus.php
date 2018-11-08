@@ -24,8 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseType\Generic;
 
-use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
-
 /**
  * ResponseStatus
  *

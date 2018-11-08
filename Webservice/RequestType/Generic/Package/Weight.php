@@ -24,7 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\RequestType\Generic\Package;
 
-use Dhl\Shipping\Webservice\RequestType\Generic\Package\WeightInterface;
 use Dhl\Shipping\Webservice\UnitConverterInterface;
 
 /**

@@ -26,7 +26,6 @@ namespace Dhl\Shipping\Model\ShippingInfo;
 
 use Dhl\Shipping\Api\Data\ShippingInfo\ServiceInterface;
 use Dhl\Shipping\Api\Data\ShippingInfo\Service\ServicePropertyInterface;
-use Magento\Sales\Api\Data\ShipmentInterface;
 
 /**
  * Service

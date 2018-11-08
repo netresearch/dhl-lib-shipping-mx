@@ -24,7 +24,6 @@
  */
 namespace Dhl\Shipping\Webservice\ResponseType\CreateShipment;
 
-use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
 
 /**

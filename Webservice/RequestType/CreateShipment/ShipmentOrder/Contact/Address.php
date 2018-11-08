@@ -25,8 +25,6 @@
 
 namespace Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact;
 
-use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Contact\AddressInterface;
-
 /**
  * Platform independent shipment order contact address details
  *

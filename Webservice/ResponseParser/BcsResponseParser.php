@@ -32,7 +32,6 @@ use Dhl\Shipping\Webservice\ResponseType\CreateShipment\LabelInterface;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ItemStatusInterface;
 use Dhl\Shipping\Webservice\ResponseType\Generic\ResponseStatusInterface;
 use Dhl\Shipping\Webservice\ResponseType\DeleteShipmentResponseCollection;
-use Dhl\Shipping\Webservice\ResponseType\GetVersionResponseInterface;
 
 /**
  * Geschäftskunden API response parser

@@ -24,8 +24,6 @@
  */
 namespace Dhl\Shipping\Util;
 
-use Dhl\Shipping\Util\StreetSplitterInterface;
-
 /**
  * Utility for splitting single address line into name, number, supplement
  *

@@ -25,7 +25,6 @@
 
 namespace Dhl\Shipping\Service\Gla;
 
-use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
