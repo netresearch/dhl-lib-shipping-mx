@@ -11,17 +11,17 @@ class ServiceconfigurationCashOnDelivery
     /**
      * @var anonymous154 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous155 $addFee
      */
-    protected $addFee = null;
+    protected $addFee;
 
     /**
      * @var anonymous156 $codAmount
      */
-    protected $codAmount = null;
+    protected $codAmount;
 
     /**
      * @param anonymous154 $active

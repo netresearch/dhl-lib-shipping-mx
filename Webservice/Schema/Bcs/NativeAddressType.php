@@ -11,37 +11,37 @@ class NativeAddressType
     /**
      * @var streetName $streetName
      */
-    protected $streetName = null;
+    protected $streetName;
 
     /**
      * @var streetNumber $streetNumber
      */
-    protected $streetNumber = null;
+    protected $streetNumber;
 
     /**
      * @var addressAddition[] $addressAddition
      */
-    protected $addressAddition = null;
+    protected $addressAddition;
 
     /**
      * @var dispatchingInformation $dispatchingInformation
      */
-    protected $dispatchingInformation = null;
+    protected $dispatchingInformation;
 
     /**
      * @var ZipType $zip
      */
-    protected $zip = null;
+    protected $zip;
 
     /**
      * @var city $city
      */
-    protected $city = null;
+    protected $city;
 
     /**
      * @var CountryType $Origin
      */
-    protected $Origin = null;
+    protected $Origin;
 
     /**
      * @param streetName   $streetName

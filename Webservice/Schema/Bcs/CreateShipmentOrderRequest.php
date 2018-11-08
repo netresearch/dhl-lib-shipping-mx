@@ -11,12 +11,12 @@ class CreateShipmentOrderRequest
     /**
      * @var Version $Version
      */
-    protected $Version = null;
+    protected $Version;
 
     /**
      * @var ShipmentOrderType $ShipmentOrder
      */
-    protected $ShipmentOrder = null;
+    protected $ShipmentOrder;
 
     /**
      * @param Version           $Version

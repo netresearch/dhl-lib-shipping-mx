@@ -11,37 +11,37 @@ class BankType
     /**
      * @var accountOwner $accountOwner
      */
-    protected $accountOwner = null;
+    protected $accountOwner;
 
     /**
      * @var bankName $bankName
      */
-    protected $bankName = null;
+    protected $bankName;
 
     /**
      * @var iban $iban
      */
-    protected $iban = null;
+    protected $iban;
 
     /**
      * @var note1 $note1
      */
-    protected $note1 = null;
+    protected $note1;
 
     /**
      * @var note2 $note2
      */
-    protected $note2 = null;
+    protected $note2;
 
     /**
      * @var bic $bic
      */
-    protected $bic = null;
+    protected $bic;
 
     /**
      * @var accountreference $accountreference
      */
-    protected $accountreference = null;
+    protected $accountreference;
 
     /**
      * @param accountOwner $accountOwner

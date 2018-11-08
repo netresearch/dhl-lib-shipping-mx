@@ -11,22 +11,22 @@ class ShipmentDetailsTypeType extends ShipmentDetailsType
     /**
      * @var ShipmentItemType $ShipmentItem
      */
-    protected $ShipmentItem = null;
+    protected $ShipmentItem;
 
     /**
      * @var ShipmentService $Service
      */
-    protected $Service = null;
+    protected $Service;
 
     /**
      * @var ShipmentNotificationType $Notification
      */
-    protected $Notification = null;
+    protected $Notification;
 
     /**
      * @var BankType $BankData
      */
-    protected $BankData = null;
+    protected $BankData;
 
     /**
      * @param string           $product

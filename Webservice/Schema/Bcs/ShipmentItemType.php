@@ -11,22 +11,22 @@ class ShipmentItemType
     /**
      * @var weightInKG $weightInKG
      */
-    protected $weightInKG = null;
+    protected $weightInKG;
 
     /**
      * @var lengthInCM $lengthInCM
      */
-    protected $lengthInCM = null;
+    protected $lengthInCM;
 
     /**
      * @var widthInCM $widthInCM
      */
-    protected $widthInCM = null;
+    protected $widthInCM;
 
     /**
      * @var heightInCM $heightInCM
      */
-    protected $heightInCM = null;
+    protected $heightInCM;
 
     /**
      * @param weightInKG $weightInKG

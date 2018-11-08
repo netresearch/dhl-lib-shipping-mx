@@ -11,12 +11,12 @@ class DeleteShipmentOrderRequest
     /**
      * @var Version $Version
      */
-    protected $Version = null;
+    protected $Version;
 
     /**
      * @var shipmentNumber $shipmentNumber
      */
-    protected $shipmentNumber = null;
+    protected $shipmentNumber;
 
     /**
      * @param Version        $Version

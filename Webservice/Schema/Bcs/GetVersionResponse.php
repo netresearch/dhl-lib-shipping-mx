@@ -11,7 +11,7 @@ class GetVersionResponse
     /**
      * @var Version $Version
      */
-    protected $Version = null;
+    protected $Version;
 
     /**
      * @param Version $Version

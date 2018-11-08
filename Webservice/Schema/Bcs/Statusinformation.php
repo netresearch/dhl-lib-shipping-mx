@@ -11,17 +11,17 @@ class Statusinformation
     /**
      * @var int $statusCode
      */
-    protected $statusCode = null;
+    protected $statusCode;
 
     /**
      * @var string $statusText
      */
-    protected $statusText = null;
+    protected $statusText;
 
     /**
      * @var string[] $statusMessage
      */
-    protected $statusMessage = null;
+    protected $statusMessage;
 
     /**
      * @param int      $statusCode

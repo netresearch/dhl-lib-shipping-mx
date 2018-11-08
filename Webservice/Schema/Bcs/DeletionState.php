@@ -11,12 +11,12 @@ class DeletionState
     /**
      * @var shipmentNumber $shipmentNumber
      */
-    protected $shipmentNumber = null;
+    protected $shipmentNumber;
 
     /**
      * @var Statusinformation $Status
      */
-    protected $Status = null;
+    protected $Status;
 
     /**
      * @param shipmentNumber    $shipmentNumber

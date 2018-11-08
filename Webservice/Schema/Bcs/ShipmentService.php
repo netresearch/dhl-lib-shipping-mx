@@ -11,122 +11,122 @@ class ShipmentService
     /**
      * @var ServiceconfigurationDateOfDelivery $DayOfDelivery
      */
-    protected $DayOfDelivery = null;
+    protected $DayOfDelivery;
 
     /**
      * @var ServiceconfigurationDeliveryTimeframe $DeliveryTimeframe
      */
-    protected $DeliveryTimeframe = null;
+    protected $DeliveryTimeframe;
 
     /**
      * @var ServiceconfigurationDeliveryTimeframe $PreferredTime
      */
-    protected $PreferredTime = null;
+    protected $PreferredTime;
 
     /**
      * @var ServiceconfigurationISR $IndividualSenderRequirement
      */
-    protected $IndividualSenderRequirement = null;
+    protected $IndividualSenderRequirement;
 
     /**
      * @var Serviceconfiguration $PackagingReturn
      */
-    protected $PackagingReturn = null;
+    protected $PackagingReturn;
 
     /**
      * @var Serviceconfiguration $ReturnImmediately
      */
-    protected $ReturnImmediately = null;
+    protected $ReturnImmediately;
 
     /**
      * @var Serviceconfiguration $NoticeOfNonDeliverability
      */
-    protected $NoticeOfNonDeliverability = null;
+    protected $NoticeOfNonDeliverability;
 
     /**
      * @var ServiceconfigurationShipmentHandling $ShipmentHandling
      */
-    protected $ShipmentHandling = null;
+    protected $ShipmentHandling;
 
     /**
      * @var ServiceconfigurationEndorsement $Endorsement
      */
-    protected $Endorsement = null;
+    protected $Endorsement;
 
     /**
      * @var ServiceconfigurationVisualAgeCheck $VisualCheckOfAge
      */
-    protected $VisualCheckOfAge = null;
+    protected $VisualCheckOfAge;
 
     /**
      * @var ServiceconfigurationDetails $PreferredLocation
      */
-    protected $PreferredLocation = null;
+    protected $PreferredLocation;
 
     /**
      * @var ServiceconfigurationDetails $PreferredNeighbour
      */
-    protected $PreferredNeighbour = null;
+    protected $PreferredNeighbour;
 
     /**
      * @var ServiceconfigurationDetails $PreferredDay
      */
-    protected $PreferredDay = null;
+    protected $PreferredDay;
 
     /**
      * @var Serviceconfiguration $GoGreen
      */
-    protected $GoGreen = null;
+    protected $GoGreen;
 
     /**
      * @var Serviceconfiguration $Perishables
      */
-    protected $Perishables = null;
+    protected $Perishables;
 
     /**
      * @var Serviceconfiguration $Personally
      */
-    protected $Personally = null;
+    protected $Personally;
 
     /**
      * @var Serviceconfiguration $NoNeighbourDelivery
      */
-    protected $NoNeighbourDelivery = null;
+    protected $NoNeighbourDelivery;
 
     /**
      * @var Serviceconfiguration $NamedPersonOnly
      */
-    protected $NamedPersonOnly = null;
+    protected $NamedPersonOnly;
 
     /**
      * @var Serviceconfiguration $ReturnReceipt
      */
-    protected $ReturnReceipt = null;
+    protected $ReturnReceipt;
 
     /**
      * @var Serviceconfiguration $Premium
      */
-    protected $Premium = null;
+    protected $Premium;
 
     /**
      * @var ServiceconfigurationCashOnDelivery $CashOnDelivery
      */
-    protected $CashOnDelivery = null;
+    protected $CashOnDelivery;
 
     /**
      * @var ServiceconfigurationAdditionalInsurance $AdditionalInsurance
      */
-    protected $AdditionalInsurance = null;
+    protected $AdditionalInsurance;
 
     /**
      * @var Serviceconfiguration $BulkyGoods
      */
-    protected $BulkyGoods = null;
+    protected $BulkyGoods;
 
     /**
      * @var ServiceconfigurationIC $IdentCheck
      */
-    protected $IdentCheck = null;
+    protected $IdentCheck;
 
 
     public function __construct()

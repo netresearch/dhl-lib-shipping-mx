@@ -11,12 +11,12 @@ class ServiceconfigurationAdditionalInsurance
     /**
      * @var anonymous151 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous152 $insuranceAmount
      */
-    protected $insuranceAmount = null;
+    protected $insuranceAmount;
 
     /**
      * @param anonymous151 $active

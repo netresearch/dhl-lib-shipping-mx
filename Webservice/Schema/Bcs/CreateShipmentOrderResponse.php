@@ -11,17 +11,17 @@ class CreateShipmentOrderResponse
     /**
      * @var Version $Version
      */
-    protected $Version = null;
+    protected $Version;
 
     /**
      * @var Statusinformation $Status
      */
-    protected $Status = null;
+    protected $Status;
 
     /**
      * @var CreationState $CreationState
      */
-    protected $CreationState = null;
+    protected $CreationState;
 
     /**
      * @param Version           $Version

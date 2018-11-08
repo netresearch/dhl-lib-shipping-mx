@@ -11,17 +11,17 @@ class ShipperTypeType
     /**
      * @var NameType $Name
      */
-    protected $Name = null;
+    protected $Name;
 
     /**
      * @var NativeAddressType $Address
      */
-    protected $Address = null;
+    protected $Address;
 
     /**
      * @var CommunicationType $Communication
      */
-    protected $Communication = null;
+    protected $Communication;
 
     /**
      * @param NameType          $Name

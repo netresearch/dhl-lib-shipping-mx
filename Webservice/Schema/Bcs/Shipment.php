@@ -11,27 +11,27 @@ class Shipment
     /**
      * @var ShipmentDetailsTypeType $ShipmentDetails
      */
-    protected $ShipmentDetails = null;
+    protected $ShipmentDetails;
 
     /**
      * @var ShipperType $Shipper
      */
-    protected $Shipper = null;
+    protected $Shipper;
 
     /**
      * @var ReceiverType $Receiver
      */
-    protected $Receiver = null;
+    protected $Receiver;
 
     /**
      * @var ShipperType $ReturnReceiver
      */
-    protected $ReturnReceiver = null;
+    protected $ReturnReceiver;
 
     /**
      * @var ExportDocumentType $ExportDocument
      */
-    protected $ExportDocument = null;
+    protected $ExportDocument;
 
     /**
      * @param ShipmentDetailsTypeType $ShipmentDetails

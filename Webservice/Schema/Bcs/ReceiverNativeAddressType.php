@@ -11,47 +11,47 @@ class ReceiverNativeAddressType
     /**
      * @var name2 $name2
      */
-    protected $name2 = null;
+    protected $name2;
 
     /**
      * @var name3 $name3
      */
-    protected $name3 = null;
+    protected $name3;
 
     /**
      * @var streetName $streetName
      */
-    protected $streetName = null;
+    protected $streetName;
 
     /**
      * @var streetNumber $streetNumber
      */
-    protected $streetNumber = null;
+    protected $streetNumber;
 
     /**
      * @var addressAddition[] $addressAddition
      */
-    protected $addressAddition = null;
+    protected $addressAddition;
 
     /**
      * @var dispatchingInformation $dispatchingInformation
      */
-    protected $dispatchingInformation = null;
+    protected $dispatchingInformation;
 
     /**
      * @var ZipType $zip
      */
-    protected $zip = null;
+    protected $zip;
 
     /**
      * @var city $city
      */
-    protected $city = null;
+    protected $city;
 
     /**
      * @var CountryType $Origin
      */
-    protected $Origin = null;
+    protected $Origin;
 
     /**
      * @param name2        $name2

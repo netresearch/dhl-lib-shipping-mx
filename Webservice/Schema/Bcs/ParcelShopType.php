@@ -11,32 +11,32 @@ class ParcelShopType
     /**
      * @var parcelShopNumber $parcelShopNumber
      */
-    protected $parcelShopNumber = null;
+    protected $parcelShopNumber;
 
     /**
      * @var streetName $streetName
      */
-    protected $streetName = null;
+    protected $streetName;
 
     /**
      * @var streetNumber $streetNumber
      */
-    protected $streetNumber = null;
+    protected $streetNumber;
 
     /**
      * @var ZipType $zip
      */
-    protected $zip = null;
+    protected $zip;
 
     /**
      * @var city $city
      */
-    protected $city = null;
+    protected $city;
 
     /**
      * @var CountryType $Origin
      */
-    protected $Origin = null;
+    protected $Origin;
 
     /**
      * @param parcelShopNumber $parcelShopNumber

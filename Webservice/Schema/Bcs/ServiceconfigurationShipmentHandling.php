@@ -11,12 +11,12 @@ class ServiceconfigurationShipmentHandling
     /**
      * @var anonymous158 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous159 $type
      */
-    protected $type = null;
+    protected $type;
 
     /**
      * @param anonymous158 $active

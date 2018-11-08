@@ -11,52 +11,52 @@ class LabelData
     /**
      * @var Statusinformation $Status
      */
-    protected $Status = null;
+    protected $Status;
 
     /**
      * @var shipmentNumber $shipmentNumber
      */
-    protected $shipmentNumber = null;
+    protected $shipmentNumber;
 
     /**
      * @var string $labelUrl
      */
-    protected $labelUrl = null;
+    protected $labelUrl;
 
     /**
      * @var base64Binary $labelData
      */
-    protected $labelData = null;
+    protected $labelData;
 
     /**
      * @var string $returnLabelUrl
      */
-    protected $returnLabelUrl = null;
+    protected $returnLabelUrl;
 
     /**
      * @var base64Binary $returnLabelData
      */
-    protected $returnLabelData = null;
+    protected $returnLabelData;
 
     /**
      * @var string $exportLabelUrl
      */
-    protected $exportLabelUrl = null;
+    protected $exportLabelUrl;
 
     /**
      * @var base64Binary $exportLabelData
      */
-    protected $exportLabelData = null;
+    protected $exportLabelData;
 
     /**
      * @var string $codLabelUrl
      */
-    protected $codLabelUrl = null;
+    protected $codLabelUrl;
 
     /**
      * @var base64Binary $codLabelData
      */
-    protected $codLabelData = null;
+    protected $codLabelData;
 
     /**
      * @param Statusinformation $Status

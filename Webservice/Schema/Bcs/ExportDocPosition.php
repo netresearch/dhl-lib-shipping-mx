@@ -11,32 +11,32 @@ class ExportDocPosition
     /**
      * @var string $description
      */
-    private $description = null;
+    private $description;
 
     /**
      * @var string $countryCodeOrigin
      */
-    private $countryCodeOrigin = null;
+    private $countryCodeOrigin;
 
     /**
      * @var string $customsTariffNumber
      */
-    private $customsTariffNumber = null;
+    private $customsTariffNumber;
 
     /**
      * @var string $amount
      */
-    private $amount = null;
+    private $amount;
 
     /**
      * @var string $netWeightInKG
      */
-    private $netWeightInKG = null;
+    private $netWeightInKG;
 
     /**
      * @var string $customsValue
      */
-    private $customsValue = null;
+    private $customsValue;
 
     /**
      * @param string $description

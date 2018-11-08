@@ -11,12 +11,12 @@ class ServiceconfigurationISR
     /**
      * @var anonymous136 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous137 $details
      */
-    protected $details = null;
+    protected $details;
 
     /**
      * @param anonymous136 $active

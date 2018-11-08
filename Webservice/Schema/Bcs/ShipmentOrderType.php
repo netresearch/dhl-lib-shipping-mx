@@ -11,22 +11,22 @@ class ShipmentOrderType
     /**
      * @var SequenceNumber $sequenceNumber
      */
-    protected $sequenceNumber = null;
+    protected $sequenceNumber;
 
     /**
      * @var Shipment $Shipment
      */
-    protected $Shipment = null;
+    protected $Shipment;
 
     /**
      * @var Serviceconfiguration $PrintOnlyIfCodeable
      */
-    protected $PrintOnlyIfCodeable = null;
+    protected $PrintOnlyIfCodeable;
 
     /**
      * @var labelResponseType $labelResponseType
      */
-    protected $labelResponseType = null;
+    protected $labelResponseType;
 
     /**
      * @param SequenceNumber $sequenceNumber

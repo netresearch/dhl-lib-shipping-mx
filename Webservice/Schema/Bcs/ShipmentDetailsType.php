@@ -11,32 +11,32 @@ class ShipmentDetailsType
     /**
      * @var string $product
      */
-    protected $product = null;
+    protected $product;
 
     /**
      * @var accountNumber $accountNumber
      */
-    protected $accountNumber = null;
+    protected $accountNumber;
 
     /**
      * @var customerReference $customerReference
      */
-    protected $customerReference = null;
+    protected $customerReference;
 
     /**
      * @var shipmentDate $shipmentDate
      */
-    protected $shipmentDate = null;
+    protected $shipmentDate;
 
     /**
      * @var returnShipmentAccountNumber $returnShipmentAccountNumber
      */
-    protected $returnShipmentAccountNumber = null;
+    protected $returnShipmentAccountNumber;
 
     /**
      * @var returnShipmentReference $returnShipmentReference
      */
-    protected $returnShipmentReference = null;
+    protected $returnShipmentReference;
 
     /**
      * @param string        $product

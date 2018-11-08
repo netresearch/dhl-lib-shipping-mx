@@ -11,17 +11,17 @@ class CommunicationType
     /**
      * @var phone $phone
      */
-    protected $phone = null;
+    protected $phone;
 
     /**
      * @var email $email
      */
-    protected $email = null;
+    protected $email;
 
     /**
      * @var contactPerson $contactPerson
      */
-    protected $contactPerson = null;
+    protected $contactPerson;
 
 
     public function __construct()

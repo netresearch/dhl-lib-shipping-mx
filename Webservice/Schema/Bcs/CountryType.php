@@ -11,17 +11,17 @@ class CountryType
     /**
      * @var country $country
      */
-    protected $country = null;
+    protected $country;
 
     /**
      * @var countryISOType $countryISOCode
      */
-    protected $countryISOCode = null;
+    protected $countryISOCode;
 
     /**
      * @var state $state
      */
-    protected $state = null;
+    protected $state;
 
     /**
      * @param countryISOType $countryISOCode

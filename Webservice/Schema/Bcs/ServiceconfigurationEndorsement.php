@@ -11,12 +11,12 @@ class ServiceconfigurationEndorsement
     /**
      * @var anonymous133 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous134 $type
      */
-    protected $type = null;
+    protected $type;
 
     /**
      * @param anonymous133 $active

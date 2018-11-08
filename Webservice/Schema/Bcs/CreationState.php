@@ -11,12 +11,12 @@ class CreationState
     /**
      * @var SequenceNumber $sequenceNumber
      */
-    protected $sequenceNumber = null;
+    protected $sequenceNumber;
 
     /**
      * @var LabelData $LabelData
      */
-    protected $LabelData = null;
+    protected $LabelData;
 
     /**
      * @param SequenceNumber $sequenceNumber

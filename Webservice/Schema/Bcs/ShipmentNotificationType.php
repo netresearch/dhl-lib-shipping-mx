@@ -11,7 +11,7 @@ class ShipmentNotificationType
     /**
      * @var recipientEmailAddress $recipientEmailAddress
      */
-    protected $recipientEmailAddress = null;
+    protected $recipientEmailAddress;
 
     /**
      * @param recipientEmailAddress $recipientEmailAddress

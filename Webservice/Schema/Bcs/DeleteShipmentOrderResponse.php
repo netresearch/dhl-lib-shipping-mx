@@ -11,17 +11,17 @@ class DeleteShipmentOrderResponse
     /**
      * @var Version $Version
      */
-    protected $Version = null;
+    protected $Version;
 
     /**
      * @var Statusinformation $Status
      */
-    protected $Status = null;
+    protected $Status;
 
     /**
      * @var DeletionState $DeletionState
      */
-    protected $DeletionState = null;
+    protected $DeletionState;
 
     /**
      * @param Version           $Version

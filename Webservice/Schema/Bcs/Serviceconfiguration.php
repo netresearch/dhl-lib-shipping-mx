@@ -11,7 +11,7 @@ class Serviceconfiguration
     /**
      * @var anonymous125 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @param anonymous125 $active

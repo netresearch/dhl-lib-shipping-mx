@@ -11,12 +11,12 @@ class ServiceconfigurationDetails
     /**
      * @var anonymous127 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous128 $details
      */
-    protected $details = null;
+    protected $details;
 
     /**
      * @param anonymous127 $active

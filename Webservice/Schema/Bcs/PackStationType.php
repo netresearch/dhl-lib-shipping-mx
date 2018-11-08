@@ -11,27 +11,27 @@ class PackStationType
     /**
      * @var postNumber $postNumber
      */
-    protected $postNumber = null;
+    protected $postNumber;
 
     /**
      * @var packstationNumber $packstationNumber
      */
-    protected $packstationNumber = null;
+    protected $packstationNumber;
 
     /**
      * @var ZipType $zip
      */
-    protected $zip = null;
+    protected $zip;
 
     /**
      * @var city $city
      */
-    protected $city = null;
+    protected $city;
 
     /**
      * @var CountryType $Origin
      */
-    protected $Origin = null;
+    protected $Origin;
 
     /**
      * @param packstationNumber $packstationNumber

@@ -47,7 +47,7 @@ class ServiceInputBuilder
     /**
      * @var mixed
      */
-    private $value = null;
+    private $value;
 
     /**
      * @var string

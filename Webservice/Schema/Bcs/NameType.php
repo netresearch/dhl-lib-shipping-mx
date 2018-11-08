@@ -11,17 +11,17 @@ class NameType
     /**
      * @var name1 $name1
      */
-    protected $name1 = null;
+    protected $name1;
 
     /**
      * @var name2 $name2
      */
-    protected $name2 = null;
+    protected $name2;
 
     /**
      * @var name3 $name3
      */
-    protected $name3 = null;
+    protected $name3;
 
     /**
      * @param name1 $name1

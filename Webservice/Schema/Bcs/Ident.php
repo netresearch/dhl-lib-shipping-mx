@@ -11,22 +11,22 @@ class Ident
     /**
      * @var surname $surname
      */
-    protected $surname = null;
+    protected $surname;
 
     /**
      * @var givenName $givenName
      */
-    protected $givenName = null;
+    protected $givenName;
 
     /**
      * @var dateOfBirth $dateOfBirth
      */
-    protected $dateOfBirth = null;
+    protected $dateOfBirth;
 
     /**
      * @var minimumAge $minimumAge
      */
-    protected $minimumAge = null;
+    protected $minimumAge;
 
     /**
      * @param surname     $surname

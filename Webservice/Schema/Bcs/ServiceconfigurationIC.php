@@ -11,12 +11,12 @@ class ServiceconfigurationIC
     /**
      * @var Ident $Ident
      */
-    protected $Ident = null;
+    protected $Ident;
 
     /**
      * @var anonymous170 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @param Ident        $Ident

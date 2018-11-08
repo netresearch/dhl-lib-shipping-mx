@@ -11,52 +11,52 @@ class ExportDocumentType
     /**
      * @var invoiceNumber $invoiceNumber
      */
-    protected $invoiceNumber = null;
+    protected $invoiceNumber;
 
     /**
      * @var exportType $exportType
      */
-    protected $exportType = null;
+    protected $exportType;
 
     /**
      * @var exportTypeDescription $exportTypeDescription
      */
-    protected $exportTypeDescription = null;
+    protected $exportTypeDescription;
 
     /**
      * @var termsOfTrade $termsOfTrade
      */
-    protected $termsOfTrade = null;
+    protected $termsOfTrade;
 
     /**
      * @var placeOfCommital $placeOfCommital
      */
-    protected $placeOfCommital = null;
+    protected $placeOfCommital;
 
     /**
      * @var additionalFee $additionalFee
      */
-    protected $additionalFee = null;
+    protected $additionalFee;
 
     /**
      * @var permitNumber $permitNumber
      */
-    protected $permitNumber = null;
+    protected $permitNumber;
 
     /**
      * @var attestationNumber $attestationNumber
      */
-    protected $attestationNumber = null;
+    protected $attestationNumber;
 
     /**
      * @var Serviceconfiguration $WithElectronicExportNtfctn
      */
-    protected $WithElectronicExportNtfctn = null;
+    protected $WithElectronicExportNtfctn;
 
     /**
      * @var ExportDocPosition[] $ExportDocPosition
      */
-    protected $ExportDocPosition = null;
+    protected $ExportDocPosition;
 
     /**
      * @param string $exportType

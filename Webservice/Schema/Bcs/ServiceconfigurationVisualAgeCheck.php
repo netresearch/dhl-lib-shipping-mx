@@ -11,12 +11,12 @@ class ServiceconfigurationVisualAgeCheck
     /**
      * @var anonymous142 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous143 $type
      */
-    protected $type = null;
+    protected $type;
 
     /**
      * @param anonymous142 $active

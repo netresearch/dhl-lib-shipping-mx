@@ -11,12 +11,12 @@ class ServiceconfigurationDateOfDelivery
     /**
      * @var anonymous148 $active
      */
-    protected $active = null;
+    protected $active;
 
     /**
      * @var anonymous149 $details
      */
-    protected $details = null;
+    protected $details;
 
     /**
      * @param anonymous148 $active

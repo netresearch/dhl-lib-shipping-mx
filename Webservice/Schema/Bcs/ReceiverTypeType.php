@@ -11,32 +11,32 @@ class ReceiverTypeType
     /**
      * @var name1 $name1
      */
-    protected $name1 = null;
+    protected $name1;
 
     /**
      * @var ReceiverNativeAddressType $Address
      */
-    protected $Address = null;
+    protected $Address;
 
     /**
      * @var PackStationType $Packstation
      */
-    protected $Packstation = null;
+    protected $Packstation;
 
     /**
      * @var PostfilialeType $Postfiliale
      */
-    protected $Postfiliale = null;
+    protected $Postfiliale;
 
     /**
      * @var ParcelShopType $ParcelShop
      */
-    protected $ParcelShop = null;
+    protected $ParcelShop;
 
     /**
      * @var CommunicationType $Communication
      */
-    protected $Communication = null;
+    protected $Communication;
 
     /**
      * @param name1                     $name1

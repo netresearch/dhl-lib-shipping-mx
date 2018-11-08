@@ -11,17 +11,17 @@ class Version
     /**
      * @var majorRelease $majorRelease
      */
-    protected $majorRelease = null;
+    protected $majorRelease;
 
     /**
      * @var minorRelease $minorRelease
      */
-    protected $minorRelease = null;
+    protected $minorRelease;
 
     /**
      * @var build $build
      */
-    protected $build = null;
+    protected $build;
 
     /**
      * @param majorRelease $majorRelease
