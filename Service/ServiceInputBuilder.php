@@ -119,7 +119,7 @@ class ServiceInputBuilder
     /**
      * @param string $inputType
      */
-    public function setInputType(string $inputType)
+    public function setInputType($inputType)
     {
         $this->inputType = $inputType;
     }
@@ -127,7 +127,7 @@ class ServiceInputBuilder
     /**
      * @param string $code
      */
-    public function setCode(string $code)
+    public function setCode($code)
     {
         $this->code = $code;
     }
@@ -143,7 +143,7 @@ class ServiceInputBuilder
     /**
      * @param string $label
      */
-    public function setLabel(string $label)
+    public function setLabel($label)
     {
         $this->label = $label;
     }
@@ -159,7 +159,7 @@ class ServiceInputBuilder
     /**
      * @param string $tooltip
      */
-    public function setTooltip(string $tooltip)
+    public function setTooltip($tooltip)
     {
         $this->tooltip = $tooltip;
     }
@@ -167,7 +167,7 @@ class ServiceInputBuilder
     /**
      * @param string $placeholder
      */
-    public function setPlaceholder(string $placeholder)
+    public function setPlaceholder($placeholder)
     {
         $this->placeholder = $placeholder;
     }
@@ -175,7 +175,7 @@ class ServiceInputBuilder
     /**
      * @param int $sortOrder
      */
-    public function setSortOrder(int $sortOrder)
+    public function setSortOrder($sortOrder)
     {
         $this->sortOrder = $sortOrder;
     }
@@ -191,7 +191,7 @@ class ServiceInputBuilder
     /**
      * @param string $infoText
      */
-    public function setInfoText(string $infoText)
+    public function setInfoText($infoText)
     {
         $this->infoText = $infoText;
     }
