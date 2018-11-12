@@ -70,8 +70,7 @@ class PreferredDay extends AbstractService
         $this->serviceInputBuilder->setInfoText(__($this->serviceConfig->getInfoText()));
         $this->serviceInputBuilder->setLabel(__('Preferred day: Delivery on your preferred day'));
         $this->serviceInputBuilder->setTooltip(
-            __('Choose one of the displayed days as your preferred day for your parcel delivery.
-            Other days are not possible due to delivery processes')
+            __('Choose one of the displayed days as your preferred day for your parcel delivery. Other days are not possible due to delivery processes')
         );
         if (isset($this->serviceConfig->getProperties()[self::PROPERTY_DATE])) {
             $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_DATE]);

@@ -77,8 +77,7 @@ class PreferredLocation extends AbstractService
         ]);
         $this->serviceInputBuilder->setLabel(__('Preferred location: Delivery to your preferred drop-off location'));
         $this->serviceInputBuilder->setTooltip(
-            __('Choose a weather-protected and non-visible place on your property
-            where we can deposit the parcel in your absence.')
+            __('Choose a weather-protected and non-visible place on your property where we can deposit the parcel in your absence.')
         );
         if (isset($this->serviceConfig->getProperties()[self::PROPERTY_DETAILS])) {
             $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_DETAILS]);
