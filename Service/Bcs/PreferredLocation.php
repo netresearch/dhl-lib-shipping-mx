@@ -66,8 +66,8 @@ class PreferredLocation extends AbstractService
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_DETAILS);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
-        $this->serviceInputBuilder->setPlaceholder('E.g. garage, terrace');
         $this->serviceInputBuilder->setInfoText(__($this->serviceConfig->getInfoText()));
+        $this->serviceInputBuilder->setPlaceholder(__('E.g. garage, terrace'));
         $this->serviceInputBuilder->setValidationRules([
             'minLength'                  => 1,
             'maxLength'                  => 80,
