@@ -191,7 +191,7 @@ class ServiceInputBuilder
     /**
      * @param string $infoText
      */
-    public function setInfoText(string $infoText): void
+    public function setInfoText(string $infoText)
     {
         $this->infoText = $infoText;
     }
