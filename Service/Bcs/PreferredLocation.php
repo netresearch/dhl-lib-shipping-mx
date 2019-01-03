@@ -66,8 +66,8 @@ class PreferredLocation extends AbstractService
     {
         $this->serviceInputBuilder->setCode(self::PROPERTY_DETAILS);
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_TEXT);
-        $this->serviceInputBuilder->setInfoText(__($this->serviceConfig->getInfoText()));
-        $this->serviceInputBuilder->setPlaceholder(__('E.g. garage, terrace'));
+        $this->serviceInputBuilder->setInfoText($this->serviceConfig->getInfoText());
+        $this->serviceInputBuilder->setPlaceholder('E.g. garage, terrace');
         $this->serviceInputBuilder->setValidationRules([
             'minLength'                  => 1,
             'maxLength'                  => 80,
@@ -75,9 +75,9 @@ class PreferredLocation extends AbstractService
             'dhl_filter_packing_station' => true,
             'dhl_filter_special_chars'   => true,
         ]);
-        $this->serviceInputBuilder->setLabel(__('Preferred location: Delivery to your preferred drop-off location'));
+        $this->serviceInputBuilder->setLabel('Preferred location: Delivery to your preferred drop-off location');
         $this->serviceInputBuilder->setTooltip(
-            __('Choose a weather-protected and non-visible place on your property where we can deposit the parcel in your absence.')
+            'Choose a weather-protected and non-visible place on your property where we can deposit the parcel in your absence.'
         );
         if (isset($this->serviceConfig->getProperties()[self::PROPERTY_DETAILS])) {
             $this->serviceInputBuilder->setValue($this->serviceConfig->getProperties()[self::PROPERTY_DETAILS]);

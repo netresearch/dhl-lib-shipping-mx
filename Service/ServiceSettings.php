@@ -77,7 +77,7 @@ class ServiceSettings implements ServiceSettingsInterface
     private $sortOrder;
 
     /**
-     * @var strings
+     * @var string
      */
     private $infoText;
 
@@ -93,6 +93,7 @@ class ServiceSettings implements ServiceSettingsInterface
      * @param mixed[]  $properties
      * @param string[] $options
      * @param string[] $validationRules
+     * @param string   $infoText
      */
     public function __construct(
         $name,
