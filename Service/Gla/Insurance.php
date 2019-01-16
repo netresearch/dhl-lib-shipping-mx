@@ -38,7 +38,7 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  */
 class Insurance extends AbstractService
 {
-    const CODE = 'insurance';
+    const CODE = 'gla_insurance';
 
     const PROPERTY_AMOUNT        = 'amount';
     const PROPERTY_CURRENCY_CODE = 'currency_code';

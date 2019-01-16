@@ -68,6 +68,7 @@ class VisualCheckOfAge extends AbstractService
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_SELECT);
         $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
         $this->serviceInputBuilder->setLabel('Preferred Location');
+        $this->serviceInputBuilder->setValue($this->getAge());
 
         return [$this->serviceInputBuilder->create()];
     }

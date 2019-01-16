@@ -25,6 +25,7 @@
 
 namespace Dhl\Shipping\Service\Bcs;
 
+use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
@@ -38,7 +39,7 @@ use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
  */
 class Insurance extends AbstractService
 {
-    const CODE = 'insurance';
+    const CODE = 'bcs_insurance';
 
     const PROPERTY_AMOUNT        = 'amount';
     const PROPERTY_CURRENCY_CODE = 'currency_code';
