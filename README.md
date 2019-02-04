@@ -6,7 +6,7 @@ types and other utilities for DHL API access.
 
 Facts
 -----
-* version: 0.9.0
+* version: 0.10.0
 
 Description
 -----------
@@ -50,4 +50,4 @@ Licence
 
 Copyright
 ---------
-(c) 2017 DHL Paket GmbH
+(c) 2019 DHL Paket GmbH
