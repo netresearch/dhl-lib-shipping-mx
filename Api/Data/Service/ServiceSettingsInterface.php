@@ -42,7 +42,8 @@ interface ServiceSettingsInterface
     const PROPERTIES = 'properties';
     const OPTIONS = 'options';
     const SORT_ORDER = 'sortOrder';
-    const INFO_TEXT  = 'infoText';
+    const INFO_TEXT = 'infoText';
+    const TOOLTIP = 'tooltip';
 
     /**
      * Get service display name.
@@ -110,4 +111,9 @@ interface ServiceSettingsInterface
      * @return string
      */
     public function getInfoText();
+
+    /**
+     * @return string
+     */
+    public function getTooltip();
 }

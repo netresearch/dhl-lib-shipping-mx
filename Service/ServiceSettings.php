@@ -82,6 +82,11 @@ class ServiceSettings implements ServiceSettingsInterface
     private $infoText;
 
     /**
+     * @var string
+     */
+    private $tooltip;
+
+    /**
      * ServiceSettings constructor.
      *
      * @param string   $name
@@ -94,6 +99,7 @@ class ServiceSettings implements ServiceSettingsInterface
      * @param string[] $options
      * @param string[] $validationRules
      * @param string   $infoText
+     * @param string   $tooltip
      */
     public function __construct(
         $name,
@@ -105,7 +111,8 @@ class ServiceSettings implements ServiceSettingsInterface
         array $properties = [],
         array $options = [],
         array $validationRules = [],
-        $infoText = ''
+        $infoText = '',
+        $tooltip = ''
     ) {
         $this->name = $name;
         $this->isEnabled = $isEnabled;
@@ -116,6 +123,7 @@ class ServiceSettings implements ServiceSettingsInterface
         $this->properties = $properties;
         $this->options = $options;
         $this->infoText = $infoText;
+        $this->tooltip = $tooltip;
     }
 
     /**
@@ -210,5 +218,13 @@ class ServiceSettings implements ServiceSettingsInterface
     public function getInfoText()
     {
         return $this->infoText;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTooltip()
+    {
+        return $this->tooltip;
     }
 }
