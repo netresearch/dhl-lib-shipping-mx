@@ -110,4 +110,9 @@ interface ServiceInputInterface
      * @return string
      */
     public function getInfoText();
+
+    /**
+     * @return boolean
+     */
+    public function hasAsterisk();
 }

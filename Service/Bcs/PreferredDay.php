@@ -68,6 +68,7 @@ class PreferredDay extends AbstractService
         $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_DATE);
         $this->serviceInputBuilder->setOptions($this->serviceConfig->getOptions());
         $this->serviceInputBuilder->setInfoText($this->serviceConfig->getInfoText());
+        $this->serviceInputBuilder->setHasAsterisk($this->serviceConfig->hasAsterisk());
         $this->serviceInputBuilder->setLabel('Preferred day: Delivery on your preferred day');
         $this->serviceInputBuilder->setTooltip(
             'Choose one of the displayed days as your preferred day for your parcel delivery. Other days are not possible due to delivery processes'

@@ -87,6 +87,11 @@ class ServiceSettings implements ServiceSettingsInterface
     private $tooltip;
 
     /**
+     * @var bool
+     */
+    private $hasAsterisk;
+
+    /**
      * ServiceSettings constructor.
      *
      * @param string   $name
@@ -100,6 +105,7 @@ class ServiceSettings implements ServiceSettingsInterface
      * @param string[] $validationRules
      * @param string   $infoText
      * @param string   $tooltip
+     * @param bool     $hasAsterisk
      */
     public function __construct(
         $name,
@@ -112,7 +118,8 @@ class ServiceSettings implements ServiceSettingsInterface
         array $options = [],
         array $validationRules = [],
         $infoText = '',
-        $tooltip = ''
+        $tooltip = '',
+        $hasAsterisk = false
     ) {
         $this->name = $name;
         $this->isEnabled = $isEnabled;
@@ -124,6 +131,7 @@ class ServiceSettings implements ServiceSettingsInterface
         $this->options = $options;
         $this->infoText = $infoText;
         $this->tooltip = $tooltip;
+        $this->hasAsterisk = $hasAsterisk;
     }
 
     /**
@@ -226,5 +234,13 @@ class ServiceSettings implements ServiceSettingsInterface
     public function getTooltip()
     {
         return $this->tooltip;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasAsterisk()
+    {
+        return $this->hasAsterisk;
     }
 }

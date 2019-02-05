@@ -85,17 +85,24 @@ class ServiceInput implements ServiceInputInterface
     private $infoText;
 
     /**
+     * @var boolean
+     */
+    private $hasAsterisk;
+
+    /**
      * ServiceInput constructor.
-     * @param $inputType
-     * @param $code
-     * @param $label
-     * @param array $validationRules
-     * @param array $options
-     * @param $tooltip
-     * @param $placeholder
-     * @param $sortOrder
-     * @param $value
-     * @param $infoText
+     *
+     * @param string $inputType
+     * @param string $code
+     * @param string $label
+     * @param mixed[] $validationRules
+     * @param mixed[] $options
+     * @param string $tooltip
+     * @param string $placeholder
+     * @param int $sortOrder
+     * @param mixed $value
+     * @param string $infoText
+     * @param bool $hasAsterisk
      */
     public function __construct(
         $inputType,
@@ -107,7 +114,8 @@ class ServiceInput implements ServiceInputInterface
         $placeholder,
         $sortOrder,
         $value,
-        $infoText
+        $infoText,
+        $hasAsterisk
     ) {
         $this->inputType = $inputType;
         $this->code = $code;
@@ -119,6 +127,7 @@ class ServiceInput implements ServiceInputInterface
         $this->validationRules = $validationRules;
         $this->value = $value;
         $this->infoText = $infoText;
+        $this->hasAsterisk = $hasAsterisk;
     }
 
     /**
@@ -199,5 +208,13 @@ class ServiceInput implements ServiceInputInterface
     public function getInfoText()
     {
         return $this->infoText;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasAsterisk()
+    {
+        return $this->hasAsterisk;
     }
 }

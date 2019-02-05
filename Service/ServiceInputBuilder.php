@@ -82,7 +82,12 @@ class ServiceInputBuilder
     /**
      * @var string
      */
-    private $infoText;
+    private $infoText = '';
+
+    /**
+     * @var bool
+     */
+    private $hasAsterisk = false;
 
     /**
      * @return ServiceInputInterface
@@ -99,7 +104,8 @@ class ServiceInputBuilder
             $this->placeholder,
             $this->sortOrder,
             $this->value,
-            $this->infoText
+            $this->infoText,
+            $this->hasAsterisk
         );
 
         $this->inputType = null;
@@ -112,6 +118,7 @@ class ServiceInputBuilder
         $this->validationRules = [];
         $this->value = null;
         $this->infoText = '';
+        $this->hasAsterisk = false;
 
         return $result;
     }
@@ -194,5 +201,13 @@ class ServiceInputBuilder
     public function setInfoText($infoText)
     {
         $this->infoText = $infoText;
+    }
+
+    /**
+     * @param bool $hasAsterisk
+     */
+    public function setHasAsterisk($hasAsterisk)
+    {
+        $this->hasAsterisk = $hasAsterisk;
     }
 }

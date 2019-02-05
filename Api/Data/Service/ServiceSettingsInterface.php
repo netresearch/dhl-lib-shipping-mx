@@ -43,6 +43,7 @@ interface ServiceSettingsInterface
     const OPTIONS = 'options';
     const SORT_ORDER = 'sortOrder';
     const INFO_TEXT = 'infoText';
+    const HAS_ASTERISK = 'hasAsterisk';
     const TOOLTIP = 'tooltip';
 
     /**
@@ -116,4 +117,9 @@ interface ServiceSettingsInterface
      * @return string
      */
     public function getTooltip();
+
+    /**
+     * @return bool
+     */
+    public function hasAsterisk();
 }
