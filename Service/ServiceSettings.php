@@ -59,6 +59,11 @@ class ServiceSettings implements ServiceSettingsInterface
     /**
      * @var bool
      */
+    private $isMerchantReadonly;
+
+    /**
+     * @var bool
+     */
     private $isSelected;
 
     /**
@@ -106,6 +111,7 @@ class ServiceSettings implements ServiceSettingsInterface
      * @param string   $infoText
      * @param string   $tooltip
      * @param bool     $hasAsterisk
+     * @param bool $isMerchantReadonly
      */
     public function __construct(
         $name,
@@ -119,12 +125,14 @@ class ServiceSettings implements ServiceSettingsInterface
         array $validationRules = [],
         $infoText = '',
         $tooltip = '',
-        $hasAsterisk = false
+        $hasAsterisk = false,
+        $isMerchantReadonly = false
     ) {
         $this->name = $name;
         $this->isEnabled = $isEnabled;
         $this->isCustomerService = $isCustomerService;
         $this->isMerchantService = $isMerchantService;
+        $this->isMerchantReadonly = $isMerchantReadonly;
         $this->isSelected = $isSelected;
         $this->sortOrder = $sortOrder;
         $this->properties = $properties;
@@ -172,6 +180,16 @@ class ServiceSettings implements ServiceSettingsInterface
     public function isMerchantService()
     {
         return $this->isMerchantService;
+    }
+
+    /**
+     * Check if service can be modified by merchant.
+     *
+     * @return bool
+     */
+    public function isMerchantReadonly()
+    {
+        return $this->isMerchantReadonly;
     }
 
     /**

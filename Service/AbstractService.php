@@ -165,6 +165,14 @@ abstract class AbstractService implements ServiceInterface
     /**
      * @return bool
      */
+    public function isMerchantReadonly()
+    {
+        return $this->serviceConfig->isMerchantReadonly();
+    }
+
+    /**
+     * @return bool
+     */
     public function isSelected()
     {
         return $this->selected;

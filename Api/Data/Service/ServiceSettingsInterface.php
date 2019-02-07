@@ -34,10 +34,11 @@ namespace Dhl\Shipping\Api\Data\Service;
  */
 interface ServiceSettingsInterface
 {
-    const NAME                = 'name';
-    const IS_ENABLED          = 'isEnabled';
+    const NAME = 'name';
+    const IS_ENABLED = 'isEnabled';
     const IS_CUSTOMER_SERVICE = 'isCustomerService';
     const IS_MERCHANT_SERVICE = 'isMerchantService';
+    const IS_MERCHANT_READONLY = 'isMerchantReadonly';
     const IS_SELECTED = 'isSelected';
     const PROPERTIES = 'properties';
     const OPTIONS = 'options';
@@ -68,11 +69,18 @@ interface ServiceSettingsInterface
     public function isCustomerService();
 
     /**
-     * Check if service can be selected by merchant.
+     * Check if service can be seen by merchant.
      *
      * @return bool
      */
     public function isMerchantService();
+
+    /**
+     * Check if service can be modified by merchant.
+     *
+     * @return bool
+     */
+    public function isMerchantReadonly();
 
     /**
      * Check if service was selected by customer or merchant.

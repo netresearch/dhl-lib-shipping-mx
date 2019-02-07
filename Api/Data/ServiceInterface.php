@@ -66,11 +66,18 @@ interface ServiceInterface
     public function isCustomerService();
 
     /**
-     * Check if service can be selected by merchant.
+     * Check if service can be seen by merchant.
      *
      * @return bool
      */
     public function isMerchantService();
+
+    /**
+     * Check if service can be modified by merchant.
+     *
+     * @return bool
+     */
+    public function isMerchantReadonly();
 
     /**
      * Check if service was selected by customer or merchant.
