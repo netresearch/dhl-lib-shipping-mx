@@ -25,6 +25,7 @@
 
 namespace Dhl\Shipping\Service\Bcs;
 
+use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
 use Dhl\Shipping\Service\AbstractService;
 use Dhl\Shipping\Util\ShippingRoutes\RoutesInterface;
 
@@ -60,4 +61,24 @@ class ParcelAnnouncement extends AbstractService
             'excluded' => [],
         ],
     ];
+
+    /**
+     * Uses serviceInputBuilder to create custom ServiceInput array.
+     *
+     * The default implementation just creates a generic "enabled" checkbox.
+     *
+     * @return ServiceInputInterface[]
+     */
+    protected function createInputs()
+    {
+        $this->serviceInputBuilder->setCode('enabled');
+        $this->serviceInputBuilder->setInputType(ServiceInputInterface::INPUT_TYPE_CHECKBOX);
+        $this->serviceInputBuilder->setLabel('Parcel Announcement');
+        $this->serviceInputBuilder->setTooltip($this->serviceConfig->getTooltip());
+        $this->serviceInputBuilder->setInfoText($this->serviceConfig->getInfoText());
+        $this->serviceInputBuilder->setValue($this->serviceConfig->isSelected());
+        $this->serviceInputBuilder->setHasAsterisk($this->serviceConfig->hasAsterisk());
+
+        return [$this->serviceInputBuilder->create()];
+    }
 }
