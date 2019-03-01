@@ -24,9 +24,6 @@
  */
 namespace Dhl\Shipping\Api\Data;
 
-use Dhl\Shipping\Api\Data\ShippingInfo\ReceiverInterface;
-use Dhl\Shipping\Api\Data\ShippingInfo\ServiceInterface;
-
 /**
  * ShippingInfoInterface
  *
@@ -47,12 +44,12 @@ interface ShippingInfoInterface
     public function getSchemaVersion();
 
     /**
-     * @return ReceiverInterface
+     * @return \Dhl\Shipping\Api\Data\ShippingInfo\ReceiverInterface
      */
     public function getReceiver();
 
     /**
-     * @return ServiceInterface[]
+     * @return \Dhl\Shipping\Api\Data\ShippingInfo\ServiceInterface[]
      */
     public function getServices();
 }
