@@ -6,7 +6,7 @@ types and other utilities for DHL API access.
 
 Facts
 -----
-* version: 0.10.1
+* version: 0.10.2
 
 Description
 -----------
