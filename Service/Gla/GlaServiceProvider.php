@@ -25,7 +25,7 @@
 
 namespace Dhl\Shipping\Service\Gla;
 
-use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
+use Dhl\Shipping\Api\Data\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 use Dhl\Shipping\Api\ServicePoolInterface;
 use Dhl\Shipping\Api\ServiceProviderInterface;

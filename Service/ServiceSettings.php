@@ -24,7 +24,7 @@
  */
 namespace Dhl\Shipping\Service;
 
-use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
+use Dhl\Shipping\Api\Data\ServiceSettingsInterface;
 
 /**
  * ServiceSettings

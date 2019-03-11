@@ -141,7 +141,7 @@ interface GlConfigInterface
      *
      * @return void
      */
-    public function saveAuthToken($token, $store = null);
+    public function saveAuthToken($token, $store = 0);
 
     /**
      * Get consignment number config.

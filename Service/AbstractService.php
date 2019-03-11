@@ -24,8 +24,8 @@
  */
 namespace Dhl\Shipping\Service;
 
-use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
-use Dhl\Shipping\Api\Data\Service\ServiceSettingsInterface;
+use Dhl\Shipping\Api\Data\ServiceInputInterface;
+use Dhl\Shipping\Api\Data\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
 
 /**
@@ -53,7 +53,7 @@ abstract class AbstractService implements ServiceInterface
     protected $routes;
 
     /**
-     * @var ServiceInputInterface[]
+     * @var \Dhl\Shipping\Api\Data\ServiceInputInterface[]
      */
     protected $inputs;
 
@@ -128,7 +128,7 @@ abstract class AbstractService implements ServiceInterface
     }
 
     /**
-     * @return ServiceInputInterface[]
+     * @return \Dhl\Shipping\Api\Data\ServiceInputInterface[]
      */
     public function getInputs()
     {

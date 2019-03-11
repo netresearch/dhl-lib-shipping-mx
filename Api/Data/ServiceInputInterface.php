@@ -22,7 +22,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      http://www.netresearch.de/
  */
-namespace Dhl\Shipping\Api\Data\Service;
+namespace Dhl\Shipping\Api\Data;
 
 /**
  * ServiceInputInterface
@@ -50,12 +50,15 @@ interface ServiceInputInterface
     public function getInputType();
 
     /**
+     * Obtain the service code represented by the input field.
+     *
      * @return string
      */
     public function getCode();
 
     /**
      * Obtain the value of a service input.
+     *
      * May be boolean true or a date or a monetary value, whatever the service offers.
      *
      * @return mixed
@@ -91,7 +94,7 @@ interface ServiceInputInterface
     public function getPlaceholder();
 
     /**
-     * Get Sort Order.
+     * Get sort order.
      *
      * @return int
      */

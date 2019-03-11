@@ -24,10 +24,8 @@
  */
 namespace Dhl\Shipping\Api\Data;
 
-use Dhl\Shipping\Api\Data\Service\ServiceInputInterface;
-
 /**
- * ServiceInterface
+ * Service metadata like rendering information and validation rules.
  *
  * @package  Dhl\Shipping\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
@@ -89,7 +87,7 @@ interface ServiceInterface
     /**
      * Obtain a list of inputs for displaying the service and it's values
      *
-     * @return ServiceInputInterface[]
+     * @return \Dhl\Shipping\Api\Data\ServiceInputInterface[]
      */
     public function getInputs();
 
@@ -108,6 +106,8 @@ interface ServiceInterface
     public function getRoutes();
 
     /**
+     * Obtain service sort order.
+     *
      * @return int
      */
     public function getSortOrder();
