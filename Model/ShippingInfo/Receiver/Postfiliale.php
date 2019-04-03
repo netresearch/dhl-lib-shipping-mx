@@ -129,7 +129,7 @@ class Postfiliale implements PostfilialeInterface, \JsonSerializable
      */
     public function getCity()
     {
-        return $this->zip;
+        return $this->city;
     }
 
     /**
