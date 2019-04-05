@@ -103,7 +103,8 @@ abstract class AbstractService implements ServiceInterface
         $this->serviceInputBuilder->setLabel($this->getName());
         $this->serviceInputBuilder->setTooltip($this->serviceConfig->getTooltip());
         $this->serviceInputBuilder->setInfoText($this->serviceConfig->getInfoText());
-        $this->serviceInputBuilder->setValue($this->serviceConfig->isSelected());
+        /** Submit "true" when input is checked. The default "checked" state is decided by serviceConfig. */
+        $this->serviceInputBuilder->setValue('true');
         $this->serviceInputBuilder->setHasAsterisk($this->serviceConfig->hasAsterisk());
 
         return [$this->serviceInputBuilder->create()];

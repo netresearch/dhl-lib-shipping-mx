@@ -76,7 +76,7 @@ class ParcelAnnouncement extends AbstractService
         $this->serviceInputBuilder->setLabel('Parcel Announcement');
         $this->serviceInputBuilder->setTooltip($this->serviceConfig->getTooltip());
         $this->serviceInputBuilder->setInfoText($this->serviceConfig->getInfoText());
-        $this->serviceInputBuilder->setValue($this->serviceConfig->isSelected());
+        $this->serviceInputBuilder->setValue('true');
         $this->serviceInputBuilder->setHasAsterisk($this->serviceConfig->hasAsterisk());
 
         return [$this->serviceInputBuilder->create()];
