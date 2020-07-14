@@ -27,7 +27,6 @@ namespace Dhl\Shipping\Service\Bcs;
 
 use Dhl\Shipping\Api\Data\ServiceSettingsInterface;
 use Dhl\Shipping\Api\Data\ServiceInterface;
-use Dhl\Shipping\Api\ServicePoolInterface;
 use Dhl\Shipping\Api\ServiceProviderInterface;
 use Dhl\Shipping\Service\ServiceInputBuilder;
 
@@ -44,17 +43,17 @@ class BcsServiceProvider implements ServiceProviderInterface
 {
 
     private static $settingsClassMap = [
-        ServicePoolInterface::SERVICE_COD_CODE       => Cod::class,
-        ServicePoolInterface::SERVICE_INSURANCE_CODE => Insurance::class,
-        BulkyGoods::CODE                             => BulkyGoods::class,
-        ParcelAnnouncement::CODE                     => ParcelAnnouncement::class,
-        PreferredDay::CODE                           => PreferredDay::class,
-        PreferredLocation::CODE                      => PreferredLocation::class,
-        PreferredNeighbour::CODE                     => PreferredNeighbour::class,
-        PreferredTime::CODE                          => PreferredTime::class,
-        PrintOnlyIfCodeable::CODE                    => PrintOnlyIfCodeable::class,
-        ReturnShipment::CODE                         => ReturnShipment::class,
-        VisualCheckOfAge::CODE                       => VisualCheckOfAge::class,
+        Cod::CODE                 => Cod::class,
+        Insurance::CODE           => Insurance::class,
+        BulkyGoods::CODE          => BulkyGoods::class,
+        ParcelAnnouncement::CODE  => ParcelAnnouncement::class,
+        PreferredDay::CODE        => PreferredDay::class,
+        PreferredLocation::CODE   => PreferredLocation::class,
+        PreferredNeighbour::CODE  => PreferredNeighbour::class,
+        PreferredTime::CODE       => PreferredTime::class,
+        PrintOnlyIfCodeable::CODE => PrintOnlyIfCodeable::class,
+        ReturnShipment::CODE      => ReturnShipment::class,
+        VisualCheckOfAge::CODE    => VisualCheckOfAge::class,
     ];
 
     /**

@@ -24,6 +24,18 @@
  */
 namespace Dhl\Shipping\Service;
 
+use Dhl\Shipping\Service\Bcs\BulkyGoods;
+use Dhl\Shipping\Service\Bcs\Cod;
+use Dhl\Shipping\Service\Bcs\Insurance;
+use Dhl\Shipping\Service\Bcs\ParcelAnnouncement;
+use Dhl\Shipping\Service\Bcs\PreferredDay;
+use Dhl\Shipping\Service\Bcs\PreferredLocation;
+use Dhl\Shipping\Service\Bcs\PreferredNeighbour;
+use Dhl\Shipping\Service\Bcs\PreferredTime;
+use Dhl\Shipping\Service\Bcs\PrintOnlyIfCodeable;
+use Dhl\Shipping\Service\Bcs\ReturnShipment;
+use Dhl\Shipping\Service\Bcs\VisualCheckOfAge;
+
 /**
  * ServiceFactory
  *
@@ -41,7 +53,7 @@ class ServiceFactory
      * @param string $code
      * @param string $value
      *
-     * @return ServiceInterface|null
+     * @return AbstractService|null
      */
     public static function get($code, $value)
     {
