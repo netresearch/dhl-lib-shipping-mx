@@ -25,7 +25,10 @@
 
 namespace Dhl\Shipping\Webservice;
 
-use Dhl\Shipping\Api\ServicePoolInterface;
+use Dhl\Shipping\Service\Bcs\Insurance as BcsInsurance;
+use Dhl\Shipping\Service\Gla\Insurance as GlaInsurance;
+use Dhl\Shipping\Service\Bcs\Cod as BcsCod;
+use Dhl\Shipping\Service\Gla\Cod as GlaCod;
 use Dhl\Shipping\Webservice\Exception\CreateShipmentValidationException;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrder\Package;
 use Dhl\Shipping\Webservice\RequestType\CreateShipment\ShipmentOrderInterface;
@@ -43,34 +46,32 @@ class RequestValidator implements RequestValidatorInterface
     /**
      * Validate shipment order before creating labels.
      *
-     * @see AdapterInterface::createLabels()
-     *
      * @param ShipmentOrderInterface $shipmentOrder
      *
      * @return ShipmentOrderInterface
      * @throws CreateShipmentValidationException
+     * @see AdapterInterface::createLabels()
+     *
      */
     public function validateShipmentOrder(ShipmentOrderInterface $shipmentOrder)
     {
-        $isWithInsurance = array_key_exists(
-            ServicePoolInterface::SERVICE_INSURANCE_CODE,
-            $shipmentOrder->getServices()
-        );
-        $isWithCod = array_key_exists(
-            ServicePoolInterface::SERVICE_COD_CODE,
-            $shipmentOrder->getServices()
-        );
+        $isWithInsurance = array_key_exists(BcsInsurance::CODE, (array) $shipmentOrder->getServices()) ||
+            array_key_exists(GlaInsurance::CODE, (array) $shipmentOrder->getServices());
+
+        $isWithCod = array_key_exists(BcsCod::CODE, (array) $shipmentOrder->getServices()) ||
+            array_key_exists(GlaCod::CODE, (array) $shipmentOrder->getServices());
+
         // can't ship partially if either or both, cod or insurance are booked
-        $canShipPartially = ! ($isWithCod || $isWithInsurance);
+        $canShipPartially = !($isWithCod || $isWithInsurance);
         $isPartial = $shipmentOrder->getShipmentDetails()->isPartialShipment();
 
-        if ($isPartial && ! $canShipPartially) {
+        if ($isPartial && !$canShipPartially) {
             throw new CreateShipmentValidationException(self::MSG_PARTIAL_SHIPMENT_NOT_AVAILABLE);
         }
 
         /** @var Package $package */
         $package = current($shipmentOrder->getPackages());
-        if (! $package->getWeight()->getValue(\Zend_Measure_Weight::KILOGRAM)) {
+        if (!$package->getWeight()->getValue('KILOGRAM')) {
             throw new CreateShipmentValidationException(self::MSG_NO_PRODUCT_WEIGHT);
         }
 

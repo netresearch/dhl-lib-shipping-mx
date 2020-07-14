@@ -42,8 +42,8 @@ use Dhl\Shipping\Service\ServiceInputBuilder;
 class GlaServiceProvider implements ServiceProviderInterface
 {
     private static $settingsClassMap = [
-        ServicePoolInterface::SERVICE_COD_CODE       => Cod::class,
-        ServicePoolInterface::SERVICE_INSURANCE_CODE => Insurance::class,
+        Cod::CODE       => Cod::class,
+        Insurance::CODE => Insurance::class,
     ];
 
     /**
